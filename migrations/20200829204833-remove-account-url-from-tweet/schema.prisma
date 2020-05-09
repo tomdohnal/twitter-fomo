@@ -1,0 +1,165 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider  =  "postgresql"
+  url = "***"
+}
+
+generator client {
+  provider = "prisma-client-js"
+  previewFeatures = ["transactionApi", "connectOrCreate"]
+}
+
+enum AccountType {
+  PERSONAL
+  BUSINESS // hard to find the right name, what I mean is just the oppostite of personal
+}
+
+enum TweetType {
+  TEXT
+  MEDIA
+  LINK
+}
+
+model Community {
+  id         Int        @id @default(autoincrement())
+  name       String     @unique
+  accounts   Account[]  @relation(references: [id])
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+}
+
+model Account {
+  id           Int          @id @default(autoincrement())
+  name         String       @unique
+  twitterId    String       @unique
+  communities  Community[]  @relation(references: [id])
+  type         AccountType
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+}
+
+model TweetHashtag {
+  id         Int       @id @default(autoincrement())
+  text       String
+  indices    Int[]
+  tweet      Tweet     @relation(fields: [tweetId], references: [id])
+  tweetId    Int
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+}
+
+model TweetMediaSize {
+  id             Int         @id @default(autoincrement())
+  width          Int
+  height         Int
+  resize         String
+  tweetMedia     TweetMedia  @relation(fields: [tweetMediaId], references: [id])
+  tweetMediaId   Int
+  createdAt      DateTime    @default(now())
+  updatedAt      DateTime    @updatedAt
+}
+
+model TweetMedia {
+  id             Int                @id @default(autoincrement())
+  displayUrl     String
+  expandedUrl    String
+  indices        Int[]
+  mediaUrl       String
+  mediaUrlHttps  String
+  sizes          TweetMediaSize[]
+  type           String
+  url            String
+  tweet          Tweet              @relation(fields: [tweetId], references: [id])
+  tweetId        Int
+  createdAt      DateTime           @default(now())
+  updatedAt      DateTime           @updatedAt
+}
+
+model TweetUnwoundUrl {
+  id           Int       @id @default(autoincrement())
+  url          String
+  status       Int
+  title        String
+  description  String
+  tweetUrl     TweetUrl  @relation(fields: [tweetUrlId], references: [id])
+  tweetUrlId   Int
+  tweet        Tweet     @relation(fields: [tweetId], references: [id])
+  tweetId      Int
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+}
+
+model TweetUrl {
+  id           Int               @id @default(autoincrement())
+  displayUrl   String
+  expandedUrl  String
+  indices      Int[]
+  url          String
+  unwound      TweetUnwoundUrl?
+  tweet        Tweet             @relation(fields: [tweetId], references: [id])
+  tweetId      Int
+  createdAt    DateTime          @default(now())
+  updatedAt    DateTime          @updatedAt
+}
+
+model TweetUserMention {
+  id           Int       @id @default(autoincrement())
+  indices      Int[]
+  name         String
+  screenName   String
+  tweet        Tweet     @relation(fields: [tweetId], references: [id])
+  tweetId      Int
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+}
+
+model TweetSymbol {
+  id         Int       @id @default(autoincrement())
+  indices    Int[]
+  text       String
+  tweet      Tweet     @relation(fields: [tweetId], references: [id])
+  tweetId    Int
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+}
+
+model Tweet {
+  id                       Int                @id @default(autoincrement())
+  list                     List[]
+  twitterId                String             @unique
+  publishedAt              DateTime
+  text                     String
+  accountName              String
+  accountScreenName        String
+  accountProfileImageUrl   String
+  account                  Account            @relation(fields: [accountId], references: [id])
+  accountId                Int
+  favoritesCount           Int
+  retweetsCount            Int
+  hashtags                 TweetHashtag[]
+  media                    TweetMedia[]
+  urls                     TweetUrl[]
+  userMentions             TweetUserMention[]
+  symbols                  TweetSymbol[]
+  createdAt                DateTime           @default(now())
+  updatedAt                DateTime           @updatedAt
+}
+
+enum Period {
+  DAY
+  WEEK
+}
+
+model List {
+  id           Int           @id @default(autoincrement())
+  community    Community?     @relation(references: [id])
+  accountType  AccountType?
+  tweetType    TweetType?
+  tweets       Tweet[]       @relation(references: [id])
+  period       Period
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+}
+

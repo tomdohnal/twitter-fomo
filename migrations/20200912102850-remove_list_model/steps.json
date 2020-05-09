@@ -1,0 +1,35 @@
+{
+  "version": "0.3.14-fixed",
+  "steps": [
+    {
+      "tag": "DeleteModel",
+      "model": "List"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Account",
+      "field": "Tweet",
+      "type": "Tweet",
+      "arity": "List"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Tweet",
+      "field": "tweetType",
+      "type": "TweetType",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Tweet",
+      "field": "TweetUnwoundUrl",
+      "type": "TweetUnwoundUrl",
+      "arity": "List"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "Tweet",
+      "field": "list"
+    }
+  ]
+}

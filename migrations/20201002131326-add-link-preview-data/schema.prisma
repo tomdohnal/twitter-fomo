@@ -1,0 +1,70 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "postgresql"
+  url = "***"
+}
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["transactionApi", "connectOrCreate"]
+}
+
+enum AccountType {
+  PERSONAL
+  BUSINESS // hard to find the right name, what I mean is just the oppostite of personal
+}
+
+model Community {
+  id        Int       @id @default(autoincrement())
+  name      String    @unique
+  accounts  Account[] @relation(references: [id])
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model Account {
+  id          Int         @id @default(autoincrement())
+  name        String      @unique
+  twitterId   String      @unique
+  communities Community[] @relation(references: [id])
+  type        AccountType
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  Tweet       Tweet[]
+}
+
+model TweetType {
+  id        Int      @id @default(autoincrement())
+  name      String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  tweets    Tweet[]  @relation(references: [id])
+}
+
+model Tweet {
+  id                     Int         @id @default(autoincrement())
+  twitterId              String      @unique
+  publishedAt            DateTime
+  text                   String
+  accountName            String
+  accountScreenName      String
+  accountProfileImageUrl String
+  account                Account     @relation(fields: [accountId], references: [id])
+  accountId              Int
+  favoritesCount         Int
+  retweetsCount          Int
+  linkTitle              String?
+  linkDescription        String?
+  linkImageUrl           String?
+  payload                Json
+  tweetTypes             TweetType[] @relation(references: [id])
+  createdAt              DateTime    @default(now())
+  updatedAt              DateTime    @updatedAt
+}
+
+enum Period {
+  DAY
+  WEEK
+}

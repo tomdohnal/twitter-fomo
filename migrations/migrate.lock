@@ -1,0 +1,16 @@
+# Prisma Migrate lockfile v1
+
+20200809204743-init
+20200809220012-add-unique-to-twitter-id
+20200815113601-make-community-optional-on-list
+20200829201151-add_new_columns_to_tweet_table
+20200829204833-remove-account-url-from-tweet
+20200912102850-remove_list_model
+20200912103736-change-tweet-type-to-array
+20200912190627-tweet-type-enum-to-tweet-type-table
+20200912191541-add-unique-to-tweet-type
+20200912191941-fix-relationship
+20200926182140-remove-model-mapping
+20200926183131-add-payload-type
+20201002131326-add-link-preview-data
+20201003164746-add-link-url

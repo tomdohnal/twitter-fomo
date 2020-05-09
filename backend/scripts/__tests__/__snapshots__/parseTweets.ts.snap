@@ -1,0 +1,4839 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`parseTweets createListInputs works with DATE and COMMUNITIES and TWEET_TYPE filters 1`] = `
+Array [
+  Object {
+    "0": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 13747,
+        },
+      },
+      "accountName": "Timmy_Hessel",
+      "accountProfileImageUrl": "https://louvenia.net",
+      "accountScreenName": "Brando_Tillman64",
+      "favoritesCount": 90340,
+      "payload": Object {
+        "__accountId": 13747,
+        "created_at": "2020-01-01",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [
+            Object {
+              "display_url": "taniarascia.com/understanding-…",
+              "expanded_url": "https://www.taniarascia.com/understanding-destructuring-rest-spread/",
+              "indices": Array [
+                65,
+                88,
+              ],
+              "url": "https://t.co/Zp804COUGM",
+            },
+          ],
+        },
+        "favorite_count": 90340,
+        "favorited": true,
+        "full_text": "Eos saepe consequatur vel in ut.",
+        "id": 16535,
+        "id_str": "65229",
+        "is_quote_status": false,
+        "retweet_count": 54078,
+        "retweeted": false,
+        "source": "compress",
+        "truncated": false,
+        "user": Object {
+          "name": "Timmy_Hessel",
+          "profile_image_url_https": "https://louvenia.net",
+          "screen_name": "Brando_Tillman64",
+        },
+      },
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "retweetsCount": 54078,
+      "text": "Eos saepe consequatur vel in ut.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "LINK",
+          },
+        ],
+      },
+      "twitterId": "65229",
+    },
+    "1": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 42809,
+        },
+      },
+      "accountName": "Kody.Weissnat",
+      "accountProfileImageUrl": "http://norbert.org",
+      "accountScreenName": "Oleta0",
+      "favoritesCount": 89588,
+      "payload": Object {
+        "__accountId": 42809,
+        "created_at": "2020-01-01",
+        "entities": Object {
+          "media": Array [
+            Object {
+              "display_url": "pic.twitter.com/P6IgqbkRcU",
+              "expanded_url": "https://twitter.com/mgechev/status/1296696108371116034/photo/1",
+              "id": 1296696105917456400,
+              "id_str": "1296696105917456386",
+              "indices": Array [
+                156,
+                179,
+              ],
+              "media_url": "http://pbs.twimg.com/media/Ef7KPPbXoAIAAV2.jpg",
+              "media_url_https": "https://pbs.twimg.com/media/Ef7KPPbXoAIAAV2.jpg",
+              "sizes": Object {
+                "large": Object {
+                  "h": 1148,
+                  "resize": "fit",
+                  "w": 2048,
+                },
+                "medium": Object {
+                  "h": 673,
+                  "resize": "fit",
+                  "w": 1200,
+                },
+                "small": Object {
+                  "h": 381,
+                  "resize": "fit",
+                  "w": 680,
+                },
+                "thumb": Object {
+                  "h": 150,
+                  "resize": "crop",
+                  "w": 150,
+                },
+              },
+              "type": "photo",
+              "url": "https://t.co/P6IgqbkRcU",
+            },
+          ],
+          "urls": Array [],
+        },
+        "favorite_count": 89588,
+        "favorited": true,
+        "full_text": "Delectus aut nam et dolorum architecto fugit repellendus hic veritatis.",
+        "id": 44991,
+        "id_str": "35531",
+        "is_quote_status": false,
+        "retweet_count": 75278,
+        "retweeted": true,
+        "source": "leverage",
+        "truncated": true,
+        "user": Object {
+          "name": "Kody.Weissnat",
+          "profile_image_url_https": "http://norbert.org",
+          "screen_name": "Oleta0",
+        },
+      },
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "retweetsCount": 75278,
+      "text": "Delectus aut nam et dolorum architecto fugit repellendus hic veritatis.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "MEDIA",
+          },
+        ],
+      },
+      "twitterId": "35531",
+    },
+    "2": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 98886,
+        },
+      },
+      "accountName": "Sylvan90",
+      "accountProfileImageUrl": "http://blake.com",
+      "accountScreenName": "Judson67",
+      "favoritesCount": 75014,
+      "payload": Object {
+        "__accountId": 98886,
+        "created_at": "2020-01-01",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 75014,
+        "favorited": true,
+        "full_text": "Placeat ullam minima ducimus temporibus modi aut architecto.",
+        "id": 44789,
+        "id_str": "46923",
+        "is_quote_status": true,
+        "retweet_count": 62402,
+        "retweeted": false,
+        "source": "disintermediate",
+        "truncated": false,
+        "user": Object {
+          "name": "Sylvan90",
+          "profile_image_url_https": "http://blake.com",
+          "screen_name": "Judson67",
+        },
+      },
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "retweetsCount": 62402,
+      "text": "Placeat ullam minima ducimus temporibus modi aut architecto.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "46923",
+    },
+    "3": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 56591,
+        },
+      },
+      "accountName": "Harrison.Wiegand41",
+      "accountProfileImageUrl": "https://amaya.net",
+      "accountScreenName": "Kailee.Bayer",
+      "favoritesCount": 58438,
+      "payload": Object {
+        "__accountId": 56591,
+        "created_at": "2020-01-01",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 58438,
+        "favorited": true,
+        "full_text": "Laborum ratione a officia quaerat cumque incidunt.",
+        "id": 10233,
+        "id_str": "53344",
+        "is_quote_status": true,
+        "retweet_count": 5336,
+        "retweeted": true,
+        "source": "Toys",
+        "truncated": true,
+        "user": Object {
+          "name": "Harrison.Wiegand41",
+          "profile_image_url_https": "https://amaya.net",
+          "screen_name": "Kailee.Bayer",
+        },
+      },
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "retweetsCount": 5336,
+      "text": "Laborum ratione a officia quaerat cumque incidunt.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "53344",
+    },
+    "4": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 4930,
+        },
+      },
+      "accountName": "Bartholome53",
+      "accountProfileImageUrl": "http://kattie.org",
+      "accountScreenName": "Ronaldo23",
+      "favoritesCount": 20856,
+      "payload": Object {
+        "__accountId": 4930,
+        "created_at": "2020-01-02",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 20856,
+        "favorited": false,
+        "full_text": "Occaecati quia ipsum sit qui accusantium odit doloremque.",
+        "id": 50981,
+        "id_str": "24621",
+        "is_quote_status": true,
+        "retweet_count": 92302,
+        "retweeted": false,
+        "source": "Wisconsin",
+        "truncated": false,
+        "user": Object {
+          "name": "Bartholome53",
+          "profile_image_url_https": "http://kattie.org",
+          "screen_name": "Ronaldo23",
+        },
+      },
+      "publishedAt": "2020-01-02T00:00:00.000Z",
+      "retweetsCount": 92302,
+      "text": "Occaecati quia ipsum sit qui accusantium odit doloremque.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "24621",
+    },
+    "5": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 70904,
+        },
+      },
+      "accountName": "Tobin_Sipes99",
+      "accountProfileImageUrl": "http://celine.info",
+      "accountScreenName": "Brigitte.Roberts69",
+      "favoritesCount": 900,
+      "payload": Object {
+        "__accountId": 70904,
+        "created_at": "2020-01-02",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 900,
+        "favorited": false,
+        "full_text": "Rem voluptates voluptas fuga totam.",
+        "id": 1582,
+        "id_str": "26900",
+        "is_quote_status": false,
+        "retweet_count": 88594,
+        "retweeted": false,
+        "source": "generate",
+        "truncated": true,
+        "user": Object {
+          "name": "Tobin_Sipes99",
+          "profile_image_url_https": "http://celine.info",
+          "screen_name": "Brigitte.Roberts69",
+        },
+      },
+      "publishedAt": "2020-01-02T00:00:00.000Z",
+      "retweetsCount": 88594,
+      "text": "Rem voluptates voluptas fuga totam.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "26900",
+    },
+  },
+  Object {
+    "0": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 13747,
+        },
+      },
+      "accountName": "Timmy_Hessel",
+      "accountProfileImageUrl": "https://louvenia.net",
+      "accountScreenName": "Brando_Tillman64",
+      "favoritesCount": 90340,
+      "payload": Object {
+        "__accountId": 13747,
+        "created_at": "2020-01-01",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [
+            Object {
+              "display_url": "taniarascia.com/understanding-…",
+              "expanded_url": "https://www.taniarascia.com/understanding-destructuring-rest-spread/",
+              "indices": Array [
+                65,
+                88,
+              ],
+              "url": "https://t.co/Zp804COUGM",
+            },
+          ],
+        },
+        "favorite_count": 90340,
+        "favorited": true,
+        "full_text": "Eos saepe consequatur vel in ut.",
+        "id": 16535,
+        "id_str": "65229",
+        "is_quote_status": false,
+        "retweet_count": 54078,
+        "retweeted": false,
+        "source": "compress",
+        "truncated": false,
+        "user": Object {
+          "name": "Timmy_Hessel",
+          "profile_image_url_https": "https://louvenia.net",
+          "screen_name": "Brando_Tillman64",
+        },
+      },
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "retweetsCount": 54078,
+      "text": "Eos saepe consequatur vel in ut.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "LINK",
+          },
+        ],
+      },
+      "twitterId": "65229",
+    },
+    "1": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 42809,
+        },
+      },
+      "accountName": "Kody.Weissnat",
+      "accountProfileImageUrl": "http://norbert.org",
+      "accountScreenName": "Oleta0",
+      "favoritesCount": 89588,
+      "payload": Object {
+        "__accountId": 42809,
+        "created_at": "2020-01-01",
+        "entities": Object {
+          "media": Array [
+            Object {
+              "display_url": "pic.twitter.com/P6IgqbkRcU",
+              "expanded_url": "https://twitter.com/mgechev/status/1296696108371116034/photo/1",
+              "id": 1296696105917456400,
+              "id_str": "1296696105917456386",
+              "indices": Array [
+                156,
+                179,
+              ],
+              "media_url": "http://pbs.twimg.com/media/Ef7KPPbXoAIAAV2.jpg",
+              "media_url_https": "https://pbs.twimg.com/media/Ef7KPPbXoAIAAV2.jpg",
+              "sizes": Object {
+                "large": Object {
+                  "h": 1148,
+                  "resize": "fit",
+                  "w": 2048,
+                },
+                "medium": Object {
+                  "h": 673,
+                  "resize": "fit",
+                  "w": 1200,
+                },
+                "small": Object {
+                  "h": 381,
+                  "resize": "fit",
+                  "w": 680,
+                },
+                "thumb": Object {
+                  "h": 150,
+                  "resize": "crop",
+                  "w": 150,
+                },
+              },
+              "type": "photo",
+              "url": "https://t.co/P6IgqbkRcU",
+            },
+          ],
+          "urls": Array [],
+        },
+        "favorite_count": 89588,
+        "favorited": true,
+        "full_text": "Delectus aut nam et dolorum architecto fugit repellendus hic veritatis.",
+        "id": 44991,
+        "id_str": "35531",
+        "is_quote_status": false,
+        "retweet_count": 75278,
+        "retweeted": true,
+        "source": "leverage",
+        "truncated": true,
+        "user": Object {
+          "name": "Kody.Weissnat",
+          "profile_image_url_https": "http://norbert.org",
+          "screen_name": "Oleta0",
+        },
+      },
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "retweetsCount": 75278,
+      "text": "Delectus aut nam et dolorum architecto fugit repellendus hic veritatis.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "MEDIA",
+          },
+        ],
+      },
+      "twitterId": "35531",
+    },
+    "2": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 98886,
+        },
+      },
+      "accountName": "Sylvan90",
+      "accountProfileImageUrl": "http://blake.com",
+      "accountScreenName": "Judson67",
+      "favoritesCount": 75014,
+      "payload": Object {
+        "__accountId": 98886,
+        "created_at": "2020-01-01",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 75014,
+        "favorited": true,
+        "full_text": "Placeat ullam minima ducimus temporibus modi aut architecto.",
+        "id": 44789,
+        "id_str": "46923",
+        "is_quote_status": true,
+        "retweet_count": 62402,
+        "retweeted": false,
+        "source": "disintermediate",
+        "truncated": false,
+        "user": Object {
+          "name": "Sylvan90",
+          "profile_image_url_https": "http://blake.com",
+          "screen_name": "Judson67",
+        },
+      },
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "retweetsCount": 62402,
+      "text": "Placeat ullam minima ducimus temporibus modi aut architecto.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "46923",
+    },
+    "3": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 56591,
+        },
+      },
+      "accountName": "Harrison.Wiegand41",
+      "accountProfileImageUrl": "https://amaya.net",
+      "accountScreenName": "Kailee.Bayer",
+      "favoritesCount": 58438,
+      "payload": Object {
+        "__accountId": 56591,
+        "created_at": "2020-01-01",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 58438,
+        "favorited": true,
+        "full_text": "Laborum ratione a officia quaerat cumque incidunt.",
+        "id": 10233,
+        "id_str": "53344",
+        "is_quote_status": true,
+        "retweet_count": 5336,
+        "retweeted": true,
+        "source": "Toys",
+        "truncated": true,
+        "user": Object {
+          "name": "Harrison.Wiegand41",
+          "profile_image_url_https": "https://amaya.net",
+          "screen_name": "Kailee.Bayer",
+        },
+      },
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "retweetsCount": 5336,
+      "text": "Laborum ratione a officia quaerat cumque incidunt.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "53344",
+    },
+    "4": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 4930,
+        },
+      },
+      "accountName": "Bartholome53",
+      "accountProfileImageUrl": "http://kattie.org",
+      "accountScreenName": "Ronaldo23",
+      "favoritesCount": 20856,
+      "payload": Object {
+        "__accountId": 4930,
+        "created_at": "2020-01-02",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 20856,
+        "favorited": false,
+        "full_text": "Occaecati quia ipsum sit qui accusantium odit doloremque.",
+        "id": 50981,
+        "id_str": "24621",
+        "is_quote_status": true,
+        "retweet_count": 92302,
+        "retweeted": false,
+        "source": "Wisconsin",
+        "truncated": false,
+        "user": Object {
+          "name": "Bartholome53",
+          "profile_image_url_https": "http://kattie.org",
+          "screen_name": "Ronaldo23",
+        },
+      },
+      "publishedAt": "2020-01-02T00:00:00.000Z",
+      "retweetsCount": 92302,
+      "text": "Occaecati quia ipsum sit qui accusantium odit doloremque.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "24621",
+    },
+    "5": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 70904,
+        },
+      },
+      "accountName": "Tobin_Sipes99",
+      "accountProfileImageUrl": "http://celine.info",
+      "accountScreenName": "Brigitte.Roberts69",
+      "favoritesCount": 900,
+      "payload": Object {
+        "__accountId": 70904,
+        "created_at": "2020-01-02",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 900,
+        "favorited": false,
+        "full_text": "Rem voluptates voluptas fuga totam.",
+        "id": 1582,
+        "id_str": "26900",
+        "is_quote_status": false,
+        "retweet_count": 88594,
+        "retweeted": false,
+        "source": "generate",
+        "truncated": true,
+        "user": Object {
+          "name": "Tobin_Sipes99",
+          "profile_image_url_https": "http://celine.info",
+          "screen_name": "Brigitte.Roberts69",
+        },
+      },
+      "publishedAt": "2020-01-02T00:00:00.000Z",
+      "retweetsCount": 88594,
+      "text": "Rem voluptates voluptas fuga totam.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "26900",
+    },
+  },
+  Object {
+    "0": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 98886,
+        },
+      },
+      "accountName": "Sylvan90",
+      "accountProfileImageUrl": "http://blake.com",
+      "accountScreenName": "Judson67",
+      "favoritesCount": 75014,
+      "payload": Object {
+        "__accountId": 98886,
+        "created_at": "2020-01-01",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 75014,
+        "favorited": true,
+        "full_text": "Placeat ullam minima ducimus temporibus modi aut architecto.",
+        "id": 44789,
+        "id_str": "46923",
+        "is_quote_status": true,
+        "retweet_count": 62402,
+        "retweeted": false,
+        "source": "disintermediate",
+        "truncated": false,
+        "user": Object {
+          "name": "Sylvan90",
+          "profile_image_url_https": "http://blake.com",
+          "screen_name": "Judson67",
+        },
+      },
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "retweetsCount": 62402,
+      "text": "Placeat ullam minima ducimus temporibus modi aut architecto.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "46923",
+    },
+    "1": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 56591,
+        },
+      },
+      "accountName": "Harrison.Wiegand41",
+      "accountProfileImageUrl": "https://amaya.net",
+      "accountScreenName": "Kailee.Bayer",
+      "favoritesCount": 58438,
+      "payload": Object {
+        "__accountId": 56591,
+        "created_at": "2020-01-01",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 58438,
+        "favorited": true,
+        "full_text": "Laborum ratione a officia quaerat cumque incidunt.",
+        "id": 10233,
+        "id_str": "53344",
+        "is_quote_status": true,
+        "retweet_count": 5336,
+        "retweeted": true,
+        "source": "Toys",
+        "truncated": true,
+        "user": Object {
+          "name": "Harrison.Wiegand41",
+          "profile_image_url_https": "https://amaya.net",
+          "screen_name": "Kailee.Bayer",
+        },
+      },
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "retweetsCount": 5336,
+      "text": "Laborum ratione a officia quaerat cumque incidunt.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "53344",
+    },
+    "2": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 70904,
+        },
+      },
+      "accountName": "Tobin_Sipes99",
+      "accountProfileImageUrl": "http://celine.info",
+      "accountScreenName": "Brigitte.Roberts69",
+      "favoritesCount": 900,
+      "payload": Object {
+        "__accountId": 70904,
+        "created_at": "2020-01-02",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 900,
+        "favorited": false,
+        "full_text": "Rem voluptates voluptas fuga totam.",
+        "id": 1582,
+        "id_str": "26900",
+        "is_quote_status": false,
+        "retweet_count": 88594,
+        "retweeted": false,
+        "source": "generate",
+        "truncated": true,
+        "user": Object {
+          "name": "Tobin_Sipes99",
+          "profile_image_url_https": "http://celine.info",
+          "screen_name": "Brigitte.Roberts69",
+        },
+      },
+      "publishedAt": "2020-01-02T00:00:00.000Z",
+      "retweetsCount": 88594,
+      "text": "Rem voluptates voluptas fuga totam.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "26900",
+    },
+  },
+  Object {},
+  Object {},
+  Object {
+    "0": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 98886,
+        },
+      },
+      "accountName": "Sylvan90",
+      "accountProfileImageUrl": "http://blake.com",
+      "accountScreenName": "Judson67",
+      "favoritesCount": 75014,
+      "payload": Object {
+        "__accountId": 98886,
+        "created_at": "2020-01-01",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 75014,
+        "favorited": true,
+        "full_text": "Placeat ullam minima ducimus temporibus modi aut architecto.",
+        "id": 44789,
+        "id_str": "46923",
+        "is_quote_status": true,
+        "retweet_count": 62402,
+        "retweeted": false,
+        "source": "disintermediate",
+        "truncated": false,
+        "user": Object {
+          "name": "Sylvan90",
+          "profile_image_url_https": "http://blake.com",
+          "screen_name": "Judson67",
+        },
+      },
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "retweetsCount": 62402,
+      "text": "Placeat ullam minima ducimus temporibus modi aut architecto.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "46923",
+    },
+    "1": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 56591,
+        },
+      },
+      "accountName": "Harrison.Wiegand41",
+      "accountProfileImageUrl": "https://amaya.net",
+      "accountScreenName": "Kailee.Bayer",
+      "favoritesCount": 58438,
+      "payload": Object {
+        "__accountId": 56591,
+        "created_at": "2020-01-01",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 58438,
+        "favorited": true,
+        "full_text": "Laborum ratione a officia quaerat cumque incidunt.",
+        "id": 10233,
+        "id_str": "53344",
+        "is_quote_status": true,
+        "retweet_count": 5336,
+        "retweeted": true,
+        "source": "Toys",
+        "truncated": true,
+        "user": Object {
+          "name": "Harrison.Wiegand41",
+          "profile_image_url_https": "https://amaya.net",
+          "screen_name": "Kailee.Bayer",
+        },
+      },
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "retweetsCount": 5336,
+      "text": "Laborum ratione a officia quaerat cumque incidunt.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "53344",
+    },
+    "2": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 70904,
+        },
+      },
+      "accountName": "Tobin_Sipes99",
+      "accountProfileImageUrl": "http://celine.info",
+      "accountScreenName": "Brigitte.Roberts69",
+      "favoritesCount": 900,
+      "payload": Object {
+        "__accountId": 70904,
+        "created_at": "2020-01-02",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 900,
+        "favorited": false,
+        "full_text": "Rem voluptates voluptas fuga totam.",
+        "id": 1582,
+        "id_str": "26900",
+        "is_quote_status": false,
+        "retweet_count": 88594,
+        "retweeted": false,
+        "source": "generate",
+        "truncated": true,
+        "user": Object {
+          "name": "Tobin_Sipes99",
+          "profile_image_url_https": "http://celine.info",
+          "screen_name": "Brigitte.Roberts69",
+        },
+      },
+      "publishedAt": "2020-01-02T00:00:00.000Z",
+      "retweetsCount": 88594,
+      "text": "Rem voluptates voluptas fuga totam.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "26900",
+    },
+  },
+  Object {
+    "0": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 13747,
+        },
+      },
+      "accountName": "Timmy_Hessel",
+      "accountProfileImageUrl": "https://louvenia.net",
+      "accountScreenName": "Brando_Tillman64",
+      "favoritesCount": 90340,
+      "payload": Object {
+        "__accountId": 13747,
+        "created_at": "2020-01-01",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [
+            Object {
+              "display_url": "taniarascia.com/understanding-…",
+              "expanded_url": "https://www.taniarascia.com/understanding-destructuring-rest-spread/",
+              "indices": Array [
+                65,
+                88,
+              ],
+              "url": "https://t.co/Zp804COUGM",
+            },
+          ],
+        },
+        "favorite_count": 90340,
+        "favorited": true,
+        "full_text": "Eos saepe consequatur vel in ut.",
+        "id": 16535,
+        "id_str": "65229",
+        "is_quote_status": false,
+        "retweet_count": 54078,
+        "retweeted": false,
+        "source": "compress",
+        "truncated": false,
+        "user": Object {
+          "name": "Timmy_Hessel",
+          "profile_image_url_https": "https://louvenia.net",
+          "screen_name": "Brando_Tillman64",
+        },
+      },
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "retweetsCount": 54078,
+      "text": "Eos saepe consequatur vel in ut.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "LINK",
+          },
+        ],
+      },
+      "twitterId": "65229",
+    },
+    "1": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 42809,
+        },
+      },
+      "accountName": "Kody.Weissnat",
+      "accountProfileImageUrl": "http://norbert.org",
+      "accountScreenName": "Oleta0",
+      "favoritesCount": 89588,
+      "payload": Object {
+        "__accountId": 42809,
+        "created_at": "2020-01-01",
+        "entities": Object {
+          "media": Array [
+            Object {
+              "display_url": "pic.twitter.com/P6IgqbkRcU",
+              "expanded_url": "https://twitter.com/mgechev/status/1296696108371116034/photo/1",
+              "id": 1296696105917456400,
+              "id_str": "1296696105917456386",
+              "indices": Array [
+                156,
+                179,
+              ],
+              "media_url": "http://pbs.twimg.com/media/Ef7KPPbXoAIAAV2.jpg",
+              "media_url_https": "https://pbs.twimg.com/media/Ef7KPPbXoAIAAV2.jpg",
+              "sizes": Object {
+                "large": Object {
+                  "h": 1148,
+                  "resize": "fit",
+                  "w": 2048,
+                },
+                "medium": Object {
+                  "h": 673,
+                  "resize": "fit",
+                  "w": 1200,
+                },
+                "small": Object {
+                  "h": 381,
+                  "resize": "fit",
+                  "w": 680,
+                },
+                "thumb": Object {
+                  "h": 150,
+                  "resize": "crop",
+                  "w": 150,
+                },
+              },
+              "type": "photo",
+              "url": "https://t.co/P6IgqbkRcU",
+            },
+          ],
+          "urls": Array [],
+        },
+        "favorite_count": 89588,
+        "favorited": true,
+        "full_text": "Delectus aut nam et dolorum architecto fugit repellendus hic veritatis.",
+        "id": 44991,
+        "id_str": "35531",
+        "is_quote_status": false,
+        "retweet_count": 75278,
+        "retweeted": true,
+        "source": "leverage",
+        "truncated": true,
+        "user": Object {
+          "name": "Kody.Weissnat",
+          "profile_image_url_https": "http://norbert.org",
+          "screen_name": "Oleta0",
+        },
+      },
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "retweetsCount": 75278,
+      "text": "Delectus aut nam et dolorum architecto fugit repellendus hic veritatis.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "MEDIA",
+          },
+        ],
+      },
+      "twitterId": "35531",
+    },
+    "2": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 4930,
+        },
+      },
+      "accountName": "Bartholome53",
+      "accountProfileImageUrl": "http://kattie.org",
+      "accountScreenName": "Ronaldo23",
+      "favoritesCount": 20856,
+      "payload": Object {
+        "__accountId": 4930,
+        "created_at": "2020-01-02",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 20856,
+        "favorited": false,
+        "full_text": "Occaecati quia ipsum sit qui accusantium odit doloremque.",
+        "id": 50981,
+        "id_str": "24621",
+        "is_quote_status": true,
+        "retweet_count": 92302,
+        "retweeted": false,
+        "source": "Wisconsin",
+        "truncated": false,
+        "user": Object {
+          "name": "Bartholome53",
+          "profile_image_url_https": "http://kattie.org",
+          "screen_name": "Ronaldo23",
+        },
+      },
+      "publishedAt": "2020-01-02T00:00:00.000Z",
+      "retweetsCount": 92302,
+      "text": "Occaecati quia ipsum sit qui accusantium odit doloremque.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "24621",
+    },
+  },
+  Object {
+    "0": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 13747,
+        },
+      },
+      "accountName": "Timmy_Hessel",
+      "accountProfileImageUrl": "https://louvenia.net",
+      "accountScreenName": "Brando_Tillman64",
+      "favoritesCount": 90340,
+      "payload": Object {
+        "__accountId": 13747,
+        "created_at": "2020-01-01",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [
+            Object {
+              "display_url": "taniarascia.com/understanding-…",
+              "expanded_url": "https://www.taniarascia.com/understanding-destructuring-rest-spread/",
+              "indices": Array [
+                65,
+                88,
+              ],
+              "url": "https://t.co/Zp804COUGM",
+            },
+          ],
+        },
+        "favorite_count": 90340,
+        "favorited": true,
+        "full_text": "Eos saepe consequatur vel in ut.",
+        "id": 16535,
+        "id_str": "65229",
+        "is_quote_status": false,
+        "retweet_count": 54078,
+        "retweeted": false,
+        "source": "compress",
+        "truncated": false,
+        "user": Object {
+          "name": "Timmy_Hessel",
+          "profile_image_url_https": "https://louvenia.net",
+          "screen_name": "Brando_Tillman64",
+        },
+      },
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "retweetsCount": 54078,
+      "text": "Eos saepe consequatur vel in ut.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "LINK",
+          },
+        ],
+      },
+      "twitterId": "65229",
+    },
+  },
+  Object {
+    "0": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 42809,
+        },
+      },
+      "accountName": "Kody.Weissnat",
+      "accountProfileImageUrl": "http://norbert.org",
+      "accountScreenName": "Oleta0",
+      "favoritesCount": 89588,
+      "payload": Object {
+        "__accountId": 42809,
+        "created_at": "2020-01-01",
+        "entities": Object {
+          "media": Array [
+            Object {
+              "display_url": "pic.twitter.com/P6IgqbkRcU",
+              "expanded_url": "https://twitter.com/mgechev/status/1296696108371116034/photo/1",
+              "id": 1296696105917456400,
+              "id_str": "1296696105917456386",
+              "indices": Array [
+                156,
+                179,
+              ],
+              "media_url": "http://pbs.twimg.com/media/Ef7KPPbXoAIAAV2.jpg",
+              "media_url_https": "https://pbs.twimg.com/media/Ef7KPPbXoAIAAV2.jpg",
+              "sizes": Object {
+                "large": Object {
+                  "h": 1148,
+                  "resize": "fit",
+                  "w": 2048,
+                },
+                "medium": Object {
+                  "h": 673,
+                  "resize": "fit",
+                  "w": 1200,
+                },
+                "small": Object {
+                  "h": 381,
+                  "resize": "fit",
+                  "w": 680,
+                },
+                "thumb": Object {
+                  "h": 150,
+                  "resize": "crop",
+                  "w": 150,
+                },
+              },
+              "type": "photo",
+              "url": "https://t.co/P6IgqbkRcU",
+            },
+          ],
+          "urls": Array [],
+        },
+        "favorite_count": 89588,
+        "favorited": true,
+        "full_text": "Delectus aut nam et dolorum architecto fugit repellendus hic veritatis.",
+        "id": 44991,
+        "id_str": "35531",
+        "is_quote_status": false,
+        "retweet_count": 75278,
+        "retweeted": true,
+        "source": "leverage",
+        "truncated": true,
+        "user": Object {
+          "name": "Kody.Weissnat",
+          "profile_image_url_https": "http://norbert.org",
+          "screen_name": "Oleta0",
+        },
+      },
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "retweetsCount": 75278,
+      "text": "Delectus aut nam et dolorum architecto fugit repellendus hic veritatis.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "MEDIA",
+          },
+        ],
+      },
+      "twitterId": "35531",
+    },
+  },
+  Object {
+    "0": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 4930,
+        },
+      },
+      "accountName": "Bartholome53",
+      "accountProfileImageUrl": "http://kattie.org",
+      "accountScreenName": "Ronaldo23",
+      "favoritesCount": 20856,
+      "payload": Object {
+        "__accountId": 4930,
+        "created_at": "2020-01-02",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 20856,
+        "favorited": false,
+        "full_text": "Occaecati quia ipsum sit qui accusantium odit doloremque.",
+        "id": 50981,
+        "id_str": "24621",
+        "is_quote_status": true,
+        "retweet_count": 92302,
+        "retweeted": false,
+        "source": "Wisconsin",
+        "truncated": false,
+        "user": Object {
+          "name": "Bartholome53",
+          "profile_image_url_https": "http://kattie.org",
+          "screen_name": "Ronaldo23",
+        },
+      },
+      "publishedAt": "2020-01-02T00:00:00.000Z",
+      "retweetsCount": 92302,
+      "text": "Occaecati quia ipsum sit qui accusantium odit doloremque.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "24621",
+    },
+  },
+  Object {
+    "0": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 13747,
+        },
+      },
+      "accountName": "Timmy_Hessel",
+      "accountProfileImageUrl": "https://louvenia.net",
+      "accountScreenName": "Brando_Tillman64",
+      "favoritesCount": 90340,
+      "payload": Object {
+        "__accountId": 13747,
+        "created_at": "2020-01-01",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [
+            Object {
+              "display_url": "taniarascia.com/understanding-…",
+              "expanded_url": "https://www.taniarascia.com/understanding-destructuring-rest-spread/",
+              "indices": Array [
+                65,
+                88,
+              ],
+              "url": "https://t.co/Zp804COUGM",
+            },
+          ],
+        },
+        "favorite_count": 90340,
+        "favorited": true,
+        "full_text": "Eos saepe consequatur vel in ut.",
+        "id": 16535,
+        "id_str": "65229",
+        "is_quote_status": false,
+        "retweet_count": 54078,
+        "retweeted": false,
+        "source": "compress",
+        "truncated": false,
+        "user": Object {
+          "name": "Timmy_Hessel",
+          "profile_image_url_https": "https://louvenia.net",
+          "screen_name": "Brando_Tillman64",
+        },
+      },
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "retweetsCount": 54078,
+      "text": "Eos saepe consequatur vel in ut.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "LINK",
+          },
+        ],
+      },
+      "twitterId": "65229",
+    },
+  },
+  Object {
+    "0": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 42809,
+        },
+      },
+      "accountName": "Kody.Weissnat",
+      "accountProfileImageUrl": "http://norbert.org",
+      "accountScreenName": "Oleta0",
+      "favoritesCount": 89588,
+      "payload": Object {
+        "__accountId": 42809,
+        "created_at": "2020-01-01",
+        "entities": Object {
+          "media": Array [
+            Object {
+              "display_url": "pic.twitter.com/P6IgqbkRcU",
+              "expanded_url": "https://twitter.com/mgechev/status/1296696108371116034/photo/1",
+              "id": 1296696105917456400,
+              "id_str": "1296696105917456386",
+              "indices": Array [
+                156,
+                179,
+              ],
+              "media_url": "http://pbs.twimg.com/media/Ef7KPPbXoAIAAV2.jpg",
+              "media_url_https": "https://pbs.twimg.com/media/Ef7KPPbXoAIAAV2.jpg",
+              "sizes": Object {
+                "large": Object {
+                  "h": 1148,
+                  "resize": "fit",
+                  "w": 2048,
+                },
+                "medium": Object {
+                  "h": 673,
+                  "resize": "fit",
+                  "w": 1200,
+                },
+                "small": Object {
+                  "h": 381,
+                  "resize": "fit",
+                  "w": 680,
+                },
+                "thumb": Object {
+                  "h": 150,
+                  "resize": "crop",
+                  "w": 150,
+                },
+              },
+              "type": "photo",
+              "url": "https://t.co/P6IgqbkRcU",
+            },
+          ],
+          "urls": Array [],
+        },
+        "favorite_count": 89588,
+        "favorited": true,
+        "full_text": "Delectus aut nam et dolorum architecto fugit repellendus hic veritatis.",
+        "id": 44991,
+        "id_str": "35531",
+        "is_quote_status": false,
+        "retweet_count": 75278,
+        "retweeted": true,
+        "source": "leverage",
+        "truncated": true,
+        "user": Object {
+          "name": "Kody.Weissnat",
+          "profile_image_url_https": "http://norbert.org",
+          "screen_name": "Oleta0",
+        },
+      },
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "retweetsCount": 75278,
+      "text": "Delectus aut nam et dolorum architecto fugit repellendus hic veritatis.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "MEDIA",
+          },
+        ],
+      },
+      "twitterId": "35531",
+    },
+  },
+  Object {
+    "0": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 98886,
+        },
+      },
+      "accountName": "Sylvan90",
+      "accountProfileImageUrl": "http://blake.com",
+      "accountScreenName": "Judson67",
+      "favoritesCount": 75014,
+      "payload": Object {
+        "__accountId": 98886,
+        "created_at": "2020-01-01",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 75014,
+        "favorited": true,
+        "full_text": "Placeat ullam minima ducimus temporibus modi aut architecto.",
+        "id": 44789,
+        "id_str": "46923",
+        "is_quote_status": true,
+        "retweet_count": 62402,
+        "retweeted": false,
+        "source": "disintermediate",
+        "truncated": false,
+        "user": Object {
+          "name": "Sylvan90",
+          "profile_image_url_https": "http://blake.com",
+          "screen_name": "Judson67",
+        },
+      },
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "retweetsCount": 62402,
+      "text": "Placeat ullam minima ducimus temporibus modi aut architecto.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "46923",
+    },
+    "1": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 56591,
+        },
+      },
+      "accountName": "Harrison.Wiegand41",
+      "accountProfileImageUrl": "https://amaya.net",
+      "accountScreenName": "Kailee.Bayer",
+      "favoritesCount": 58438,
+      "payload": Object {
+        "__accountId": 56591,
+        "created_at": "2020-01-01",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 58438,
+        "favorited": true,
+        "full_text": "Laborum ratione a officia quaerat cumque incidunt.",
+        "id": 10233,
+        "id_str": "53344",
+        "is_quote_status": true,
+        "retweet_count": 5336,
+        "retweeted": true,
+        "source": "Toys",
+        "truncated": true,
+        "user": Object {
+          "name": "Harrison.Wiegand41",
+          "profile_image_url_https": "https://amaya.net",
+          "screen_name": "Kailee.Bayer",
+        },
+      },
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "retweetsCount": 5336,
+      "text": "Laborum ratione a officia quaerat cumque incidunt.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "53344",
+    },
+    "2": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 4930,
+        },
+      },
+      "accountName": "Bartholome53",
+      "accountProfileImageUrl": "http://kattie.org",
+      "accountScreenName": "Ronaldo23",
+      "favoritesCount": 20856,
+      "payload": Object {
+        "__accountId": 4930,
+        "created_at": "2020-01-02",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 20856,
+        "favorited": false,
+        "full_text": "Occaecati quia ipsum sit qui accusantium odit doloremque.",
+        "id": 50981,
+        "id_str": "24621",
+        "is_quote_status": true,
+        "retweet_count": 92302,
+        "retweeted": false,
+        "source": "Wisconsin",
+        "truncated": false,
+        "user": Object {
+          "name": "Bartholome53",
+          "profile_image_url_https": "http://kattie.org",
+          "screen_name": "Ronaldo23",
+        },
+      },
+      "publishedAt": "2020-01-02T00:00:00.000Z",
+      "retweetsCount": 92302,
+      "text": "Occaecati quia ipsum sit qui accusantium odit doloremque.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "24621",
+    },
+    "3": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 70904,
+        },
+      },
+      "accountName": "Tobin_Sipes99",
+      "accountProfileImageUrl": "http://celine.info",
+      "accountScreenName": "Brigitte.Roberts69",
+      "favoritesCount": 900,
+      "payload": Object {
+        "__accountId": 70904,
+        "created_at": "2020-01-02",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 900,
+        "favorited": false,
+        "full_text": "Rem voluptates voluptas fuga totam.",
+        "id": 1582,
+        "id_str": "26900",
+        "is_quote_status": false,
+        "retweet_count": 88594,
+        "retweeted": false,
+        "source": "generate",
+        "truncated": true,
+        "user": Object {
+          "name": "Tobin_Sipes99",
+          "profile_image_url_https": "http://celine.info",
+          "screen_name": "Brigitte.Roberts69",
+        },
+      },
+      "publishedAt": "2020-01-02T00:00:00.000Z",
+      "retweetsCount": 88594,
+      "text": "Rem voluptates voluptas fuga totam.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "26900",
+    },
+  },
+  Object {
+    "0": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 13747,
+        },
+      },
+      "accountName": "Timmy_Hessel",
+      "accountProfileImageUrl": "https://louvenia.net",
+      "accountScreenName": "Brando_Tillman64",
+      "favoritesCount": 90340,
+      "payload": Object {
+        "__accountId": 13747,
+        "created_at": "2020-01-01",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [
+            Object {
+              "display_url": "taniarascia.com/understanding-…",
+              "expanded_url": "https://www.taniarascia.com/understanding-destructuring-rest-spread/",
+              "indices": Array [
+                65,
+                88,
+              ],
+              "url": "https://t.co/Zp804COUGM",
+            },
+          ],
+        },
+        "favorite_count": 90340,
+        "favorited": true,
+        "full_text": "Eos saepe consequatur vel in ut.",
+        "id": 16535,
+        "id_str": "65229",
+        "is_quote_status": false,
+        "retweet_count": 54078,
+        "retweeted": false,
+        "source": "compress",
+        "truncated": false,
+        "user": Object {
+          "name": "Timmy_Hessel",
+          "profile_image_url_https": "https://louvenia.net",
+          "screen_name": "Brando_Tillman64",
+        },
+      },
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "retweetsCount": 54078,
+      "text": "Eos saepe consequatur vel in ut.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "LINK",
+          },
+        ],
+      },
+      "twitterId": "65229",
+    },
+    "1": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 42809,
+        },
+      },
+      "accountName": "Kody.Weissnat",
+      "accountProfileImageUrl": "http://norbert.org",
+      "accountScreenName": "Oleta0",
+      "favoritesCount": 89588,
+      "payload": Object {
+        "__accountId": 42809,
+        "created_at": "2020-01-01",
+        "entities": Object {
+          "media": Array [
+            Object {
+              "display_url": "pic.twitter.com/P6IgqbkRcU",
+              "expanded_url": "https://twitter.com/mgechev/status/1296696108371116034/photo/1",
+              "id": 1296696105917456400,
+              "id_str": "1296696105917456386",
+              "indices": Array [
+                156,
+                179,
+              ],
+              "media_url": "http://pbs.twimg.com/media/Ef7KPPbXoAIAAV2.jpg",
+              "media_url_https": "https://pbs.twimg.com/media/Ef7KPPbXoAIAAV2.jpg",
+              "sizes": Object {
+                "large": Object {
+                  "h": 1148,
+                  "resize": "fit",
+                  "w": 2048,
+                },
+                "medium": Object {
+                  "h": 673,
+                  "resize": "fit",
+                  "w": 1200,
+                },
+                "small": Object {
+                  "h": 381,
+                  "resize": "fit",
+                  "w": 680,
+                },
+                "thumb": Object {
+                  "h": 150,
+                  "resize": "crop",
+                  "w": 150,
+                },
+              },
+              "type": "photo",
+              "url": "https://t.co/P6IgqbkRcU",
+            },
+          ],
+          "urls": Array [],
+        },
+        "favorite_count": 89588,
+        "favorited": true,
+        "full_text": "Delectus aut nam et dolorum architecto fugit repellendus hic veritatis.",
+        "id": 44991,
+        "id_str": "35531",
+        "is_quote_status": false,
+        "retweet_count": 75278,
+        "retweeted": true,
+        "source": "leverage",
+        "truncated": true,
+        "user": Object {
+          "name": "Kody.Weissnat",
+          "profile_image_url_https": "http://norbert.org",
+          "screen_name": "Oleta0",
+        },
+      },
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "retweetsCount": 75278,
+      "text": "Delectus aut nam et dolorum architecto fugit repellendus hic veritatis.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "MEDIA",
+          },
+        ],
+      },
+      "twitterId": "35531",
+    },
+    "2": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 98886,
+        },
+      },
+      "accountName": "Sylvan90",
+      "accountProfileImageUrl": "http://blake.com",
+      "accountScreenName": "Judson67",
+      "favoritesCount": 75014,
+      "payload": Object {
+        "__accountId": 98886,
+        "created_at": "2020-01-01",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 75014,
+        "favorited": true,
+        "full_text": "Placeat ullam minima ducimus temporibus modi aut architecto.",
+        "id": 44789,
+        "id_str": "46923",
+        "is_quote_status": true,
+        "retweet_count": 62402,
+        "retweeted": false,
+        "source": "disintermediate",
+        "truncated": false,
+        "user": Object {
+          "name": "Sylvan90",
+          "profile_image_url_https": "http://blake.com",
+          "screen_name": "Judson67",
+        },
+      },
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "retweetsCount": 62402,
+      "text": "Placeat ullam minima ducimus temporibus modi aut architecto.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "46923",
+    },
+    "3": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 56591,
+        },
+      },
+      "accountName": "Harrison.Wiegand41",
+      "accountProfileImageUrl": "https://amaya.net",
+      "accountScreenName": "Kailee.Bayer",
+      "favoritesCount": 58438,
+      "payload": Object {
+        "__accountId": 56591,
+        "created_at": "2020-01-01",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 58438,
+        "favorited": true,
+        "full_text": "Laborum ratione a officia quaerat cumque incidunt.",
+        "id": 10233,
+        "id_str": "53344",
+        "is_quote_status": true,
+        "retweet_count": 5336,
+        "retweeted": true,
+        "source": "Toys",
+        "truncated": true,
+        "user": Object {
+          "name": "Harrison.Wiegand41",
+          "profile_image_url_https": "https://amaya.net",
+          "screen_name": "Kailee.Bayer",
+        },
+      },
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "retweetsCount": 5336,
+      "text": "Laborum ratione a officia quaerat cumque incidunt.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "53344",
+    },
+    "4": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 4930,
+        },
+      },
+      "accountName": "Bartholome53",
+      "accountProfileImageUrl": "http://kattie.org",
+      "accountScreenName": "Ronaldo23",
+      "favoritesCount": 20856,
+      "payload": Object {
+        "__accountId": 4930,
+        "created_at": "2020-01-02",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 20856,
+        "favorited": false,
+        "full_text": "Occaecati quia ipsum sit qui accusantium odit doloremque.",
+        "id": 50981,
+        "id_str": "24621",
+        "is_quote_status": true,
+        "retweet_count": 92302,
+        "retweeted": false,
+        "source": "Wisconsin",
+        "truncated": false,
+        "user": Object {
+          "name": "Bartholome53",
+          "profile_image_url_https": "http://kattie.org",
+          "screen_name": "Ronaldo23",
+        },
+      },
+      "publishedAt": "2020-01-02T00:00:00.000Z",
+      "retweetsCount": 92302,
+      "text": "Occaecati quia ipsum sit qui accusantium odit doloremque.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "24621",
+    },
+    "5": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 70904,
+        },
+      },
+      "accountName": "Tobin_Sipes99",
+      "accountProfileImageUrl": "http://celine.info",
+      "accountScreenName": "Brigitte.Roberts69",
+      "favoritesCount": 900,
+      "payload": Object {
+        "__accountId": 70904,
+        "created_at": "2020-01-02",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 900,
+        "favorited": false,
+        "full_text": "Rem voluptates voluptas fuga totam.",
+        "id": 1582,
+        "id_str": "26900",
+        "is_quote_status": false,
+        "retweet_count": 88594,
+        "retweeted": false,
+        "source": "generate",
+        "truncated": true,
+        "user": Object {
+          "name": "Tobin_Sipes99",
+          "profile_image_url_https": "http://celine.info",
+          "screen_name": "Brigitte.Roberts69",
+        },
+      },
+      "publishedAt": "2020-01-02T00:00:00.000Z",
+      "retweetsCount": 88594,
+      "text": "Rem voluptates voluptas fuga totam.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "26900",
+    },
+  },
+  Object {
+    "0": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 98886,
+        },
+      },
+      "accountName": "Sylvan90",
+      "accountProfileImageUrl": "http://blake.com",
+      "accountScreenName": "Judson67",
+      "favoritesCount": 75014,
+      "payload": Object {
+        "__accountId": 98886,
+        "created_at": "2020-01-01",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 75014,
+        "favorited": true,
+        "full_text": "Placeat ullam minima ducimus temporibus modi aut architecto.",
+        "id": 44789,
+        "id_str": "46923",
+        "is_quote_status": true,
+        "retweet_count": 62402,
+        "retweeted": false,
+        "source": "disintermediate",
+        "truncated": false,
+        "user": Object {
+          "name": "Sylvan90",
+          "profile_image_url_https": "http://blake.com",
+          "screen_name": "Judson67",
+        },
+      },
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "retweetsCount": 62402,
+      "text": "Placeat ullam minima ducimus temporibus modi aut architecto.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "46923",
+    },
+    "1": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 56591,
+        },
+      },
+      "accountName": "Harrison.Wiegand41",
+      "accountProfileImageUrl": "https://amaya.net",
+      "accountScreenName": "Kailee.Bayer",
+      "favoritesCount": 58438,
+      "payload": Object {
+        "__accountId": 56591,
+        "created_at": "2020-01-01",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 58438,
+        "favorited": true,
+        "full_text": "Laborum ratione a officia quaerat cumque incidunt.",
+        "id": 10233,
+        "id_str": "53344",
+        "is_quote_status": true,
+        "retweet_count": 5336,
+        "retweeted": true,
+        "source": "Toys",
+        "truncated": true,
+        "user": Object {
+          "name": "Harrison.Wiegand41",
+          "profile_image_url_https": "https://amaya.net",
+          "screen_name": "Kailee.Bayer",
+        },
+      },
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "retweetsCount": 5336,
+      "text": "Laborum ratione a officia quaerat cumque incidunt.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "53344",
+    },
+    "2": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 70904,
+        },
+      },
+      "accountName": "Tobin_Sipes99",
+      "accountProfileImageUrl": "http://celine.info",
+      "accountScreenName": "Brigitte.Roberts69",
+      "favoritesCount": 900,
+      "payload": Object {
+        "__accountId": 70904,
+        "created_at": "2020-01-02",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 900,
+        "favorited": false,
+        "full_text": "Rem voluptates voluptas fuga totam.",
+        "id": 1582,
+        "id_str": "26900",
+        "is_quote_status": false,
+        "retweet_count": 88594,
+        "retweeted": false,
+        "source": "generate",
+        "truncated": true,
+        "user": Object {
+          "name": "Tobin_Sipes99",
+          "profile_image_url_https": "http://celine.info",
+          "screen_name": "Brigitte.Roberts69",
+        },
+      },
+      "publishedAt": "2020-01-02T00:00:00.000Z",
+      "retweetsCount": 88594,
+      "text": "Rem voluptates voluptas fuga totam.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "26900",
+    },
+  },
+  Object {},
+  Object {},
+  Object {
+    "0": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 98886,
+        },
+      },
+      "accountName": "Sylvan90",
+      "accountProfileImageUrl": "http://blake.com",
+      "accountScreenName": "Judson67",
+      "favoritesCount": 75014,
+      "payload": Object {
+        "__accountId": 98886,
+        "created_at": "2020-01-01",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 75014,
+        "favorited": true,
+        "full_text": "Placeat ullam minima ducimus temporibus modi aut architecto.",
+        "id": 44789,
+        "id_str": "46923",
+        "is_quote_status": true,
+        "retweet_count": 62402,
+        "retweeted": false,
+        "source": "disintermediate",
+        "truncated": false,
+        "user": Object {
+          "name": "Sylvan90",
+          "profile_image_url_https": "http://blake.com",
+          "screen_name": "Judson67",
+        },
+      },
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "retweetsCount": 62402,
+      "text": "Placeat ullam minima ducimus temporibus modi aut architecto.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "46923",
+    },
+    "1": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 56591,
+        },
+      },
+      "accountName": "Harrison.Wiegand41",
+      "accountProfileImageUrl": "https://amaya.net",
+      "accountScreenName": "Kailee.Bayer",
+      "favoritesCount": 58438,
+      "payload": Object {
+        "__accountId": 56591,
+        "created_at": "2020-01-01",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 58438,
+        "favorited": true,
+        "full_text": "Laborum ratione a officia quaerat cumque incidunt.",
+        "id": 10233,
+        "id_str": "53344",
+        "is_quote_status": true,
+        "retweet_count": 5336,
+        "retweeted": true,
+        "source": "Toys",
+        "truncated": true,
+        "user": Object {
+          "name": "Harrison.Wiegand41",
+          "profile_image_url_https": "https://amaya.net",
+          "screen_name": "Kailee.Bayer",
+        },
+      },
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "retweetsCount": 5336,
+      "text": "Laborum ratione a officia quaerat cumque incidunt.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "53344",
+    },
+    "2": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 70904,
+        },
+      },
+      "accountName": "Tobin_Sipes99",
+      "accountProfileImageUrl": "http://celine.info",
+      "accountScreenName": "Brigitte.Roberts69",
+      "favoritesCount": 900,
+      "payload": Object {
+        "__accountId": 70904,
+        "created_at": "2020-01-02",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 900,
+        "favorited": false,
+        "full_text": "Rem voluptates voluptas fuga totam.",
+        "id": 1582,
+        "id_str": "26900",
+        "is_quote_status": false,
+        "retweet_count": 88594,
+        "retweeted": false,
+        "source": "generate",
+        "truncated": true,
+        "user": Object {
+          "name": "Tobin_Sipes99",
+          "profile_image_url_https": "http://celine.info",
+          "screen_name": "Brigitte.Roberts69",
+        },
+      },
+      "publishedAt": "2020-01-02T00:00:00.000Z",
+      "retweetsCount": 88594,
+      "text": "Rem voluptates voluptas fuga totam.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "26900",
+    },
+  },
+  Object {
+    "0": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 13747,
+        },
+      },
+      "accountName": "Timmy_Hessel",
+      "accountProfileImageUrl": "https://louvenia.net",
+      "accountScreenName": "Brando_Tillman64",
+      "favoritesCount": 90340,
+      "payload": Object {
+        "__accountId": 13747,
+        "created_at": "2020-01-01",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [
+            Object {
+              "display_url": "taniarascia.com/understanding-…",
+              "expanded_url": "https://www.taniarascia.com/understanding-destructuring-rest-spread/",
+              "indices": Array [
+                65,
+                88,
+              ],
+              "url": "https://t.co/Zp804COUGM",
+            },
+          ],
+        },
+        "favorite_count": 90340,
+        "favorited": true,
+        "full_text": "Eos saepe consequatur vel in ut.",
+        "id": 16535,
+        "id_str": "65229",
+        "is_quote_status": false,
+        "retweet_count": 54078,
+        "retweeted": false,
+        "source": "compress",
+        "truncated": false,
+        "user": Object {
+          "name": "Timmy_Hessel",
+          "profile_image_url_https": "https://louvenia.net",
+          "screen_name": "Brando_Tillman64",
+        },
+      },
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "retweetsCount": 54078,
+      "text": "Eos saepe consequatur vel in ut.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "LINK",
+          },
+        ],
+      },
+      "twitterId": "65229",
+    },
+    "1": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 42809,
+        },
+      },
+      "accountName": "Kody.Weissnat",
+      "accountProfileImageUrl": "http://norbert.org",
+      "accountScreenName": "Oleta0",
+      "favoritesCount": 89588,
+      "payload": Object {
+        "__accountId": 42809,
+        "created_at": "2020-01-01",
+        "entities": Object {
+          "media": Array [
+            Object {
+              "display_url": "pic.twitter.com/P6IgqbkRcU",
+              "expanded_url": "https://twitter.com/mgechev/status/1296696108371116034/photo/1",
+              "id": 1296696105917456400,
+              "id_str": "1296696105917456386",
+              "indices": Array [
+                156,
+                179,
+              ],
+              "media_url": "http://pbs.twimg.com/media/Ef7KPPbXoAIAAV2.jpg",
+              "media_url_https": "https://pbs.twimg.com/media/Ef7KPPbXoAIAAV2.jpg",
+              "sizes": Object {
+                "large": Object {
+                  "h": 1148,
+                  "resize": "fit",
+                  "w": 2048,
+                },
+                "medium": Object {
+                  "h": 673,
+                  "resize": "fit",
+                  "w": 1200,
+                },
+                "small": Object {
+                  "h": 381,
+                  "resize": "fit",
+                  "w": 680,
+                },
+                "thumb": Object {
+                  "h": 150,
+                  "resize": "crop",
+                  "w": 150,
+                },
+              },
+              "type": "photo",
+              "url": "https://t.co/P6IgqbkRcU",
+            },
+          ],
+          "urls": Array [],
+        },
+        "favorite_count": 89588,
+        "favorited": true,
+        "full_text": "Delectus aut nam et dolorum architecto fugit repellendus hic veritatis.",
+        "id": 44991,
+        "id_str": "35531",
+        "is_quote_status": false,
+        "retweet_count": 75278,
+        "retweeted": true,
+        "source": "leverage",
+        "truncated": true,
+        "user": Object {
+          "name": "Kody.Weissnat",
+          "profile_image_url_https": "http://norbert.org",
+          "screen_name": "Oleta0",
+        },
+      },
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "retweetsCount": 75278,
+      "text": "Delectus aut nam et dolorum architecto fugit repellendus hic veritatis.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "MEDIA",
+          },
+        ],
+      },
+      "twitterId": "35531",
+    },
+    "2": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 4930,
+        },
+      },
+      "accountName": "Bartholome53",
+      "accountProfileImageUrl": "http://kattie.org",
+      "accountScreenName": "Ronaldo23",
+      "favoritesCount": 20856,
+      "payload": Object {
+        "__accountId": 4930,
+        "created_at": "2020-01-02",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 20856,
+        "favorited": false,
+        "full_text": "Occaecati quia ipsum sit qui accusantium odit doloremque.",
+        "id": 50981,
+        "id_str": "24621",
+        "is_quote_status": true,
+        "retweet_count": 92302,
+        "retweeted": false,
+        "source": "Wisconsin",
+        "truncated": false,
+        "user": Object {
+          "name": "Bartholome53",
+          "profile_image_url_https": "http://kattie.org",
+          "screen_name": "Ronaldo23",
+        },
+      },
+      "publishedAt": "2020-01-02T00:00:00.000Z",
+      "retweetsCount": 92302,
+      "text": "Occaecati quia ipsum sit qui accusantium odit doloremque.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "24621",
+    },
+  },
+  Object {
+    "0": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 13747,
+        },
+      },
+      "accountName": "Timmy_Hessel",
+      "accountProfileImageUrl": "https://louvenia.net",
+      "accountScreenName": "Brando_Tillman64",
+      "favoritesCount": 90340,
+      "payload": Object {
+        "__accountId": 13747,
+        "created_at": "2020-01-01",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [
+            Object {
+              "display_url": "taniarascia.com/understanding-…",
+              "expanded_url": "https://www.taniarascia.com/understanding-destructuring-rest-spread/",
+              "indices": Array [
+                65,
+                88,
+              ],
+              "url": "https://t.co/Zp804COUGM",
+            },
+          ],
+        },
+        "favorite_count": 90340,
+        "favorited": true,
+        "full_text": "Eos saepe consequatur vel in ut.",
+        "id": 16535,
+        "id_str": "65229",
+        "is_quote_status": false,
+        "retweet_count": 54078,
+        "retweeted": false,
+        "source": "compress",
+        "truncated": false,
+        "user": Object {
+          "name": "Timmy_Hessel",
+          "profile_image_url_https": "https://louvenia.net",
+          "screen_name": "Brando_Tillman64",
+        },
+      },
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "retweetsCount": 54078,
+      "text": "Eos saepe consequatur vel in ut.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "LINK",
+          },
+        ],
+      },
+      "twitterId": "65229",
+    },
+  },
+  Object {
+    "0": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 42809,
+        },
+      },
+      "accountName": "Kody.Weissnat",
+      "accountProfileImageUrl": "http://norbert.org",
+      "accountScreenName": "Oleta0",
+      "favoritesCount": 89588,
+      "payload": Object {
+        "__accountId": 42809,
+        "created_at": "2020-01-01",
+        "entities": Object {
+          "media": Array [
+            Object {
+              "display_url": "pic.twitter.com/P6IgqbkRcU",
+              "expanded_url": "https://twitter.com/mgechev/status/1296696108371116034/photo/1",
+              "id": 1296696105917456400,
+              "id_str": "1296696105917456386",
+              "indices": Array [
+                156,
+                179,
+              ],
+              "media_url": "http://pbs.twimg.com/media/Ef7KPPbXoAIAAV2.jpg",
+              "media_url_https": "https://pbs.twimg.com/media/Ef7KPPbXoAIAAV2.jpg",
+              "sizes": Object {
+                "large": Object {
+                  "h": 1148,
+                  "resize": "fit",
+                  "w": 2048,
+                },
+                "medium": Object {
+                  "h": 673,
+                  "resize": "fit",
+                  "w": 1200,
+                },
+                "small": Object {
+                  "h": 381,
+                  "resize": "fit",
+                  "w": 680,
+                },
+                "thumb": Object {
+                  "h": 150,
+                  "resize": "crop",
+                  "w": 150,
+                },
+              },
+              "type": "photo",
+              "url": "https://t.co/P6IgqbkRcU",
+            },
+          ],
+          "urls": Array [],
+        },
+        "favorite_count": 89588,
+        "favorited": true,
+        "full_text": "Delectus aut nam et dolorum architecto fugit repellendus hic veritatis.",
+        "id": 44991,
+        "id_str": "35531",
+        "is_quote_status": false,
+        "retweet_count": 75278,
+        "retweeted": true,
+        "source": "leverage",
+        "truncated": true,
+        "user": Object {
+          "name": "Kody.Weissnat",
+          "profile_image_url_https": "http://norbert.org",
+          "screen_name": "Oleta0",
+        },
+      },
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "retweetsCount": 75278,
+      "text": "Delectus aut nam et dolorum architecto fugit repellendus hic veritatis.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "MEDIA",
+          },
+        ],
+      },
+      "twitterId": "35531",
+    },
+  },
+  Object {
+    "0": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 4930,
+        },
+      },
+      "accountName": "Bartholome53",
+      "accountProfileImageUrl": "http://kattie.org",
+      "accountScreenName": "Ronaldo23",
+      "favoritesCount": 20856,
+      "payload": Object {
+        "__accountId": 4930,
+        "created_at": "2020-01-02",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 20856,
+        "favorited": false,
+        "full_text": "Occaecati quia ipsum sit qui accusantium odit doloremque.",
+        "id": 50981,
+        "id_str": "24621",
+        "is_quote_status": true,
+        "retweet_count": 92302,
+        "retweeted": false,
+        "source": "Wisconsin",
+        "truncated": false,
+        "user": Object {
+          "name": "Bartholome53",
+          "profile_image_url_https": "http://kattie.org",
+          "screen_name": "Ronaldo23",
+        },
+      },
+      "publishedAt": "2020-01-02T00:00:00.000Z",
+      "retweetsCount": 92302,
+      "text": "Occaecati quia ipsum sit qui accusantium odit doloremque.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "24621",
+    },
+  },
+  Object {
+    "0": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 13747,
+        },
+      },
+      "accountName": "Timmy_Hessel",
+      "accountProfileImageUrl": "https://louvenia.net",
+      "accountScreenName": "Brando_Tillman64",
+      "favoritesCount": 90340,
+      "payload": Object {
+        "__accountId": 13747,
+        "created_at": "2020-01-01",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [
+            Object {
+              "display_url": "taniarascia.com/understanding-…",
+              "expanded_url": "https://www.taniarascia.com/understanding-destructuring-rest-spread/",
+              "indices": Array [
+                65,
+                88,
+              ],
+              "url": "https://t.co/Zp804COUGM",
+            },
+          ],
+        },
+        "favorite_count": 90340,
+        "favorited": true,
+        "full_text": "Eos saepe consequatur vel in ut.",
+        "id": 16535,
+        "id_str": "65229",
+        "is_quote_status": false,
+        "retweet_count": 54078,
+        "retweeted": false,
+        "source": "compress",
+        "truncated": false,
+        "user": Object {
+          "name": "Timmy_Hessel",
+          "profile_image_url_https": "https://louvenia.net",
+          "screen_name": "Brando_Tillman64",
+        },
+      },
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "retweetsCount": 54078,
+      "text": "Eos saepe consequatur vel in ut.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "LINK",
+          },
+        ],
+      },
+      "twitterId": "65229",
+    },
+  },
+  Object {
+    "0": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 42809,
+        },
+      },
+      "accountName": "Kody.Weissnat",
+      "accountProfileImageUrl": "http://norbert.org",
+      "accountScreenName": "Oleta0",
+      "favoritesCount": 89588,
+      "payload": Object {
+        "__accountId": 42809,
+        "created_at": "2020-01-01",
+        "entities": Object {
+          "media": Array [
+            Object {
+              "display_url": "pic.twitter.com/P6IgqbkRcU",
+              "expanded_url": "https://twitter.com/mgechev/status/1296696108371116034/photo/1",
+              "id": 1296696105917456400,
+              "id_str": "1296696105917456386",
+              "indices": Array [
+                156,
+                179,
+              ],
+              "media_url": "http://pbs.twimg.com/media/Ef7KPPbXoAIAAV2.jpg",
+              "media_url_https": "https://pbs.twimg.com/media/Ef7KPPbXoAIAAV2.jpg",
+              "sizes": Object {
+                "large": Object {
+                  "h": 1148,
+                  "resize": "fit",
+                  "w": 2048,
+                },
+                "medium": Object {
+                  "h": 673,
+                  "resize": "fit",
+                  "w": 1200,
+                },
+                "small": Object {
+                  "h": 381,
+                  "resize": "fit",
+                  "w": 680,
+                },
+                "thumb": Object {
+                  "h": 150,
+                  "resize": "crop",
+                  "w": 150,
+                },
+              },
+              "type": "photo",
+              "url": "https://t.co/P6IgqbkRcU",
+            },
+          ],
+          "urls": Array [],
+        },
+        "favorite_count": 89588,
+        "favorited": true,
+        "full_text": "Delectus aut nam et dolorum architecto fugit repellendus hic veritatis.",
+        "id": 44991,
+        "id_str": "35531",
+        "is_quote_status": false,
+        "retweet_count": 75278,
+        "retweeted": true,
+        "source": "leverage",
+        "truncated": true,
+        "user": Object {
+          "name": "Kody.Weissnat",
+          "profile_image_url_https": "http://norbert.org",
+          "screen_name": "Oleta0",
+        },
+      },
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "retweetsCount": 75278,
+      "text": "Delectus aut nam et dolorum architecto fugit repellendus hic veritatis.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "MEDIA",
+          },
+        ],
+      },
+      "twitterId": "35531",
+    },
+  },
+  Object {
+    "0": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 98886,
+        },
+      },
+      "accountName": "Sylvan90",
+      "accountProfileImageUrl": "http://blake.com",
+      "accountScreenName": "Judson67",
+      "favoritesCount": 75014,
+      "payload": Object {
+        "__accountId": 98886,
+        "created_at": "2020-01-01",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 75014,
+        "favorited": true,
+        "full_text": "Placeat ullam minima ducimus temporibus modi aut architecto.",
+        "id": 44789,
+        "id_str": "46923",
+        "is_quote_status": true,
+        "retweet_count": 62402,
+        "retweeted": false,
+        "source": "disintermediate",
+        "truncated": false,
+        "user": Object {
+          "name": "Sylvan90",
+          "profile_image_url_https": "http://blake.com",
+          "screen_name": "Judson67",
+        },
+      },
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "retweetsCount": 62402,
+      "text": "Placeat ullam minima ducimus temporibus modi aut architecto.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "46923",
+    },
+    "1": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 56591,
+        },
+      },
+      "accountName": "Harrison.Wiegand41",
+      "accountProfileImageUrl": "https://amaya.net",
+      "accountScreenName": "Kailee.Bayer",
+      "favoritesCount": 58438,
+      "payload": Object {
+        "__accountId": 56591,
+        "created_at": "2020-01-01",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 58438,
+        "favorited": true,
+        "full_text": "Laborum ratione a officia quaerat cumque incidunt.",
+        "id": 10233,
+        "id_str": "53344",
+        "is_quote_status": true,
+        "retweet_count": 5336,
+        "retweeted": true,
+        "source": "Toys",
+        "truncated": true,
+        "user": Object {
+          "name": "Harrison.Wiegand41",
+          "profile_image_url_https": "https://amaya.net",
+          "screen_name": "Kailee.Bayer",
+        },
+      },
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "retweetsCount": 5336,
+      "text": "Laborum ratione a officia quaerat cumque incidunt.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "53344",
+    },
+    "2": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 4930,
+        },
+      },
+      "accountName": "Bartholome53",
+      "accountProfileImageUrl": "http://kattie.org",
+      "accountScreenName": "Ronaldo23",
+      "favoritesCount": 20856,
+      "payload": Object {
+        "__accountId": 4930,
+        "created_at": "2020-01-02",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 20856,
+        "favorited": false,
+        "full_text": "Occaecati quia ipsum sit qui accusantium odit doloremque.",
+        "id": 50981,
+        "id_str": "24621",
+        "is_quote_status": true,
+        "retweet_count": 92302,
+        "retweeted": false,
+        "source": "Wisconsin",
+        "truncated": false,
+        "user": Object {
+          "name": "Bartholome53",
+          "profile_image_url_https": "http://kattie.org",
+          "screen_name": "Ronaldo23",
+        },
+      },
+      "publishedAt": "2020-01-02T00:00:00.000Z",
+      "retweetsCount": 92302,
+      "text": "Occaecati quia ipsum sit qui accusantium odit doloremque.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "24621",
+    },
+    "3": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 70904,
+        },
+      },
+      "accountName": "Tobin_Sipes99",
+      "accountProfileImageUrl": "http://celine.info",
+      "accountScreenName": "Brigitte.Roberts69",
+      "favoritesCount": 900,
+      "payload": Object {
+        "__accountId": 70904,
+        "created_at": "2020-01-02",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 900,
+        "favorited": false,
+        "full_text": "Rem voluptates voluptas fuga totam.",
+        "id": 1582,
+        "id_str": "26900",
+        "is_quote_status": false,
+        "retweet_count": 88594,
+        "retweeted": false,
+        "source": "generate",
+        "truncated": true,
+        "user": Object {
+          "name": "Tobin_Sipes99",
+          "profile_image_url_https": "http://celine.info",
+          "screen_name": "Brigitte.Roberts69",
+        },
+      },
+      "publishedAt": "2020-01-02T00:00:00.000Z",
+      "retweetsCount": 88594,
+      "text": "Rem voluptates voluptas fuga totam.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "26900",
+    },
+  },
+  Object {
+    "0": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 98886,
+        },
+      },
+      "accountName": "Sylvan90",
+      "accountProfileImageUrl": "http://blake.com",
+      "accountScreenName": "Judson67",
+      "favoritesCount": 75014,
+      "payload": Object {
+        "__accountId": 98886,
+        "created_at": "2020-01-01",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 75014,
+        "favorited": true,
+        "full_text": "Placeat ullam minima ducimus temporibus modi aut architecto.",
+        "id": 44789,
+        "id_str": "46923",
+        "is_quote_status": true,
+        "retweet_count": 62402,
+        "retweeted": false,
+        "source": "disintermediate",
+        "truncated": false,
+        "user": Object {
+          "name": "Sylvan90",
+          "profile_image_url_https": "http://blake.com",
+          "screen_name": "Judson67",
+        },
+      },
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "retweetsCount": 62402,
+      "text": "Placeat ullam minima ducimus temporibus modi aut architecto.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "46923",
+    },
+    "1": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 56591,
+        },
+      },
+      "accountName": "Harrison.Wiegand41",
+      "accountProfileImageUrl": "https://amaya.net",
+      "accountScreenName": "Kailee.Bayer",
+      "favoritesCount": 58438,
+      "payload": Object {
+        "__accountId": 56591,
+        "created_at": "2020-01-01",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 58438,
+        "favorited": true,
+        "full_text": "Laborum ratione a officia quaerat cumque incidunt.",
+        "id": 10233,
+        "id_str": "53344",
+        "is_quote_status": true,
+        "retweet_count": 5336,
+        "retweeted": true,
+        "source": "Toys",
+        "truncated": true,
+        "user": Object {
+          "name": "Harrison.Wiegand41",
+          "profile_image_url_https": "https://amaya.net",
+          "screen_name": "Kailee.Bayer",
+        },
+      },
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "retweetsCount": 5336,
+      "text": "Laborum ratione a officia quaerat cumque incidunt.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "53344",
+    },
+    "2": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 70904,
+        },
+      },
+      "accountName": "Tobin_Sipes99",
+      "accountProfileImageUrl": "http://celine.info",
+      "accountScreenName": "Brigitte.Roberts69",
+      "favoritesCount": 900,
+      "payload": Object {
+        "__accountId": 70904,
+        "created_at": "2020-01-02",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 900,
+        "favorited": false,
+        "full_text": "Rem voluptates voluptas fuga totam.",
+        "id": 1582,
+        "id_str": "26900",
+        "is_quote_status": false,
+        "retweet_count": 88594,
+        "retweeted": false,
+        "source": "generate",
+        "truncated": true,
+        "user": Object {
+          "name": "Tobin_Sipes99",
+          "profile_image_url_https": "http://celine.info",
+          "screen_name": "Brigitte.Roberts69",
+        },
+      },
+      "publishedAt": "2020-01-02T00:00:00.000Z",
+      "retweetsCount": 88594,
+      "text": "Rem voluptates voluptas fuga totam.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "26900",
+    },
+  },
+  Object {},
+  Object {},
+  Object {
+    "0": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 98886,
+        },
+      },
+      "accountName": "Sylvan90",
+      "accountProfileImageUrl": "http://blake.com",
+      "accountScreenName": "Judson67",
+      "favoritesCount": 75014,
+      "payload": Object {
+        "__accountId": 98886,
+        "created_at": "2020-01-01",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 75014,
+        "favorited": true,
+        "full_text": "Placeat ullam minima ducimus temporibus modi aut architecto.",
+        "id": 44789,
+        "id_str": "46923",
+        "is_quote_status": true,
+        "retweet_count": 62402,
+        "retweeted": false,
+        "source": "disintermediate",
+        "truncated": false,
+        "user": Object {
+          "name": "Sylvan90",
+          "profile_image_url_https": "http://blake.com",
+          "screen_name": "Judson67",
+        },
+      },
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "retweetsCount": 62402,
+      "text": "Placeat ullam minima ducimus temporibus modi aut architecto.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "46923",
+    },
+    "1": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 56591,
+        },
+      },
+      "accountName": "Harrison.Wiegand41",
+      "accountProfileImageUrl": "https://amaya.net",
+      "accountScreenName": "Kailee.Bayer",
+      "favoritesCount": 58438,
+      "payload": Object {
+        "__accountId": 56591,
+        "created_at": "2020-01-01",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 58438,
+        "favorited": true,
+        "full_text": "Laborum ratione a officia quaerat cumque incidunt.",
+        "id": 10233,
+        "id_str": "53344",
+        "is_quote_status": true,
+        "retweet_count": 5336,
+        "retweeted": true,
+        "source": "Toys",
+        "truncated": true,
+        "user": Object {
+          "name": "Harrison.Wiegand41",
+          "profile_image_url_https": "https://amaya.net",
+          "screen_name": "Kailee.Bayer",
+        },
+      },
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "retweetsCount": 5336,
+      "text": "Laborum ratione a officia quaerat cumque incidunt.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "53344",
+    },
+    "2": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 70904,
+        },
+      },
+      "accountName": "Tobin_Sipes99",
+      "accountProfileImageUrl": "http://celine.info",
+      "accountScreenName": "Brigitte.Roberts69",
+      "favoritesCount": 900,
+      "payload": Object {
+        "__accountId": 70904,
+        "created_at": "2020-01-02",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 900,
+        "favorited": false,
+        "full_text": "Rem voluptates voluptas fuga totam.",
+        "id": 1582,
+        "id_str": "26900",
+        "is_quote_status": false,
+        "retweet_count": 88594,
+        "retweeted": false,
+        "source": "generate",
+        "truncated": true,
+        "user": Object {
+          "name": "Tobin_Sipes99",
+          "profile_image_url_https": "http://celine.info",
+          "screen_name": "Brigitte.Roberts69",
+        },
+      },
+      "publishedAt": "2020-01-02T00:00:00.000Z",
+      "retweetsCount": 88594,
+      "text": "Rem voluptates voluptas fuga totam.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "26900",
+    },
+  },
+  Object {
+    "0": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 13747,
+        },
+      },
+      "accountName": "Timmy_Hessel",
+      "accountProfileImageUrl": "https://louvenia.net",
+      "accountScreenName": "Brando_Tillman64",
+      "favoritesCount": 90340,
+      "payload": Object {
+        "__accountId": 13747,
+        "created_at": "2020-01-01",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [
+            Object {
+              "display_url": "taniarascia.com/understanding-…",
+              "expanded_url": "https://www.taniarascia.com/understanding-destructuring-rest-spread/",
+              "indices": Array [
+                65,
+                88,
+              ],
+              "url": "https://t.co/Zp804COUGM",
+            },
+          ],
+        },
+        "favorite_count": 90340,
+        "favorited": true,
+        "full_text": "Eos saepe consequatur vel in ut.",
+        "id": 16535,
+        "id_str": "65229",
+        "is_quote_status": false,
+        "retweet_count": 54078,
+        "retweeted": false,
+        "source": "compress",
+        "truncated": false,
+        "user": Object {
+          "name": "Timmy_Hessel",
+          "profile_image_url_https": "https://louvenia.net",
+          "screen_name": "Brando_Tillman64",
+        },
+      },
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "retweetsCount": 54078,
+      "text": "Eos saepe consequatur vel in ut.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "LINK",
+          },
+        ],
+      },
+      "twitterId": "65229",
+    },
+    "1": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 42809,
+        },
+      },
+      "accountName": "Kody.Weissnat",
+      "accountProfileImageUrl": "http://norbert.org",
+      "accountScreenName": "Oleta0",
+      "favoritesCount": 89588,
+      "payload": Object {
+        "__accountId": 42809,
+        "created_at": "2020-01-01",
+        "entities": Object {
+          "media": Array [
+            Object {
+              "display_url": "pic.twitter.com/P6IgqbkRcU",
+              "expanded_url": "https://twitter.com/mgechev/status/1296696108371116034/photo/1",
+              "id": 1296696105917456400,
+              "id_str": "1296696105917456386",
+              "indices": Array [
+                156,
+                179,
+              ],
+              "media_url": "http://pbs.twimg.com/media/Ef7KPPbXoAIAAV2.jpg",
+              "media_url_https": "https://pbs.twimg.com/media/Ef7KPPbXoAIAAV2.jpg",
+              "sizes": Object {
+                "large": Object {
+                  "h": 1148,
+                  "resize": "fit",
+                  "w": 2048,
+                },
+                "medium": Object {
+                  "h": 673,
+                  "resize": "fit",
+                  "w": 1200,
+                },
+                "small": Object {
+                  "h": 381,
+                  "resize": "fit",
+                  "w": 680,
+                },
+                "thumb": Object {
+                  "h": 150,
+                  "resize": "crop",
+                  "w": 150,
+                },
+              },
+              "type": "photo",
+              "url": "https://t.co/P6IgqbkRcU",
+            },
+          ],
+          "urls": Array [],
+        },
+        "favorite_count": 89588,
+        "favorited": true,
+        "full_text": "Delectus aut nam et dolorum architecto fugit repellendus hic veritatis.",
+        "id": 44991,
+        "id_str": "35531",
+        "is_quote_status": false,
+        "retweet_count": 75278,
+        "retweeted": true,
+        "source": "leverage",
+        "truncated": true,
+        "user": Object {
+          "name": "Kody.Weissnat",
+          "profile_image_url_https": "http://norbert.org",
+          "screen_name": "Oleta0",
+        },
+      },
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "retweetsCount": 75278,
+      "text": "Delectus aut nam et dolorum architecto fugit repellendus hic veritatis.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "MEDIA",
+          },
+        ],
+      },
+      "twitterId": "35531",
+    },
+    "2": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 4930,
+        },
+      },
+      "accountName": "Bartholome53",
+      "accountProfileImageUrl": "http://kattie.org",
+      "accountScreenName": "Ronaldo23",
+      "favoritesCount": 20856,
+      "payload": Object {
+        "__accountId": 4930,
+        "created_at": "2020-01-02",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 20856,
+        "favorited": false,
+        "full_text": "Occaecati quia ipsum sit qui accusantium odit doloremque.",
+        "id": 50981,
+        "id_str": "24621",
+        "is_quote_status": true,
+        "retweet_count": 92302,
+        "retweeted": false,
+        "source": "Wisconsin",
+        "truncated": false,
+        "user": Object {
+          "name": "Bartholome53",
+          "profile_image_url_https": "http://kattie.org",
+          "screen_name": "Ronaldo23",
+        },
+      },
+      "publishedAt": "2020-01-02T00:00:00.000Z",
+      "retweetsCount": 92302,
+      "text": "Occaecati quia ipsum sit qui accusantium odit doloremque.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "24621",
+    },
+  },
+  Object {
+    "0": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 13747,
+        },
+      },
+      "accountName": "Timmy_Hessel",
+      "accountProfileImageUrl": "https://louvenia.net",
+      "accountScreenName": "Brando_Tillman64",
+      "favoritesCount": 90340,
+      "payload": Object {
+        "__accountId": 13747,
+        "created_at": "2020-01-01",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [
+            Object {
+              "display_url": "taniarascia.com/understanding-…",
+              "expanded_url": "https://www.taniarascia.com/understanding-destructuring-rest-spread/",
+              "indices": Array [
+                65,
+                88,
+              ],
+              "url": "https://t.co/Zp804COUGM",
+            },
+          ],
+        },
+        "favorite_count": 90340,
+        "favorited": true,
+        "full_text": "Eos saepe consequatur vel in ut.",
+        "id": 16535,
+        "id_str": "65229",
+        "is_quote_status": false,
+        "retweet_count": 54078,
+        "retweeted": false,
+        "source": "compress",
+        "truncated": false,
+        "user": Object {
+          "name": "Timmy_Hessel",
+          "profile_image_url_https": "https://louvenia.net",
+          "screen_name": "Brando_Tillman64",
+        },
+      },
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "retweetsCount": 54078,
+      "text": "Eos saepe consequatur vel in ut.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "LINK",
+          },
+        ],
+      },
+      "twitterId": "65229",
+    },
+  },
+  Object {
+    "0": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 42809,
+        },
+      },
+      "accountName": "Kody.Weissnat",
+      "accountProfileImageUrl": "http://norbert.org",
+      "accountScreenName": "Oleta0",
+      "favoritesCount": 89588,
+      "payload": Object {
+        "__accountId": 42809,
+        "created_at": "2020-01-01",
+        "entities": Object {
+          "media": Array [
+            Object {
+              "display_url": "pic.twitter.com/P6IgqbkRcU",
+              "expanded_url": "https://twitter.com/mgechev/status/1296696108371116034/photo/1",
+              "id": 1296696105917456400,
+              "id_str": "1296696105917456386",
+              "indices": Array [
+                156,
+                179,
+              ],
+              "media_url": "http://pbs.twimg.com/media/Ef7KPPbXoAIAAV2.jpg",
+              "media_url_https": "https://pbs.twimg.com/media/Ef7KPPbXoAIAAV2.jpg",
+              "sizes": Object {
+                "large": Object {
+                  "h": 1148,
+                  "resize": "fit",
+                  "w": 2048,
+                },
+                "medium": Object {
+                  "h": 673,
+                  "resize": "fit",
+                  "w": 1200,
+                },
+                "small": Object {
+                  "h": 381,
+                  "resize": "fit",
+                  "w": 680,
+                },
+                "thumb": Object {
+                  "h": 150,
+                  "resize": "crop",
+                  "w": 150,
+                },
+              },
+              "type": "photo",
+              "url": "https://t.co/P6IgqbkRcU",
+            },
+          ],
+          "urls": Array [],
+        },
+        "favorite_count": 89588,
+        "favorited": true,
+        "full_text": "Delectus aut nam et dolorum architecto fugit repellendus hic veritatis.",
+        "id": 44991,
+        "id_str": "35531",
+        "is_quote_status": false,
+        "retweet_count": 75278,
+        "retweeted": true,
+        "source": "leverage",
+        "truncated": true,
+        "user": Object {
+          "name": "Kody.Weissnat",
+          "profile_image_url_https": "http://norbert.org",
+          "screen_name": "Oleta0",
+        },
+      },
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "retweetsCount": 75278,
+      "text": "Delectus aut nam et dolorum architecto fugit repellendus hic veritatis.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "MEDIA",
+          },
+        ],
+      },
+      "twitterId": "35531",
+    },
+  },
+  Object {
+    "0": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 4930,
+        },
+      },
+      "accountName": "Bartholome53",
+      "accountProfileImageUrl": "http://kattie.org",
+      "accountScreenName": "Ronaldo23",
+      "favoritesCount": 20856,
+      "payload": Object {
+        "__accountId": 4930,
+        "created_at": "2020-01-02",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 20856,
+        "favorited": false,
+        "full_text": "Occaecati quia ipsum sit qui accusantium odit doloremque.",
+        "id": 50981,
+        "id_str": "24621",
+        "is_quote_status": true,
+        "retweet_count": 92302,
+        "retweeted": false,
+        "source": "Wisconsin",
+        "truncated": false,
+        "user": Object {
+          "name": "Bartholome53",
+          "profile_image_url_https": "http://kattie.org",
+          "screen_name": "Ronaldo23",
+        },
+      },
+      "publishedAt": "2020-01-02T00:00:00.000Z",
+      "retweetsCount": 92302,
+      "text": "Occaecati quia ipsum sit qui accusantium odit doloremque.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "24621",
+    },
+  },
+  Object {
+    "0": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 13747,
+        },
+      },
+      "accountName": "Timmy_Hessel",
+      "accountProfileImageUrl": "https://louvenia.net",
+      "accountScreenName": "Brando_Tillman64",
+      "favoritesCount": 90340,
+      "payload": Object {
+        "__accountId": 13747,
+        "created_at": "2020-01-01",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [
+            Object {
+              "display_url": "taniarascia.com/understanding-…",
+              "expanded_url": "https://www.taniarascia.com/understanding-destructuring-rest-spread/",
+              "indices": Array [
+                65,
+                88,
+              ],
+              "url": "https://t.co/Zp804COUGM",
+            },
+          ],
+        },
+        "favorite_count": 90340,
+        "favorited": true,
+        "full_text": "Eos saepe consequatur vel in ut.",
+        "id": 16535,
+        "id_str": "65229",
+        "is_quote_status": false,
+        "retweet_count": 54078,
+        "retweeted": false,
+        "source": "compress",
+        "truncated": false,
+        "user": Object {
+          "name": "Timmy_Hessel",
+          "profile_image_url_https": "https://louvenia.net",
+          "screen_name": "Brando_Tillman64",
+        },
+      },
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "retweetsCount": 54078,
+      "text": "Eos saepe consequatur vel in ut.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "LINK",
+          },
+        ],
+      },
+      "twitterId": "65229",
+    },
+  },
+  Object {
+    "0": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 42809,
+        },
+      },
+      "accountName": "Kody.Weissnat",
+      "accountProfileImageUrl": "http://norbert.org",
+      "accountScreenName": "Oleta0",
+      "favoritesCount": 89588,
+      "payload": Object {
+        "__accountId": 42809,
+        "created_at": "2020-01-01",
+        "entities": Object {
+          "media": Array [
+            Object {
+              "display_url": "pic.twitter.com/P6IgqbkRcU",
+              "expanded_url": "https://twitter.com/mgechev/status/1296696108371116034/photo/1",
+              "id": 1296696105917456400,
+              "id_str": "1296696105917456386",
+              "indices": Array [
+                156,
+                179,
+              ],
+              "media_url": "http://pbs.twimg.com/media/Ef7KPPbXoAIAAV2.jpg",
+              "media_url_https": "https://pbs.twimg.com/media/Ef7KPPbXoAIAAV2.jpg",
+              "sizes": Object {
+                "large": Object {
+                  "h": 1148,
+                  "resize": "fit",
+                  "w": 2048,
+                },
+                "medium": Object {
+                  "h": 673,
+                  "resize": "fit",
+                  "w": 1200,
+                },
+                "small": Object {
+                  "h": 381,
+                  "resize": "fit",
+                  "w": 680,
+                },
+                "thumb": Object {
+                  "h": 150,
+                  "resize": "crop",
+                  "w": 150,
+                },
+              },
+              "type": "photo",
+              "url": "https://t.co/P6IgqbkRcU",
+            },
+          ],
+          "urls": Array [],
+        },
+        "favorite_count": 89588,
+        "favorited": true,
+        "full_text": "Delectus aut nam et dolorum architecto fugit repellendus hic veritatis.",
+        "id": 44991,
+        "id_str": "35531",
+        "is_quote_status": false,
+        "retweet_count": 75278,
+        "retweeted": true,
+        "source": "leverage",
+        "truncated": true,
+        "user": Object {
+          "name": "Kody.Weissnat",
+          "profile_image_url_https": "http://norbert.org",
+          "screen_name": "Oleta0",
+        },
+      },
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "retweetsCount": 75278,
+      "text": "Delectus aut nam et dolorum architecto fugit repellendus hic veritatis.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "MEDIA",
+          },
+        ],
+      },
+      "twitterId": "35531",
+    },
+  },
+  Object {
+    "0": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 98886,
+        },
+      },
+      "accountName": "Sylvan90",
+      "accountProfileImageUrl": "http://blake.com",
+      "accountScreenName": "Judson67",
+      "favoritesCount": 75014,
+      "payload": Object {
+        "__accountId": 98886,
+        "created_at": "2020-01-01",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 75014,
+        "favorited": true,
+        "full_text": "Placeat ullam minima ducimus temporibus modi aut architecto.",
+        "id": 44789,
+        "id_str": "46923",
+        "is_quote_status": true,
+        "retweet_count": 62402,
+        "retweeted": false,
+        "source": "disintermediate",
+        "truncated": false,
+        "user": Object {
+          "name": "Sylvan90",
+          "profile_image_url_https": "http://blake.com",
+          "screen_name": "Judson67",
+        },
+      },
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "retweetsCount": 62402,
+      "text": "Placeat ullam minima ducimus temporibus modi aut architecto.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "46923",
+    },
+    "1": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 56591,
+        },
+      },
+      "accountName": "Harrison.Wiegand41",
+      "accountProfileImageUrl": "https://amaya.net",
+      "accountScreenName": "Kailee.Bayer",
+      "favoritesCount": 58438,
+      "payload": Object {
+        "__accountId": 56591,
+        "created_at": "2020-01-01",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 58438,
+        "favorited": true,
+        "full_text": "Laborum ratione a officia quaerat cumque incidunt.",
+        "id": 10233,
+        "id_str": "53344",
+        "is_quote_status": true,
+        "retweet_count": 5336,
+        "retweeted": true,
+        "source": "Toys",
+        "truncated": true,
+        "user": Object {
+          "name": "Harrison.Wiegand41",
+          "profile_image_url_https": "https://amaya.net",
+          "screen_name": "Kailee.Bayer",
+        },
+      },
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "retweetsCount": 5336,
+      "text": "Laborum ratione a officia quaerat cumque incidunt.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "53344",
+    },
+    "2": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 4930,
+        },
+      },
+      "accountName": "Bartholome53",
+      "accountProfileImageUrl": "http://kattie.org",
+      "accountScreenName": "Ronaldo23",
+      "favoritesCount": 20856,
+      "payload": Object {
+        "__accountId": 4930,
+        "created_at": "2020-01-02",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 20856,
+        "favorited": false,
+        "full_text": "Occaecati quia ipsum sit qui accusantium odit doloremque.",
+        "id": 50981,
+        "id_str": "24621",
+        "is_quote_status": true,
+        "retweet_count": 92302,
+        "retweeted": false,
+        "source": "Wisconsin",
+        "truncated": false,
+        "user": Object {
+          "name": "Bartholome53",
+          "profile_image_url_https": "http://kattie.org",
+          "screen_name": "Ronaldo23",
+        },
+      },
+      "publishedAt": "2020-01-02T00:00:00.000Z",
+      "retweetsCount": 92302,
+      "text": "Occaecati quia ipsum sit qui accusantium odit doloremque.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "24621",
+    },
+    "3": Object {
+      "account": Object {
+        "connect": Object {
+          "id": 70904,
+        },
+      },
+      "accountName": "Tobin_Sipes99",
+      "accountProfileImageUrl": "http://celine.info",
+      "accountScreenName": "Brigitte.Roberts69",
+      "favoritesCount": 900,
+      "payload": Object {
+        "__accountId": 70904,
+        "created_at": "2020-01-02",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 900,
+        "favorited": false,
+        "full_text": "Rem voluptates voluptas fuga totam.",
+        "id": 1582,
+        "id_str": "26900",
+        "is_quote_status": false,
+        "retweet_count": 88594,
+        "retweeted": false,
+        "source": "generate",
+        "truncated": true,
+        "user": Object {
+          "name": "Tobin_Sipes99",
+          "profile_image_url_https": "http://celine.info",
+          "screen_name": "Brigitte.Roberts69",
+        },
+      },
+      "publishedAt": "2020-01-02T00:00:00.000Z",
+      "retweetsCount": 88594,
+      "text": "Rem voluptates voluptas fuga totam.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "26900",
+    },
+  },
+]
+`;
+
+exports[`parseTweets createListInputs works with DATE filters 1`] = `
+Array [
+  Array [
+    Object {
+      "account": Object {
+        "connect": Object {
+          "id": 65229,
+        },
+      },
+      "accountName": "Fidel.Heidenreich35",
+      "accountProfileImageUrl": "https://nicholas.info",
+      "accountScreenName": "Shanna66",
+      "favoritesCount": 53842,
+      "payload": Object {
+        "__accountId": 65229,
+        "created_at": "2020-01-02",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 53842,
+        "favorited": false,
+        "full_text": "Ea ut sunt placeat quidem est consequuntur aut est fuga.",
+        "id": 64774,
+        "id_str": "75094",
+        "is_quote_status": false,
+        "retweet_count": 16535,
+        "retweeted": true,
+        "source": "Soft",
+        "truncated": true,
+        "user": Object {
+          "name": "Fidel.Heidenreich35",
+          "profile_image_url_https": "https://nicholas.info",
+          "screen_name": "Shanna66",
+        },
+      },
+      "publishedAt": "2020-01-02T00:00:00.000Z",
+      "retweetsCount": 16535,
+      "text": "Ea ut sunt placeat quidem est consequuntur aut est fuga.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "75094",
+    },
+    Object {
+      "account": Object {
+        "connect": Object {
+          "id": 9617,
+        },
+      },
+      "accountName": "Mariela91",
+      "accountProfileImageUrl": "http://eliezer.info",
+      "accountScreenName": "Krystina_Becker",
+      "favoritesCount": 46923,
+      "payload": Object {
+        "__accountId": 9617,
+        "created_at": "2020-01-01",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 46923,
+        "favorited": true,
+        "full_text": "Ut quis sed magni cupiditate.",
+        "id": 1936,
+        "id_str": "8362",
+        "is_quote_status": true,
+        "retweet_count": 90859,
+        "retweeted": false,
+        "source": "Indiana",
+        "truncated": true,
+        "user": Object {
+          "name": "Mariela91",
+          "profile_image_url_https": "http://eliezer.info",
+          "screen_name": "Krystina_Becker",
+        },
+      },
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "retweetsCount": 90859,
+      "text": "Ut quis sed magni cupiditate.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "8362",
+    },
+    Object {
+      "account": Object {
+        "connect": Object {
+          "id": 43069,
+        },
+      },
+      "accountName": "Priscilla69",
+      "accountProfileImageUrl": "https://selina.org",
+      "accountScreenName": "Soledad82",
+      "favoritesCount": 45720,
+      "payload": Object {
+        "__accountId": 43069,
+        "created_at": "2020-01-01",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 45720,
+        "favorited": false,
+        "full_text": "Itaque velit omnis et.",
+        "id": 71597,
+        "id_str": "96826",
+        "is_quote_status": false,
+        "retweet_count": 55868,
+        "retweeted": false,
+        "source": "Refined Metal Computer",
+        "truncated": true,
+        "user": Object {
+          "name": "Priscilla69",
+          "profile_image_url_https": "https://selina.org",
+          "screen_name": "Soledad82",
+        },
+      },
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "retweetsCount": 55868,
+      "text": "Itaque velit omnis et.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "96826",
+    },
+    Object {
+      "account": Object {
+        "connect": Object {
+          "id": 95788,
+        },
+      },
+      "accountName": "Roberta3",
+      "accountProfileImageUrl": "https://lindsay.org",
+      "accountScreenName": "Magnolia28",
+      "favoritesCount": 42110,
+      "payload": Object {
+        "__accountId": 95788,
+        "created_at": "2020-01-01",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 42110,
+        "favorited": false,
+        "full_text": "Provident velit eligendi nostrum ipsam qui.",
+        "id": 68650,
+        "id_str": "78331",
+        "is_quote_status": false,
+        "retweet_count": 67165,
+        "retweeted": true,
+        "source": "Ergonomic",
+        "truncated": false,
+        "user": Object {
+          "name": "Roberta3",
+          "profile_image_url_https": "https://lindsay.org",
+          "screen_name": "Magnolia28",
+        },
+      },
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "retweetsCount": 67165,
+      "text": "Provident velit eligendi nostrum ipsam qui.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "78331",
+    },
+    Object {
+      "account": Object {
+        "connect": Object {
+          "id": 72032,
+        },
+      },
+      "accountName": "Gracie_Weber",
+      "accountProfileImageUrl": "http://elza.net",
+      "accountScreenName": "Judge_Doyle",
+      "favoritesCount": 41702,
+      "payload": Object {
+        "__accountId": 72032,
+        "created_at": "2020-01-01",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 41702,
+        "favorited": false,
+        "full_text": "Alias consequuntur corporis repellat ratione ut sunt qui amet iure.",
+        "id": 34556,
+        "id_str": "66974",
+        "is_quote_status": true,
+        "retweet_count": 99718,
+        "retweeted": false,
+        "source": "European Unit of Account 17(E.U.A.-17)",
+        "truncated": false,
+        "user": Object {
+          "name": "Gracie_Weber",
+          "profile_image_url_https": "http://elza.net",
+          "screen_name": "Judge_Doyle",
+        },
+      },
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "retweetsCount": 99718,
+      "text": "Alias consequuntur corporis repellat ratione ut sunt qui amet iure.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "66974",
+    },
+    Object {
+      "account": Object {
+        "connect": Object {
+          "id": 53344,
+        },
+      },
+      "accountName": "Alverta51",
+      "accountProfileImageUrl": "https://tyrel.com",
+      "accountScreenName": "Kyleigh_Tillman13",
+      "favoritesCount": 23101,
+      "payload": Object {
+        "__accountId": 53344,
+        "created_at": "2020-01-02",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 23101,
+        "favorited": false,
+        "full_text": "Hic eligendi quos esse ut ab.",
+        "id": 76548,
+        "id_str": "53589",
+        "is_quote_status": true,
+        "retweet_count": 10233,
+        "retweeted": false,
+        "source": "cross-platform",
+        "truncated": false,
+        "user": Object {
+          "name": "Alverta51",
+          "profile_image_url_https": "https://tyrel.com",
+          "screen_name": "Kyleigh_Tillman13",
+        },
+      },
+      "publishedAt": "2020-01-02T00:00:00.000Z",
+      "retweetsCount": 10233,
+      "text": "Hic eligendi quos esse ut ab.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "53589",
+    },
+  ],
+  Array [
+    Object {
+      "account": Object {
+        "connect": Object {
+          "id": 65229,
+        },
+      },
+      "accountName": "Fidel.Heidenreich35",
+      "accountProfileImageUrl": "https://nicholas.info",
+      "accountScreenName": "Shanna66",
+      "favoritesCount": 53842,
+      "payload": Object {
+        "__accountId": 65229,
+        "created_at": "2020-01-02",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 53842,
+        "favorited": false,
+        "full_text": "Ea ut sunt placeat quidem est consequuntur aut est fuga.",
+        "id": 64774,
+        "id_str": "75094",
+        "is_quote_status": false,
+        "retweet_count": 16535,
+        "retweeted": true,
+        "source": "Soft",
+        "truncated": true,
+        "user": Object {
+          "name": "Fidel.Heidenreich35",
+          "profile_image_url_https": "https://nicholas.info",
+          "screen_name": "Shanna66",
+        },
+      },
+      "publishedAt": "2020-01-02T00:00:00.000Z",
+      "retweetsCount": 16535,
+      "text": "Ea ut sunt placeat quidem est consequuntur aut est fuga.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "75094",
+    },
+    Object {
+      "account": Object {
+        "connect": Object {
+          "id": 9617,
+        },
+      },
+      "accountName": "Mariela91",
+      "accountProfileImageUrl": "http://eliezer.info",
+      "accountScreenName": "Krystina_Becker",
+      "favoritesCount": 46923,
+      "payload": Object {
+        "__accountId": 9617,
+        "created_at": "2020-01-01",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 46923,
+        "favorited": true,
+        "full_text": "Ut quis sed magni cupiditate.",
+        "id": 1936,
+        "id_str": "8362",
+        "is_quote_status": true,
+        "retweet_count": 90859,
+        "retweeted": false,
+        "source": "Indiana",
+        "truncated": true,
+        "user": Object {
+          "name": "Mariela91",
+          "profile_image_url_https": "http://eliezer.info",
+          "screen_name": "Krystina_Becker",
+        },
+      },
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "retweetsCount": 90859,
+      "text": "Ut quis sed magni cupiditate.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "8362",
+    },
+    Object {
+      "account": Object {
+        "connect": Object {
+          "id": 43069,
+        },
+      },
+      "accountName": "Priscilla69",
+      "accountProfileImageUrl": "https://selina.org",
+      "accountScreenName": "Soledad82",
+      "favoritesCount": 45720,
+      "payload": Object {
+        "__accountId": 43069,
+        "created_at": "2020-01-01",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 45720,
+        "favorited": false,
+        "full_text": "Itaque velit omnis et.",
+        "id": 71597,
+        "id_str": "96826",
+        "is_quote_status": false,
+        "retweet_count": 55868,
+        "retweeted": false,
+        "source": "Refined Metal Computer",
+        "truncated": true,
+        "user": Object {
+          "name": "Priscilla69",
+          "profile_image_url_https": "https://selina.org",
+          "screen_name": "Soledad82",
+        },
+      },
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "retweetsCount": 55868,
+      "text": "Itaque velit omnis et.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "96826",
+    },
+    Object {
+      "account": Object {
+        "connect": Object {
+          "id": 95788,
+        },
+      },
+      "accountName": "Roberta3",
+      "accountProfileImageUrl": "https://lindsay.org",
+      "accountScreenName": "Magnolia28",
+      "favoritesCount": 42110,
+      "payload": Object {
+        "__accountId": 95788,
+        "created_at": "2020-01-01",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 42110,
+        "favorited": false,
+        "full_text": "Provident velit eligendi nostrum ipsam qui.",
+        "id": 68650,
+        "id_str": "78331",
+        "is_quote_status": false,
+        "retweet_count": 67165,
+        "retweeted": true,
+        "source": "Ergonomic",
+        "truncated": false,
+        "user": Object {
+          "name": "Roberta3",
+          "profile_image_url_https": "https://lindsay.org",
+          "screen_name": "Magnolia28",
+        },
+      },
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "retweetsCount": 67165,
+      "text": "Provident velit eligendi nostrum ipsam qui.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "78331",
+    },
+    Object {
+      "account": Object {
+        "connect": Object {
+          "id": 72032,
+        },
+      },
+      "accountName": "Gracie_Weber",
+      "accountProfileImageUrl": "http://elza.net",
+      "accountScreenName": "Judge_Doyle",
+      "favoritesCount": 41702,
+      "payload": Object {
+        "__accountId": 72032,
+        "created_at": "2020-01-01",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 41702,
+        "favorited": false,
+        "full_text": "Alias consequuntur corporis repellat ratione ut sunt qui amet iure.",
+        "id": 34556,
+        "id_str": "66974",
+        "is_quote_status": true,
+        "retweet_count": 99718,
+        "retweeted": false,
+        "source": "European Unit of Account 17(E.U.A.-17)",
+        "truncated": false,
+        "user": Object {
+          "name": "Gracie_Weber",
+          "profile_image_url_https": "http://elza.net",
+          "screen_name": "Judge_Doyle",
+        },
+      },
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "retweetsCount": 99718,
+      "text": "Alias consequuntur corporis repellat ratione ut sunt qui amet iure.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "66974",
+    },
+    Object {
+      "account": Object {
+        "connect": Object {
+          "id": 53344,
+        },
+      },
+      "accountName": "Alverta51",
+      "accountProfileImageUrl": "https://tyrel.com",
+      "accountScreenName": "Kyleigh_Tillman13",
+      "favoritesCount": 23101,
+      "payload": Object {
+        "__accountId": 53344,
+        "created_at": "2020-01-02",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 23101,
+        "favorited": false,
+        "full_text": "Hic eligendi quos esse ut ab.",
+        "id": 76548,
+        "id_str": "53589",
+        "is_quote_status": true,
+        "retweet_count": 10233,
+        "retweeted": false,
+        "source": "cross-platform",
+        "truncated": false,
+        "user": Object {
+          "name": "Alverta51",
+          "profile_image_url_https": "https://tyrel.com",
+          "screen_name": "Kyleigh_Tillman13",
+        },
+      },
+      "publishedAt": "2020-01-02T00:00:00.000Z",
+      "retweetsCount": 10233,
+      "text": "Hic eligendi quos esse ut ab.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "53589",
+    },
+  ],
+  Array [
+    Object {
+      "account": Object {
+        "connect": Object {
+          "id": 65229,
+        },
+      },
+      "accountName": "Fidel.Heidenreich35",
+      "accountProfileImageUrl": "https://nicholas.info",
+      "accountScreenName": "Shanna66",
+      "favoritesCount": 53842,
+      "payload": Object {
+        "__accountId": 65229,
+        "created_at": "2020-01-02",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 53842,
+        "favorited": false,
+        "full_text": "Ea ut sunt placeat quidem est consequuntur aut est fuga.",
+        "id": 64774,
+        "id_str": "75094",
+        "is_quote_status": false,
+        "retweet_count": 16535,
+        "retweeted": true,
+        "source": "Soft",
+        "truncated": true,
+        "user": Object {
+          "name": "Fidel.Heidenreich35",
+          "profile_image_url_https": "https://nicholas.info",
+          "screen_name": "Shanna66",
+        },
+      },
+      "publishedAt": "2020-01-02T00:00:00.000Z",
+      "retweetsCount": 16535,
+      "text": "Ea ut sunt placeat quidem est consequuntur aut est fuga.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "75094",
+    },
+    Object {
+      "account": Object {
+        "connect": Object {
+          "id": 9617,
+        },
+      },
+      "accountName": "Mariela91",
+      "accountProfileImageUrl": "http://eliezer.info",
+      "accountScreenName": "Krystina_Becker",
+      "favoritesCount": 46923,
+      "payload": Object {
+        "__accountId": 9617,
+        "created_at": "2020-01-01",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 46923,
+        "favorited": true,
+        "full_text": "Ut quis sed magni cupiditate.",
+        "id": 1936,
+        "id_str": "8362",
+        "is_quote_status": true,
+        "retweet_count": 90859,
+        "retweeted": false,
+        "source": "Indiana",
+        "truncated": true,
+        "user": Object {
+          "name": "Mariela91",
+          "profile_image_url_https": "http://eliezer.info",
+          "screen_name": "Krystina_Becker",
+        },
+      },
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "retweetsCount": 90859,
+      "text": "Ut quis sed magni cupiditate.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "8362",
+    },
+    Object {
+      "account": Object {
+        "connect": Object {
+          "id": 43069,
+        },
+      },
+      "accountName": "Priscilla69",
+      "accountProfileImageUrl": "https://selina.org",
+      "accountScreenName": "Soledad82",
+      "favoritesCount": 45720,
+      "payload": Object {
+        "__accountId": 43069,
+        "created_at": "2020-01-01",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 45720,
+        "favorited": false,
+        "full_text": "Itaque velit omnis et.",
+        "id": 71597,
+        "id_str": "96826",
+        "is_quote_status": false,
+        "retweet_count": 55868,
+        "retweeted": false,
+        "source": "Refined Metal Computer",
+        "truncated": true,
+        "user": Object {
+          "name": "Priscilla69",
+          "profile_image_url_https": "https://selina.org",
+          "screen_name": "Soledad82",
+        },
+      },
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "retweetsCount": 55868,
+      "text": "Itaque velit omnis et.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "96826",
+    },
+    Object {
+      "account": Object {
+        "connect": Object {
+          "id": 95788,
+        },
+      },
+      "accountName": "Roberta3",
+      "accountProfileImageUrl": "https://lindsay.org",
+      "accountScreenName": "Magnolia28",
+      "favoritesCount": 42110,
+      "payload": Object {
+        "__accountId": 95788,
+        "created_at": "2020-01-01",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 42110,
+        "favorited": false,
+        "full_text": "Provident velit eligendi nostrum ipsam qui.",
+        "id": 68650,
+        "id_str": "78331",
+        "is_quote_status": false,
+        "retweet_count": 67165,
+        "retweeted": true,
+        "source": "Ergonomic",
+        "truncated": false,
+        "user": Object {
+          "name": "Roberta3",
+          "profile_image_url_https": "https://lindsay.org",
+          "screen_name": "Magnolia28",
+        },
+      },
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "retweetsCount": 67165,
+      "text": "Provident velit eligendi nostrum ipsam qui.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "78331",
+    },
+    Object {
+      "account": Object {
+        "connect": Object {
+          "id": 72032,
+        },
+      },
+      "accountName": "Gracie_Weber",
+      "accountProfileImageUrl": "http://elza.net",
+      "accountScreenName": "Judge_Doyle",
+      "favoritesCount": 41702,
+      "payload": Object {
+        "__accountId": 72032,
+        "created_at": "2020-01-01",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 41702,
+        "favorited": false,
+        "full_text": "Alias consequuntur corporis repellat ratione ut sunt qui amet iure.",
+        "id": 34556,
+        "id_str": "66974",
+        "is_quote_status": true,
+        "retweet_count": 99718,
+        "retweeted": false,
+        "source": "European Unit of Account 17(E.U.A.-17)",
+        "truncated": false,
+        "user": Object {
+          "name": "Gracie_Weber",
+          "profile_image_url_https": "http://elza.net",
+          "screen_name": "Judge_Doyle",
+        },
+      },
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "retweetsCount": 99718,
+      "text": "Alias consequuntur corporis repellat ratione ut sunt qui amet iure.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "66974",
+    },
+    Object {
+      "account": Object {
+        "connect": Object {
+          "id": 53344,
+        },
+      },
+      "accountName": "Alverta51",
+      "accountProfileImageUrl": "https://tyrel.com",
+      "accountScreenName": "Kyleigh_Tillman13",
+      "favoritesCount": 23101,
+      "payload": Object {
+        "__accountId": 53344,
+        "created_at": "2020-01-02",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 23101,
+        "favorited": false,
+        "full_text": "Hic eligendi quos esse ut ab.",
+        "id": 76548,
+        "id_str": "53589",
+        "is_quote_status": true,
+        "retweet_count": 10233,
+        "retweeted": false,
+        "source": "cross-platform",
+        "truncated": false,
+        "user": Object {
+          "name": "Alverta51",
+          "profile_image_url_https": "https://tyrel.com",
+          "screen_name": "Kyleigh_Tillman13",
+        },
+      },
+      "publishedAt": "2020-01-02T00:00:00.000Z",
+      "retweetsCount": 10233,
+      "text": "Hic eligendi quos esse ut ab.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "53589",
+    },
+  ],
+]
+`;
+
+exports[`parseTweets createListInputs works with NO filters 1`] = `
+Array [
+  Array [
+    Object {
+      "account": Object {
+        "connect": Object {
+          "id": 96826,
+        },
+      },
+      "accountName": "Dorcas87",
+      "accountProfileImageUrl": "https://ayden.name",
+      "accountScreenName": "Helena.Osinski53",
+      "favoritesCount": 80074,
+      "payload": Object {
+        "__accountId": 96826,
+        "created_at": "2020-01-01",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 80074,
+        "favorited": false,
+        "full_text": "Ipsam explicabo eligendi occaecati debitis et saepe eum dicta.",
+        "id": 82960,
+        "id_str": "3905",
+        "is_quote_status": false,
+        "retweet_count": 71597,
+        "retweeted": true,
+        "source": "budgetary management",
+        "truncated": true,
+        "user": Object {
+          "name": "Dorcas87",
+          "profile_image_url_https": "https://ayden.name",
+          "screen_name": "Helena.Osinski53",
+        },
+      },
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "retweetsCount": 71597,
+      "text": "Ipsam explicabo eligendi occaecati debitis et saepe eum dicta.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "3905",
+    },
+    Object {
+      "account": Object {
+        "connect": Object {
+          "id": 41253,
+        },
+      },
+      "accountName": "Neil44",
+      "accountProfileImageUrl": "https://damaris.com",
+      "accountScreenName": "Antwon_King",
+      "favoritesCount": 78331,
+      "payload": Object {
+        "__accountId": 41253,
+        "created_at": "2020-01-01",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 78331,
+        "favorited": false,
+        "full_text": "Aperiam placeat fuga.",
+        "id": 98886,
+        "id_str": "66063",
+        "is_quote_status": true,
+        "retweet_count": 83462,
+        "retweeted": false,
+        "source": "bandwidth-monitored",
+        "truncated": false,
+        "user": Object {
+          "name": "Neil44",
+          "profile_image_url_https": "https://damaris.com",
+          "screen_name": "Antwon_King",
+        },
+      },
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "retweetsCount": 83462,
+      "text": "Aperiam placeat fuga.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "66063",
+    },
+    Object {
+      "account": Object {
+        "connect": Object {
+          "id": 8362,
+        },
+      },
+      "accountName": "Lessie_Corkery26",
+      "accountProfileImageUrl": "https://dariana.com",
+      "accountScreenName": "Kacie_Jerde49",
+      "favoritesCount": 52479,
+      "payload": Object {
+        "__accountId": 8362,
+        "created_at": "2020-01-01",
+        "entities": Object {
+          "media": Array [],
+          "urls": Array [],
+        },
+        "favorite_count": 52479,
+        "favorited": false,
+        "full_text": "Sint non voluptates ut ullam quos qui illo.",
+        "id": 56591,
+        "id_str": "57411",
+        "is_quote_status": false,
+        "retweet_count": 1936,
+        "retweeted": true,
+        "source": "generate",
+        "truncated": false,
+        "user": Object {
+          "name": "Lessie_Corkery26",
+          "profile_image_url_https": "https://dariana.com",
+          "screen_name": "Kacie_Jerde49",
+        },
+      },
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "retweetsCount": 1936,
+      "text": "Sint non voluptates ut ullam quos qui illo.",
+      "tweetTypes": Object {
+        "connect": Array [
+          Object {
+            "name": "TEXT",
+          },
+        ],
+      },
+      "twitterId": "57411",
+    },
+  ],
+]
+`;

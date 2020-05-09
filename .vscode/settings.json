@@ -1,0 +1,6 @@
+{
+    "typescript.tsdk": "/Users/tom/Code/twitter-fomo/node_modules/typescript/lib",
+    "editor.tabSize": 2,
+    "prisma.plugin.nextjs.addTypesOnSave": true,
+    "prisma.plugin.nextjs.hasPrompted": true
+}
