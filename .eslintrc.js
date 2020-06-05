@@ -1,5 +1,12 @@
 module.exports = {
-    plugins: ['react', 'jsx-a11y', 'import', 'jest', 'react-hooks'],
+    plugins: [
+        'react',
+        'jsx-a11y',
+        'import',
+        'jest',
+        'react-hooks',
+        'plugin:@typescript-eslint/recommended',
+    ],
     extends: [
         'airbnb',
         'plugin:jest/recommended',
@@ -7,6 +14,10 @@ module.exports = {
         'prettier/react',
         'plugin:react-hooks/recommended',
     ],
-    parser: 'babel-eslint',
-    rules: {},
-}
+    parser: '@typescript-eslint/parser',
+    rules: {
+        'no-console': 'error',
+        'no-underscore-dangle': 'off',
+        'no-unused-expressions': ['error', { allowShortCircuit: true }],
+    },
+};
