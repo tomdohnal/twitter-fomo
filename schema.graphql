@@ -1,6 +1,6 @@
 type Community {
   name: String!
-  accounts: [Account!] @relation
+  accounts: [Account!]! @relation
 }
 
 enum AccountType {
@@ -18,7 +18,7 @@ enum TweetType {
 type Account {
   name: String! @unique
   twitterId: String! @unique
-  communities: [Community!] @relation
+  communities: [Community!]! @relation
   type: AccountType!
 }
 

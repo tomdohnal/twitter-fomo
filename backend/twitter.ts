@@ -1,0 +1,140 @@
+import Twitter from 'twitter-lite';
+import * as R from 'ramda';
+import { dayjsUtc, Dayjs } from '../common/date';
+import logger from './logger';
+
+export interface ApiTweet {
+  id: number;
+  entities: { urls: Array<any>; media: Array<any> };
+  favorite_count: number;
+  created_at: string;
+  id_str: string;
+  full_text: string;
+  user: {
+    name: string;
+  };
+  __accountId: string;
+}
+
+// using `util.promisify` breaks Jest for some reason...
+const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+
+export const promiseTest = async () => {
+  await Promise.resolve();
+  await sleep(100000);
+  return 'ahoj';
+};
+
+export const getApp = () =>
+  Promise.resolve(
+    new Twitter({
+      consumer_key: process.env.TWITTER_CONSUMER_KEY || '',
+      consumer_secret: process.env.TWITTER_CONSUMER_SECRET || '',
+    }),
+  )
+    .then(user => user.getBearerToken())
+    .then(response => {
+      return new Twitter({
+        // @ts-ignore (bearer_token DOES exists in `TwitterOptions`)
+        bearer_token: response.access_token,
+      });
+    });
+
+async function pauseExecution(resetTimestamp: number) {
+  const currentTimestamp = Date.now() / 1000;
+
+  // + 5 is to allow for possible rounding errors / mistakes
+  await sleep((resetTimestamp - currentTimestamp + 5) * 1000);
+}
+
+export async function fetchTweetsForAccount({
+  accountId,
+  twitterId,
+  app,
+  startDate,
+  endDate,
+}: {
+  accountId: string;
+  twitterId: string;
+  app: Twitter;
+  startDate: Dayjs;
+  endDate: Dayjs;
+}): Promise<ApiTweet[]> {
+  let tweets: Omit<ApiTweet, '__accountId'>[] = [];
+  let lastTweetDate = null;
+  let loopCounter = 0;
+  const MAX_LOOP_COUNTER = 50; // limit to prevent unexpected infinite loops
+
+  do {
+    loopCounter++;
+    const lastTweet = tweets[tweets.length - 1];
+    const lastTweetId = lastTweet && lastTweet.id;
+
+    // eslint-disable-next-line no-await-in-loop
+    const fetchTweets = (): Promise<Omit<ApiTweet, '__accountId'>[]> =>
+      app
+        .get('statuses/user_timeline', {
+          user_id: twitterId,
+          count: 200,
+          include_rts: false,
+          exclude_replies: true,
+          tweet_mode: 'extended',
+          ...(lastTweetId && { max_id: lastTweetId }),
+        })
+        .then(async (res: Omit<ApiTweet, '__accountId'>[] & { _headers: any }) => {
+          const apiLimitRemaining = parseInt(
+            // eslint-disable-next-line no-underscore-dangle
+            res._headers.get('x-rate-limit-remaining'),
+            10,
+          );
+
+          if (apiLimitRemaining === 0) {
+            logger.log('`apiLimitRemaining === 0`, waiting...');
+            const resetTimestamp = parseInt(
+              // eslint-disable-next-line no-underscore-dangle
+              res._headers.get('x-rate-limit-reset'),
+              10,
+            );
+
+            await pauseExecution(resetTimestamp);
+          }
+
+          return res;
+        })
+        .catch(async err => {
+          // handle limit exceeded
+          if (err.errors[0].code === 88) {
+            logger.error(new Error('Twitter limit exceeded, waiting...'));
+            await sleep(60000); // sleep for 1 minute
+            return fetchTweets();
+          }
+
+          throw err;
+        });
+
+    const fetchedTweets = await fetchTweets();
+
+    lastTweetDate = fetchedTweets
+      ? dayjsUtc(fetchedTweets[fetchedTweets.length - 1].created_at)
+      : endDate;
+
+    tweets = tweets.concat(fetchedTweets);
+  } while (lastTweetDate.isAfter(startDate) && loopCounter < MAX_LOOP_COUNTER);
+
+  if (loopCounter > MAX_LOOP_COUNTER) {
+    logger.error(new Error('`loopCounter >= MAX_LOOP_COUNTER`'));
+  }
+
+  // TODO: possible perf boost - the tweets are sorted
+  // by date so you can leverage that when filtering.
+  // But premature optimization for now IMO
+  return tweets
+    .filter(tweet => {
+      const tweetDate = dayjsUtc(tweet.created_at);
+
+      return (
+        (tweetDate.isAfter(startDate) && tweetDate.isBefore(endDate)) || tweetDate.isSame(endDate)
+      );
+    })
+    .map(R.assoc('__accountId', accountId));
+}
