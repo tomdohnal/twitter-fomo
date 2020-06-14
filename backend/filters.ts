@@ -1,11 +1,10 @@
-import { Period } from './../__generated__/globalTypes';
-import { dayjsUtc } from './../common/date';
-import { AllAccounts_allAccounts_data } from './__generated__/AllAccounts';
+import { AccountType } from './../__generated__/globalTypes';
 import * as R from 'ramda';
+import { TweetType, Period, ListInput } from '../__generated__/globalTypes';
+import { dayjsUtc, Dayjs } from '../common/date';
+import { AllAccounts_allAccounts_data } from './__generated__/AllAccounts';
 import { AllCommunities_allCommunities_data } from './__generated__/AllCommunities';
 import { ApiTweet } from './twitter';
-import { Dayjs } from '../common/date';
-import { ListInput } from '../__generated__/globalTypes';
 
 export interface Filter {
   fields: Partial<ListInput>;
@@ -62,8 +61,8 @@ export function createDateFilters({ startDate, endDate }: { startDate: Dayjs; en
       startDate: startDate.toISOString(),
     },
     filterAccountTweets: createDateTweetFilterFn({
-      startDate: startDate,
-      endDate: endDate,
+      startDate,
+      endDate,
     }),
   };
 
@@ -84,3 +83,46 @@ export const createCommunitiesFilters = (
       );
     },
   }));
+
+function isTextTweet(tweet: ApiTweet) {
+  return Object.values(tweet.entities).every(entity => entity.length === 0);
+}
+
+function isLinkTweet(tweet: ApiTweet) {
+  return tweet.entities.urls && tweet.entities.urls.length > 0;
+}
+
+function isMediaTweet(tweet: ApiTweet) {
+  return tweet.entities.media && tweet.entities.media.length > 0;
+}
+
+export const createTweetTypeFilters = (): Filter[] => {
+  const typesFilterFns = {
+    [TweetType.LINK]: isLinkTweet,
+    [TweetType.MEDIA]: isMediaTweet,
+    [TweetType.TEXT]: isTextTweet,
+  };
+
+  return Object.values(TweetType).map(type => ({
+    fields: {
+      tweetType: type,
+    },
+    filterAccountTweets(accountTweets: AccountTweet[]) {
+      return accountTweets.map(accountTweet => ({
+        account: accountTweet.account,
+        tweets: accountTweet.tweets.filter(tweet => typesFilterFns[type](tweet)),
+      }));
+    },
+  }));
+};
+
+export const createAccountTypeFilters = (): Filter[] => {
+  return Object.values(AccountType).map(accountType => ({
+    fields: {
+      accountType,
+    },
+    filterAccountTweets(accountTweets: AccountTweet[]) {
+      return accountTweets.filter(accountTweet => accountTweet.account.type === accountType);
+    },
+  }));
+};

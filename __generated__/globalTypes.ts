@@ -18,7 +18,6 @@ export enum Period {
 }
 
 export enum TweetType {
-  ALL = "ALL",
   LINK = "LINK",
   MEDIA = "MEDIA",
   TEXT = "TEXT",

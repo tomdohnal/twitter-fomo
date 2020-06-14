@@ -12,7 +12,6 @@ enum TweetType {
   TEXT
   MEDIA
   LINK
-  ALL
 }
 
 type Account {

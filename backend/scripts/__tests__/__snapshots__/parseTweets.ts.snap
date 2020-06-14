@@ -1,0 +1,480 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`parseTweets createListInputs works with DATE and COMMUNITIES and TWEET_TYPE filters 1`] = `
+Array [
+  Object {},
+  Object {
+    "period": "WEEK",
+    "startDate": "2020-01-01T00:00:00.000Z",
+  },
+  Object {
+    "community": Object {
+      "connect": "1",
+    },
+    "period": "WEEK",
+    "startDate": "2020-01-01T00:00:00.000Z",
+  },
+  Object {
+    "community": Object {
+      "connect": "1",
+    },
+    "period": "WEEK",
+    "startDate": "2020-01-01T00:00:00.000Z",
+    "tweetType": "LINK",
+  },
+  Object {
+    "community": Object {
+      "connect": "1",
+    },
+    "period": "WEEK",
+    "startDate": "2020-01-01T00:00:00.000Z",
+    "tweetType": "MEDIA",
+  },
+  Object {
+    "community": Object {
+      "connect": "1",
+    },
+    "period": "WEEK",
+    "startDate": "2020-01-01T00:00:00.000Z",
+    "tweetType": "TEXT",
+  },
+  Object {
+    "community": Object {
+      "connect": "2",
+    },
+    "period": "WEEK",
+    "startDate": "2020-01-01T00:00:00.000Z",
+  },
+  Object {
+    "community": Object {
+      "connect": "2",
+    },
+    "period": "WEEK",
+    "startDate": "2020-01-01T00:00:00.000Z",
+    "tweetType": "LINK",
+  },
+  Object {
+    "community": Object {
+      "connect": "2",
+    },
+    "period": "WEEK",
+    "startDate": "2020-01-01T00:00:00.000Z",
+    "tweetType": "MEDIA",
+  },
+  Object {
+    "community": Object {
+      "connect": "2",
+    },
+    "period": "WEEK",
+    "startDate": "2020-01-01T00:00:00.000Z",
+    "tweetType": "TEXT",
+  },
+  Object {
+    "period": "WEEK",
+    "startDate": "2020-01-01T00:00:00.000Z",
+    "tweetType": "LINK",
+  },
+  Object {
+    "period": "WEEK",
+    "startDate": "2020-01-01T00:00:00.000Z",
+    "tweetType": "MEDIA",
+  },
+  Object {
+    "period": "WEEK",
+    "startDate": "2020-01-01T00:00:00.000Z",
+    "tweetType": "TEXT",
+  },
+  Object {
+    "period": "DAY",
+    "startDate": "2020-01-01T00:00:00.000Z",
+  },
+  Object {
+    "community": Object {
+      "connect": "1",
+    },
+    "period": "DAY",
+    "startDate": "2020-01-01T00:00:00.000Z",
+  },
+  Object {
+    "community": Object {
+      "connect": "1",
+    },
+    "period": "DAY",
+    "startDate": "2020-01-01T00:00:00.000Z",
+    "tweetType": "LINK",
+  },
+  Object {
+    "community": Object {
+      "connect": "1",
+    },
+    "period": "DAY",
+    "startDate": "2020-01-01T00:00:00.000Z",
+    "tweetType": "MEDIA",
+  },
+  Object {
+    "community": Object {
+      "connect": "1",
+    },
+    "period": "DAY",
+    "startDate": "2020-01-01T00:00:00.000Z",
+    "tweetType": "TEXT",
+  },
+  Object {
+    "community": Object {
+      "connect": "2",
+    },
+    "period": "DAY",
+    "startDate": "2020-01-01T00:00:00.000Z",
+  },
+  Object {
+    "community": Object {
+      "connect": "2",
+    },
+    "period": "DAY",
+    "startDate": "2020-01-01T00:00:00.000Z",
+    "tweetType": "LINK",
+  },
+  Object {
+    "community": Object {
+      "connect": "2",
+    },
+    "period": "DAY",
+    "startDate": "2020-01-01T00:00:00.000Z",
+    "tweetType": "MEDIA",
+  },
+  Object {
+    "community": Object {
+      "connect": "2",
+    },
+    "period": "DAY",
+    "startDate": "2020-01-01T00:00:00.000Z",
+    "tweetType": "TEXT",
+  },
+  Object {
+    "period": "DAY",
+    "startDate": "2020-01-01T00:00:00.000Z",
+    "tweetType": "LINK",
+  },
+  Object {
+    "period": "DAY",
+    "startDate": "2020-01-01T00:00:00.000Z",
+    "tweetType": "MEDIA",
+  },
+  Object {
+    "period": "DAY",
+    "startDate": "2020-01-01T00:00:00.000Z",
+    "tweetType": "TEXT",
+  },
+  Object {
+    "community": Object {
+      "connect": "1",
+    },
+  },
+  Object {
+    "community": Object {
+      "connect": "1",
+    },
+    "tweetType": "LINK",
+  },
+  Object {
+    "community": Object {
+      "connect": "1",
+    },
+    "tweetType": "MEDIA",
+  },
+  Object {
+    "community": Object {
+      "connect": "1",
+    },
+    "tweetType": "TEXT",
+  },
+  Object {
+    "community": Object {
+      "connect": "2",
+    },
+  },
+  Object {
+    "community": Object {
+      "connect": "2",
+    },
+    "tweetType": "LINK",
+  },
+  Object {
+    "community": Object {
+      "connect": "2",
+    },
+    "tweetType": "MEDIA",
+  },
+  Object {
+    "community": Object {
+      "connect": "2",
+    },
+    "tweetType": "TEXT",
+  },
+  Object {
+    "tweetType": "LINK",
+  },
+  Object {
+    "tweetType": "MEDIA",
+  },
+  Object {
+    "tweetType": "TEXT",
+  },
+]
+`;
+
+exports[`parseTweets createListInputs works with DATE filters 1`] = `
+Array [
+  Object {
+    "tweets": Object {
+      "create": Array [
+        Object {
+          "account": Object {
+            "connect": "412801ae-3e44-4790-9992-f94b3186fb76",
+          },
+          "accountName": "Alex_McGlynn54",
+          "favoritesCount": 90337,
+          "publishedAt": "2020-01-01T00:00:00.000Z",
+          "text": "Ab voluptas sed quae nam eos sint.",
+          "twitterId": "94459",
+        },
+        Object {
+          "account": Object {
+            "connect": "ec940c92-5980-4eb5-bec9-704edb8f1272",
+          },
+          "accountName": "Therese_Beatty12",
+          "favoritesCount": 76292,
+          "publishedAt": "2020-01-02T00:00:00.000Z",
+          "text": "Recusandae consectetur optio laudantium et incidunt possimus molestias.",
+          "twitterId": "20856",
+        },
+        Object {
+          "account": Object {
+            "connect": "8eded1d0-420e-4a19-aaf6-83b452acd600",
+          },
+          "accountName": "Isai.Koss29",
+          "favoritesCount": 69232,
+          "publishedAt": "2020-01-01T00:00:00.000Z",
+          "text": "Fuga doloribus distinctio placeat ullam minima ducimus temporibus modi.",
+          "twitterId": "7336",
+        },
+        Object {
+          "account": Object {
+            "connect": "fbe024f2-3162-465a-ae8d-65a837e308ae",
+          },
+          "accountName": "Michel.Wisoky9",
+          "favoritesCount": 41702,
+          "publishedAt": "2020-01-01T00:00:00.000Z",
+          "text": "Blanditiis natus et eos itaque velit.",
+          "twitterId": "80074",
+        },
+        Object {
+          "account": Object {
+            "connect": "06010831-d483-48fd-8134-199f6850dc43",
+          },
+          "accountName": "Bridie15",
+          "favoritesCount": 17227,
+          "publishedAt": "2020-01-02T00:00:00.000Z",
+          "text": "Aut laborum iure molestiae et facere placeat molestiae.",
+          "twitterId": "42838",
+        },
+        Object {
+          "account": Object {
+            "connect": "72ec6682-ae55-49ca-b2eb-9ac55c45ec6e",
+          },
+          "accountName": "Trycia.Jaskolski",
+          "favoritesCount": 13747,
+          "publishedAt": "2020-01-01T00:00:00.000Z",
+          "text": "Aut nam et dolorum architecto fugit repellendus hic veritatis qui.",
+          "twitterId": "57838",
+        },
+      ],
+    },
+  },
+  Object {
+    "period": "WEEK",
+    "startDate": "2020-01-01T00:00:00.000Z",
+    "tweets": Object {
+      "create": Array [
+        Object {
+          "account": Object {
+            "connect": "412801ae-3e44-4790-9992-f94b3186fb76",
+          },
+          "accountName": "Alex_McGlynn54",
+          "favoritesCount": 90337,
+          "publishedAt": "2020-01-01T00:00:00.000Z",
+          "text": "Ab voluptas sed quae nam eos sint.",
+          "twitterId": "94459",
+        },
+        Object {
+          "account": Object {
+            "connect": "ec940c92-5980-4eb5-bec9-704edb8f1272",
+          },
+          "accountName": "Therese_Beatty12",
+          "favoritesCount": 76292,
+          "publishedAt": "2020-01-02T00:00:00.000Z",
+          "text": "Recusandae consectetur optio laudantium et incidunt possimus molestias.",
+          "twitterId": "20856",
+        },
+        Object {
+          "account": Object {
+            "connect": "8eded1d0-420e-4a19-aaf6-83b452acd600",
+          },
+          "accountName": "Isai.Koss29",
+          "favoritesCount": 69232,
+          "publishedAt": "2020-01-01T00:00:00.000Z",
+          "text": "Fuga doloribus distinctio placeat ullam minima ducimus temporibus modi.",
+          "twitterId": "7336",
+        },
+        Object {
+          "account": Object {
+            "connect": "fbe024f2-3162-465a-ae8d-65a837e308ae",
+          },
+          "accountName": "Michel.Wisoky9",
+          "favoritesCount": 41702,
+          "publishedAt": "2020-01-01T00:00:00.000Z",
+          "text": "Blanditiis natus et eos itaque velit.",
+          "twitterId": "80074",
+        },
+        Object {
+          "account": Object {
+            "connect": "06010831-d483-48fd-8134-199f6850dc43",
+          },
+          "accountName": "Bridie15",
+          "favoritesCount": 17227,
+          "publishedAt": "2020-01-02T00:00:00.000Z",
+          "text": "Aut laborum iure molestiae et facere placeat molestiae.",
+          "twitterId": "42838",
+        },
+        Object {
+          "account": Object {
+            "connect": "72ec6682-ae55-49ca-b2eb-9ac55c45ec6e",
+          },
+          "accountName": "Trycia.Jaskolski",
+          "favoritesCount": 13747,
+          "publishedAt": "2020-01-01T00:00:00.000Z",
+          "text": "Aut nam et dolorum architecto fugit repellendus hic veritatis qui.",
+          "twitterId": "57838",
+        },
+      ],
+    },
+  },
+  Object {
+    "period": "DAY",
+    "startDate": "2020-01-01T00:00:00.000Z",
+    "tweets": Object {
+      "create": Array [
+        Object {
+          "account": Object {
+            "connect": "412801ae-3e44-4790-9992-f94b3186fb76",
+          },
+          "accountName": "Alex_McGlynn54",
+          "favoritesCount": 90337,
+          "publishedAt": "2020-01-01T00:00:00.000Z",
+          "text": "Ab voluptas sed quae nam eos sint.",
+          "twitterId": "94459",
+        },
+        Object {
+          "account": Object {
+            "connect": "8eded1d0-420e-4a19-aaf6-83b452acd600",
+          },
+          "accountName": "Isai.Koss29",
+          "favoritesCount": 69232,
+          "publishedAt": "2020-01-01T00:00:00.000Z",
+          "text": "Fuga doloribus distinctio placeat ullam minima ducimus temporibus modi.",
+          "twitterId": "7336",
+        },
+        Object {
+          "account": Object {
+            "connect": "fbe024f2-3162-465a-ae8d-65a837e308ae",
+          },
+          "accountName": "Michel.Wisoky9",
+          "favoritesCount": 41702,
+          "publishedAt": "2020-01-01T00:00:00.000Z",
+          "text": "Blanditiis natus et eos itaque velit.",
+          "twitterId": "80074",
+        },
+        Object {
+          "account": Object {
+            "connect": "72ec6682-ae55-49ca-b2eb-9ac55c45ec6e",
+          },
+          "accountName": "Trycia.Jaskolski",
+          "favoritesCount": 13747,
+          "publishedAt": "2020-01-01T00:00:00.000Z",
+          "text": "Aut nam et dolorum architecto fugit repellendus hic veritatis qui.",
+          "twitterId": "57838",
+        },
+      ],
+    },
+  },
+  Object {
+    "period": "DAY",
+    "startDate": "2020-01-02T00:00:00.000Z",
+    "tweets": Object {
+      "create": Array [
+        Object {
+          "account": Object {
+            "connect": "ec940c92-5980-4eb5-bec9-704edb8f1272",
+          },
+          "accountName": "Therese_Beatty12",
+          "favoritesCount": 76292,
+          "publishedAt": "2020-01-02T00:00:00.000Z",
+          "text": "Recusandae consectetur optio laudantium et incidunt possimus molestias.",
+          "twitterId": "20856",
+        },
+        Object {
+          "account": Object {
+            "connect": "06010831-d483-48fd-8134-199f6850dc43",
+          },
+          "accountName": "Bridie15",
+          "favoritesCount": 17227,
+          "publishedAt": "2020-01-02T00:00:00.000Z",
+          "text": "Aut laborum iure molestiae et facere placeat molestiae.",
+          "twitterId": "42838",
+        },
+      ],
+    },
+  },
+]
+`;
+
+exports[`parseTweets createListInputs works with NO filters 1`] = `
+Array [
+  Object {
+    "tweets": Object {
+      "create": Array [
+        Object {
+          "account": Object {
+            "connect": "ec940c92-5980-4eb5-bec9-704edb8f1272",
+          },
+          "accountName": "Therese_Beatty12",
+          "favoritesCount": 76292,
+          "publishedAt": "2020-01-01T00:00:00.000Z",
+          "text": "Recusandae consectetur optio laudantium et incidunt possimus molestias.",
+          "twitterId": "20856",
+        },
+        Object {
+          "account": Object {
+            "connect": "01ae3e44-7909-4992-b94b-3186fb7680c8",
+          },
+          "accountName": "Alex_McGlynn54",
+          "favoritesCount": 52479,
+          "publishedAt": "2020-01-01T00:00:00.000Z",
+          "text": "Nam eos sint.",
+          "twitterId": "94459",
+        },
+        Object {
+          "account": Object {
+            "connect": "72ec6682-ae55-49ca-b2eb-9ac55c45ec6e",
+          },
+          "accountName": "Trycia.Jaskolski",
+          "favoritesCount": 13747,
+          "publishedAt": "2020-01-01T00:00:00.000Z",
+          "text": "Aut nam et dolorum architecto fugit repellendus hic veritatis qui.",
+          "twitterId": "57838",
+        },
+      ],
+    },
+  },
+]
+`;

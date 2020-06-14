@@ -1,18 +1,22 @@
-import { dayjsUtc } from './../common/date';
 import faker from 'faker';
+import { dayjsUtc } from '../common/date';
 import { ApiTweet } from './twitter';
 import { AllCommunities_allCommunities_data } from './__generated__/AllCommunities';
-import { AccountType } from './../__generated__/globalTypes';
+import { AccountType } from '../__generated__/globalTypes';
 import {
   AllAccounts_allAccounts_data,
   AllAccounts_allAccounts_data_communities_data,
 } from './__generated__/AllAccounts';
 
-let accountId = 0;
-let accountTwitterId = 0;
+export { faker };
 
-// this makes generated fake data consistent across multiple test runs
-faker.seed(0);
+export const createCommunity = ({
+  _id,
+  name,
+}: { _id?: string; name?: string } = {}): AllCommunities_allCommunities_data => ({
+  _id: _id || faker.random.uuid(),
+  name: name || faker.internet.domainName(),
+});
 
 export const createAccount = ({
   communities,
@@ -49,14 +53,6 @@ export const COMMUNITIES: AllCommunities_allCommunities_data[] = [
   },
 ];
 
-export const createCommunity = ({
-  _id,
-  name,
-}: { _id?: string; name?: string } = {}): AllCommunities_allCommunities_data => ({
-  _id: _id || faker.random.uuid(),
-  name: name || faker.internet.domainName(),
-});
-
 export const createTweet = ({
   created_at,
   favorite_count,
@@ -83,21 +79,21 @@ export const createTweet = ({
   },
 });
 
-const createTextTweet = ({
+export const createTextTweet = ({
   created_at,
   favorite_count,
 }: {
-  created_at: string;
-  favorite_count: number;
-}) => createTweet({ created_at, favorite_count, media: [], urls: [] });
+  created_at?: string;
+  favorite_count?: number;
+} = {}) => createTweet({ created_at, favorite_count, media: [], urls: [] });
 
-const createMediaTweet = ({
+export const createMediaTweet = ({
   created_at,
   favorite_count,
 }: {
-  created_at: string;
-  favorite_count: number;
-}) =>
+  created_at?: string;
+  favorite_count?: number;
+} = {}) =>
   createTweet({
     created_at,
     favorite_count,
@@ -105,13 +101,13 @@ const createMediaTweet = ({
     urls: [],
   });
 
-const createLinkTweet = ({
+export const createLinkTweet = ({
   created_at,
   favorite_count,
 }: {
-  created_at: string;
-  favorite_count: number;
-}) =>
+  created_at?: string;
+  favorite_count?: number;
+} = {}) =>
   createTweet({
     created_at,
     favorite_count,

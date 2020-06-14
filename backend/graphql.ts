@@ -1,11 +1,10 @@
-import { CreateList, CreateListVariables } from './__generated__/CreateList';
-import { ListInput } from './../__generated__/globalTypes';
-import { AllAccounts } from './__generated__/AllAccounts';
-import { AllCommunities } from './__generated__/AllCommunities';
 import { ApolloClient, HttpLink, InMemoryCache, gql } from '@apollo/client';
 import * as dotenv from 'dotenv';
 import fetch from 'cross-fetch';
-import { ListValueNode } from 'graphql';
+import { CreateList, CreateListVariables } from './__generated__/CreateList';
+import { ListInput } from '../__generated__/globalTypes';
+import { AllAccounts, AllAccounts_allAccounts_data } from './__generated__/AllAccounts';
+import { AllCommunities, AllCommunities_allCommunities_data } from './__generated__/AllCommunities';
 
 dotenv.config();
 
@@ -32,7 +31,17 @@ export function fetchCommunities() {
     }
   `;
 
-  return client.query<AllCommunities>({ query: ALL_COMMUNITIES });
+  return client
+    .query<AllCommunities>({ query: ALL_COMMUNITIES })
+    .then(res => {
+      const data = res.data?.allCommunities.data;
+
+      if (!data) {
+        throw new Error('Communities query failed to fetch data...');
+      }
+
+      return data as AllCommunities_allCommunities_data[];
+    });
 }
 
 export function fetchAccounts() {
@@ -54,7 +63,17 @@ export function fetchAccounts() {
     }
   `;
 
-  return client.query<AllAccounts>({ query: ALL_ACCOUNTS });
+  return client
+    .query<AllAccounts>({ query: ALL_ACCOUNTS })
+    .then(res => {
+      const data = res.data?.allAccounts.data;
+
+      if (!data) {
+        throw new Error('Accounts query failed to fetch data...');
+      }
+
+      return data as AllAccounts_allAccounts_data[];
+    });
 }
 
 export function createList(list: ListInput) {

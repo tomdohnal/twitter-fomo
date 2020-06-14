@@ -1,0 +1,4 @@
+{
+    "typescript.suggestionActions.enabled": false,
+    "typescript.suggest.paths": false
+}

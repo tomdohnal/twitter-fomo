@@ -1,5 +1,18 @@
-import { createCommunitiesFilters } from './../filters';
-import { createAccount, COMMUNITIES, createTweet, createCommunity } from './../testUtils';
+import { AccountType } from './../../__generated__/globalTypes';
+import {
+  createCommunitiesFilters,
+  createTweetTypeFilters,
+  createAccountTypeFilters,
+} from './../filters';
+import {
+  createAccount,
+  COMMUNITIES,
+  createTweet,
+  createCommunity,
+  createTextTweet,
+  createMediaTweet,
+  createLinkTweet,
+} from './../testUtils';
 import { dayjsUtc } from './../../common/date';
 import { createDateFilters, AccountTweet } from '../filters';
 
@@ -181,5 +194,68 @@ describe('filters', () => {
     const angularFilter = communitiesFilters[2];
     const accountTweetsAngular = angularFilter.filterAccountTweets(accountTweets);
     expect(accountTweetsAngular).toHaveLength(0);
+  });
+
+  it('creates tweetType filters', () => {
+    const accountTweets: AccountTweet[] = [
+      {
+        account: createAccount(),
+        tweets: [createTextTweet(), createTextTweet(), createTextTweet()],
+      },
+      {
+        account: createAccount(),
+        tweets: [createMediaTweet(), createMediaTweet(), createLinkTweet()],
+      },
+    ];
+
+    const tweetTypeFilters = createTweetTypeFilters();
+
+    const linkFilter = tweetTypeFilters[0];
+    const accountTweetsLink = linkFilter.filterAccountTweets(accountTweets);
+    expect(accountTweetsLink).toHaveLength(2);
+    expect(accountTweetsLink[0].tweets).toHaveLength(0);
+    expect(accountTweetsLink[1].tweets).toHaveLength(1);
+
+    const mediaFilter = tweetTypeFilters[1];
+    const accountTweetsMedia = mediaFilter.filterAccountTweets(accountTweets);
+    expect(accountTweetsMedia).toHaveLength(2);
+    expect(accountTweetsMedia[0].tweets).toHaveLength(0);
+    expect(accountTweetsMedia[1].tweets).toHaveLength(2);
+
+    const textFilter = tweetTypeFilters[2];
+    const accountTweetsText = textFilter.filterAccountTweets(accountTweets);
+    expect(accountTweetsText).toHaveLength(2);
+    expect(accountTweetsText[0].tweets).toHaveLength(3);
+    expect(accountTweetsText[1].tweets).toHaveLength(0);
+  });
+
+  it('creates accountType filters', () => {
+    const accountTypeFilters = createAccountTypeFilters();
+
+    const accountTweets: AccountTweet[] = [
+      {
+        account: createAccount({ type: AccountType.BUSINESS }),
+        tweets: [createTextTweet(), createTextTweet()],
+      },
+      {
+        account: createAccount({ type: AccountType.BUSINESS }),
+        tweets: [createTextTweet(), createTextTweet()],
+      },
+      {
+        account: createAccount({ type: AccountType.PERSONAL }),
+        tweets: [createMediaTweet(), createMediaTweet()],
+      },
+    ];
+
+    const businessFilter = accountTypeFilters[0];
+    const accountTweetsBusiness = businessFilter.filterAccountTweets(accountTweets);
+    expect(accountTweetsBusiness).toHaveLength(2);
+    expect(accountTweetsBusiness[0].tweets).toHaveLength(2);
+    expect(accountTweetsBusiness[1].tweets).toHaveLength(2);
+
+    const personalFilter = accountTypeFilters[1];
+    const accountTweetsPersonal = personalFilter.filterAccountTweets(accountTweets);
+    expect(accountTweetsPersonal).toHaveLength(1);
+    expect(accountTweetsPersonal[0].tweets).toHaveLength(2);
   });
 });
