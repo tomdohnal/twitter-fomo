@@ -66,6 +66,7 @@ export async function fetchTweetsForAccount({
   const MAX_LOOP_COUNTER = 50; // limit to prevent unexpected infinite loops
 
   do {
+    // eslint-disable-next-line no-plusplus
     loopCounter++;
     const lastTweet = tweets[tweets.length - 1];
     const lastTweetId = lastTweet && lastTweet.id;
@@ -103,18 +104,24 @@ export async function fetchTweetsForAccount({
         })
         .catch(async err => {
           // handle limit exceeded
-          if (err.errors[0].code === 88) {
+          if (err.errors && err.errors[0].code === 88) {
             logger.error(new Error('Twitter limit exceeded, waiting...'));
             await sleep(60000); // sleep for 1 minute
             return fetchTweets();
           }
 
+          // the account only allows authorized users to view the tweets
+          if (err.error === 'Not authorized.') {
+            return [];
+          }
+
           throw err;
         });
 
+    // eslint-disable-next-line no-await-in-loop
     const fetchedTweets = await fetchTweets();
 
-    lastTweetDate = fetchedTweets
+    lastTweetDate = fetchedTweets.length
       ? dayjsUtc(fetchedTweets[fetchedTweets.length - 1].created_at)
       : endDate;
 

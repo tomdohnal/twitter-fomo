@@ -45,9 +45,10 @@ export function fetchCommunities() {
 }
 
 export function fetchAccounts() {
+  // only fetches 50 accounts?
   const ALL_ACCOUNTS = gql`
     query AllAccounts {
-      allAccounts {
+      allAccounts(_size: 10000) {
         data {
           _id
           twitterId

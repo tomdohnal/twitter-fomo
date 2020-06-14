@@ -1,4 +1,4 @@
-import R from 'ramda';
+import * as R from 'ramda';
 import {
   createTweetTypeFilters,
   createAccountTypeFilters,
@@ -10,7 +10,8 @@ import {
 import { ListInput } from '../../__generated__/globalTypes';
 import { ApiTweet, getApp, fetchTweetsForAccount } from '../twitter';
 import { dayjsUtc, DAY_BEFORE_ONE_WEEK, DAY_NOW } from '../../common/date';
-import { fetchCommunities, fetchAccounts } from '../graphql';
+import { fetchCommunities, fetchAccounts, createList } from '../graphql';
+import logger from '../logger';
 
 function getTopTweets(tweets: Array<ApiTweet>) {
   const sortedTweets = R.sort((a, b) => b.favorite_count - a.favorite_count, tweets);
@@ -86,16 +87,25 @@ export async function run() {
 
   // eslint-disable-next-line no-restricted-syntax
   for (const account of accounts) {
+    logger.log(`Fetching tweets for ${account.name} (${account.twitterId})`);
     // eslint-disable-next-line no-await-in-loop
-    const tweets = await fetchTweetsForAccount({
+    await fetchTweetsForAccount({
       accountId: account._id,
       twitterId: account.twitterId,
       app: twitterApp,
       startDate: DAY_BEFORE_ONE_WEEK,
       endDate: DAY_NOW,
-    });
+    })
+      .then(tweets => {
+        logger.log(`Success: Fetched tweets for ${account.name} (${account.twitterId})`);
 
-    sortedAccountTweets.push({ account, tweets: getSortedTweets(tweets) });
+        sortedAccountTweets.push({ account, tweets: getSortedTweets(tweets) });
+      })
+      .catch(() => {
+        logger.error(
+          new Error(`Error: failed to fetched tweet for ${account.name} (${account.twitterId})`),
+        );
+      });
   }
 
   const communities = await fetchCommunities();
@@ -106,7 +116,8 @@ export async function run() {
   const accountTypeFilters = createAccountTypeFilters();
 
   // we treat `dateFilters` as an exception now as they always must be present...
-  const listsInputs = dateFilters.flatMap(dateFilter => {
+  logger.log('Created list inputs');
+  const listInputs = dateFilters.flatMap(dateFilter => {
     const filteredSortedAccountTweets = dateFilter.filterAccountTweets(sortedAccountTweets);
 
     return createListInputs({
@@ -115,4 +126,18 @@ export async function run() {
       remainingFilters: [tweetTypeFilters, communitiesFilters, accountTypeFilters],
     });
   });
+  logger.log('Success: list inputs created');
+
+  // eslint-disable-next-line no-restricted-syntax
+  for (const listInput of listInputs) {
+    logger.log('Uploading list input');
+    // eslint-disable-next-line no-await-in-loop
+    await createList(listInput)
+      .then(() => {
+        logger.log('Success: list input');
+      })
+      .catch(() => {
+        logger.error(new Error('Error: failed to upload list input'));
+      });
+  }
 }
