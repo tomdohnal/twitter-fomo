@@ -52,13 +52,11 @@ export async function fetchTweetsForAccount({
   twitterId,
   app,
   startDate,
-  endDate,
 }: {
   accountId: string;
   twitterId: string;
   app: Twitter;
   startDate: Dayjs;
-  endDate: Dayjs;
 }): Promise<ApiTweet[]> {
   let tweets: Omit<ApiTweet, '__accountId'>[] = [];
   let lastTweetDate = null;
@@ -123,7 +121,7 @@ export async function fetchTweetsForAccount({
 
     lastTweetDate = fetchedTweets.length
       ? dayjsUtc(fetchedTweets[fetchedTweets.length - 1].created_at)
-      : endDate;
+      : dayjsUtc().add(1, 'year');
 
     tweets = tweets.concat(fetchedTweets);
   } while (lastTweetDate.isAfter(startDate) && loopCounter < MAX_LOOP_COUNTER);
@@ -139,9 +137,7 @@ export async function fetchTweetsForAccount({
     .filter(tweet => {
       const tweetDate = dayjsUtc(tweet.created_at);
 
-      return (
-        (tweetDate.isAfter(startDate) && tweetDate.isBefore(endDate)) || tweetDate.isSame(endDate)
-      );
+      return tweetDate.isAfter(startDate) || tweetDate.isSame(startDate);
     })
     .map(R.assoc('__accountId', accountId));
 }

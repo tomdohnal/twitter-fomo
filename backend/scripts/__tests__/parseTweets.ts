@@ -62,10 +62,7 @@ describe('parseTweets', () => {
         },
       ];
 
-      const dateFilters = createDateFilters({
-        startDate: dayjsUtc('2020-01-01'),
-        endDate: dayjsUtc('2020-01-01').add(2, 'day'),
-      });
+      const dateFilters = createDateFilters(dayjsUtc('2020-01-01').add(1, 'day'));
 
       const listObjects = createListInputs({
         sortedAccountTweets,
@@ -73,7 +70,7 @@ describe('parseTweets', () => {
         remainingFilters: [dateFilters],
       });
 
-      expect(listObjects).toHaveLength(4); // 1 without filters + 3 for each filter (2 day filters + 1 week filter)
+      expect(listObjects).toHaveLength(3); // 1 without filters + 2 for each filter (1 day filter + 1 week filter)
       expect(listObjects).toMatchSnapshot();
     });
 
@@ -108,10 +105,7 @@ describe('parseTweets', () => {
       ];
 
       // yields 2 filters - 1 DAY filters and 1 WEEK filter
-      const dateFilters = createDateFilters({
-        startDate: dayjsUtc('2020-01-01'),
-        endDate: dayjsUtc('2020-01-01').add(1, 'day'),
-      });
+      const dateFilters = createDateFilters(dayjsUtc('2020-01-01').add(1, 'day'));
 
       // yields 2 filters
       const communitiesFilters = createCommunitiesFilters(COMMUNITIES);

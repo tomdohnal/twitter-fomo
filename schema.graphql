@@ -103,7 +103,6 @@ type List {
   tweetType: TweetType
   tweets: [Tweet!]! @relation
   period: Period!
-  startDate: Time!
 }
 
 type Query {

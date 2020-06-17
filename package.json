@@ -7,8 +7,7 @@
     "build": "next build",
     "start": "next start",
     "graphql:codegen": "apollo client:codegen --target=typescript --useReadOnlyTypes --no-addTypename",
-    "backend:compile": "yarn tsc --p backend/tsconfig.json",
-    "backend:run-script": "node dist/backend/scripts/parseTweets__run__.js",
+    "backend:run-script": "ts-node backend/scripts/parseTweets__run__.js",
     "test": "jest",
     "tdd": "jest --watch --verbose"
   },
@@ -31,6 +30,7 @@
     "ramda": "^0.27.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
+    "ts-node": "^8.10.2",
     "twitter-lite": "^0.11.0",
     "typescript": "^3.9.3",
     "uuid": "^8.1.0"

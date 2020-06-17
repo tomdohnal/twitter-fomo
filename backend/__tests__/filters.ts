@@ -1,143 +1,69 @@
-import { AccountType } from './../../__generated__/globalTypes';
+import { AccountType } from '../../__generated__/globalTypes';
 import {
   createCommunitiesFilters,
   createTweetTypeFilters,
   createAccountTypeFilters,
-} from './../filters';
+  createDateFilters,
+  AccountTweet,
+} from '../filters';
 import {
   createAccount,
-  COMMUNITIES,
   createTweet,
   createCommunity,
   createTextTweet,
   createMediaTweet,
   createLinkTweet,
-} from './../testUtils';
-import { dayjsUtc } from './../../common/date';
-import { createDateFilters, AccountTweet } from '../filters';
+} from '../testUtils';
+import { dayjsUtc } from '../../common/date';
 
 describe('filters', () => {
   it('creates dateFilters', () => {
     const DATE_NOW = dayjsUtc('2020-01-15');
-    const DATE_BEFORE_ONE_WEEK = dayjsUtc('2020-01-08');
 
-    const filters = createDateFilters({
-      startDate: DATE_BEFORE_ONE_WEEK,
-      endDate: DATE_NOW,
-    });
+    const filters = createDateFilters(DATE_NOW);
 
-    expect(filters).toHaveLength(8); // 7 days + 1 for the whole week
+    expect(filters).toHaveLength(2); // WEEK filter + DAY filter
 
     const accountTweets: AccountTweet[] = [
       {
         account: createAccount(),
         tweets: [
-          createTweet({ created_at: DATE_BEFORE_ONE_WEEK.toISOString() }),
-          createTweet({ created_at: DATE_BEFORE_ONE_WEEK.add(1, 'day').toISOString() }),
-          createTweet({ created_at: DATE_BEFORE_ONE_WEEK.add(2, 'day').toISOString() }),
-          createTweet({ created_at: DATE_BEFORE_ONE_WEEK.add(8, 'day').toISOString() }),
-          createTweet({ created_at: DATE_BEFORE_ONE_WEEK.subtract(1, 'day').toISOString() }),
+          createTweet({ created_at: DATE_NOW.toISOString() }),
+          createTweet({ created_at: DATE_NOW.subtract(1, 'day').toISOString() }),
+          createTweet({ created_at: DATE_NOW.subtract(7, 'day').toISOString() }),
+          createTweet({ created_at: DATE_NOW.subtract(8, 'day').toISOString() }),
         ],
       },
       {
         account: createAccount(),
         tweets: [
-          createTweet({ created_at: DATE_BEFORE_ONE_WEEK.toISOString() }),
-          createTweet({ created_at: DATE_BEFORE_ONE_WEEK.add(3, 'day').toISOString() }),
-          createTweet({ created_at: DATE_BEFORE_ONE_WEEK.add(4, 'day').toISOString() }),
-          createTweet({ created_at: DATE_BEFORE_ONE_WEEK.add(8, 'day').toISOString() }),
-          createTweet({ created_at: DATE_BEFORE_ONE_WEEK.subtract(1, 'day').toISOString() }),
+          createTweet({ created_at: DATE_NOW.toISOString() }),
+          createTweet({ created_at: DATE_NOW.subtract(12, 'hour').toISOString() }),
+          createTweet({ created_at: DATE_NOW.subtract(4, 'day').toISOString() }),
+          createTweet({ created_at: DATE_NOW.subtract(8, 'day').toISOString() }),
         ],
       },
     ];
 
-    // ALL WEEK
-    const allWeekFilter = filters[0];
-    const accountTweetsAllWeek = allWeekFilter.filterAccountTweets(accountTweets);
+    // WEEK FILTER
+    const weekFilter = filters[0];
+    const accountTweetsWeek = weekFilter.filterAccountTweets(accountTweets);
 
-    expect(allWeekFilter.fields).toEqual({
+    expect(weekFilter.fields).toEqual({
       period: 'WEEK',
-      startDate: DATE_BEFORE_ONE_WEEK.toISOString(),
     });
-    expect(accountTweetsAllWeek[0].tweets).toHaveLength(3);
-    expect(accountTweetsAllWeek[1].tweets).toHaveLength(3);
+    expect(accountTweetsWeek[0].tweets).toHaveLength(3);
+    expect(accountTweetsWeek[1].tweets).toHaveLength(3);
 
-    // DAY 1
-    const day1Filter = filters[1];
-    const accountTweetsDay1 = day1Filter.filterAccountTweets(accountTweets);
+    // DAY FILTER
+    const dayFilter = filters[1];
+    const accountTweetsDay = dayFilter.filterAccountTweets(accountTweets);
 
-    expect(day1Filter.fields).toEqual({
+    expect(dayFilter.fields).toEqual({
       period: 'DAY',
-      startDate: DATE_BEFORE_ONE_WEEK.toISOString(),
     });
-    expect(accountTweetsDay1[0].tweets).toHaveLength(1);
-    expect(accountTweetsDay1[1].tweets).toHaveLength(1);
-
-    // DAY 2
-    const day2Filter = filters[2];
-    const accountTweetsDay2 = day2Filter.filterAccountTweets(accountTweets);
-
-    expect(day2Filter.fields).toEqual({
-      period: 'DAY',
-      startDate: DATE_BEFORE_ONE_WEEK.add(1, 'day').toISOString(),
-    });
-    expect(accountTweetsDay2[0].tweets).toHaveLength(1);
-    expect(accountTweetsDay2[1].tweets).toHaveLength(0);
-
-    // DAY 3
-    const day3Filter = filters[3];
-    const accountTweetsDay3 = day3Filter.filterAccountTweets(accountTweets);
-
-    expect(day3Filter.fields).toEqual({
-      period: 'DAY',
-      startDate: DATE_BEFORE_ONE_WEEK.add(2, 'day').toISOString(),
-    });
-    expect(accountTweetsDay3[0].tweets).toHaveLength(1);
-    expect(accountTweetsDay3[1].tweets).toHaveLength(0);
-
-    // DAY 4
-    const day4Filter = filters[4];
-    const accountTweetsDay4 = day4Filter.filterAccountTweets(accountTweets);
-
-    expect(day4Filter.fields).toEqual({
-      period: 'DAY',
-      startDate: DATE_BEFORE_ONE_WEEK.add(3, 'day').toISOString(),
-    });
-    expect(accountTweetsDay4[0].tweets).toHaveLength(0);
-    expect(accountTweetsDay4[1].tweets).toHaveLength(1);
-
-    // DAY 5
-    const day5Filter = filters[5];
-    const accountTweetsDay5 = day5Filter.filterAccountTweets(accountTweets);
-
-    expect(day5Filter.fields).toEqual({
-      period: 'DAY',
-      startDate: DATE_BEFORE_ONE_WEEK.add(4, 'day').toISOString(),
-    });
-    expect(accountTweetsDay5[0].tweets).toHaveLength(0);
-    expect(accountTweetsDay5[1].tweets).toHaveLength(1);
-
-    // DAY 6
-    const day6Filter = filters[6];
-    const accountTweetsDay6 = day6Filter.filterAccountTweets(accountTweets);
-
-    expect(day6Filter.fields).toEqual({
-      period: 'DAY',
-      startDate: DATE_BEFORE_ONE_WEEK.add(5, 'day').toISOString(),
-    });
-    expect(accountTweetsDay6[0].tweets).toHaveLength(0);
-    expect(accountTweetsDay6[1].tweets).toHaveLength(0);
-
-    // DAY 7
-    const day7Filter = filters[7];
-    const accountTweetsDay7 = day7Filter.filterAccountTweets(accountTweets);
-
-    expect(day7Filter.fields).toEqual({
-      period: 'DAY',
-      startDate: DATE_BEFORE_ONE_WEEK.add(6, 'day').toISOString(),
-    });
-    expect(accountTweetsDay7[0].tweets).toHaveLength(0);
-    expect(accountTweetsDay7[1].tweets).toHaveLength(0);
+    expect(accountTweetsDay[0].tweets).toHaveLength(2);
+    expect(accountTweetsDay[1].tweets).toHaveLength(2);
   });
 
   it('creates communityFilters', () => {

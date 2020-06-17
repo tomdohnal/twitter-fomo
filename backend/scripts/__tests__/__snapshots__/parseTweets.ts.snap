@@ -5,21 +5,18 @@ Array [
   Object {},
   Object {
     "period": "WEEK",
-    "startDate": "2020-01-01T00:00:00.000Z",
   },
   Object {
     "community": Object {
       "connect": "1",
     },
     "period": "WEEK",
-    "startDate": "2020-01-01T00:00:00.000Z",
   },
   Object {
     "community": Object {
       "connect": "1",
     },
     "period": "WEEK",
-    "startDate": "2020-01-01T00:00:00.000Z",
     "tweetType": "LINK",
   },
   Object {
@@ -27,7 +24,6 @@ Array [
       "connect": "1",
     },
     "period": "WEEK",
-    "startDate": "2020-01-01T00:00:00.000Z",
     "tweetType": "MEDIA",
   },
   Object {
@@ -35,7 +31,6 @@ Array [
       "connect": "1",
     },
     "period": "WEEK",
-    "startDate": "2020-01-01T00:00:00.000Z",
     "tweetType": "TEXT",
   },
   Object {
@@ -43,14 +38,12 @@ Array [
       "connect": "2",
     },
     "period": "WEEK",
-    "startDate": "2020-01-01T00:00:00.000Z",
   },
   Object {
     "community": Object {
       "connect": "2",
     },
     "period": "WEEK",
-    "startDate": "2020-01-01T00:00:00.000Z",
     "tweetType": "LINK",
   },
   Object {
@@ -58,7 +51,6 @@ Array [
       "connect": "2",
     },
     "period": "WEEK",
-    "startDate": "2020-01-01T00:00:00.000Z",
     "tweetType": "MEDIA",
   },
   Object {
@@ -66,41 +58,34 @@ Array [
       "connect": "2",
     },
     "period": "WEEK",
-    "startDate": "2020-01-01T00:00:00.000Z",
     "tweetType": "TEXT",
   },
   Object {
     "period": "WEEK",
-    "startDate": "2020-01-01T00:00:00.000Z",
     "tweetType": "LINK",
   },
   Object {
     "period": "WEEK",
-    "startDate": "2020-01-01T00:00:00.000Z",
     "tweetType": "MEDIA",
   },
   Object {
     "period": "WEEK",
-    "startDate": "2020-01-01T00:00:00.000Z",
     "tweetType": "TEXT",
   },
   Object {
     "period": "DAY",
-    "startDate": "2020-01-01T00:00:00.000Z",
   },
   Object {
     "community": Object {
       "connect": "1",
     },
     "period": "DAY",
-    "startDate": "2020-01-01T00:00:00.000Z",
   },
   Object {
     "community": Object {
       "connect": "1",
     },
     "period": "DAY",
-    "startDate": "2020-01-01T00:00:00.000Z",
     "tweetType": "LINK",
   },
   Object {
@@ -108,7 +93,6 @@ Array [
       "connect": "1",
     },
     "period": "DAY",
-    "startDate": "2020-01-01T00:00:00.000Z",
     "tweetType": "MEDIA",
   },
   Object {
@@ -116,7 +100,6 @@ Array [
       "connect": "1",
     },
     "period": "DAY",
-    "startDate": "2020-01-01T00:00:00.000Z",
     "tweetType": "TEXT",
   },
   Object {
@@ -124,14 +107,12 @@ Array [
       "connect": "2",
     },
     "period": "DAY",
-    "startDate": "2020-01-01T00:00:00.000Z",
   },
   Object {
     "community": Object {
       "connect": "2",
     },
     "period": "DAY",
-    "startDate": "2020-01-01T00:00:00.000Z",
     "tweetType": "LINK",
   },
   Object {
@@ -139,7 +120,6 @@ Array [
       "connect": "2",
     },
     "period": "DAY",
-    "startDate": "2020-01-01T00:00:00.000Z",
     "tweetType": "MEDIA",
   },
   Object {
@@ -147,22 +127,18 @@ Array [
       "connect": "2",
     },
     "period": "DAY",
-    "startDate": "2020-01-01T00:00:00.000Z",
     "tweetType": "TEXT",
   },
   Object {
     "period": "DAY",
-    "startDate": "2020-01-01T00:00:00.000Z",
     "tweetType": "LINK",
   },
   Object {
     "period": "DAY",
-    "startDate": "2020-01-01T00:00:00.000Z",
     "tweetType": "MEDIA",
   },
   Object {
     "period": "DAY",
-    "startDate": "2020-01-01T00:00:00.000Z",
     "tweetType": "TEXT",
   },
   Object {
@@ -293,7 +269,6 @@ Array [
   },
   Object {
     "period": "WEEK",
-    "startDate": "2020-01-01T00:00:00.000Z",
     "tweets": Object {
       "create": Array [
         Object {
@@ -361,7 +336,6 @@ Array [
   },
   Object {
     "period": "DAY",
-    "startDate": "2020-01-01T00:00:00.000Z",
     "tweets": Object {
       "create": Array [
         Object {
@@ -373,6 +347,16 @@ Array [
           "publishedAt": "2020-01-01T00:00:00.000Z",
           "text": "Ab voluptas sed quae nam eos sint.",
           "twitterId": "94459",
+        },
+        Object {
+          "account": Object {
+            "connect": "ec940c92-5980-4eb5-bec9-704edb8f1272",
+          },
+          "accountName": "Therese_Beatty12",
+          "favoritesCount": 76292,
+          "publishedAt": "2020-01-02T00:00:00.000Z",
+          "text": "Recusandae consectetur optio laudantium et incidunt possimus molestias.",
+          "twitterId": "20856",
         },
         Object {
           "account": Object {
@@ -396,34 +380,6 @@ Array [
         },
         Object {
           "account": Object {
-            "connect": "72ec6682-ae55-49ca-b2eb-9ac55c45ec6e",
-          },
-          "accountName": "Trycia.Jaskolski",
-          "favoritesCount": 13747,
-          "publishedAt": "2020-01-01T00:00:00.000Z",
-          "text": "Aut nam et dolorum architecto fugit repellendus hic veritatis qui.",
-          "twitterId": "57838",
-        },
-      ],
-    },
-  },
-  Object {
-    "period": "DAY",
-    "startDate": "2020-01-02T00:00:00.000Z",
-    "tweets": Object {
-      "create": Array [
-        Object {
-          "account": Object {
-            "connect": "ec940c92-5980-4eb5-bec9-704edb8f1272",
-          },
-          "accountName": "Therese_Beatty12",
-          "favoritesCount": 76292,
-          "publishedAt": "2020-01-02T00:00:00.000Z",
-          "text": "Recusandae consectetur optio laudantium et incidunt possimus molestias.",
-          "twitterId": "20856",
-        },
-        Object {
-          "account": Object {
             "connect": "06010831-d483-48fd-8134-199f6850dc43",
           },
           "accountName": "Bridie15",
@@ -431,6 +387,16 @@ Array [
           "publishedAt": "2020-01-02T00:00:00.000Z",
           "text": "Aut laborum iure molestiae et facere placeat molestiae.",
           "twitterId": "42838",
+        },
+        Object {
+          "account": Object {
+            "connect": "72ec6682-ae55-49ca-b2eb-9ac55c45ec6e",
+          },
+          "accountName": "Trycia.Jaskolski",
+          "favoritesCount": 13747,
+          "publishedAt": "2020-01-01T00:00:00.000Z",
+          "text": "Aut nam et dolorum architecto fugit repellendus hic veritatis qui.",
+          "twitterId": "57838",
         },
       ],
     },

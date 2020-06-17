@@ -94,7 +94,6 @@ export async function run() {
       twitterId: account.twitterId,
       app: twitterApp,
       startDate: DAY_BEFORE_ONE_WEEK,
-      endDate: DAY_NOW,
     })
       .then(tweets => {
         logger.log(`Success: Fetched tweets for ${account.name} (${account.twitterId})`);
@@ -110,7 +109,7 @@ export async function run() {
 
   const communities = await fetchCommunities();
 
-  const dateFilters = createDateFilters({ startDate: DAY_BEFORE_ONE_WEEK, endDate: DAY_NOW });
+  const dateFilters = createDateFilters(DAY_NOW);
   const communitiesFilters = createCommunitiesFilters(communities);
   const tweetTypeFilters = createTweetTypeFilters();
   const accountTypeFilters = createAccountTypeFilters();

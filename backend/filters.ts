@@ -16,58 +16,35 @@ export interface AccountTweet {
   tweets: ApiTweet[];
 }
 
-const createDateTweetFilterFn = ({
-  startDate,
-  endDate,
-}: {
-  startDate: Dayjs;
-  endDate: Dayjs;
-}): ((accountTweets: AccountTweet[]) => AccountTweet[]) => accountTweets =>
+const createDateTweetFilterFn = (
+  startDate: Dayjs,
+): ((accountTweets: AccountTweet[]) => AccountTweet[]) => accountTweets =>
   accountTweets.map(accountTweet => ({
     ...accountTweet,
     tweets: accountTweet.tweets.filter(tweet => {
       const tweetCreatedAt = dayjsUtc(tweet.created_at);
 
       // left inclusive
-      return (
-        (tweetCreatedAt.isAfter(startDate) && tweetCreatedAt.isBefore(endDate)) ||
-        tweetCreatedAt.isSame(startDate)
-      );
+      return tweetCreatedAt.isAfter(startDate) || tweetCreatedAt.isSame(startDate);
     }),
   }));
 
-function getDaysInInterval({ startDate, daysCount }: { startDate: Dayjs; daysCount: number }) {
-  return R.range(0, daysCount).map(i => ({
-    startDate: startDate.add(i, 'day'),
-    endDate: startDate.add(i + 1, 'day'),
-  }));
-}
-
-export function createDateFilters({ startDate, endDate }: { startDate: Dayjs; endDate: Dayjs }) {
-  const dayFilters: Filter[] = getDaysInInterval({
-    startDate,
-    daysCount: endDate.diff(startDate, 'day'),
-  }).map(({ startDate, endDate }) => ({
+export function createDateFilters(currentDate: Dayjs) {
+  const dayFilter: Filter = {
     fields: {
       period: Period.DAY,
-      startDate: startDate.toISOString(),
     },
-    filterAccountTweets: createDateTweetFilterFn({ startDate, endDate }),
-  }));
+    filterAccountTweets: createDateTweetFilterFn(currentDate.subtract(1, 'day')),
+  };
 
   const weekFilter: Filter = {
     fields: {
       period: Period.WEEK,
-      startDate: startDate.toISOString(),
     },
-    filterAccountTweets: createDateTweetFilterFn({
-      startDate,
-      endDate,
-    }),
+    filterAccountTweets: createDateTweetFilterFn(currentDate.subtract(7, 'day')),
   };
 
-  // default list is going to be full week
-  return [weekFilter, ...dayFilters];
+  return [weekFilter, dayFilter];
 }
 
 export const createCommunitiesFilters = (

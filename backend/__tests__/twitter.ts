@@ -1,10 +1,10 @@
-import { advanceBy, advanceTo, clear } from 'jest-date-mock';
-import { createTweet } from './../testUtils';
+import { advanceTo, clear } from 'jest-date-mock';
 import Twitter from 'twitter-lite';
 import * as R from 'ramda';
-import { dayjsUtc, Dayjs } from './../../common/date';
-import { fetchTweetsForAccount, promiseTest } from '../twitter';
 import faker from 'faker';
+import { createTweet } from '../testUtils';
+import { dayjsUtc, Dayjs } from '../../common/date';
+import { fetchTweetsForAccount } from '../twitter';
 
 jest.useFakeTimers();
 
@@ -54,7 +54,7 @@ describe('twitter', () => {
     };
 
     const MOCK_RES_3: any = [
-      ...createMockApiTweets({ count: 100, createdAt: DATE_NOW.subtract(5, 'day') }),
+      ...createMockApiTweets({ count: 100, createdAt: DATE_NOW.subtract(7, 'day') }),
       ...createMockApiTweets({ count: 100, createdAt: DATE_NOW.subtract(8, 'day') }),
     ];
     MOCK_RES_3._headers = {};
@@ -70,6 +70,7 @@ describe('twitter', () => {
     // @ts-ignore
     app.get = jest.fn(() => {
       const res = MOCK_RESPONSES[callCounter];
+      // eslint-disable-next-line no-plusplus
       callCounter++;
       return Promise.resolve(res);
     });
@@ -77,14 +78,13 @@ describe('twitter', () => {
     // create a lot of tweets so that multiple iteration are needed
     const apiTweets = await fetchTweetsForAccount({
       startDate: DATE_BEFORE_ONE_WEEK,
-      endDate: DATE_NOW,
       accountId,
       twitterId,
       app,
     });
 
     expect(app.get).toHaveBeenCalledTimes(3);
-    expect(apiTweets).toHaveLength(400); // the last 100 should be discarded
+    expect(apiTweets).toHaveLength(500); // the last 100 should be discarded
     apiTweets.forEach(t => {
       expect(t.__accountId).toBe(accountId);
     });
@@ -134,7 +134,6 @@ describe('twitter', () => {
     // create a lot of tweets so that multiple iteration are needed
     const promise = fetchTweetsForAccount({
       startDate: DATE_BEFORE_ONE_WEEK,
-      endDate: DATE_NOW,
       accountId,
       twitterId,
       app,
@@ -191,7 +190,6 @@ describe('twitter', () => {
     // create a lot of tweets so that multiple iteration are needed
     const promise = fetchTweetsForAccount({
       startDate: DATE_BEFORE_ONE_WEEK,
-      endDate: DATE_NOW,
       accountId,
       twitterId,
       app,
@@ -226,7 +224,6 @@ describe('twitter', () => {
     try {
       await fetchTweetsForAccount({
         startDate: DATE_BEFORE_ONE_WEEK,
-        endDate: DATE_NOW,
         accountId,
         twitterId,
         app,
@@ -266,7 +263,6 @@ describe('twitter', () => {
     // create a lot of tweets so that multiple iteration are needed
     const apiTweets = await fetchTweetsForAccount({
       startDate: DATE_BEFORE_ONE_WEEK,
-      endDate: DATE_NOW,
       accountId,
       twitterId,
       app,
