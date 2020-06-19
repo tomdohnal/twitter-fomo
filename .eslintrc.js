@@ -27,5 +27,6 @@ module.exports = {
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     camelcase: 'off',
     'no-shadow': 'off',
+    'react/jsx-filename-extension': ['error', { extensions: ['.tsx'] }],
   },
 };
