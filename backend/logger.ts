@@ -1,6 +1,6 @@
 const logger = {
-  log(message: unknown) {
-    console.log(message);
+  log(...args: unknown[]) {
+    console.log(...args);
   },
   error(err: Error) {
     // TODO: add Sentry or similar

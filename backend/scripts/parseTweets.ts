@@ -129,7 +129,7 @@ export async function run() {
 
   // eslint-disable-next-line no-restricted-syntax
   for (const listInput of listInputs) {
-    logger.log('Uploading list input');
+    logger.log('Uploading list input', { listInput });
     // eslint-disable-next-line no-await-in-loop
     await createList(listInput)
       .then(() => {

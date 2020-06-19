@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "graphql:codegen": "apollo client:codegen --target=typescript --useReadOnlyTypes --no-addTypename",
-    "backend:run-script": "ts-node backend/scripts/parseTweets__run__.js",
+    "backend:run-script": "ts-node backend/scripts/parseTweets__run__.ts",
     "test": "jest",
     "tdd": "jest --watch --verbose"
   },
