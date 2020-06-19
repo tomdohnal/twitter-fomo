@@ -9,7 +9,8 @@
     "graphql:codegen": "apollo client:codegen --target=typescript --useReadOnlyTypes --no-addTypename",
     "backend:run-script": "ts-node backend/scripts/parseTweets__run__.ts",
     "test": "jest",
-    "tdd": "jest --watch --verbose"
+    "tdd": "jest --watch --verbose",
+    "heroku-postbuild": "echo noop"
   },
   "dependencies": {
     "@apollo/client": "^3.0.0-rc.4",
