@@ -28,5 +28,8 @@ module.exports = {
     camelcase: 'off',
     'no-shadow': 'off',
     'react/jsx-filename-extension': ['error', { extensions: ['.tsx'] }],
+    'react/prop-types': 'off',
+    'react/jsx-key': 'error',
+    '@typescript-eslint/ban-ts-comment': 'off',
   },
 };

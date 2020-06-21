@@ -1,6 +1,4 @@
-import { AccountType } from './../__generated__/globalTypes';
-import * as R from 'ramda';
-import { TweetType, Period, ListInput } from '../__generated__/globalTypes';
+import { AccountType, TweetType, Period, ListInput } from '../__generated__/globalTypes';
 import { dayjsUtc, Dayjs } from '../common/date';
 import { AllAccounts_allAccounts_data } from './__generated__/AllAccounts';
 import { AllCommunities_allCommunities_data } from './__generated__/AllCommunities';

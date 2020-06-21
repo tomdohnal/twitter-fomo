@@ -18,6 +18,7 @@
     "cross-fetch": "^3.0.4",
     "dayjs": "^1.8.26",
     "dotenv": "^8.2.0",
+    "encodeurl": "^1.0.2",
     "eslint": "^7.0.0",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-config-prettier": "^6.11.0",

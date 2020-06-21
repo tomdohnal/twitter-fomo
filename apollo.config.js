@@ -7,6 +7,6 @@ module.exports = {
       url: 'https://graphql.fauna.com/graphql',
       headers: { Authorization: `Bearer ${process.env.FAUNA_SECRET}` },
     },
-    includes: ['./backend/**/*.ts'],
+    includes: ['./backend/**/*.ts', './pages/**/*.{ts,tsx}'],
   },
 };

@@ -109,4 +109,10 @@ type Query {
   allAccounts: [Account!]!
   allCommunities: [Community!]!
   allLists: [List!]!
+  recentList(
+    communityId: ID
+    tweetType: TweetType
+    accountType: AccountType
+    period: Period!
+  ): List @resolver(name: "recent_list")
 }

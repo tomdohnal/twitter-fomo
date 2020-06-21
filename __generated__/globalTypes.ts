@@ -94,7 +94,6 @@ export interface ListInput {
   readonly tweetType?: TweetType | null;
   readonly tweets?: ListTweetsRelation | null;
   readonly period: Period;
-  readonly startDate: any;
 }
 
 /**
