@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && next export",
     "start": "next start",
     "graphql:codegen": "apollo client:codegen --target=typescript --useReadOnlyTypes --no-addTypename",
     "backend:run-script": "ts-node-script backend/scripts/parseTweets__run__.ts",
