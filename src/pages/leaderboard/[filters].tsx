@@ -2,15 +2,14 @@ import React from 'react';
 import { GetStaticProps } from 'next';
 import { ApolloClient, InMemoryCache, HttpLink, gql } from '@apollo/client';
 import {
-  RecentList,
-  RecentListVariables,
-  RecentList_recentList,
-} from '../__generated__/RecentList';
-import { Period, AccountType, TweetType } from '../../__generated__/globalTypes';
-import {
-  AllCommunityIds,
-  AllCommunityIds_allCommunities_data,
-} from '../__generated__/AllCommunityIds';
+  RecentListQuery,
+  RecentListQueryVariables,
+  Period,
+  AccountType,
+  TweetType,
+  AllCommunityIdsQuery,
+  CommunityIdFragment,
+} from '../../__generated__/graphql';
 
 interface Tweet {
   id: number;
@@ -40,8 +39,8 @@ const LeaderBoard: React.FC<Props> = ({ tweets }) => {
 };
 
 interface ListVariable {
-  key: Partial<keyof RecentListVariables>;
-  value: RecentListVariables[Partial<keyof RecentListVariables>];
+  key: Partial<keyof RecentListQueryVariables>;
+  value: RecentListQueryVariables[Partial<keyof RecentListQueryVariables>];
 }
 
 export function createVariablePermutations({
@@ -50,15 +49,15 @@ export function createVariablePermutations({
 }: {
   appliedVariables: ListVariable[];
   remainingVariables: ListVariable[][];
-}): Partial<RecentListVariables>[] {
-  const variablePermutation: Partial<RecentListVariables> = appliedVariables.reduce(
+}): Partial<RecentListQueryVariables>[] {
+  const variablePermutation: Partial<RecentListQueryVariables> = appliedVariables.reduce(
     (acc, currentVariable) => {
       return { ...acc, [currentVariable.key]: currentVariable.value };
     },
     {},
   );
 
-  const childVariablePermutations: Partial<RecentListVariables>[] = remainingVariables.flatMap(
+  const childVariablePermutations: Partial<RecentListQueryVariables>[] = remainingVariables.flatMap(
     (variables, variableIndex) =>
       variables.flatMap(variable => {
         const newAppliedVariables = [...appliedVariables, variable];
@@ -86,18 +85,25 @@ export const getStaticPaths = async () => {
     }),
   });
 
+  const fragment = gql`
+    fragment CommunityId on Community {
+      _id
+    }
+  `;
+
   const ALL_COMMUNITY_IDS = gql`
     query AllCommunityIds {
       allCommunities {
         data {
-          _id
+          ...CommunityId
         }
       }
     }
+    ${fragment}
   `;
 
   const communityIdVariables: ListVariable[] = await client
-    .query<AllCommunityIds>({
+    .query<AllCommunityIdsQuery>({
       query: ALL_COMMUNITY_IDS,
     })
     .then(res => {
@@ -107,10 +113,12 @@ export const getStaticPaths = async () => {
         throw new Error('Recent list failed to fetch data...');
       }
 
-      return (data as AllCommunityIds_allCommunities_data[]).map(community => ({
-        key: 'communityId',
-        value: community._id,
-      }));
+      return data
+        .filter((community): community is CommunityIdFragment => community !== null)
+        .map(community => ({
+          key: 'communityId',
+          value: community._id,
+        }));
     });
 
   const periodVariables: ListVariable[] = Object.values(Period).map(period => ({
@@ -142,6 +150,8 @@ export const getStaticPaths = async () => {
         .replace(/,/, '---'),
     },
   }));
+
+  console.log(paths);
 
   return {
     paths,
@@ -196,7 +206,7 @@ export const getStaticProps: GetStaticProps = async ctx => {
   `;
 
   const list = await client
-    .query<RecentList, RecentListVariables>({
+    .query<RecentListQuery, RecentListQueryVariables>({
       query: RECENT_LIST,
       variables,
     })
@@ -207,7 +217,7 @@ export const getStaticProps: GetStaticProps = async ctx => {
         throw new Error('Recent list failed to fetch data...');
       }
 
-      return data as RecentList_recentList;
+      return data;
     });
 
   return {
