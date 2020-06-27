@@ -1,7 +1,12 @@
-import { AccountType, TweetType, Period, ListInput } from '../__generated__/globalTypes';
+import {
+  AccountType,
+  TweetType,
+  Period,
+  ListInput,
+  AccountBasicFragment,
+  CommunityBasicFragment,
+} from './__generated__/graphql';
 import { dayjsUtc, Dayjs } from '../common/date';
-import { AllAccounts_allAccounts_data } from './__generated__/AllAccounts';
-import { AllCommunities_allCommunities_data } from './__generated__/AllCommunities';
 import { ApiTweet } from './twitter';
 
 export interface Filter {
@@ -10,7 +15,7 @@ export interface Filter {
 }
 
 export interface AccountTweet {
-  account: AllAccounts_allAccounts_data;
+  account: AccountBasicFragment;
   tweets: ApiTweet[];
 }
 
@@ -30,14 +35,14 @@ const createDateTweetFilterFn = (
 export function createDateFilters(currentDate: Dayjs) {
   const dayFilter: Filter = {
     fields: {
-      period: Period.DAY,
+      period: Period.Day,
     },
     filterAccountTweets: createDateTweetFilterFn(currentDate.subtract(1, 'day')),
   };
 
   const weekFilter: Filter = {
     fields: {
-      period: Period.WEEK,
+      period: Period.Week,
     },
     filterAccountTweets: createDateTweetFilterFn(currentDate.subtract(7, 'day')),
   };
@@ -45,9 +50,7 @@ export function createDateFilters(currentDate: Dayjs) {
   return [weekFilter, dayFilter];
 }
 
-export const createCommunitiesFilters = (
-  communities: AllCommunities_allCommunities_data[],
-): Filter[] =>
+export const createCommunitiesFilters = (communities: CommunityBasicFragment[]): Filter[] =>
   communities.map(community => ({
     fields: {
       community: { connect: community._id },
@@ -73,9 +76,9 @@ function isMediaTweet(tweet: ApiTweet) {
 
 export const createTweetTypeFilters = (): Filter[] => {
   const typesFilterFns = {
-    [TweetType.LINK]: isLinkTweet,
-    [TweetType.MEDIA]: isMediaTweet,
-    [TweetType.TEXT]: isTextTweet,
+    [TweetType.Link]: isLinkTweet,
+    [TweetType.Media]: isMediaTweet,
+    [TweetType.Text]: isTextTweet,
   };
 
   return Object.values(TweetType).map(type => ({

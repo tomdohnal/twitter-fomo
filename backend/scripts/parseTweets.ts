@@ -1,4 +1,5 @@
 import * as R from 'ramda';
+import fetch from 'cross-fetch';
 import {
   createTweetTypeFilters,
   createAccountTypeFilters,
@@ -7,7 +8,7 @@ import {
   createCommunitiesFilters,
   createDateFilters,
 } from '../filters';
-import { ListInput } from '../../__generated__/globalTypes';
+import { ListInput } from '../__generated__/graphql';
 import { ApiTweet, getApp, fetchTweetsForAccount } from '../twitter';
 import { dayjsUtc, DAY_BEFORE_ONE_WEEK, DAY_NOW } from '../../common/date';
 import { fetchCommunities, fetchAccounts, createList } from '../graphql';
@@ -139,4 +140,8 @@ export async function run() {
         logger.error(new Error('Error: failed to upload list input'));
       });
   }
+
+  await fetch(`https://api.vercel.com/v1/integrations/deploy/${process.env.DEPLOY_HOOK_KEY}`, {
+    method: 'POST',
+  });
 }

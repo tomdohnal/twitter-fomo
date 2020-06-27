@@ -17,7 +17,7 @@ Array [
       "connect": "1",
     },
     "period": "WEEK",
-    "tweetType": "LINK",
+    "tweetType": "TEXT",
   },
   Object {
     "community": Object {
@@ -31,19 +31,6 @@ Array [
       "connect": "1",
     },
     "period": "WEEK",
-    "tweetType": "TEXT",
-  },
-  Object {
-    "community": Object {
-      "connect": "2",
-    },
-    "period": "WEEK",
-  },
-  Object {
-    "community": Object {
-      "connect": "2",
-    },
-    "period": "WEEK",
     "tweetType": "LINK",
   },
   Object {
@@ -51,7 +38,6 @@ Array [
       "connect": "2",
     },
     "period": "WEEK",
-    "tweetType": "MEDIA",
   },
   Object {
     "community": Object {
@@ -61,32 +47,46 @@ Array [
     "tweetType": "TEXT",
   },
   Object {
+    "community": Object {
+      "connect": "2",
+    },
+    "period": "WEEK",
+    "tweetType": "MEDIA",
+  },
+  Object {
+    "community": Object {
+      "connect": "2",
+    },
     "period": "WEEK",
     "tweetType": "LINK",
   },
   Object {
     "period": "WEEK",
+    "tweetType": "TEXT",
+  },
+  Object {
+    "period": "WEEK",
     "tweetType": "MEDIA",
   },
   Object {
     "period": "WEEK",
-    "tweetType": "TEXT",
-  },
-  Object {
-    "period": "DAY",
-  },
-  Object {
-    "community": Object {
-      "connect": "1",
-    },
-    "period": "DAY",
-  },
-  Object {
-    "community": Object {
-      "connect": "1",
-    },
-    "period": "DAY",
     "tweetType": "LINK",
+  },
+  Object {
+    "period": "DAY",
+  },
+  Object {
+    "community": Object {
+      "connect": "1",
+    },
+    "period": "DAY",
+  },
+  Object {
+    "community": Object {
+      "connect": "1",
+    },
+    "period": "DAY",
+    "tweetType": "TEXT",
   },
   Object {
     "community": Object {
@@ -100,20 +100,20 @@ Array [
       "connect": "1",
     },
     "period": "DAY",
-    "tweetType": "TEXT",
-  },
-  Object {
-    "community": Object {
-      "connect": "2",
-    },
-    "period": "DAY",
-  },
-  Object {
-    "community": Object {
-      "connect": "2",
-    },
-    "period": "DAY",
     "tweetType": "LINK",
+  },
+  Object {
+    "community": Object {
+      "connect": "2",
+    },
+    "period": "DAY",
+  },
+  Object {
+    "community": Object {
+      "connect": "2",
+    },
+    "period": "DAY",
+    "tweetType": "TEXT",
   },
   Object {
     "community": Object {
@@ -127,11 +127,11 @@ Array [
       "connect": "2",
     },
     "period": "DAY",
-    "tweetType": "TEXT",
+    "tweetType": "LINK",
   },
   Object {
     "period": "DAY",
-    "tweetType": "LINK",
+    "tweetType": "TEXT",
   },
   Object {
     "period": "DAY",
@@ -139,24 +139,12 @@ Array [
   },
   Object {
     "period": "DAY",
-    "tweetType": "TEXT",
-  },
-  Object {
-    "community": Object {
-      "connect": "1",
-    },
-  },
-  Object {
-    "community": Object {
-      "connect": "1",
-    },
     "tweetType": "LINK",
   },
   Object {
     "community": Object {
       "connect": "1",
     },
-    "tweetType": "MEDIA",
   },
   Object {
     "community": Object {
@@ -166,6 +154,18 @@ Array [
   },
   Object {
     "community": Object {
+      "connect": "1",
+    },
+    "tweetType": "MEDIA",
+  },
+  Object {
+    "community": Object {
+      "connect": "1",
+    },
+    "tweetType": "LINK",
+  },
+  Object {
+    "community": Object {
       "connect": "2",
     },
   },
@@ -173,7 +173,7 @@ Array [
     "community": Object {
       "connect": "2",
     },
-    "tweetType": "LINK",
+    "tweetType": "TEXT",
   },
   Object {
     "community": Object {
@@ -185,16 +185,16 @@ Array [
     "community": Object {
       "connect": "2",
     },
-    "tweetType": "TEXT",
+    "tweetType": "LINK",
   },
   Object {
-    "tweetType": "LINK",
+    "tweetType": "TEXT",
   },
   Object {
     "tweetType": "MEDIA",
   },
   Object {
-    "tweetType": "TEXT",
+    "tweetType": "LINK",
   },
 ]
 `;

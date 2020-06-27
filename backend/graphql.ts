@@ -1,10 +1,15 @@
 import { ApolloClient, HttpLink, InMemoryCache, gql } from '@apollo/client';
 import * as dotenv from 'dotenv';
 import fetch from 'cross-fetch';
-import { CreateList, CreateListVariables } from './__generated__/CreateList';
-import { ListInput } from '../__generated__/globalTypes';
-import { AllAccounts, AllAccounts_allAccounts_data } from './__generated__/AllAccounts';
-import { AllCommunities, AllCommunities_allCommunities_data } from './__generated__/AllCommunities';
+import {
+  AllCommunitiesQuery,
+  AllAccountsQuery,
+  ListInput,
+  CreateListMutation,
+  CreateListMutationVariables,
+  AccountBasicFragment,
+  CommunityBasicFragment,
+} from './__generated__/graphql';
 
 dotenv.config();
 
@@ -20,19 +25,26 @@ export const client = new ApolloClient({
 });
 
 export function fetchCommunities() {
+  const fragment = gql`
+    fragment CommunityBasic on Community {
+      _id
+      name
+    }
+  `;
+
   const ALL_COMMUNITIES = gql`
     query AllCommunities {
       allCommunities {
         data {
-          _id
-          name
+          ...CommunityBasic
         }
       }
     }
+    ${fragment}
   `;
 
   return client
-    .query<AllCommunities>({ query: ALL_COMMUNITIES })
+    .query<AllCommunitiesQuery>({ query: ALL_COMMUNITIES })
     .then(res => {
       const data = res.data?.allCommunities.data;
 
@@ -40,32 +52,38 @@ export function fetchCommunities() {
         throw new Error('Communities query failed to fetch data...');
       }
 
-      return data as AllCommunities_allCommunities_data[];
+      return data.filter((datum): datum is CommunityBasicFragment => datum !== null);
     });
 }
 
 export function fetchAccounts() {
-  // only fetches 50 accounts?
+  const fragment = gql`
+    fragment AccountBasic on Account {
+      _id
+      twitterId
+      name
+      communities {
+        data {
+          _id
+        }
+      }
+      type
+    }
+  `;
+
   const ALL_ACCOUNTS = gql`
     query AllAccounts {
       allAccounts(_size: 10000) {
         data {
-          _id
-          twitterId
-          name
-          communities {
-            data {
-              _id
-            }
-          }
-          type
+          ...AccountBasic
         }
       }
     }
+    ${fragment}
   `;
 
   return client
-    .query<AllAccounts>({ query: ALL_ACCOUNTS })
+    .query<AllAccountsQuery>({ query: ALL_ACCOUNTS })
     .then(res => {
       const data = res.data?.allAccounts.data;
 
@@ -73,7 +91,7 @@ export function fetchAccounts() {
         throw new Error('Accounts query failed to fetch data...');
       }
 
-      return data as AllAccounts_allAccounts_data[];
+      return data.filter((datum): datum is AccountBasicFragment => datum !== null);
     });
 }
 
@@ -86,7 +104,7 @@ export function createList(list: ListInput) {
     }
   `;
 
-  return client.mutate<CreateList, CreateListVariables>({
+  return client.mutate<CreateListMutation, CreateListMutationVariables>({
     mutation: CREATE_LIST,
     variables: { list },
   });
