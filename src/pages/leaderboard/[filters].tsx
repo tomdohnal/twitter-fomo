@@ -1,41 +1,40 @@
 import React from 'react';
-import { GetStaticProps } from 'next';
-import { ApolloClient, InMemoryCache, HttpLink, gql } from '@apollo/client';
+import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType, NextPageContext } from 'next';
+import { ApolloClient, gql, HttpLink, InMemoryCache } from '@apollo/client';
+import { Box } from '@chakra-ui/core';
+import fetch from 'cross-fetch';
 import {
-  RecentListQuery,
-  RecentListQueryVariables,
-  Period,
   AccountType,
-  TweetType,
   AllCommunityIdsQuery,
   CommunityIdFragment,
+  Period,
+  RecentListQuery,
+  RecentListQueryVariables,
+  Tweet,
+  TweetType,
 } from '../../__generated__/graphql';
+import TweetBox from '../../components/TweetBox';
 
-interface Tweet {
-  id: number;
-  name: string;
-  text: string;
-  favoritesCount: string;
-}
+const decode = (encodedString: string) => {
+  let decodedString;
 
-interface Props {
-  tweets: Tweet[];
-}
+  if (typeof window === 'undefined') {
+    decodedString = Buffer.from(encodedString, 'base64').toString('binary');
+  } else {
+    decodedString = window.atob(encodedString);
+  }
 
-const LeaderBoard: React.FC<Props> = ({ tweets }) => {
-  return (
-    <ol>
-      {tweets.map(tweet => {
-        return (
-          <li key={tweet.id}>
-            <div>{tweet.name}</div>
-            <div>{tweet.text}</div>
-            <div>{tweet.favoritesCount}</div>
-          </li>
-        );
-      })}
-    </ol>
-  );
+  return JSON.parse(decodedString);
+};
+
+const encode = (object: Record<string, unknown>) => {
+  const string = JSON.stringify(object);
+
+  if (typeof window === 'undefined') {
+    return Buffer.from(string).toString('base64');
+  }
+
+  return window.btoa(string);
 };
 
 interface ListVariable {
@@ -44,9 +43,9 @@ interface ListVariable {
 }
 
 export function createVariablePermutations({
-  appliedVariables,
-  remainingVariables,
-}: {
+                                             appliedVariables,
+                                             remainingVariables,
+                                           }: {
   appliedVariables: ListVariable[];
   remainingVariables: ListVariable[][];
 }): Partial<RecentListQueryVariables>[] {
@@ -73,33 +72,24 @@ export function createVariablePermutations({
   return [variablePermutation, ...childVariablePermutations];
 }
 
-export const getStaticPaths = async () => {
-  const client = new ApolloClient({
-    cache: new InMemoryCache(),
-    link: new HttpLink({
-      uri: 'https://graphql.fauna.com/graphql',
-      fetch,
-      headers: {
-        Authorization: `Bearer ${process.env.NEXT_PUBLIC_FAUNA_CLIENT_KEY}`,
-      },
-    }),
-  });
+export const getStaticPaths: GetStaticPaths = async () => {
+
 
   const fragment = gql`
-    fragment CommunityId on Community {
-      _id
-    }
+      fragment CommunityId on Community {
+          _id
+      }
   `;
 
   const ALL_COMMUNITY_IDS = gql`
-    query AllCommunityIds {
-      allCommunities {
-        data {
-          ...CommunityId
-        }
+      query AllCommunityIds {
+          allCommunities {
+              data {
+                  ...CommunityId
+              }
+          }
       }
-    }
-    ${fragment}
+      ${fragment}
   `;
 
   const communityIdVariables: ListVariable[] = await client
@@ -145,9 +135,7 @@ export const getStaticPaths = async () => {
 
   const paths = variablesPermutations.map(permutation => ({
     params: {
-      filters: JSON.stringify(permutation)
-        .replace(/:/g, '___')
-        .replace(/,/, '---'),
+      filters: encode(permutation),
     },
   }));
 
@@ -159,9 +147,9 @@ export const getStaticPaths = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps = async ctx => {
+export const getStaticProps = async (ctx: unknown) => {
   // @ts-ignore
-  const variables = JSON.parse(ctx.params.filters.replace(/___/g, ':').replace(/---/, ','));
+  const variables = decode(ctx.params.filters);
 
   const client = new ApolloClient({
     cache: new InMemoryCache(),
@@ -175,34 +163,34 @@ export const getStaticProps: GetStaticProps = async ctx => {
   });
 
   const RECENT_LIST = gql`
-    query RecentList(
-      $period: Period!
-      $communityId: ID
-      $tweetType: TweetType
-      $accountType: AccountType
-    ) {
-      recentList(
-        period: $period
-        communityId: $communityId
-        tweetType: $tweetType
-        accountType: $accountType
+      query RecentList(
+          $period: Period!
+          $communityId: ID
+          $tweetType: TweetType
+          $accountType: AccountType
       ) {
-        tweetType
-        accountType
-        period
-        community {
-          name
-        }
-        tweets {
-          data {
-            _id
-            accountName
-            favoritesCount
-            text
+          recentList(
+              period: $period
+              communityId: $communityId
+              tweetType: $tweetType
+              accountType: $accountType
+          ) {
+              tweetType
+              accountType
+              period
+              community {
+                  name
+              }
+              tweets {
+                  data {
+                      _id
+                      accountName
+                      favoritesCount
+                      text
+                  }
+              }
           }
-        }
       }
-    }
   `;
 
   const list = await client
@@ -227,15 +215,22 @@ export const getStaticProps: GetStaticProps = async ctx => {
           throw new Error('Unexpected state: tweet is null...');
         }
 
-        return {
-          id: tweet._id,
-          name: tweet.accountName,
-          text: tweet.text,
-          favoritesCount: tweet.favoritesCount,
-        };
+        return tweet;
       }),
     },
   };
+};
+
+const LeaderBoard: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({ tweets }) => {
+  return (
+    <Box>
+      <ol>
+        {tweets.map(tweet => {
+          return <TweetBox key={tweet._id} text={tweet.text} />;
+        })}
+      </ol>
+    </Box>
+  );
 };
 
 export default LeaderBoard;

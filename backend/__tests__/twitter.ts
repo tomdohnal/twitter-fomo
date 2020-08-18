@@ -19,7 +19,7 @@ const createMockApiTweets = ({ count, createdAt }: { count: number; createdAt: D
     R.omit(['__accountId'], createTweet({ created_at: createdAt.toISOString() })),
   );
 
-const accountId = faker.random.uuid();
+const accountId = faker.random.number();
 const twitterId = String(faker.random.number());
 const app = new Twitter({ consumer_key: 'fake_key', consumer_secret: 'fake_secret' });
 

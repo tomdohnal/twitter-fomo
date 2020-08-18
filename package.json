@@ -6,7 +6,6 @@
     "dev": "next dev",
     "build": "next build && next export",
     "start": "next start",
-    "graphql:codegen": "graphql-codegen --config codegen.yml -r dotenv/config",
     "backend:run-script": "ts-node-script backend/scripts/parseTweets__run__.ts",
     "test": "jest",
     "tdd": "jest --watch --verbose",
@@ -14,6 +13,9 @@
   },
   "dependencies": {
     "@apollo/client": "^3.0.0-rc.4",
+    "@chakra-ui/core": "^1.0.0-rc.1",
+    "@chakra-ui/theme": "^1.0.0-rc.1",
+    "@prisma/client": "^2.4.1",
     "babel-eslint": "^10.1.0",
     "cross-fetch": "^3.0.4",
     "dayjs": "^1.8.26",
@@ -28,18 +30,16 @@
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-react-hooks": "^4.0.0",
     "faker": "^4.1.0",
-    "graphql": "14",
-    "next": "^9.4.4",
+    "next": "^9.5.1",
     "ramda": "^0.27.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "ts-node": "^8.10.2",
     "twitter-lite": "^0.11.0",
-    "typescript": "^3.9.3",
-    "uuid": "^8.1.0"
+    "typescript": "^3.9.7"
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "1.15.4",
+    "@prisma/cli": "^2.4.1",
     "@types/faker": "^4.1.12",
     "@types/jest": "^25.2.3",
     "@types/node": "^14.0.6",
@@ -52,10 +52,6 @@
     "jest": "^26.0.1",
     "jest-date-mock": "^1.0.8",
     "prettier": "^2.0.5",
-    "ts-jest": "^26.1.0",
-    "@graphql-codegen/typescript": "1.15.4",
-    "@graphql-codegen/typescript-operations": "1.15.4",
-    "@graphql-codegen/typescript-react-apollo": "1.15.4",
-    "@graphql-codegen/introspection": "1.15.4"
+    "ts-jest": "^26.1.0"
   }
 }

@@ -31,5 +31,7 @@ module.exports = {
     'react/prop-types': 'off',
     'react/jsx-key': 'error',
     '@typescript-eslint/ban-ts-comment': 'off',
+    'react/jsx-props-no-spreading': 'off',
+    '@typescript-eslint/no-explicit-any': 'off'
   },
 };

@@ -1,5 +1,6 @@
 import * as R from 'ramda';
 import fetch from 'cross-fetch';
+import { ListCreateInput, TweetCreateInput } from '@prisma/client';
 import {
   createTweetTypeFilters,
   createAccountTypeFilters,
@@ -8,10 +9,9 @@ import {
   createCommunitiesFilters,
   createDateFilters,
 } from '../filters';
-import { ListInput } from '../__generated__/graphql';
 import { ApiTweet, getApp, fetchTweetsForAccount } from '../twitter';
 import { dayjsUtc, DAY_BEFORE_ONE_WEEK, DAY_NOW } from '../../common/date';
-import { fetchCommunities, fetchAccounts, createList } from '../graphql';
+import { fetchCommunities, fetchAccounts, createList, prisma } from '../db';
 import logger from '../logger';
 
 function getTopTweets(tweets: Array<ApiTweet>) {
@@ -24,28 +24,38 @@ function getSortedTweets(tweets: Array<ApiTweet>) {
   return R.sort((a, b) => b.favorite_count - a.favorite_count, tweets);
 }
 
-const createListInput = ({
+const createListData = ({
   tweets,
   appliedFilters,
 }: {
   tweets: ApiTweet[];
   appliedFilters: Filter[];
-}) =>
-  ({
-    ...R.mergeAll(appliedFilters.map(R.prop('fields'))),
-    tweets: {
-      create: tweets.map(tweet => ({
-        twitterId: tweet.id_str,
-        publishedAt: dayjsUtc(tweet.created_at).toISOString(),
-        text: tweet.full_text,
-        accountName: tweet.user.name,
-        account: { connect: tweet.__accountId },
-        favoritesCount: tweet.favorite_count,
-      })),
+}): {
+  tweetInputs: TweetCreateInput[];
+  listInput: ListCreateInput;
+} => {
+  return {
+    tweetInputs: tweets.map((tweet) => ({
+      twitterId: tweet.id_str,
+      publishedAt: dayjsUtc(tweet.created_at).toISOString(),
+      text: tweet.full_text,
+      accountName: tweet.user.name,
+      account: { connect: { id: tweet.__accountId } },
+      favoritesCount: tweet.favorite_count,
+    })),
+    // @ts-ignore
+    listInput: {
+      ...R.mergeAll(appliedFilters.map(R.prop('fields'))),
+      tweets: {
+        connect: tweets.map((tweet) => {
+          return { twitterId: tweet.id_str };
+        }),
+      },
     },
-  } as ListInput);
+  };
+};
 
-export function createListInputs({
+export function createListsData({
   sortedAccountTweets,
   appliedFilters,
   remainingFilters,
@@ -53,22 +63,25 @@ export function createListInputs({
   sortedAccountTweets: AccountTweet[];
   appliedFilters: Array<Filter>;
   remainingFilters: Array<Array<Filter>>;
-}): ListInput[] {
+}): {
+  tweetInputs: TweetCreateInput[];
+  listInput: ListCreateInput;
+}[] {
   const topTweets = getTopTweets(sortedAccountTweets.flatMap(R.prop('tweets')));
 
-  const listInput = createListInput({
+  const listInput = createListData({
     tweets: topTweets,
     appliedFilters,
   });
 
   const childLists = remainingFilters.flatMap((filters, filtersIndex) =>
-    filters.flatMap(filter => {
+    filters.flatMap((filter) => {
       const filteredSortedAccountTweets = filter.filterAccountTweets(sortedAccountTweets);
 
       const newAppliedFilters = [...appliedFilters, filter];
       const newRemainingFilters = remainingFilters.slice(filtersIndex + 1);
 
-      return createListInputs({
+      return createListsData({
         sortedAccountTweets: filteredSortedAccountTweets,
         appliedFilters: newAppliedFilters,
         remainingFilters: newRemainingFilters,
@@ -91,12 +104,12 @@ export async function run() {
     logger.log(`Fetching tweets for ${account.name} (${account.twitterId})`);
     // eslint-disable-next-line no-await-in-loop
     await fetchTweetsForAccount({
-      accountId: account._id,
+      accountId: account.id,
       twitterId: account.twitterId,
       app: twitterApp,
       startDate: DAY_BEFORE_ONE_WEEK,
     })
-      .then(tweets => {
+      .then((tweets) => {
         logger.log(`Success: Fetched tweets for ${account.name} (${account.twitterId})`);
 
         sortedAccountTweets.push({ account, tweets: getSortedTweets(tweets) });
@@ -117,10 +130,10 @@ export async function run() {
 
   // we treat `dateFilters` as an exception now as they always must be present...
   logger.log('Created list inputs');
-  const listInputs = dateFilters.flatMap(dateFilter => {
+  const listInputs = dateFilters.flatMap((dateFilter) => {
     const filteredSortedAccountTweets = dateFilter.filterAccountTweets(sortedAccountTweets);
 
-    return createListInputs({
+    return createListsData({
       sortedAccountTweets: filteredSortedAccountTweets,
       appliedFilters: [dateFilter],
       remainingFilters: [tweetTypeFilters, communitiesFilters, accountTypeFilters],
@@ -136,10 +149,12 @@ export async function run() {
       .then(() => {
         logger.log('Success: list input');
       })
-      .catch(() => {
-        logger.error(new Error('Error: failed to upload list input'));
+      .catch((err) => {
+        logger.error(err);
       });
   }
+
+  await prisma.$disconnect();
 
   await fetch(`https://api.vercel.com/v1/integrations/deploy/${process.env.DEPLOY_HOOK_KEY}`, {
     method: 'POST',

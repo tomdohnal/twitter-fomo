@@ -14,7 +14,10 @@ import {
   createMediaTweet,
 } from '../../testUtils';
 import { dayjsUtc } from '../../../common/date';
-import { createListInputs } from '../parseTweets';
+import { createListsData } from '../parseTweets';
+
+// twitter ID 1294225182056488960
+// likes 2610
 
 describe('parseTweets', () => {
   describe('createListInputs', () => {
@@ -30,7 +33,7 @@ describe('parseTweets', () => {
         },
       ];
 
-      const listObjects = createListInputs({
+      const listObjects = createListsData({
         sortedAccountTweets,
         appliedFilters: [],
         remainingFilters: [],
@@ -64,7 +67,7 @@ describe('parseTweets', () => {
 
       const dateFilters = createDateFilters(dayjsUtc('2020-01-01').add(1, 'day'));
 
-      const listObjects = createListInputs({
+      const listObjects = createListsData({
         sortedAccountTweets,
         appliedFilters: [],
         remainingFilters: [dateFilters],
@@ -113,7 +116,7 @@ describe('parseTweets', () => {
       // yields 3 filters (TEXT, LINK and MEDIA)
       const tweetTypeFilters = createTweetTypeFilters();
 
-      const listObjects = createListInputs({
+      const listObjects = createListsData({
         sortedAccountTweets,
         appliedFilters: [],
         remainingFilters: [dateFilters, communitiesFilters, tweetTypeFilters],

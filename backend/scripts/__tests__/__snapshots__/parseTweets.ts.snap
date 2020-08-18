@@ -2,199 +2,1604 @@
 
 exports[`parseTweets createListInputs works with DATE and COMMUNITIES and TWEET_TYPE filters 1`] = `
 Array [
-  Object {},
   Object {
-    "period": "WEEK",
-  },
-  Object {
-    "community": Object {
-      "connect": "1",
+    "listInput": Object {
+      "tweets": Object {
+        "connect": Array [
+          Object {
+            "twitterId": "57100",
+          },
+          Object {
+            "twitterId": "66063",
+          },
+          Object {
+            "twitterId": "9617",
+          },
+          Object {
+            "twitterId": "90340",
+          },
+          Object {
+            "twitterId": "91044",
+          },
+          Object {
+            "twitterId": "53344",
+          },
+        ],
+      },
     },
-    "period": "WEEK",
+    "tweetInputs": Array [
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 80739,
+          },
+        },
+        "accountName": "Nestor.Nienow88",
+        "favoritesCount": 89213,
+        "publishedAt": "2020-01-02T00:00:00.000Z",
+        "text": "In ut dolorem et molestiae ea.",
+        "twitterId": "57100",
+      },
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 41253,
+          },
+        },
+        "accountName": "Neil44",
+        "favoritesCount": 83462,
+        "publishedAt": "2020-01-01T00:00:00.000Z",
+        "text": "Aperiam placeat fuga.",
+        "twitterId": "66063",
+      },
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 22212,
+          },
+        },
+        "accountName": "Eldora11",
+        "favoritesCount": 78927,
+        "publishedAt": "2020-01-01T00:00:00.000Z",
+        "text": "Architecto ducimus totam.",
+        "twitterId": "9617",
+      },
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 4995,
+          },
+        },
+        "accountName": "Kamryn.Conn",
+        "favoritesCount": 54060,
+        "publishedAt": "2020-01-02T00:00:00.000Z",
+        "text": "Sed quae nam eos sint autem rerum doloremque officia.",
+        "twitterId": "90340",
+      },
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 52479,
+          },
+        },
+        "accountName": "Dina_Gulgowski",
+        "favoritesCount": 13002,
+        "publishedAt": "2020-01-01T00:00:00.000Z",
+        "text": "Vitae soluta sint.",
+        "twitterId": "91044",
+      },
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 56591,
+          },
+        },
+        "accountName": "Harrison.Wiegand41",
+        "favoritesCount": 5336,
+        "publishedAt": "2020-01-01T00:00:00.000Z",
+        "text": "Laborum ratione a officia quaerat cumque incidunt.",
+        "twitterId": "53344",
+      },
+    ],
   },
   Object {
-    "community": Object {
-      "connect": "1",
+    "listInput": Object {
+      "period": "WEEK",
+      "tweets": Object {
+        "connect": Array [
+          Object {
+            "twitterId": "57100",
+          },
+          Object {
+            "twitterId": "66063",
+          },
+          Object {
+            "twitterId": "9617",
+          },
+          Object {
+            "twitterId": "90340",
+          },
+          Object {
+            "twitterId": "91044",
+          },
+          Object {
+            "twitterId": "53344",
+          },
+        ],
+      },
     },
-    "period": "WEEK",
-    "tweetType": "TEXT",
+    "tweetInputs": Array [
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 80739,
+          },
+        },
+        "accountName": "Nestor.Nienow88",
+        "favoritesCount": 89213,
+        "publishedAt": "2020-01-02T00:00:00.000Z",
+        "text": "In ut dolorem et molestiae ea.",
+        "twitterId": "57100",
+      },
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 41253,
+          },
+        },
+        "accountName": "Neil44",
+        "favoritesCount": 83462,
+        "publishedAt": "2020-01-01T00:00:00.000Z",
+        "text": "Aperiam placeat fuga.",
+        "twitterId": "66063",
+      },
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 22212,
+          },
+        },
+        "accountName": "Eldora11",
+        "favoritesCount": 78927,
+        "publishedAt": "2020-01-01T00:00:00.000Z",
+        "text": "Architecto ducimus totam.",
+        "twitterId": "9617",
+      },
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 4995,
+          },
+        },
+        "accountName": "Kamryn.Conn",
+        "favoritesCount": 54060,
+        "publishedAt": "2020-01-02T00:00:00.000Z",
+        "text": "Sed quae nam eos sint autem rerum doloremque officia.",
+        "twitterId": "90340",
+      },
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 52479,
+          },
+        },
+        "accountName": "Dina_Gulgowski",
+        "favoritesCount": 13002,
+        "publishedAt": "2020-01-01T00:00:00.000Z",
+        "text": "Vitae soluta sint.",
+        "twitterId": "91044",
+      },
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 56591,
+          },
+        },
+        "accountName": "Harrison.Wiegand41",
+        "favoritesCount": 5336,
+        "publishedAt": "2020-01-01T00:00:00.000Z",
+        "text": "Laborum ratione a officia quaerat cumque incidunt.",
+        "twitterId": "53344",
+      },
+    ],
   },
   Object {
-    "community": Object {
-      "connect": "1",
+    "listInput": Object {
+      "community": Object {
+        "connect": Object {
+          "id": 1,
+        },
+      },
+      "period": "WEEK",
+      "tweets": Object {
+        "connect": Array [
+          Object {
+            "twitterId": "66063",
+          },
+          Object {
+            "twitterId": "9617",
+          },
+          Object {
+            "twitterId": "90340",
+          },
+        ],
+      },
     },
-    "period": "WEEK",
-    "tweetType": "MEDIA",
+    "tweetInputs": Array [
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 41253,
+          },
+        },
+        "accountName": "Neil44",
+        "favoritesCount": 83462,
+        "publishedAt": "2020-01-01T00:00:00.000Z",
+        "text": "Aperiam placeat fuga.",
+        "twitterId": "66063",
+      },
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 22212,
+          },
+        },
+        "accountName": "Eldora11",
+        "favoritesCount": 78927,
+        "publishedAt": "2020-01-01T00:00:00.000Z",
+        "text": "Architecto ducimus totam.",
+        "twitterId": "9617",
+      },
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 4995,
+          },
+        },
+        "accountName": "Kamryn.Conn",
+        "favoritesCount": 54060,
+        "publishedAt": "2020-01-02T00:00:00.000Z",
+        "text": "Sed quae nam eos sint autem rerum doloremque officia.",
+        "twitterId": "90340",
+      },
+    ],
   },
   Object {
-    "community": Object {
-      "connect": "1",
+    "listInput": Object {
+      "community": Object {
+        "connect": Object {
+          "id": 1,
+        },
+      },
+      "period": "WEEK",
+      "tweetType": "TEXT",
+      "tweets": Object {
+        "connect": Array [
+          Object {
+            "twitterId": "66063",
+          },
+          Object {
+            "twitterId": "9617",
+          },
+          Object {
+            "twitterId": "90340",
+          },
+        ],
+      },
     },
-    "period": "WEEK",
-    "tweetType": "LINK",
+    "tweetInputs": Array [
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 41253,
+          },
+        },
+        "accountName": "Neil44",
+        "favoritesCount": 83462,
+        "publishedAt": "2020-01-01T00:00:00.000Z",
+        "text": "Aperiam placeat fuga.",
+        "twitterId": "66063",
+      },
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 22212,
+          },
+        },
+        "accountName": "Eldora11",
+        "favoritesCount": 78927,
+        "publishedAt": "2020-01-01T00:00:00.000Z",
+        "text": "Architecto ducimus totam.",
+        "twitterId": "9617",
+      },
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 4995,
+          },
+        },
+        "accountName": "Kamryn.Conn",
+        "favoritesCount": 54060,
+        "publishedAt": "2020-01-02T00:00:00.000Z",
+        "text": "Sed quae nam eos sint autem rerum doloremque officia.",
+        "twitterId": "90340",
+      },
+    ],
   },
   Object {
-    "community": Object {
-      "connect": "2",
+    "listInput": Object {
+      "community": Object {
+        "connect": Object {
+          "id": 1,
+        },
+      },
+      "period": "WEEK",
+      "tweetType": "MEDIA",
+      "tweets": Object {
+        "connect": Array [],
+      },
     },
-    "period": "WEEK",
+    "tweetInputs": Array [],
   },
   Object {
-    "community": Object {
-      "connect": "2",
+    "listInput": Object {
+      "community": Object {
+        "connect": Object {
+          "id": 1,
+        },
+      },
+      "period": "WEEK",
+      "tweetType": "LINK",
+      "tweets": Object {
+        "connect": Array [],
+      },
     },
-    "period": "WEEK",
-    "tweetType": "TEXT",
+    "tweetInputs": Array [],
   },
   Object {
-    "community": Object {
-      "connect": "2",
+    "listInput": Object {
+      "community": Object {
+        "connect": Object {
+          "id": 2,
+        },
+      },
+      "period": "WEEK",
+      "tweets": Object {
+        "connect": Array [
+          Object {
+            "twitterId": "57100",
+          },
+          Object {
+            "twitterId": "91044",
+          },
+          Object {
+            "twitterId": "53344",
+          },
+        ],
+      },
     },
-    "period": "WEEK",
-    "tweetType": "MEDIA",
+    "tweetInputs": Array [
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 80739,
+          },
+        },
+        "accountName": "Nestor.Nienow88",
+        "favoritesCount": 89213,
+        "publishedAt": "2020-01-02T00:00:00.000Z",
+        "text": "In ut dolorem et molestiae ea.",
+        "twitterId": "57100",
+      },
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 52479,
+          },
+        },
+        "accountName": "Dina_Gulgowski",
+        "favoritesCount": 13002,
+        "publishedAt": "2020-01-01T00:00:00.000Z",
+        "text": "Vitae soluta sint.",
+        "twitterId": "91044",
+      },
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 56591,
+          },
+        },
+        "accountName": "Harrison.Wiegand41",
+        "favoritesCount": 5336,
+        "publishedAt": "2020-01-01T00:00:00.000Z",
+        "text": "Laborum ratione a officia quaerat cumque incidunt.",
+        "twitterId": "53344",
+      },
+    ],
   },
   Object {
-    "community": Object {
-      "connect": "2",
+    "listInput": Object {
+      "community": Object {
+        "connect": Object {
+          "id": 2,
+        },
+      },
+      "period": "WEEK",
+      "tweetType": "TEXT",
+      "tweets": Object {
+        "connect": Array [
+          Object {
+            "twitterId": "57100",
+          },
+        ],
+      },
     },
-    "period": "WEEK",
-    "tweetType": "LINK",
+    "tweetInputs": Array [
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 80739,
+          },
+        },
+        "accountName": "Nestor.Nienow88",
+        "favoritesCount": 89213,
+        "publishedAt": "2020-01-02T00:00:00.000Z",
+        "text": "In ut dolorem et molestiae ea.",
+        "twitterId": "57100",
+      },
+    ],
   },
   Object {
-    "period": "WEEK",
-    "tweetType": "TEXT",
-  },
-  Object {
-    "period": "WEEK",
-    "tweetType": "MEDIA",
-  },
-  Object {
-    "period": "WEEK",
-    "tweetType": "LINK",
-  },
-  Object {
-    "period": "DAY",
-  },
-  Object {
-    "community": Object {
-      "connect": "1",
+    "listInput": Object {
+      "community": Object {
+        "connect": Object {
+          "id": 2,
+        },
+      },
+      "period": "WEEK",
+      "tweetType": "MEDIA",
+      "tweets": Object {
+        "connect": Array [
+          Object {
+            "twitterId": "53344",
+          },
+        ],
+      },
     },
-    "period": "DAY",
+    "tweetInputs": Array [
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 56591,
+          },
+        },
+        "accountName": "Harrison.Wiegand41",
+        "favoritesCount": 5336,
+        "publishedAt": "2020-01-01T00:00:00.000Z",
+        "text": "Laborum ratione a officia quaerat cumque incidunt.",
+        "twitterId": "53344",
+      },
+    ],
   },
   Object {
-    "community": Object {
-      "connect": "1",
+    "listInput": Object {
+      "community": Object {
+        "connect": Object {
+          "id": 2,
+        },
+      },
+      "period": "WEEK",
+      "tweetType": "LINK",
+      "tweets": Object {
+        "connect": Array [
+          Object {
+            "twitterId": "91044",
+          },
+        ],
+      },
     },
-    "period": "DAY",
-    "tweetType": "TEXT",
+    "tweetInputs": Array [
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 52479,
+          },
+        },
+        "accountName": "Dina_Gulgowski",
+        "favoritesCount": 13002,
+        "publishedAt": "2020-01-01T00:00:00.000Z",
+        "text": "Vitae soluta sint.",
+        "twitterId": "91044",
+      },
+    ],
   },
   Object {
-    "community": Object {
-      "connect": "1",
+    "listInput": Object {
+      "period": "WEEK",
+      "tweetType": "TEXT",
+      "tweets": Object {
+        "connect": Array [
+          Object {
+            "twitterId": "57100",
+          },
+          Object {
+            "twitterId": "66063",
+          },
+          Object {
+            "twitterId": "9617",
+          },
+          Object {
+            "twitterId": "90340",
+          },
+        ],
+      },
     },
-    "period": "DAY",
-    "tweetType": "MEDIA",
+    "tweetInputs": Array [
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 80739,
+          },
+        },
+        "accountName": "Nestor.Nienow88",
+        "favoritesCount": 89213,
+        "publishedAt": "2020-01-02T00:00:00.000Z",
+        "text": "In ut dolorem et molestiae ea.",
+        "twitterId": "57100",
+      },
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 41253,
+          },
+        },
+        "accountName": "Neil44",
+        "favoritesCount": 83462,
+        "publishedAt": "2020-01-01T00:00:00.000Z",
+        "text": "Aperiam placeat fuga.",
+        "twitterId": "66063",
+      },
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 22212,
+          },
+        },
+        "accountName": "Eldora11",
+        "favoritesCount": 78927,
+        "publishedAt": "2020-01-01T00:00:00.000Z",
+        "text": "Architecto ducimus totam.",
+        "twitterId": "9617",
+      },
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 4995,
+          },
+        },
+        "accountName": "Kamryn.Conn",
+        "favoritesCount": 54060,
+        "publishedAt": "2020-01-02T00:00:00.000Z",
+        "text": "Sed quae nam eos sint autem rerum doloremque officia.",
+        "twitterId": "90340",
+      },
+    ],
   },
   Object {
-    "community": Object {
-      "connect": "1",
+    "listInput": Object {
+      "period": "WEEK",
+      "tweetType": "MEDIA",
+      "tweets": Object {
+        "connect": Array [
+          Object {
+            "twitterId": "53344",
+          },
+        ],
+      },
     },
-    "period": "DAY",
-    "tweetType": "LINK",
+    "tweetInputs": Array [
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 56591,
+          },
+        },
+        "accountName": "Harrison.Wiegand41",
+        "favoritesCount": 5336,
+        "publishedAt": "2020-01-01T00:00:00.000Z",
+        "text": "Laborum ratione a officia quaerat cumque incidunt.",
+        "twitterId": "53344",
+      },
+    ],
   },
   Object {
-    "community": Object {
-      "connect": "2",
+    "listInput": Object {
+      "period": "WEEK",
+      "tweetType": "LINK",
+      "tweets": Object {
+        "connect": Array [
+          Object {
+            "twitterId": "91044",
+          },
+        ],
+      },
     },
-    "period": "DAY",
+    "tweetInputs": Array [
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 52479,
+          },
+        },
+        "accountName": "Dina_Gulgowski",
+        "favoritesCount": 13002,
+        "publishedAt": "2020-01-01T00:00:00.000Z",
+        "text": "Vitae soluta sint.",
+        "twitterId": "91044",
+      },
+    ],
   },
   Object {
-    "community": Object {
-      "connect": "2",
+    "listInput": Object {
+      "period": "DAY",
+      "tweets": Object {
+        "connect": Array [
+          Object {
+            "twitterId": "57100",
+          },
+          Object {
+            "twitterId": "66063",
+          },
+          Object {
+            "twitterId": "9617",
+          },
+          Object {
+            "twitterId": "90340",
+          },
+          Object {
+            "twitterId": "91044",
+          },
+          Object {
+            "twitterId": "53344",
+          },
+        ],
+      },
     },
-    "period": "DAY",
-    "tweetType": "TEXT",
+    "tweetInputs": Array [
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 80739,
+          },
+        },
+        "accountName": "Nestor.Nienow88",
+        "favoritesCount": 89213,
+        "publishedAt": "2020-01-02T00:00:00.000Z",
+        "text": "In ut dolorem et molestiae ea.",
+        "twitterId": "57100",
+      },
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 41253,
+          },
+        },
+        "accountName": "Neil44",
+        "favoritesCount": 83462,
+        "publishedAt": "2020-01-01T00:00:00.000Z",
+        "text": "Aperiam placeat fuga.",
+        "twitterId": "66063",
+      },
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 22212,
+          },
+        },
+        "accountName": "Eldora11",
+        "favoritesCount": 78927,
+        "publishedAt": "2020-01-01T00:00:00.000Z",
+        "text": "Architecto ducimus totam.",
+        "twitterId": "9617",
+      },
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 4995,
+          },
+        },
+        "accountName": "Kamryn.Conn",
+        "favoritesCount": 54060,
+        "publishedAt": "2020-01-02T00:00:00.000Z",
+        "text": "Sed quae nam eos sint autem rerum doloremque officia.",
+        "twitterId": "90340",
+      },
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 52479,
+          },
+        },
+        "accountName": "Dina_Gulgowski",
+        "favoritesCount": 13002,
+        "publishedAt": "2020-01-01T00:00:00.000Z",
+        "text": "Vitae soluta sint.",
+        "twitterId": "91044",
+      },
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 56591,
+          },
+        },
+        "accountName": "Harrison.Wiegand41",
+        "favoritesCount": 5336,
+        "publishedAt": "2020-01-01T00:00:00.000Z",
+        "text": "Laborum ratione a officia quaerat cumque incidunt.",
+        "twitterId": "53344",
+      },
+    ],
   },
   Object {
-    "community": Object {
-      "connect": "2",
+    "listInput": Object {
+      "community": Object {
+        "connect": Object {
+          "id": 1,
+        },
+      },
+      "period": "DAY",
+      "tweets": Object {
+        "connect": Array [
+          Object {
+            "twitterId": "66063",
+          },
+          Object {
+            "twitterId": "9617",
+          },
+          Object {
+            "twitterId": "90340",
+          },
+        ],
+      },
     },
-    "period": "DAY",
-    "tweetType": "MEDIA",
+    "tweetInputs": Array [
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 41253,
+          },
+        },
+        "accountName": "Neil44",
+        "favoritesCount": 83462,
+        "publishedAt": "2020-01-01T00:00:00.000Z",
+        "text": "Aperiam placeat fuga.",
+        "twitterId": "66063",
+      },
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 22212,
+          },
+        },
+        "accountName": "Eldora11",
+        "favoritesCount": 78927,
+        "publishedAt": "2020-01-01T00:00:00.000Z",
+        "text": "Architecto ducimus totam.",
+        "twitterId": "9617",
+      },
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 4995,
+          },
+        },
+        "accountName": "Kamryn.Conn",
+        "favoritesCount": 54060,
+        "publishedAt": "2020-01-02T00:00:00.000Z",
+        "text": "Sed quae nam eos sint autem rerum doloremque officia.",
+        "twitterId": "90340",
+      },
+    ],
   },
   Object {
-    "community": Object {
-      "connect": "2",
+    "listInput": Object {
+      "community": Object {
+        "connect": Object {
+          "id": 1,
+        },
+      },
+      "period": "DAY",
+      "tweetType": "TEXT",
+      "tweets": Object {
+        "connect": Array [
+          Object {
+            "twitterId": "66063",
+          },
+          Object {
+            "twitterId": "9617",
+          },
+          Object {
+            "twitterId": "90340",
+          },
+        ],
+      },
     },
-    "period": "DAY",
-    "tweetType": "LINK",
+    "tweetInputs": Array [
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 41253,
+          },
+        },
+        "accountName": "Neil44",
+        "favoritesCount": 83462,
+        "publishedAt": "2020-01-01T00:00:00.000Z",
+        "text": "Aperiam placeat fuga.",
+        "twitterId": "66063",
+      },
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 22212,
+          },
+        },
+        "accountName": "Eldora11",
+        "favoritesCount": 78927,
+        "publishedAt": "2020-01-01T00:00:00.000Z",
+        "text": "Architecto ducimus totam.",
+        "twitterId": "9617",
+      },
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 4995,
+          },
+        },
+        "accountName": "Kamryn.Conn",
+        "favoritesCount": 54060,
+        "publishedAt": "2020-01-02T00:00:00.000Z",
+        "text": "Sed quae nam eos sint autem rerum doloremque officia.",
+        "twitterId": "90340",
+      },
+    ],
   },
   Object {
-    "period": "DAY",
-    "tweetType": "TEXT",
-  },
-  Object {
-    "period": "DAY",
-    "tweetType": "MEDIA",
-  },
-  Object {
-    "period": "DAY",
-    "tweetType": "LINK",
-  },
-  Object {
-    "community": Object {
-      "connect": "1",
+    "listInput": Object {
+      "community": Object {
+        "connect": Object {
+          "id": 1,
+        },
+      },
+      "period": "DAY",
+      "tweetType": "MEDIA",
+      "tweets": Object {
+        "connect": Array [],
+      },
     },
+    "tweetInputs": Array [],
   },
   Object {
-    "community": Object {
-      "connect": "1",
+    "listInput": Object {
+      "community": Object {
+        "connect": Object {
+          "id": 1,
+        },
+      },
+      "period": "DAY",
+      "tweetType": "LINK",
+      "tweets": Object {
+        "connect": Array [],
+      },
     },
-    "tweetType": "TEXT",
+    "tweetInputs": Array [],
   },
   Object {
-    "community": Object {
-      "connect": "1",
+    "listInput": Object {
+      "community": Object {
+        "connect": Object {
+          "id": 2,
+        },
+      },
+      "period": "DAY",
+      "tweets": Object {
+        "connect": Array [
+          Object {
+            "twitterId": "57100",
+          },
+          Object {
+            "twitterId": "91044",
+          },
+          Object {
+            "twitterId": "53344",
+          },
+        ],
+      },
     },
-    "tweetType": "MEDIA",
+    "tweetInputs": Array [
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 80739,
+          },
+        },
+        "accountName": "Nestor.Nienow88",
+        "favoritesCount": 89213,
+        "publishedAt": "2020-01-02T00:00:00.000Z",
+        "text": "In ut dolorem et molestiae ea.",
+        "twitterId": "57100",
+      },
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 52479,
+          },
+        },
+        "accountName": "Dina_Gulgowski",
+        "favoritesCount": 13002,
+        "publishedAt": "2020-01-01T00:00:00.000Z",
+        "text": "Vitae soluta sint.",
+        "twitterId": "91044",
+      },
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 56591,
+          },
+        },
+        "accountName": "Harrison.Wiegand41",
+        "favoritesCount": 5336,
+        "publishedAt": "2020-01-01T00:00:00.000Z",
+        "text": "Laborum ratione a officia quaerat cumque incidunt.",
+        "twitterId": "53344",
+      },
+    ],
   },
   Object {
-    "community": Object {
-      "connect": "1",
+    "listInput": Object {
+      "community": Object {
+        "connect": Object {
+          "id": 2,
+        },
+      },
+      "period": "DAY",
+      "tweetType": "TEXT",
+      "tweets": Object {
+        "connect": Array [
+          Object {
+            "twitterId": "57100",
+          },
+        ],
+      },
     },
-    "tweetType": "LINK",
+    "tweetInputs": Array [
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 80739,
+          },
+        },
+        "accountName": "Nestor.Nienow88",
+        "favoritesCount": 89213,
+        "publishedAt": "2020-01-02T00:00:00.000Z",
+        "text": "In ut dolorem et molestiae ea.",
+        "twitterId": "57100",
+      },
+    ],
   },
   Object {
-    "community": Object {
-      "connect": "2",
+    "listInput": Object {
+      "community": Object {
+        "connect": Object {
+          "id": 2,
+        },
+      },
+      "period": "DAY",
+      "tweetType": "MEDIA",
+      "tweets": Object {
+        "connect": Array [
+          Object {
+            "twitterId": "53344",
+          },
+        ],
+      },
     },
+    "tweetInputs": Array [
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 56591,
+          },
+        },
+        "accountName": "Harrison.Wiegand41",
+        "favoritesCount": 5336,
+        "publishedAt": "2020-01-01T00:00:00.000Z",
+        "text": "Laborum ratione a officia quaerat cumque incidunt.",
+        "twitterId": "53344",
+      },
+    ],
   },
   Object {
-    "community": Object {
-      "connect": "2",
+    "listInput": Object {
+      "community": Object {
+        "connect": Object {
+          "id": 2,
+        },
+      },
+      "period": "DAY",
+      "tweetType": "LINK",
+      "tweets": Object {
+        "connect": Array [
+          Object {
+            "twitterId": "91044",
+          },
+        ],
+      },
     },
-    "tweetType": "TEXT",
+    "tweetInputs": Array [
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 52479,
+          },
+        },
+        "accountName": "Dina_Gulgowski",
+        "favoritesCount": 13002,
+        "publishedAt": "2020-01-01T00:00:00.000Z",
+        "text": "Vitae soluta sint.",
+        "twitterId": "91044",
+      },
+    ],
   },
   Object {
-    "community": Object {
-      "connect": "2",
+    "listInput": Object {
+      "period": "DAY",
+      "tweetType": "TEXT",
+      "tweets": Object {
+        "connect": Array [
+          Object {
+            "twitterId": "57100",
+          },
+          Object {
+            "twitterId": "66063",
+          },
+          Object {
+            "twitterId": "9617",
+          },
+          Object {
+            "twitterId": "90340",
+          },
+        ],
+      },
     },
-    "tweetType": "MEDIA",
+    "tweetInputs": Array [
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 80739,
+          },
+        },
+        "accountName": "Nestor.Nienow88",
+        "favoritesCount": 89213,
+        "publishedAt": "2020-01-02T00:00:00.000Z",
+        "text": "In ut dolorem et molestiae ea.",
+        "twitterId": "57100",
+      },
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 41253,
+          },
+        },
+        "accountName": "Neil44",
+        "favoritesCount": 83462,
+        "publishedAt": "2020-01-01T00:00:00.000Z",
+        "text": "Aperiam placeat fuga.",
+        "twitterId": "66063",
+      },
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 22212,
+          },
+        },
+        "accountName": "Eldora11",
+        "favoritesCount": 78927,
+        "publishedAt": "2020-01-01T00:00:00.000Z",
+        "text": "Architecto ducimus totam.",
+        "twitterId": "9617",
+      },
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 4995,
+          },
+        },
+        "accountName": "Kamryn.Conn",
+        "favoritesCount": 54060,
+        "publishedAt": "2020-01-02T00:00:00.000Z",
+        "text": "Sed quae nam eos sint autem rerum doloremque officia.",
+        "twitterId": "90340",
+      },
+    ],
   },
   Object {
-    "community": Object {
-      "connect": "2",
+    "listInput": Object {
+      "period": "DAY",
+      "tweetType": "MEDIA",
+      "tweets": Object {
+        "connect": Array [
+          Object {
+            "twitterId": "53344",
+          },
+        ],
+      },
     },
-    "tweetType": "LINK",
+    "tweetInputs": Array [
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 56591,
+          },
+        },
+        "accountName": "Harrison.Wiegand41",
+        "favoritesCount": 5336,
+        "publishedAt": "2020-01-01T00:00:00.000Z",
+        "text": "Laborum ratione a officia quaerat cumque incidunt.",
+        "twitterId": "53344",
+      },
+    ],
   },
   Object {
-    "tweetType": "TEXT",
+    "listInput": Object {
+      "period": "DAY",
+      "tweetType": "LINK",
+      "tweets": Object {
+        "connect": Array [
+          Object {
+            "twitterId": "91044",
+          },
+        ],
+      },
+    },
+    "tweetInputs": Array [
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 52479,
+          },
+        },
+        "accountName": "Dina_Gulgowski",
+        "favoritesCount": 13002,
+        "publishedAt": "2020-01-01T00:00:00.000Z",
+        "text": "Vitae soluta sint.",
+        "twitterId": "91044",
+      },
+    ],
   },
   Object {
-    "tweetType": "MEDIA",
+    "listInput": Object {
+      "community": Object {
+        "connect": Object {
+          "id": 1,
+        },
+      },
+      "tweets": Object {
+        "connect": Array [
+          Object {
+            "twitterId": "66063",
+          },
+          Object {
+            "twitterId": "9617",
+          },
+          Object {
+            "twitterId": "90340",
+          },
+        ],
+      },
+    },
+    "tweetInputs": Array [
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 41253,
+          },
+        },
+        "accountName": "Neil44",
+        "favoritesCount": 83462,
+        "publishedAt": "2020-01-01T00:00:00.000Z",
+        "text": "Aperiam placeat fuga.",
+        "twitterId": "66063",
+      },
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 22212,
+          },
+        },
+        "accountName": "Eldora11",
+        "favoritesCount": 78927,
+        "publishedAt": "2020-01-01T00:00:00.000Z",
+        "text": "Architecto ducimus totam.",
+        "twitterId": "9617",
+      },
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 4995,
+          },
+        },
+        "accountName": "Kamryn.Conn",
+        "favoritesCount": 54060,
+        "publishedAt": "2020-01-02T00:00:00.000Z",
+        "text": "Sed quae nam eos sint autem rerum doloremque officia.",
+        "twitterId": "90340",
+      },
+    ],
   },
   Object {
-    "tweetType": "LINK",
+    "listInput": Object {
+      "community": Object {
+        "connect": Object {
+          "id": 1,
+        },
+      },
+      "tweetType": "TEXT",
+      "tweets": Object {
+        "connect": Array [
+          Object {
+            "twitterId": "66063",
+          },
+          Object {
+            "twitterId": "9617",
+          },
+          Object {
+            "twitterId": "90340",
+          },
+        ],
+      },
+    },
+    "tweetInputs": Array [
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 41253,
+          },
+        },
+        "accountName": "Neil44",
+        "favoritesCount": 83462,
+        "publishedAt": "2020-01-01T00:00:00.000Z",
+        "text": "Aperiam placeat fuga.",
+        "twitterId": "66063",
+      },
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 22212,
+          },
+        },
+        "accountName": "Eldora11",
+        "favoritesCount": 78927,
+        "publishedAt": "2020-01-01T00:00:00.000Z",
+        "text": "Architecto ducimus totam.",
+        "twitterId": "9617",
+      },
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 4995,
+          },
+        },
+        "accountName": "Kamryn.Conn",
+        "favoritesCount": 54060,
+        "publishedAt": "2020-01-02T00:00:00.000Z",
+        "text": "Sed quae nam eos sint autem rerum doloremque officia.",
+        "twitterId": "90340",
+      },
+    ],
+  },
+  Object {
+    "listInput": Object {
+      "community": Object {
+        "connect": Object {
+          "id": 1,
+        },
+      },
+      "tweetType": "MEDIA",
+      "tweets": Object {
+        "connect": Array [],
+      },
+    },
+    "tweetInputs": Array [],
+  },
+  Object {
+    "listInput": Object {
+      "community": Object {
+        "connect": Object {
+          "id": 1,
+        },
+      },
+      "tweetType": "LINK",
+      "tweets": Object {
+        "connect": Array [],
+      },
+    },
+    "tweetInputs": Array [],
+  },
+  Object {
+    "listInput": Object {
+      "community": Object {
+        "connect": Object {
+          "id": 2,
+        },
+      },
+      "tweets": Object {
+        "connect": Array [
+          Object {
+            "twitterId": "57100",
+          },
+          Object {
+            "twitterId": "91044",
+          },
+          Object {
+            "twitterId": "53344",
+          },
+        ],
+      },
+    },
+    "tweetInputs": Array [
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 80739,
+          },
+        },
+        "accountName": "Nestor.Nienow88",
+        "favoritesCount": 89213,
+        "publishedAt": "2020-01-02T00:00:00.000Z",
+        "text": "In ut dolorem et molestiae ea.",
+        "twitterId": "57100",
+      },
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 52479,
+          },
+        },
+        "accountName": "Dina_Gulgowski",
+        "favoritesCount": 13002,
+        "publishedAt": "2020-01-01T00:00:00.000Z",
+        "text": "Vitae soluta sint.",
+        "twitterId": "91044",
+      },
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 56591,
+          },
+        },
+        "accountName": "Harrison.Wiegand41",
+        "favoritesCount": 5336,
+        "publishedAt": "2020-01-01T00:00:00.000Z",
+        "text": "Laborum ratione a officia quaerat cumque incidunt.",
+        "twitterId": "53344",
+      },
+    ],
+  },
+  Object {
+    "listInput": Object {
+      "community": Object {
+        "connect": Object {
+          "id": 2,
+        },
+      },
+      "tweetType": "TEXT",
+      "tweets": Object {
+        "connect": Array [
+          Object {
+            "twitterId": "57100",
+          },
+        ],
+      },
+    },
+    "tweetInputs": Array [
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 80739,
+          },
+        },
+        "accountName": "Nestor.Nienow88",
+        "favoritesCount": 89213,
+        "publishedAt": "2020-01-02T00:00:00.000Z",
+        "text": "In ut dolorem et molestiae ea.",
+        "twitterId": "57100",
+      },
+    ],
+  },
+  Object {
+    "listInput": Object {
+      "community": Object {
+        "connect": Object {
+          "id": 2,
+        },
+      },
+      "tweetType": "MEDIA",
+      "tweets": Object {
+        "connect": Array [
+          Object {
+            "twitterId": "53344",
+          },
+        ],
+      },
+    },
+    "tweetInputs": Array [
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 56591,
+          },
+        },
+        "accountName": "Harrison.Wiegand41",
+        "favoritesCount": 5336,
+        "publishedAt": "2020-01-01T00:00:00.000Z",
+        "text": "Laborum ratione a officia quaerat cumque incidunt.",
+        "twitterId": "53344",
+      },
+    ],
+  },
+  Object {
+    "listInput": Object {
+      "community": Object {
+        "connect": Object {
+          "id": 2,
+        },
+      },
+      "tweetType": "LINK",
+      "tweets": Object {
+        "connect": Array [
+          Object {
+            "twitterId": "91044",
+          },
+        ],
+      },
+    },
+    "tweetInputs": Array [
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 52479,
+          },
+        },
+        "accountName": "Dina_Gulgowski",
+        "favoritesCount": 13002,
+        "publishedAt": "2020-01-01T00:00:00.000Z",
+        "text": "Vitae soluta sint.",
+        "twitterId": "91044",
+      },
+    ],
+  },
+  Object {
+    "listInput": Object {
+      "tweetType": "TEXT",
+      "tweets": Object {
+        "connect": Array [
+          Object {
+            "twitterId": "57100",
+          },
+          Object {
+            "twitterId": "66063",
+          },
+          Object {
+            "twitterId": "9617",
+          },
+          Object {
+            "twitterId": "90340",
+          },
+        ],
+      },
+    },
+    "tweetInputs": Array [
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 80739,
+          },
+        },
+        "accountName": "Nestor.Nienow88",
+        "favoritesCount": 89213,
+        "publishedAt": "2020-01-02T00:00:00.000Z",
+        "text": "In ut dolorem et molestiae ea.",
+        "twitterId": "57100",
+      },
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 41253,
+          },
+        },
+        "accountName": "Neil44",
+        "favoritesCount": 83462,
+        "publishedAt": "2020-01-01T00:00:00.000Z",
+        "text": "Aperiam placeat fuga.",
+        "twitterId": "66063",
+      },
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 22212,
+          },
+        },
+        "accountName": "Eldora11",
+        "favoritesCount": 78927,
+        "publishedAt": "2020-01-01T00:00:00.000Z",
+        "text": "Architecto ducimus totam.",
+        "twitterId": "9617",
+      },
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 4995,
+          },
+        },
+        "accountName": "Kamryn.Conn",
+        "favoritesCount": 54060,
+        "publishedAt": "2020-01-02T00:00:00.000Z",
+        "text": "Sed quae nam eos sint autem rerum doloremque officia.",
+        "twitterId": "90340",
+      },
+    ],
+  },
+  Object {
+    "listInput": Object {
+      "tweetType": "MEDIA",
+      "tweets": Object {
+        "connect": Array [
+          Object {
+            "twitterId": "53344",
+          },
+        ],
+      },
+    },
+    "tweetInputs": Array [
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 56591,
+          },
+        },
+        "accountName": "Harrison.Wiegand41",
+        "favoritesCount": 5336,
+        "publishedAt": "2020-01-01T00:00:00.000Z",
+        "text": "Laborum ratione a officia quaerat cumque incidunt.",
+        "twitterId": "53344",
+      },
+    ],
+  },
+  Object {
+    "listInput": Object {
+      "tweetType": "LINK",
+      "tweets": Object {
+        "connect": Array [
+          Object {
+            "twitterId": "91044",
+          },
+        ],
+      },
+    },
+    "tweetInputs": Array [
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 52479,
+          },
+        },
+        "accountName": "Dina_Gulgowski",
+        "favoritesCount": 13002,
+        "publishedAt": "2020-01-01T00:00:00.000Z",
+        "text": "Vitae soluta sint.",
+        "twitterId": "91044",
+      },
+    ],
   },
 ]
 `;
@@ -202,204 +1607,306 @@ Array [
 exports[`parseTweets createListInputs works with DATE filters 1`] = `
 Array [
   Object {
-    "tweets": Object {
-      "create": Array [
-        Object {
-          "account": Object {
-            "connect": "412801ae-3e44-4790-9992-f94b3186fb76",
+    "listInput": Object {
+      "tweets": Object {
+        "connect": Array [
+          Object {
+            "twitterId": "96826",
           },
-          "accountName": "Alex_McGlynn54",
-          "favoritesCount": 90337,
-          "publishedAt": "2020-01-01T00:00:00.000Z",
-          "text": "Ab voluptas sed quae nam eos sint.",
-          "twitterId": "94459",
-        },
-        Object {
-          "account": Object {
-            "connect": "ec940c92-5980-4eb5-bec9-704edb8f1272",
+          Object {
+            "twitterId": "2738",
           },
-          "accountName": "Therese_Beatty12",
-          "favoritesCount": 76292,
-          "publishedAt": "2020-01-02T00:00:00.000Z",
-          "text": "Recusandae consectetur optio laudantium et incidunt possimus molestias.",
-          "twitterId": "20856",
-        },
-        Object {
-          "account": Object {
-            "connect": "8eded1d0-420e-4a19-aaf6-83b452acd600",
+          Object {
+            "twitterId": "75014",
           },
-          "accountName": "Isai.Koss29",
-          "favoritesCount": 69232,
-          "publishedAt": "2020-01-01T00:00:00.000Z",
-          "text": "Fuga doloribus distinctio placeat ullam minima ducimus temporibus modi.",
-          "twitterId": "7336",
-        },
-        Object {
-          "account": Object {
-            "connect": "fbe024f2-3162-465a-ae8d-65a837e308ae",
+          Object {
+            "twitterId": "9834",
           },
-          "accountName": "Michel.Wisoky9",
-          "favoritesCount": 41702,
-          "publishedAt": "2020-01-01T00:00:00.000Z",
-          "text": "Blanditiis natus et eos itaque velit.",
-          "twitterId": "80074",
-        },
-        Object {
-          "account": Object {
-            "connect": "06010831-d483-48fd-8134-199f6850dc43",
+          Object {
+            "twitterId": "18626",
           },
-          "accountName": "Bridie15",
-          "favoritesCount": 17227,
-          "publishedAt": "2020-01-02T00:00:00.000Z",
-          "text": "Aut laborum iure molestiae et facere placeat molestiae.",
-          "twitterId": "42838",
-        },
-        Object {
-          "account": Object {
-            "connect": "72ec6682-ae55-49ca-b2eb-9ac55c45ec6e",
+          Object {
+            "twitterId": "9617",
           },
-          "accountName": "Trycia.Jaskolski",
-          "favoritesCount": 13747,
-          "publishedAt": "2020-01-01T00:00:00.000Z",
-          "text": "Aut nam et dolorum architecto fugit repellendus hic veritatis qui.",
-          "twitterId": "57838",
-        },
-      ],
+        ],
+      },
     },
+    "tweetInputs": Array [
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 43069,
+          },
+        },
+        "accountName": "Priscilla69",
+        "favoritesCount": 55868,
+        "publishedAt": "2020-01-01T00:00:00.000Z",
+        "text": "Itaque velit omnis et.",
+        "twitterId": "96826",
+      },
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 84631,
+          },
+        },
+        "accountName": "Kaden.Ortiz45",
+        "favoritesCount": 53881,
+        "publishedAt": "2020-01-01T00:00:00.000Z",
+        "text": "Ipsam nobis cupiditate sed dignissimos debitis.",
+        "twitterId": "2738",
+      },
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 19755,
+          },
+        },
+        "accountName": "Lindsay_Yundt",
+        "favoritesCount": 53316,
+        "publishedAt": "2020-01-02T00:00:00.000Z",
+        "text": "Nostrum ipsam qui nobis repellendus fugiat velit sit.",
+        "twitterId": "75014",
+      },
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 87638,
+          },
+        },
+        "accountName": "Larue_Johnston41",
+        "favoritesCount": 51815,
+        "publishedAt": "2020-01-01T00:00:00.000Z",
+        "text": "Saepe eum dicta eum eaque enim ipsum inventore debitis.",
+        "twitterId": "9834",
+      },
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 99718,
+          },
+        },
+        "accountName": "Gideon.Heathcote93",
+        "favoritesCount": 41702,
+        "publishedAt": "2020-01-01T00:00:00.000Z",
+        "text": "Recusandae alias consequuntur corporis repellat ratione ut sunt.",
+        "twitterId": "18626",
+      },
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 28044,
+          },
+        },
+        "accountName": "Eldora11",
+        "favoritesCount": 29849,
+        "publishedAt": "2020-01-02T00:00:00.000Z",
+        "text": "Temporibus modi aut architecto ducimus totam.",
+        "twitterId": "9617",
+      },
+    ],
   },
   Object {
-    "period": "WEEK",
-    "tweets": Object {
-      "create": Array [
-        Object {
-          "account": Object {
-            "connect": "412801ae-3e44-4790-9992-f94b3186fb76",
+    "listInput": Object {
+      "period": "WEEK",
+      "tweets": Object {
+        "connect": Array [
+          Object {
+            "twitterId": "96826",
           },
-          "accountName": "Alex_McGlynn54",
-          "favoritesCount": 90337,
-          "publishedAt": "2020-01-01T00:00:00.000Z",
-          "text": "Ab voluptas sed quae nam eos sint.",
-          "twitterId": "94459",
-        },
-        Object {
-          "account": Object {
-            "connect": "ec940c92-5980-4eb5-bec9-704edb8f1272",
+          Object {
+            "twitterId": "2738",
           },
-          "accountName": "Therese_Beatty12",
-          "favoritesCount": 76292,
-          "publishedAt": "2020-01-02T00:00:00.000Z",
-          "text": "Recusandae consectetur optio laudantium et incidunt possimus molestias.",
-          "twitterId": "20856",
-        },
-        Object {
-          "account": Object {
-            "connect": "8eded1d0-420e-4a19-aaf6-83b452acd600",
+          Object {
+            "twitterId": "75014",
           },
-          "accountName": "Isai.Koss29",
-          "favoritesCount": 69232,
-          "publishedAt": "2020-01-01T00:00:00.000Z",
-          "text": "Fuga doloribus distinctio placeat ullam minima ducimus temporibus modi.",
-          "twitterId": "7336",
-        },
-        Object {
-          "account": Object {
-            "connect": "fbe024f2-3162-465a-ae8d-65a837e308ae",
+          Object {
+            "twitterId": "9834",
           },
-          "accountName": "Michel.Wisoky9",
-          "favoritesCount": 41702,
-          "publishedAt": "2020-01-01T00:00:00.000Z",
-          "text": "Blanditiis natus et eos itaque velit.",
-          "twitterId": "80074",
-        },
-        Object {
-          "account": Object {
-            "connect": "06010831-d483-48fd-8134-199f6850dc43",
+          Object {
+            "twitterId": "18626",
           },
-          "accountName": "Bridie15",
-          "favoritesCount": 17227,
-          "publishedAt": "2020-01-02T00:00:00.000Z",
-          "text": "Aut laborum iure molestiae et facere placeat molestiae.",
-          "twitterId": "42838",
-        },
-        Object {
-          "account": Object {
-            "connect": "72ec6682-ae55-49ca-b2eb-9ac55c45ec6e",
+          Object {
+            "twitterId": "9617",
           },
-          "accountName": "Trycia.Jaskolski",
-          "favoritesCount": 13747,
-          "publishedAt": "2020-01-01T00:00:00.000Z",
-          "text": "Aut nam et dolorum architecto fugit repellendus hic veritatis qui.",
-          "twitterId": "57838",
-        },
-      ],
+        ],
+      },
     },
+    "tweetInputs": Array [
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 43069,
+          },
+        },
+        "accountName": "Priscilla69",
+        "favoritesCount": 55868,
+        "publishedAt": "2020-01-01T00:00:00.000Z",
+        "text": "Itaque velit omnis et.",
+        "twitterId": "96826",
+      },
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 84631,
+          },
+        },
+        "accountName": "Kaden.Ortiz45",
+        "favoritesCount": 53881,
+        "publishedAt": "2020-01-01T00:00:00.000Z",
+        "text": "Ipsam nobis cupiditate sed dignissimos debitis.",
+        "twitterId": "2738",
+      },
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 19755,
+          },
+        },
+        "accountName": "Lindsay_Yundt",
+        "favoritesCount": 53316,
+        "publishedAt": "2020-01-02T00:00:00.000Z",
+        "text": "Nostrum ipsam qui nobis repellendus fugiat velit sit.",
+        "twitterId": "75014",
+      },
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 87638,
+          },
+        },
+        "accountName": "Larue_Johnston41",
+        "favoritesCount": 51815,
+        "publishedAt": "2020-01-01T00:00:00.000Z",
+        "text": "Saepe eum dicta eum eaque enim ipsum inventore debitis.",
+        "twitterId": "9834",
+      },
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 99718,
+          },
+        },
+        "accountName": "Gideon.Heathcote93",
+        "favoritesCount": 41702,
+        "publishedAt": "2020-01-01T00:00:00.000Z",
+        "text": "Recusandae alias consequuntur corporis repellat ratione ut sunt.",
+        "twitterId": "18626",
+      },
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 28044,
+          },
+        },
+        "accountName": "Eldora11",
+        "favoritesCount": 29849,
+        "publishedAt": "2020-01-02T00:00:00.000Z",
+        "text": "Temporibus modi aut architecto ducimus totam.",
+        "twitterId": "9617",
+      },
+    ],
   },
   Object {
-    "period": "DAY",
-    "tweets": Object {
-      "create": Array [
-        Object {
-          "account": Object {
-            "connect": "412801ae-3e44-4790-9992-f94b3186fb76",
+    "listInput": Object {
+      "period": "DAY",
+      "tweets": Object {
+        "connect": Array [
+          Object {
+            "twitterId": "96826",
           },
-          "accountName": "Alex_McGlynn54",
-          "favoritesCount": 90337,
-          "publishedAt": "2020-01-01T00:00:00.000Z",
-          "text": "Ab voluptas sed quae nam eos sint.",
-          "twitterId": "94459",
-        },
-        Object {
-          "account": Object {
-            "connect": "ec940c92-5980-4eb5-bec9-704edb8f1272",
+          Object {
+            "twitterId": "2738",
           },
-          "accountName": "Therese_Beatty12",
-          "favoritesCount": 76292,
-          "publishedAt": "2020-01-02T00:00:00.000Z",
-          "text": "Recusandae consectetur optio laudantium et incidunt possimus molestias.",
-          "twitterId": "20856",
-        },
-        Object {
-          "account": Object {
-            "connect": "8eded1d0-420e-4a19-aaf6-83b452acd600",
+          Object {
+            "twitterId": "75014",
           },
-          "accountName": "Isai.Koss29",
-          "favoritesCount": 69232,
-          "publishedAt": "2020-01-01T00:00:00.000Z",
-          "text": "Fuga doloribus distinctio placeat ullam minima ducimus temporibus modi.",
-          "twitterId": "7336",
-        },
-        Object {
-          "account": Object {
-            "connect": "fbe024f2-3162-465a-ae8d-65a837e308ae",
+          Object {
+            "twitterId": "9834",
           },
-          "accountName": "Michel.Wisoky9",
-          "favoritesCount": 41702,
-          "publishedAt": "2020-01-01T00:00:00.000Z",
-          "text": "Blanditiis natus et eos itaque velit.",
-          "twitterId": "80074",
-        },
-        Object {
-          "account": Object {
-            "connect": "06010831-d483-48fd-8134-199f6850dc43",
+          Object {
+            "twitterId": "18626",
           },
-          "accountName": "Bridie15",
-          "favoritesCount": 17227,
-          "publishedAt": "2020-01-02T00:00:00.000Z",
-          "text": "Aut laborum iure molestiae et facere placeat molestiae.",
-          "twitterId": "42838",
-        },
-        Object {
-          "account": Object {
-            "connect": "72ec6682-ae55-49ca-b2eb-9ac55c45ec6e",
+          Object {
+            "twitterId": "9617",
           },
-          "accountName": "Trycia.Jaskolski",
-          "favoritesCount": 13747,
-          "publishedAt": "2020-01-01T00:00:00.000Z",
-          "text": "Aut nam et dolorum architecto fugit repellendus hic veritatis qui.",
-          "twitterId": "57838",
-        },
-      ],
+        ],
+      },
     },
+    "tweetInputs": Array [
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 43069,
+          },
+        },
+        "accountName": "Priscilla69",
+        "favoritesCount": 55868,
+        "publishedAt": "2020-01-01T00:00:00.000Z",
+        "text": "Itaque velit omnis et.",
+        "twitterId": "96826",
+      },
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 84631,
+          },
+        },
+        "accountName": "Kaden.Ortiz45",
+        "favoritesCount": 53881,
+        "publishedAt": "2020-01-01T00:00:00.000Z",
+        "text": "Ipsam nobis cupiditate sed dignissimos debitis.",
+        "twitterId": "2738",
+      },
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 19755,
+          },
+        },
+        "accountName": "Lindsay_Yundt",
+        "favoritesCount": 53316,
+        "publishedAt": "2020-01-02T00:00:00.000Z",
+        "text": "Nostrum ipsam qui nobis repellendus fugiat velit sit.",
+        "twitterId": "75014",
+      },
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 87638,
+          },
+        },
+        "accountName": "Larue_Johnston41",
+        "favoritesCount": 51815,
+        "publishedAt": "2020-01-01T00:00:00.000Z",
+        "text": "Saepe eum dicta eum eaque enim ipsum inventore debitis.",
+        "twitterId": "9834",
+      },
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 99718,
+          },
+        },
+        "accountName": "Gideon.Heathcote93",
+        "favoritesCount": 41702,
+        "publishedAt": "2020-01-01T00:00:00.000Z",
+        "text": "Recusandae alias consequuntur corporis repellat ratione ut sunt.",
+        "twitterId": "18626",
+      },
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 28044,
+          },
+        },
+        "accountName": "Eldora11",
+        "favoritesCount": 29849,
+        "publishedAt": "2020-01-02T00:00:00.000Z",
+        "text": "Temporibus modi aut architecto ducimus totam.",
+        "twitterId": "9617",
+      },
+    ],
   },
 ]
 `;
@@ -407,40 +1914,59 @@ Array [
 exports[`parseTweets createListInputs works with NO filters 1`] = `
 Array [
   Object {
-    "tweets": Object {
-      "create": Array [
-        Object {
-          "account": Object {
-            "connect": "ec940c92-5980-4eb5-bec9-704edb8f1272",
+    "listInput": Object {
+      "tweets": Object {
+        "connect": Array [
+          Object {
+            "twitterId": "3905",
           },
-          "accountName": "Therese_Beatty12",
-          "favoritesCount": 76292,
-          "publishedAt": "2020-01-01T00:00:00.000Z",
-          "text": "Recusandae consectetur optio laudantium et incidunt possimus molestias.",
-          "twitterId": "20856",
-        },
-        Object {
-          "account": Object {
-            "connect": "01ae3e44-7909-4992-b94b-3186fb7680c8",
+          Object {
+            "twitterId": "31551",
           },
-          "accountName": "Alex_McGlynn54",
-          "favoritesCount": 52479,
-          "publishedAt": "2020-01-01T00:00:00.000Z",
-          "text": "Nam eos sint.",
-          "twitterId": "94459",
-        },
-        Object {
-          "account": Object {
-            "connect": "72ec6682-ae55-49ca-b2eb-9ac55c45ec6e",
+          Object {
+            "twitterId": "7336",
           },
-          "accountName": "Trycia.Jaskolski",
-          "favoritesCount": 13747,
-          "publishedAt": "2020-01-01T00:00:00.000Z",
-          "text": "Aut nam et dolorum architecto fugit repellendus hic veritatis qui.",
-          "twitterId": "57838",
-        },
-      ],
+        ],
+      },
     },
+    "tweetInputs": Array [
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 71597,
+          },
+        },
+        "accountName": "Dorcas87",
+        "favoritesCount": 80074,
+        "publishedAt": "2020-01-01T00:00:00.000Z",
+        "text": "Et ipsam explicabo eligendi occaecati debitis et saepe eum dicta.",
+        "twitterId": "3905",
+      },
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 9834,
+          },
+        },
+        "accountName": "Bryce_Pfannerstill41",
+        "favoritesCount": 67052,
+        "publishedAt": "2020-01-01T00:00:00.000Z",
+        "text": "Quam tempore a velit provident velit eligendi.",
+        "twitterId": "31551",
+      },
+      Object {
+        "account": Object {
+          "connect": Object {
+            "id": 3417,
+          },
+        },
+        "accountName": "Isai.Koss29",
+        "favoritesCount": 1828,
+        "publishedAt": "2020-01-01T00:00:00.000Z",
+        "text": "Fuga doloribus distinctio placeat ullam minima ducimus temporibus modi.",
+        "twitterId": "7336",
+      },
+    ],
   },
 ]
 `;

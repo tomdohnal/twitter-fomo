@@ -13,17 +13,11 @@ export interface ApiTweet {
   user: {
     name: string;
   };
-  __accountId: string;
+  __accountId: number;
 }
 
 // using `util.promisify` breaks Jest for some reason...
 const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
-
-export const promiseTest = async () => {
-  await Promise.resolve();
-  await sleep(100000);
-  return 'ahoj';
-};
 
 export const getApp = () =>
   Promise.resolve(
@@ -53,7 +47,7 @@ export async function fetchTweetsForAccount({
   app,
   startDate,
 }: {
-  accountId: string;
+  accountId: number;
   twitterId: string;
   app: Twitter;
   startDate: Dayjs;

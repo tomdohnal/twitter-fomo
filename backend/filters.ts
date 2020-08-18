@@ -1,21 +1,26 @@
+import { ListCreateInput } from '@prisma/client';
+import R from 'ramda';
 import {
   AccountType,
   TweetType,
   Period,
-  ListInput,
-  AccountBasicFragment,
-  CommunityBasicFragment,
 } from './__generated__/graphql';
 import { dayjsUtc, Dayjs } from '../common/date';
 import { ApiTweet } from './twitter';
 
 export interface Filter {
-  fields: Partial<ListInput>;
+  fields: Partial<ListCreateInput>;
   filterAccountTweets(params: AccountTweet[]): AccountTweet[];
 }
 
 export interface AccountTweet {
-  account: AccountBasicFragment;
+  account: {
+    id: number,
+    twitterId: string,
+    name: string,
+    type: "PERSONAL" | "BUSINESS",
+    communities: { id: number }[]
+  };
   tweets: ApiTweet[];
 }
 
@@ -50,14 +55,14 @@ export function createDateFilters(currentDate: Dayjs) {
   return [weekFilter, dayFilter];
 }
 
-export const createCommunitiesFilters = (communities: CommunityBasicFragment[]): Filter[] =>
+export const createCommunitiesFilters = (communities: {name: string, id: number}[]): Filter[] =>
   communities.map(community => ({
     fields: {
-      community: { connect: community._id },
+      community: { connect: { id: community.id } },
     },
     filterAccountTweets(accountTweets: AccountTweet[]) {
       return accountTweets.filter(({ account }) =>
-        account.communities.data.map(c => c?._id).includes(community._id),
+        account.communities.map(R.prop('id')).includes(community.id),
       );
     },
   }));

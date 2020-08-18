@@ -1,3 +1,6 @@
 import { run } from './parseTweets';
+import logger from '../logger';
 
-run();
+run().catch(err => {
+  logger.error(err)
+});

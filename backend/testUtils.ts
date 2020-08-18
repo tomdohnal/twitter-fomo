@@ -1,49 +1,47 @@
 import faker from 'faker';
 import { dayjsUtc } from '../common/date';
 import { ApiTweet } from './twitter';
-import { AccountType, CommunityBasicFragment, AccountBasicFragment } from './__generated__/graphql';
+import { AccountType } from './__generated__/graphql';
 
 export { faker };
 
 export const createCommunity = ({
-  _id,
+  id,
   name,
-}: { _id?: string; name?: string } = {}): CommunityBasicFragment => ({
-  _id: _id || faker.random.uuid(),
+}: { id?: number; name?: string } = {}) => ({
+  id: id || faker.random.number(),
   name: name || faker.internet.domainName(),
 });
 
 export const createAccount = ({
   communities,
-  _id,
+  id,
   name,
   twitterId,
   type,
 }: {
-  communities?: CommunityBasicFragment[];
-  _id?: string;
+  communities?: {id: number}[];
+  id?: number;
   name?: string;
   twitterId?: string;
   type?: AccountType;
-} = {}): AccountBasicFragment => {
+} = {}) => {
   return {
-    _id: _id || faker.random.uuid(),
+    id: id || faker.random.number(),
     name: name || faker.internet.userName(),
     twitterId: twitterId || faker.random.uuid(),
     type: type || AccountType.Personal,
-    communities: {
-      data: communities || [createCommunity()],
-    },
+    communities: communities || [{ id: createCommunity().id }],
   };
 };
 
-export const COMMUNITIES: CommunityBasicFragment[] = [
+export const COMMUNITIES = [
   {
-    _id: '1',
+    id: 1,
     name: 'React',
   },
   {
-    _id: '2',
+    id: 2,
     name: 'Vue',
   },
 ];
@@ -65,7 +63,7 @@ export const createTweet = ({
     urls: urls || [],
   },
   favorite_count: favorite_count || faker.random.number(),
-  __accountId: faker.random.uuid(),
+  __accountId: faker.random.number(),
   full_text: faker.lorem.sentence(),
   id: faker.random.number(),
   id_str: String(faker.random.number()),
