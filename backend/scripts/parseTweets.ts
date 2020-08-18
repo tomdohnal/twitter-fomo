@@ -34,6 +34,7 @@ const createListData = ({
   tweetInputs: TweetCreateInput[];
   listInput: ListCreateInput;
 } => {
+  // parse hashtags
   return {
     tweetInputs: tweets.map((tweet) => ({
       twitterId: tweet.id_str,
@@ -42,6 +43,27 @@ const createListData = ({
       accountName: tweet.user.name,
       account: { connect: { id: tweet.__accountId } },
       favoritesCount: tweet.favorite_count,
+      urls: {
+        create: tweet.entities.urls?.map((urlEntity) => ({
+          indices: {
+            set: urlEntity.indices,
+          },
+          displayUrl: urlEntity.display_url,
+          expandedUrl: urlEntity.expanded_url,
+          url: urlEntity.url,
+        })),
+      },
+      media: {
+        create: tweet.entities.media?.map((mediaEntity) => ({
+          displayUrl: mediaEntity.display_url,
+          expandedUrl: mediaEntity.expanded_url,
+          mediaUrl: mediaEntity.media_url,
+          mediaUrlHttps: mediaEntity.media_url_https,
+          type: mediaEntity.type,
+          url: mediaEntity.url,
+          indices: { set: mediaEntity.indices },
+        })),
+      },
     })),
     // @ts-ignore
     listInput: {

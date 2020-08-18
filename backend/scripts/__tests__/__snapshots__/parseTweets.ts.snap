@@ -36,9 +36,15 @@ Array [
         },
         "accountName": "Nestor.Nienow88",
         "favoritesCount": 89213,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-02T00:00:00.000Z",
         "text": "In ut dolorem et molestiae ea.",
         "twitterId": "57100",
+        "urls": Object {
+          "create": Array [],
+        },
       },
       Object {
         "account": Object {
@@ -48,9 +54,15 @@ Array [
         },
         "accountName": "Neil44",
         "favoritesCount": 83462,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-01T00:00:00.000Z",
         "text": "Aperiam placeat fuga.",
         "twitterId": "66063",
+        "urls": Object {
+          "create": Array [],
+        },
       },
       Object {
         "account": Object {
@@ -60,9 +72,15 @@ Array [
         },
         "accountName": "Eldora11",
         "favoritesCount": 78927,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-01T00:00:00.000Z",
         "text": "Architecto ducimus totam.",
         "twitterId": "9617",
+        "urls": Object {
+          "create": Array [],
+        },
       },
       Object {
         "account": Object {
@@ -72,9 +90,15 @@ Array [
         },
         "accountName": "Kamryn.Conn",
         "favoritesCount": 54060,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-02T00:00:00.000Z",
         "text": "Sed quae nam eos sint autem rerum doloremque officia.",
         "twitterId": "90340",
+        "urls": Object {
+          "create": Array [],
+        },
       },
       Object {
         "account": Object {
@@ -84,9 +108,27 @@ Array [
         },
         "accountName": "Dina_Gulgowski",
         "favoritesCount": 13002,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-01T00:00:00.000Z",
         "text": "Vitae soluta sint.",
         "twitterId": "91044",
+        "urls": Object {
+          "create": Array [
+            Object {
+              "displayUrl": "taniarascia.com/understanding-…",
+              "expandedUrl": "https://www.taniarascia.com/understanding-destructuring-rest-spread/",
+              "indices": Object {
+                "set": Array [
+                  65,
+                  88,
+                ],
+              },
+              "url": "https://t.co/Zp804COUGM",
+            },
+          ],
+        },
       },
       Object {
         "account": Object {
@@ -96,9 +138,30 @@ Array [
         },
         "accountName": "Harrison.Wiegand41",
         "favoritesCount": 5336,
+        "media": Object {
+          "create": Array [
+            Object {
+              "displayUrl": "pic.twitter.com/P6IgqbkRcU",
+              "expandedUrl": "https://twitter.com/mgechev/status/1296696108371116034/photo/1",
+              "indices": Object {
+                "set": Array [
+                  156,
+                  179,
+                ],
+              },
+              "mediaUrl": "http://pbs.twimg.com/media/Ef7KPPbXoAIAAV2.jpg",
+              "mediaUrlHttps": "https://pbs.twimg.com/media/Ef7KPPbXoAIAAV2.jpg",
+              "type": "photo",
+              "url": "https://t.co/P6IgqbkRcU",
+            },
+          ],
+        },
         "publishedAt": "2020-01-01T00:00:00.000Z",
         "text": "Laborum ratione a officia quaerat cumque incidunt.",
         "twitterId": "53344",
+        "urls": Object {
+          "create": Array [],
+        },
       },
     ],
   },
@@ -137,9 +200,15 @@ Array [
         },
         "accountName": "Nestor.Nienow88",
         "favoritesCount": 89213,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-02T00:00:00.000Z",
         "text": "In ut dolorem et molestiae ea.",
         "twitterId": "57100",
+        "urls": Object {
+          "create": Array [],
+        },
       },
       Object {
         "account": Object {
@@ -149,9 +218,15 @@ Array [
         },
         "accountName": "Neil44",
         "favoritesCount": 83462,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-01T00:00:00.000Z",
         "text": "Aperiam placeat fuga.",
         "twitterId": "66063",
+        "urls": Object {
+          "create": Array [],
+        },
       },
       Object {
         "account": Object {
@@ -161,9 +236,15 @@ Array [
         },
         "accountName": "Eldora11",
         "favoritesCount": 78927,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-01T00:00:00.000Z",
         "text": "Architecto ducimus totam.",
         "twitterId": "9617",
+        "urls": Object {
+          "create": Array [],
+        },
       },
       Object {
         "account": Object {
@@ -173,9 +254,15 @@ Array [
         },
         "accountName": "Kamryn.Conn",
         "favoritesCount": 54060,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-02T00:00:00.000Z",
         "text": "Sed quae nam eos sint autem rerum doloremque officia.",
         "twitterId": "90340",
+        "urls": Object {
+          "create": Array [],
+        },
       },
       Object {
         "account": Object {
@@ -185,9 +272,27 @@ Array [
         },
         "accountName": "Dina_Gulgowski",
         "favoritesCount": 13002,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-01T00:00:00.000Z",
         "text": "Vitae soluta sint.",
         "twitterId": "91044",
+        "urls": Object {
+          "create": Array [
+            Object {
+              "displayUrl": "taniarascia.com/understanding-…",
+              "expandedUrl": "https://www.taniarascia.com/understanding-destructuring-rest-spread/",
+              "indices": Object {
+                "set": Array [
+                  65,
+                  88,
+                ],
+              },
+              "url": "https://t.co/Zp804COUGM",
+            },
+          ],
+        },
       },
       Object {
         "account": Object {
@@ -197,9 +302,30 @@ Array [
         },
         "accountName": "Harrison.Wiegand41",
         "favoritesCount": 5336,
+        "media": Object {
+          "create": Array [
+            Object {
+              "displayUrl": "pic.twitter.com/P6IgqbkRcU",
+              "expandedUrl": "https://twitter.com/mgechev/status/1296696108371116034/photo/1",
+              "indices": Object {
+                "set": Array [
+                  156,
+                  179,
+                ],
+              },
+              "mediaUrl": "http://pbs.twimg.com/media/Ef7KPPbXoAIAAV2.jpg",
+              "mediaUrlHttps": "https://pbs.twimg.com/media/Ef7KPPbXoAIAAV2.jpg",
+              "type": "photo",
+              "url": "https://t.co/P6IgqbkRcU",
+            },
+          ],
+        },
         "publishedAt": "2020-01-01T00:00:00.000Z",
         "text": "Laborum ratione a officia quaerat cumque incidunt.",
         "twitterId": "53344",
+        "urls": Object {
+          "create": Array [],
+        },
       },
     ],
   },
@@ -234,9 +360,15 @@ Array [
         },
         "accountName": "Neil44",
         "favoritesCount": 83462,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-01T00:00:00.000Z",
         "text": "Aperiam placeat fuga.",
         "twitterId": "66063",
+        "urls": Object {
+          "create": Array [],
+        },
       },
       Object {
         "account": Object {
@@ -246,9 +378,15 @@ Array [
         },
         "accountName": "Eldora11",
         "favoritesCount": 78927,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-01T00:00:00.000Z",
         "text": "Architecto ducimus totam.",
         "twitterId": "9617",
+        "urls": Object {
+          "create": Array [],
+        },
       },
       Object {
         "account": Object {
@@ -258,9 +396,15 @@ Array [
         },
         "accountName": "Kamryn.Conn",
         "favoritesCount": 54060,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-02T00:00:00.000Z",
         "text": "Sed quae nam eos sint autem rerum doloremque officia.",
         "twitterId": "90340",
+        "urls": Object {
+          "create": Array [],
+        },
       },
     ],
   },
@@ -296,9 +440,15 @@ Array [
         },
         "accountName": "Neil44",
         "favoritesCount": 83462,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-01T00:00:00.000Z",
         "text": "Aperiam placeat fuga.",
         "twitterId": "66063",
+        "urls": Object {
+          "create": Array [],
+        },
       },
       Object {
         "account": Object {
@@ -308,9 +458,15 @@ Array [
         },
         "accountName": "Eldora11",
         "favoritesCount": 78927,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-01T00:00:00.000Z",
         "text": "Architecto ducimus totam.",
         "twitterId": "9617",
+        "urls": Object {
+          "create": Array [],
+        },
       },
       Object {
         "account": Object {
@@ -320,9 +476,15 @@ Array [
         },
         "accountName": "Kamryn.Conn",
         "favoritesCount": 54060,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-02T00:00:00.000Z",
         "text": "Sed quae nam eos sint autem rerum doloremque officia.",
         "twitterId": "90340",
+        "urls": Object {
+          "create": Array [],
+        },
       },
     ],
   },
@@ -387,9 +549,15 @@ Array [
         },
         "accountName": "Nestor.Nienow88",
         "favoritesCount": 89213,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-02T00:00:00.000Z",
         "text": "In ut dolorem et molestiae ea.",
         "twitterId": "57100",
+        "urls": Object {
+          "create": Array [],
+        },
       },
       Object {
         "account": Object {
@@ -399,9 +567,27 @@ Array [
         },
         "accountName": "Dina_Gulgowski",
         "favoritesCount": 13002,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-01T00:00:00.000Z",
         "text": "Vitae soluta sint.",
         "twitterId": "91044",
+        "urls": Object {
+          "create": Array [
+            Object {
+              "displayUrl": "taniarascia.com/understanding-…",
+              "expandedUrl": "https://www.taniarascia.com/understanding-destructuring-rest-spread/",
+              "indices": Object {
+                "set": Array [
+                  65,
+                  88,
+                ],
+              },
+              "url": "https://t.co/Zp804COUGM",
+            },
+          ],
+        },
       },
       Object {
         "account": Object {
@@ -411,9 +597,30 @@ Array [
         },
         "accountName": "Harrison.Wiegand41",
         "favoritesCount": 5336,
+        "media": Object {
+          "create": Array [
+            Object {
+              "displayUrl": "pic.twitter.com/P6IgqbkRcU",
+              "expandedUrl": "https://twitter.com/mgechev/status/1296696108371116034/photo/1",
+              "indices": Object {
+                "set": Array [
+                  156,
+                  179,
+                ],
+              },
+              "mediaUrl": "http://pbs.twimg.com/media/Ef7KPPbXoAIAAV2.jpg",
+              "mediaUrlHttps": "https://pbs.twimg.com/media/Ef7KPPbXoAIAAV2.jpg",
+              "type": "photo",
+              "url": "https://t.co/P6IgqbkRcU",
+            },
+          ],
+        },
         "publishedAt": "2020-01-01T00:00:00.000Z",
         "text": "Laborum ratione a officia quaerat cumque incidunt.",
         "twitterId": "53344",
+        "urls": Object {
+          "create": Array [],
+        },
       },
     ],
   },
@@ -443,9 +650,15 @@ Array [
         },
         "accountName": "Nestor.Nienow88",
         "favoritesCount": 89213,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-02T00:00:00.000Z",
         "text": "In ut dolorem et molestiae ea.",
         "twitterId": "57100",
+        "urls": Object {
+          "create": Array [],
+        },
       },
     ],
   },
@@ -475,9 +688,30 @@ Array [
         },
         "accountName": "Harrison.Wiegand41",
         "favoritesCount": 5336,
+        "media": Object {
+          "create": Array [
+            Object {
+              "displayUrl": "pic.twitter.com/P6IgqbkRcU",
+              "expandedUrl": "https://twitter.com/mgechev/status/1296696108371116034/photo/1",
+              "indices": Object {
+                "set": Array [
+                  156,
+                  179,
+                ],
+              },
+              "mediaUrl": "http://pbs.twimg.com/media/Ef7KPPbXoAIAAV2.jpg",
+              "mediaUrlHttps": "https://pbs.twimg.com/media/Ef7KPPbXoAIAAV2.jpg",
+              "type": "photo",
+              "url": "https://t.co/P6IgqbkRcU",
+            },
+          ],
+        },
         "publishedAt": "2020-01-01T00:00:00.000Z",
         "text": "Laborum ratione a officia quaerat cumque incidunt.",
         "twitterId": "53344",
+        "urls": Object {
+          "create": Array [],
+        },
       },
     ],
   },
@@ -507,9 +741,27 @@ Array [
         },
         "accountName": "Dina_Gulgowski",
         "favoritesCount": 13002,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-01T00:00:00.000Z",
         "text": "Vitae soluta sint.",
         "twitterId": "91044",
+        "urls": Object {
+          "create": Array [
+            Object {
+              "displayUrl": "taniarascia.com/understanding-…",
+              "expandedUrl": "https://www.taniarascia.com/understanding-destructuring-rest-spread/",
+              "indices": Object {
+                "set": Array [
+                  65,
+                  88,
+                ],
+              },
+              "url": "https://t.co/Zp804COUGM",
+            },
+          ],
+        },
       },
     ],
   },
@@ -543,9 +795,15 @@ Array [
         },
         "accountName": "Nestor.Nienow88",
         "favoritesCount": 89213,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-02T00:00:00.000Z",
         "text": "In ut dolorem et molestiae ea.",
         "twitterId": "57100",
+        "urls": Object {
+          "create": Array [],
+        },
       },
       Object {
         "account": Object {
@@ -555,9 +813,15 @@ Array [
         },
         "accountName": "Neil44",
         "favoritesCount": 83462,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-01T00:00:00.000Z",
         "text": "Aperiam placeat fuga.",
         "twitterId": "66063",
+        "urls": Object {
+          "create": Array [],
+        },
       },
       Object {
         "account": Object {
@@ -567,9 +831,15 @@ Array [
         },
         "accountName": "Eldora11",
         "favoritesCount": 78927,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-01T00:00:00.000Z",
         "text": "Architecto ducimus totam.",
         "twitterId": "9617",
+        "urls": Object {
+          "create": Array [],
+        },
       },
       Object {
         "account": Object {
@@ -579,9 +849,15 @@ Array [
         },
         "accountName": "Kamryn.Conn",
         "favoritesCount": 54060,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-02T00:00:00.000Z",
         "text": "Sed quae nam eos sint autem rerum doloremque officia.",
         "twitterId": "90340",
+        "urls": Object {
+          "create": Array [],
+        },
       },
     ],
   },
@@ -606,9 +882,30 @@ Array [
         },
         "accountName": "Harrison.Wiegand41",
         "favoritesCount": 5336,
+        "media": Object {
+          "create": Array [
+            Object {
+              "displayUrl": "pic.twitter.com/P6IgqbkRcU",
+              "expandedUrl": "https://twitter.com/mgechev/status/1296696108371116034/photo/1",
+              "indices": Object {
+                "set": Array [
+                  156,
+                  179,
+                ],
+              },
+              "mediaUrl": "http://pbs.twimg.com/media/Ef7KPPbXoAIAAV2.jpg",
+              "mediaUrlHttps": "https://pbs.twimg.com/media/Ef7KPPbXoAIAAV2.jpg",
+              "type": "photo",
+              "url": "https://t.co/P6IgqbkRcU",
+            },
+          ],
+        },
         "publishedAt": "2020-01-01T00:00:00.000Z",
         "text": "Laborum ratione a officia quaerat cumque incidunt.",
         "twitterId": "53344",
+        "urls": Object {
+          "create": Array [],
+        },
       },
     ],
   },
@@ -633,9 +930,27 @@ Array [
         },
         "accountName": "Dina_Gulgowski",
         "favoritesCount": 13002,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-01T00:00:00.000Z",
         "text": "Vitae soluta sint.",
         "twitterId": "91044",
+        "urls": Object {
+          "create": Array [
+            Object {
+              "displayUrl": "taniarascia.com/understanding-…",
+              "expandedUrl": "https://www.taniarascia.com/understanding-destructuring-rest-spread/",
+              "indices": Object {
+                "set": Array [
+                  65,
+                  88,
+                ],
+              },
+              "url": "https://t.co/Zp804COUGM",
+            },
+          ],
+        },
       },
     ],
   },
@@ -674,9 +989,15 @@ Array [
         },
         "accountName": "Nestor.Nienow88",
         "favoritesCount": 89213,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-02T00:00:00.000Z",
         "text": "In ut dolorem et molestiae ea.",
         "twitterId": "57100",
+        "urls": Object {
+          "create": Array [],
+        },
       },
       Object {
         "account": Object {
@@ -686,9 +1007,15 @@ Array [
         },
         "accountName": "Neil44",
         "favoritesCount": 83462,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-01T00:00:00.000Z",
         "text": "Aperiam placeat fuga.",
         "twitterId": "66063",
+        "urls": Object {
+          "create": Array [],
+        },
       },
       Object {
         "account": Object {
@@ -698,9 +1025,15 @@ Array [
         },
         "accountName": "Eldora11",
         "favoritesCount": 78927,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-01T00:00:00.000Z",
         "text": "Architecto ducimus totam.",
         "twitterId": "9617",
+        "urls": Object {
+          "create": Array [],
+        },
       },
       Object {
         "account": Object {
@@ -710,9 +1043,15 @@ Array [
         },
         "accountName": "Kamryn.Conn",
         "favoritesCount": 54060,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-02T00:00:00.000Z",
         "text": "Sed quae nam eos sint autem rerum doloremque officia.",
         "twitterId": "90340",
+        "urls": Object {
+          "create": Array [],
+        },
       },
       Object {
         "account": Object {
@@ -722,9 +1061,27 @@ Array [
         },
         "accountName": "Dina_Gulgowski",
         "favoritesCount": 13002,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-01T00:00:00.000Z",
         "text": "Vitae soluta sint.",
         "twitterId": "91044",
+        "urls": Object {
+          "create": Array [
+            Object {
+              "displayUrl": "taniarascia.com/understanding-…",
+              "expandedUrl": "https://www.taniarascia.com/understanding-destructuring-rest-spread/",
+              "indices": Object {
+                "set": Array [
+                  65,
+                  88,
+                ],
+              },
+              "url": "https://t.co/Zp804COUGM",
+            },
+          ],
+        },
       },
       Object {
         "account": Object {
@@ -734,9 +1091,30 @@ Array [
         },
         "accountName": "Harrison.Wiegand41",
         "favoritesCount": 5336,
+        "media": Object {
+          "create": Array [
+            Object {
+              "displayUrl": "pic.twitter.com/P6IgqbkRcU",
+              "expandedUrl": "https://twitter.com/mgechev/status/1296696108371116034/photo/1",
+              "indices": Object {
+                "set": Array [
+                  156,
+                  179,
+                ],
+              },
+              "mediaUrl": "http://pbs.twimg.com/media/Ef7KPPbXoAIAAV2.jpg",
+              "mediaUrlHttps": "https://pbs.twimg.com/media/Ef7KPPbXoAIAAV2.jpg",
+              "type": "photo",
+              "url": "https://t.co/P6IgqbkRcU",
+            },
+          ],
+        },
         "publishedAt": "2020-01-01T00:00:00.000Z",
         "text": "Laborum ratione a officia quaerat cumque incidunt.",
         "twitterId": "53344",
+        "urls": Object {
+          "create": Array [],
+        },
       },
     ],
   },
@@ -771,9 +1149,15 @@ Array [
         },
         "accountName": "Neil44",
         "favoritesCount": 83462,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-01T00:00:00.000Z",
         "text": "Aperiam placeat fuga.",
         "twitterId": "66063",
+        "urls": Object {
+          "create": Array [],
+        },
       },
       Object {
         "account": Object {
@@ -783,9 +1167,15 @@ Array [
         },
         "accountName": "Eldora11",
         "favoritesCount": 78927,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-01T00:00:00.000Z",
         "text": "Architecto ducimus totam.",
         "twitterId": "9617",
+        "urls": Object {
+          "create": Array [],
+        },
       },
       Object {
         "account": Object {
@@ -795,9 +1185,15 @@ Array [
         },
         "accountName": "Kamryn.Conn",
         "favoritesCount": 54060,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-02T00:00:00.000Z",
         "text": "Sed quae nam eos sint autem rerum doloremque officia.",
         "twitterId": "90340",
+        "urls": Object {
+          "create": Array [],
+        },
       },
     ],
   },
@@ -833,9 +1229,15 @@ Array [
         },
         "accountName": "Neil44",
         "favoritesCount": 83462,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-01T00:00:00.000Z",
         "text": "Aperiam placeat fuga.",
         "twitterId": "66063",
+        "urls": Object {
+          "create": Array [],
+        },
       },
       Object {
         "account": Object {
@@ -845,9 +1247,15 @@ Array [
         },
         "accountName": "Eldora11",
         "favoritesCount": 78927,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-01T00:00:00.000Z",
         "text": "Architecto ducimus totam.",
         "twitterId": "9617",
+        "urls": Object {
+          "create": Array [],
+        },
       },
       Object {
         "account": Object {
@@ -857,9 +1265,15 @@ Array [
         },
         "accountName": "Kamryn.Conn",
         "favoritesCount": 54060,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-02T00:00:00.000Z",
         "text": "Sed quae nam eos sint autem rerum doloremque officia.",
         "twitterId": "90340",
+        "urls": Object {
+          "create": Array [],
+        },
       },
     ],
   },
@@ -924,9 +1338,15 @@ Array [
         },
         "accountName": "Nestor.Nienow88",
         "favoritesCount": 89213,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-02T00:00:00.000Z",
         "text": "In ut dolorem et molestiae ea.",
         "twitterId": "57100",
+        "urls": Object {
+          "create": Array [],
+        },
       },
       Object {
         "account": Object {
@@ -936,9 +1356,27 @@ Array [
         },
         "accountName": "Dina_Gulgowski",
         "favoritesCount": 13002,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-01T00:00:00.000Z",
         "text": "Vitae soluta sint.",
         "twitterId": "91044",
+        "urls": Object {
+          "create": Array [
+            Object {
+              "displayUrl": "taniarascia.com/understanding-…",
+              "expandedUrl": "https://www.taniarascia.com/understanding-destructuring-rest-spread/",
+              "indices": Object {
+                "set": Array [
+                  65,
+                  88,
+                ],
+              },
+              "url": "https://t.co/Zp804COUGM",
+            },
+          ],
+        },
       },
       Object {
         "account": Object {
@@ -948,9 +1386,30 @@ Array [
         },
         "accountName": "Harrison.Wiegand41",
         "favoritesCount": 5336,
+        "media": Object {
+          "create": Array [
+            Object {
+              "displayUrl": "pic.twitter.com/P6IgqbkRcU",
+              "expandedUrl": "https://twitter.com/mgechev/status/1296696108371116034/photo/1",
+              "indices": Object {
+                "set": Array [
+                  156,
+                  179,
+                ],
+              },
+              "mediaUrl": "http://pbs.twimg.com/media/Ef7KPPbXoAIAAV2.jpg",
+              "mediaUrlHttps": "https://pbs.twimg.com/media/Ef7KPPbXoAIAAV2.jpg",
+              "type": "photo",
+              "url": "https://t.co/P6IgqbkRcU",
+            },
+          ],
+        },
         "publishedAt": "2020-01-01T00:00:00.000Z",
         "text": "Laborum ratione a officia quaerat cumque incidunt.",
         "twitterId": "53344",
+        "urls": Object {
+          "create": Array [],
+        },
       },
     ],
   },
@@ -980,9 +1439,15 @@ Array [
         },
         "accountName": "Nestor.Nienow88",
         "favoritesCount": 89213,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-02T00:00:00.000Z",
         "text": "In ut dolorem et molestiae ea.",
         "twitterId": "57100",
+        "urls": Object {
+          "create": Array [],
+        },
       },
     ],
   },
@@ -1012,9 +1477,30 @@ Array [
         },
         "accountName": "Harrison.Wiegand41",
         "favoritesCount": 5336,
+        "media": Object {
+          "create": Array [
+            Object {
+              "displayUrl": "pic.twitter.com/P6IgqbkRcU",
+              "expandedUrl": "https://twitter.com/mgechev/status/1296696108371116034/photo/1",
+              "indices": Object {
+                "set": Array [
+                  156,
+                  179,
+                ],
+              },
+              "mediaUrl": "http://pbs.twimg.com/media/Ef7KPPbXoAIAAV2.jpg",
+              "mediaUrlHttps": "https://pbs.twimg.com/media/Ef7KPPbXoAIAAV2.jpg",
+              "type": "photo",
+              "url": "https://t.co/P6IgqbkRcU",
+            },
+          ],
+        },
         "publishedAt": "2020-01-01T00:00:00.000Z",
         "text": "Laborum ratione a officia quaerat cumque incidunt.",
         "twitterId": "53344",
+        "urls": Object {
+          "create": Array [],
+        },
       },
     ],
   },
@@ -1044,9 +1530,27 @@ Array [
         },
         "accountName": "Dina_Gulgowski",
         "favoritesCount": 13002,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-01T00:00:00.000Z",
         "text": "Vitae soluta sint.",
         "twitterId": "91044",
+        "urls": Object {
+          "create": Array [
+            Object {
+              "displayUrl": "taniarascia.com/understanding-…",
+              "expandedUrl": "https://www.taniarascia.com/understanding-destructuring-rest-spread/",
+              "indices": Object {
+                "set": Array [
+                  65,
+                  88,
+                ],
+              },
+              "url": "https://t.co/Zp804COUGM",
+            },
+          ],
+        },
       },
     ],
   },
@@ -1080,9 +1584,15 @@ Array [
         },
         "accountName": "Nestor.Nienow88",
         "favoritesCount": 89213,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-02T00:00:00.000Z",
         "text": "In ut dolorem et molestiae ea.",
         "twitterId": "57100",
+        "urls": Object {
+          "create": Array [],
+        },
       },
       Object {
         "account": Object {
@@ -1092,9 +1602,15 @@ Array [
         },
         "accountName": "Neil44",
         "favoritesCount": 83462,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-01T00:00:00.000Z",
         "text": "Aperiam placeat fuga.",
         "twitterId": "66063",
+        "urls": Object {
+          "create": Array [],
+        },
       },
       Object {
         "account": Object {
@@ -1104,9 +1620,15 @@ Array [
         },
         "accountName": "Eldora11",
         "favoritesCount": 78927,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-01T00:00:00.000Z",
         "text": "Architecto ducimus totam.",
         "twitterId": "9617",
+        "urls": Object {
+          "create": Array [],
+        },
       },
       Object {
         "account": Object {
@@ -1116,9 +1638,15 @@ Array [
         },
         "accountName": "Kamryn.Conn",
         "favoritesCount": 54060,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-02T00:00:00.000Z",
         "text": "Sed quae nam eos sint autem rerum doloremque officia.",
         "twitterId": "90340",
+        "urls": Object {
+          "create": Array [],
+        },
       },
     ],
   },
@@ -1143,9 +1671,30 @@ Array [
         },
         "accountName": "Harrison.Wiegand41",
         "favoritesCount": 5336,
+        "media": Object {
+          "create": Array [
+            Object {
+              "displayUrl": "pic.twitter.com/P6IgqbkRcU",
+              "expandedUrl": "https://twitter.com/mgechev/status/1296696108371116034/photo/1",
+              "indices": Object {
+                "set": Array [
+                  156,
+                  179,
+                ],
+              },
+              "mediaUrl": "http://pbs.twimg.com/media/Ef7KPPbXoAIAAV2.jpg",
+              "mediaUrlHttps": "https://pbs.twimg.com/media/Ef7KPPbXoAIAAV2.jpg",
+              "type": "photo",
+              "url": "https://t.co/P6IgqbkRcU",
+            },
+          ],
+        },
         "publishedAt": "2020-01-01T00:00:00.000Z",
         "text": "Laborum ratione a officia quaerat cumque incidunt.",
         "twitterId": "53344",
+        "urls": Object {
+          "create": Array [],
+        },
       },
     ],
   },
@@ -1170,9 +1719,27 @@ Array [
         },
         "accountName": "Dina_Gulgowski",
         "favoritesCount": 13002,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-01T00:00:00.000Z",
         "text": "Vitae soluta sint.",
         "twitterId": "91044",
+        "urls": Object {
+          "create": Array [
+            Object {
+              "displayUrl": "taniarascia.com/understanding-…",
+              "expandedUrl": "https://www.taniarascia.com/understanding-destructuring-rest-spread/",
+              "indices": Object {
+                "set": Array [
+                  65,
+                  88,
+                ],
+              },
+              "url": "https://t.co/Zp804COUGM",
+            },
+          ],
+        },
       },
     ],
   },
@@ -1206,9 +1773,15 @@ Array [
         },
         "accountName": "Neil44",
         "favoritesCount": 83462,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-01T00:00:00.000Z",
         "text": "Aperiam placeat fuga.",
         "twitterId": "66063",
+        "urls": Object {
+          "create": Array [],
+        },
       },
       Object {
         "account": Object {
@@ -1218,9 +1791,15 @@ Array [
         },
         "accountName": "Eldora11",
         "favoritesCount": 78927,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-01T00:00:00.000Z",
         "text": "Architecto ducimus totam.",
         "twitterId": "9617",
+        "urls": Object {
+          "create": Array [],
+        },
       },
       Object {
         "account": Object {
@@ -1230,9 +1809,15 @@ Array [
         },
         "accountName": "Kamryn.Conn",
         "favoritesCount": 54060,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-02T00:00:00.000Z",
         "text": "Sed quae nam eos sint autem rerum doloremque officia.",
         "twitterId": "90340",
+        "urls": Object {
+          "create": Array [],
+        },
       },
     ],
   },
@@ -1267,9 +1852,15 @@ Array [
         },
         "accountName": "Neil44",
         "favoritesCount": 83462,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-01T00:00:00.000Z",
         "text": "Aperiam placeat fuga.",
         "twitterId": "66063",
+        "urls": Object {
+          "create": Array [],
+        },
       },
       Object {
         "account": Object {
@@ -1279,9 +1870,15 @@ Array [
         },
         "accountName": "Eldora11",
         "favoritesCount": 78927,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-01T00:00:00.000Z",
         "text": "Architecto ducimus totam.",
         "twitterId": "9617",
+        "urls": Object {
+          "create": Array [],
+        },
       },
       Object {
         "account": Object {
@@ -1291,9 +1888,15 @@ Array [
         },
         "accountName": "Kamryn.Conn",
         "favoritesCount": 54060,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-02T00:00:00.000Z",
         "text": "Sed quae nam eos sint autem rerum doloremque officia.",
         "twitterId": "90340",
+        "urls": Object {
+          "create": Array [],
+        },
       },
     ],
   },
@@ -1355,9 +1958,15 @@ Array [
         },
         "accountName": "Nestor.Nienow88",
         "favoritesCount": 89213,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-02T00:00:00.000Z",
         "text": "In ut dolorem et molestiae ea.",
         "twitterId": "57100",
+        "urls": Object {
+          "create": Array [],
+        },
       },
       Object {
         "account": Object {
@@ -1367,9 +1976,27 @@ Array [
         },
         "accountName": "Dina_Gulgowski",
         "favoritesCount": 13002,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-01T00:00:00.000Z",
         "text": "Vitae soluta sint.",
         "twitterId": "91044",
+        "urls": Object {
+          "create": Array [
+            Object {
+              "displayUrl": "taniarascia.com/understanding-…",
+              "expandedUrl": "https://www.taniarascia.com/understanding-destructuring-rest-spread/",
+              "indices": Object {
+                "set": Array [
+                  65,
+                  88,
+                ],
+              },
+              "url": "https://t.co/Zp804COUGM",
+            },
+          ],
+        },
       },
       Object {
         "account": Object {
@@ -1379,9 +2006,30 @@ Array [
         },
         "accountName": "Harrison.Wiegand41",
         "favoritesCount": 5336,
+        "media": Object {
+          "create": Array [
+            Object {
+              "displayUrl": "pic.twitter.com/P6IgqbkRcU",
+              "expandedUrl": "https://twitter.com/mgechev/status/1296696108371116034/photo/1",
+              "indices": Object {
+                "set": Array [
+                  156,
+                  179,
+                ],
+              },
+              "mediaUrl": "http://pbs.twimg.com/media/Ef7KPPbXoAIAAV2.jpg",
+              "mediaUrlHttps": "https://pbs.twimg.com/media/Ef7KPPbXoAIAAV2.jpg",
+              "type": "photo",
+              "url": "https://t.co/P6IgqbkRcU",
+            },
+          ],
+        },
         "publishedAt": "2020-01-01T00:00:00.000Z",
         "text": "Laborum ratione a officia quaerat cumque incidunt.",
         "twitterId": "53344",
+        "urls": Object {
+          "create": Array [],
+        },
       },
     ],
   },
@@ -1410,9 +2058,15 @@ Array [
         },
         "accountName": "Nestor.Nienow88",
         "favoritesCount": 89213,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-02T00:00:00.000Z",
         "text": "In ut dolorem et molestiae ea.",
         "twitterId": "57100",
+        "urls": Object {
+          "create": Array [],
+        },
       },
     ],
   },
@@ -1441,9 +2095,30 @@ Array [
         },
         "accountName": "Harrison.Wiegand41",
         "favoritesCount": 5336,
+        "media": Object {
+          "create": Array [
+            Object {
+              "displayUrl": "pic.twitter.com/P6IgqbkRcU",
+              "expandedUrl": "https://twitter.com/mgechev/status/1296696108371116034/photo/1",
+              "indices": Object {
+                "set": Array [
+                  156,
+                  179,
+                ],
+              },
+              "mediaUrl": "http://pbs.twimg.com/media/Ef7KPPbXoAIAAV2.jpg",
+              "mediaUrlHttps": "https://pbs.twimg.com/media/Ef7KPPbXoAIAAV2.jpg",
+              "type": "photo",
+              "url": "https://t.co/P6IgqbkRcU",
+            },
+          ],
+        },
         "publishedAt": "2020-01-01T00:00:00.000Z",
         "text": "Laborum ratione a officia quaerat cumque incidunt.",
         "twitterId": "53344",
+        "urls": Object {
+          "create": Array [],
+        },
       },
     ],
   },
@@ -1472,9 +2147,27 @@ Array [
         },
         "accountName": "Dina_Gulgowski",
         "favoritesCount": 13002,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-01T00:00:00.000Z",
         "text": "Vitae soluta sint.",
         "twitterId": "91044",
+        "urls": Object {
+          "create": Array [
+            Object {
+              "displayUrl": "taniarascia.com/understanding-…",
+              "expandedUrl": "https://www.taniarascia.com/understanding-destructuring-rest-spread/",
+              "indices": Object {
+                "set": Array [
+                  65,
+                  88,
+                ],
+              },
+              "url": "https://t.co/Zp804COUGM",
+            },
+          ],
+        },
       },
     ],
   },
@@ -1507,9 +2200,15 @@ Array [
         },
         "accountName": "Nestor.Nienow88",
         "favoritesCount": 89213,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-02T00:00:00.000Z",
         "text": "In ut dolorem et molestiae ea.",
         "twitterId": "57100",
+        "urls": Object {
+          "create": Array [],
+        },
       },
       Object {
         "account": Object {
@@ -1519,9 +2218,15 @@ Array [
         },
         "accountName": "Neil44",
         "favoritesCount": 83462,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-01T00:00:00.000Z",
         "text": "Aperiam placeat fuga.",
         "twitterId": "66063",
+        "urls": Object {
+          "create": Array [],
+        },
       },
       Object {
         "account": Object {
@@ -1531,9 +2236,15 @@ Array [
         },
         "accountName": "Eldora11",
         "favoritesCount": 78927,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-01T00:00:00.000Z",
         "text": "Architecto ducimus totam.",
         "twitterId": "9617",
+        "urls": Object {
+          "create": Array [],
+        },
       },
       Object {
         "account": Object {
@@ -1543,9 +2254,15 @@ Array [
         },
         "accountName": "Kamryn.Conn",
         "favoritesCount": 54060,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-02T00:00:00.000Z",
         "text": "Sed quae nam eos sint autem rerum doloremque officia.",
         "twitterId": "90340",
+        "urls": Object {
+          "create": Array [],
+        },
       },
     ],
   },
@@ -1569,9 +2286,30 @@ Array [
         },
         "accountName": "Harrison.Wiegand41",
         "favoritesCount": 5336,
+        "media": Object {
+          "create": Array [
+            Object {
+              "displayUrl": "pic.twitter.com/P6IgqbkRcU",
+              "expandedUrl": "https://twitter.com/mgechev/status/1296696108371116034/photo/1",
+              "indices": Object {
+                "set": Array [
+                  156,
+                  179,
+                ],
+              },
+              "mediaUrl": "http://pbs.twimg.com/media/Ef7KPPbXoAIAAV2.jpg",
+              "mediaUrlHttps": "https://pbs.twimg.com/media/Ef7KPPbXoAIAAV2.jpg",
+              "type": "photo",
+              "url": "https://t.co/P6IgqbkRcU",
+            },
+          ],
+        },
         "publishedAt": "2020-01-01T00:00:00.000Z",
         "text": "Laborum ratione a officia quaerat cumque incidunt.",
         "twitterId": "53344",
+        "urls": Object {
+          "create": Array [],
+        },
       },
     ],
   },
@@ -1595,9 +2333,27 @@ Array [
         },
         "accountName": "Dina_Gulgowski",
         "favoritesCount": 13002,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-01T00:00:00.000Z",
         "text": "Vitae soluta sint.",
         "twitterId": "91044",
+        "urls": Object {
+          "create": Array [
+            Object {
+              "displayUrl": "taniarascia.com/understanding-…",
+              "expandedUrl": "https://www.taniarascia.com/understanding-destructuring-rest-spread/",
+              "indices": Object {
+                "set": Array [
+                  65,
+                  88,
+                ],
+              },
+              "url": "https://t.co/Zp804COUGM",
+            },
+          ],
+        },
       },
     ],
   },
@@ -1640,9 +2396,15 @@ Array [
         },
         "accountName": "Priscilla69",
         "favoritesCount": 55868,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-01T00:00:00.000Z",
         "text": "Itaque velit omnis et.",
         "twitterId": "96826",
+        "urls": Object {
+          "create": Array [],
+        },
       },
       Object {
         "account": Object {
@@ -1652,9 +2414,15 @@ Array [
         },
         "accountName": "Kaden.Ortiz45",
         "favoritesCount": 53881,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-01T00:00:00.000Z",
         "text": "Ipsam nobis cupiditate sed dignissimos debitis.",
         "twitterId": "2738",
+        "urls": Object {
+          "create": Array [],
+        },
       },
       Object {
         "account": Object {
@@ -1664,9 +2432,15 @@ Array [
         },
         "accountName": "Lindsay_Yundt",
         "favoritesCount": 53316,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-02T00:00:00.000Z",
         "text": "Nostrum ipsam qui nobis repellendus fugiat velit sit.",
         "twitterId": "75014",
+        "urls": Object {
+          "create": Array [],
+        },
       },
       Object {
         "account": Object {
@@ -1676,9 +2450,15 @@ Array [
         },
         "accountName": "Larue_Johnston41",
         "favoritesCount": 51815,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-01T00:00:00.000Z",
         "text": "Saepe eum dicta eum eaque enim ipsum inventore debitis.",
         "twitterId": "9834",
+        "urls": Object {
+          "create": Array [],
+        },
       },
       Object {
         "account": Object {
@@ -1688,9 +2468,15 @@ Array [
         },
         "accountName": "Gideon.Heathcote93",
         "favoritesCount": 41702,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-01T00:00:00.000Z",
         "text": "Recusandae alias consequuntur corporis repellat ratione ut sunt.",
         "twitterId": "18626",
+        "urls": Object {
+          "create": Array [],
+        },
       },
       Object {
         "account": Object {
@@ -1700,9 +2486,15 @@ Array [
         },
         "accountName": "Eldora11",
         "favoritesCount": 29849,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-02T00:00:00.000Z",
         "text": "Temporibus modi aut architecto ducimus totam.",
         "twitterId": "9617",
+        "urls": Object {
+          "create": Array [],
+        },
       },
     ],
   },
@@ -1741,9 +2533,15 @@ Array [
         },
         "accountName": "Priscilla69",
         "favoritesCount": 55868,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-01T00:00:00.000Z",
         "text": "Itaque velit omnis et.",
         "twitterId": "96826",
+        "urls": Object {
+          "create": Array [],
+        },
       },
       Object {
         "account": Object {
@@ -1753,9 +2551,15 @@ Array [
         },
         "accountName": "Kaden.Ortiz45",
         "favoritesCount": 53881,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-01T00:00:00.000Z",
         "text": "Ipsam nobis cupiditate sed dignissimos debitis.",
         "twitterId": "2738",
+        "urls": Object {
+          "create": Array [],
+        },
       },
       Object {
         "account": Object {
@@ -1765,9 +2569,15 @@ Array [
         },
         "accountName": "Lindsay_Yundt",
         "favoritesCount": 53316,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-02T00:00:00.000Z",
         "text": "Nostrum ipsam qui nobis repellendus fugiat velit sit.",
         "twitterId": "75014",
+        "urls": Object {
+          "create": Array [],
+        },
       },
       Object {
         "account": Object {
@@ -1777,9 +2587,15 @@ Array [
         },
         "accountName": "Larue_Johnston41",
         "favoritesCount": 51815,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-01T00:00:00.000Z",
         "text": "Saepe eum dicta eum eaque enim ipsum inventore debitis.",
         "twitterId": "9834",
+        "urls": Object {
+          "create": Array [],
+        },
       },
       Object {
         "account": Object {
@@ -1789,9 +2605,15 @@ Array [
         },
         "accountName": "Gideon.Heathcote93",
         "favoritesCount": 41702,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-01T00:00:00.000Z",
         "text": "Recusandae alias consequuntur corporis repellat ratione ut sunt.",
         "twitterId": "18626",
+        "urls": Object {
+          "create": Array [],
+        },
       },
       Object {
         "account": Object {
@@ -1801,9 +2623,15 @@ Array [
         },
         "accountName": "Eldora11",
         "favoritesCount": 29849,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-02T00:00:00.000Z",
         "text": "Temporibus modi aut architecto ducimus totam.",
         "twitterId": "9617",
+        "urls": Object {
+          "create": Array [],
+        },
       },
     ],
   },
@@ -1842,9 +2670,15 @@ Array [
         },
         "accountName": "Priscilla69",
         "favoritesCount": 55868,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-01T00:00:00.000Z",
         "text": "Itaque velit omnis et.",
         "twitterId": "96826",
+        "urls": Object {
+          "create": Array [],
+        },
       },
       Object {
         "account": Object {
@@ -1854,9 +2688,15 @@ Array [
         },
         "accountName": "Kaden.Ortiz45",
         "favoritesCount": 53881,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-01T00:00:00.000Z",
         "text": "Ipsam nobis cupiditate sed dignissimos debitis.",
         "twitterId": "2738",
+        "urls": Object {
+          "create": Array [],
+        },
       },
       Object {
         "account": Object {
@@ -1866,9 +2706,15 @@ Array [
         },
         "accountName": "Lindsay_Yundt",
         "favoritesCount": 53316,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-02T00:00:00.000Z",
         "text": "Nostrum ipsam qui nobis repellendus fugiat velit sit.",
         "twitterId": "75014",
+        "urls": Object {
+          "create": Array [],
+        },
       },
       Object {
         "account": Object {
@@ -1878,9 +2724,15 @@ Array [
         },
         "accountName": "Larue_Johnston41",
         "favoritesCount": 51815,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-01T00:00:00.000Z",
         "text": "Saepe eum dicta eum eaque enim ipsum inventore debitis.",
         "twitterId": "9834",
+        "urls": Object {
+          "create": Array [],
+        },
       },
       Object {
         "account": Object {
@@ -1890,9 +2742,15 @@ Array [
         },
         "accountName": "Gideon.Heathcote93",
         "favoritesCount": 41702,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-01T00:00:00.000Z",
         "text": "Recusandae alias consequuntur corporis repellat ratione ut sunt.",
         "twitterId": "18626",
+        "urls": Object {
+          "create": Array [],
+        },
       },
       Object {
         "account": Object {
@@ -1902,9 +2760,15 @@ Array [
         },
         "accountName": "Eldora11",
         "favoritesCount": 29849,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-02T00:00:00.000Z",
         "text": "Temporibus modi aut architecto ducimus totam.",
         "twitterId": "9617",
+        "urls": Object {
+          "create": Array [],
+        },
       },
     ],
   },
@@ -1938,9 +2802,15 @@ Array [
         },
         "accountName": "Dorcas87",
         "favoritesCount": 80074,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-01T00:00:00.000Z",
         "text": "Et ipsam explicabo eligendi occaecati debitis et saepe eum dicta.",
         "twitterId": "3905",
+        "urls": Object {
+          "create": Array [],
+        },
       },
       Object {
         "account": Object {
@@ -1950,9 +2820,15 @@ Array [
         },
         "accountName": "Bryce_Pfannerstill41",
         "favoritesCount": 67052,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-01T00:00:00.000Z",
         "text": "Quam tempore a velit provident velit eligendi.",
         "twitterId": "31551",
+        "urls": Object {
+          "create": Array [],
+        },
       },
       Object {
         "account": Object {
@@ -1962,9 +2838,15 @@ Array [
         },
         "accountName": "Isai.Koss29",
         "favoritesCount": 1828,
+        "media": Object {
+          "create": Array [],
+        },
         "publishedAt": "2020-01-01T00:00:00.000Z",
         "text": "Fuga doloribus distinctio placeat ullam minima ducimus temporibus modi.",
         "twitterId": "7336",
+        "urls": Object {
+          "create": Array [],
+        },
       },
     ],
   },

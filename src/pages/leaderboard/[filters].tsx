@@ -1,18 +1,8 @@
 import React from 'react';
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType, NextPageContext } from 'next';
-import { ApolloClient, gql, HttpLink, InMemoryCache } from '@apollo/client';
 import { Box } from '@chakra-ui/core';
-import fetch from 'cross-fetch';
-import {
-  AccountType,
-  AllCommunityIdsQuery,
-  CommunityIdFragment,
-  Period,
-  RecentListQuery,
-  RecentListQueryVariables,
-  Tweet,
-  TweetType,
-} from '../../__generated__/graphql';
+import { PrismaClient, ListWhereInput, AccountType, Period, TweetType } from '@prisma/client';
+
 import TweetBox from '../../components/TweetBox';
 
 const decode = (encodedString: string) => {
@@ -37,103 +27,58 @@ const encode = (object: Record<string, unknown>) => {
   return window.btoa(string);
 };
 
-interface ListVariable {
-  key: Partial<keyof RecentListQueryVariables>;
-  value: RecentListQueryVariables[Partial<keyof RecentListQueryVariables>];
-}
-
 export function createVariablePermutations({
-                                             appliedVariables,
-                                             remainingVariables,
-                                           }: {
-  appliedVariables: ListVariable[];
-  remainingVariables: ListVariable[][];
-}): Partial<RecentListQueryVariables>[] {
-  const variablePermutation: Partial<RecentListQueryVariables> = appliedVariables.reduce(
-    (acc, currentVariable) => {
-      return { ...acc, [currentVariable.key]: currentVariable.value };
-    },
-    {},
-  );
-
-  const childVariablePermutations: Partial<RecentListQueryVariables>[] = remainingVariables.flatMap(
+  appliedVariables,
+  remainingVariableSets,
+}: {
+  appliedVariables: ListWhereInput;
+  remainingVariableSets: ListWhereInput[][];
+}): ListWhereInput[] {
+  const childVariablePermutations: ListWhereInput[] = remainingVariableSets.flatMap(
     (variables, variableIndex) =>
-      variables.flatMap(variable => {
-        const newAppliedVariables = [...appliedVariables, variable];
-        const newRemainingVariables = remainingVariables.slice(variableIndex + 1);
+      variables.flatMap((variable) => {
+        const newAppliedVariables = { ...appliedVariables, ...variable };
+        const newRemainingVariableSets = remainingVariableSets.slice(variableIndex + 1);
 
         return createVariablePermutations({
           appliedVariables: newAppliedVariables,
-          remainingVariables: newRemainingVariables,
+          remainingVariableSets: newRemainingVariableSets,
         });
       }),
   );
 
-  return [variablePermutation, ...childVariablePermutations];
+  return [appliedVariables, ...childVariablePermutations];
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
+  const prisma = new PrismaClient();
 
+  const communityVariables: ListWhereInput[] = (await prisma.community.findMany()).map(
+    (community) => ({
+      community: { id: community.id },
+    }),
+  );
 
-  const fragment = gql`
-      fragment CommunityId on Community {
-          _id
-      }
-  `;
-
-  const ALL_COMMUNITY_IDS = gql`
-      query AllCommunityIds {
-          allCommunities {
-              data {
-                  ...CommunityId
-              }
-          }
-      }
-      ${fragment}
-  `;
-
-  const communityIdVariables: ListVariable[] = await client
-    .query<AllCommunityIdsQuery>({
-      query: ALL_COMMUNITY_IDS,
-    })
-    .then(res => {
-      const data = res.data?.allCommunities.data;
-
-      if (!data) {
-        throw new Error('Recent list failed to fetch data...');
-      }
-
-      return data
-        .filter((community): community is CommunityIdFragment => community !== null)
-        .map(community => ({
-          key: 'communityId',
-          value: community._id,
-        }));
-    });
-
-  const periodVariables: ListVariable[] = Object.values(Period).map(period => ({
-    key: 'period',
-    value: period,
+  const periodVariables: ListWhereInput[] = Object.values(Period).map((period) => ({
+    period,
   }));
 
-  const tweetTypeVariables: ListVariable[] = Object.values(TweetType).map(tweetType => ({
-    key: 'tweetType',
-    value: tweetType,
+  const tweetTypeVariables: ListWhereInput[] = Object.values(TweetType).map((tweetType) => ({
+    tweetType,
   }));
 
-  const accountTypeVariables: ListVariable[] = Object.values(AccountType).map(accountType => ({
-    key: 'accountType',
-    value: accountType,
+  const accountTypeVariables: ListWhereInput[] = Object.values(AccountType).map((accountType) => ({
+    accountType,
   }));
 
-  const variablesPermutations = periodVariables.flatMap(periodVariable => {
+  const variablesPermutations = periodVariables.flatMap((periodVariable) => {
     return createVariablePermutations({
-      appliedVariables: [periodVariable],
-      remainingVariables: [communityIdVariables, tweetTypeVariables, accountTypeVariables],
+      appliedVariables: periodVariable,
+      remainingVariableSets: [communityVariables, tweetTypeVariables, accountTypeVariables],
     });
   });
 
-  const paths = variablesPermutations.map(permutation => ({
+  const paths = variablesPermutations.map((permutation) => ({
     params: {
       filters: encode(permutation),
     },
@@ -148,84 +93,44 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps = async (ctx: unknown) => {
+  const prisma = new PrismaClient();
+
   // @ts-ignore
   const variables = decode(ctx.params.filters);
 
-  const client = new ApolloClient({
-    cache: new InMemoryCache(),
-    link: new HttpLink({
-      uri: 'https://graphql.fauna.com/graphql',
-      fetch,
-      headers: {
-        Authorization: `Bearer ${process.env.NEXT_PUBLIC_FAUNA_CLIENT_KEY}`,
+  const list = await prisma.list.findMany({
+    where: variables,
+    select: {
+      tweetType: true,
+      accountType: true,
+      period: true,
+      community: {
+        select: {
+          name: true,
+        }
       },
-    }),
+      tweets: {
+        select: {
+          id: true,
+          accountName: true,
+          favoritesCount: true,
+          text: true,
+        }
+      }
+    }
   });
 
-  const RECENT_LIST = gql`
-      query RecentList(
-          $period: Period!
-          $communityId: ID
-          $tweetType: TweetType
-          $accountType: AccountType
-      ) {
-          recentList(
-              period: $period
-              communityId: $communityId
-              tweetType: $tweetType
-              accountType: $accountType
-          ) {
-              tweetType
-              accountType
-              period
-              community {
-                  name
-              }
-              tweets {
-                  data {
-                      _id
-                      accountName
-                      favoritesCount
-                      text
-                  }
-              }
-          }
-      }
-  `;
-
-  const list = await client
-    .query<RecentListQuery, RecentListQueryVariables>({
-      query: RECENT_LIST,
-      variables,
-    })
-    .then(res => {
-      const data = res.data?.recentList;
-
-      if (!data) {
-        throw new Error('Recent list failed to fetch data...');
-      }
-
-      return data;
-    });
 
   return {
-    props: {
-      tweets: list.tweets.data.map(tweet => {
-        if (tweet === null) {
-          throw new Error('Unexpected state: tweet is null...');
-        }
-
-        return tweet;
-      }),
-    },
+    props: { list },
   };
 };
 
-const LeaderBoard: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({ tweets }) => {
+const LeaderBoard: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({ list }) => {
   return (
     <Box>
       <ol>
-        {tweets.map(tweet => {
+        {list.tweets.map((tweet) => {
           return <TweetBox key={tweet._id} text={tweet.text} />;
         })}
       </ol>

@@ -1,0 +1,5 @@
+# Prisma Migrate lockfile v1
+
+20200809204743-init
+20200809220012-add-unique-to-twitter-id
+20200815113601-make-community-optional-on-list

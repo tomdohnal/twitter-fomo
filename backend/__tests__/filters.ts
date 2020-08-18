@@ -1,4 +1,4 @@
-import { AccountType } from '../__generated__/graphql';
+import {AccountType} from '@prisma/client'
 import {
   createCommunitiesFilters,
   createTweetTypeFilters,
@@ -160,15 +160,15 @@ describe('filters', () => {
 
     const accountTweets: AccountTweet[] = [
       {
-        account: createAccount({ type: AccountType.Business }),
+        account: createAccount({ type: AccountType.BUSINESS }),
         tweets: [createTextTweet(), createTextTweet()],
       },
       {
-        account: createAccount({ type: AccountType.Business }),
+        account: createAccount({ type: AccountType.BUSINESS }),
         tweets: [createTextTweet(), createTextTweet()],
       },
       {
-        account: createAccount({ type: AccountType.Personal }),
+        account: createAccount({ type: AccountType.PERSONAL }),
         tweets: [createMediaTweet(), createMediaTweet()],
       },
     ];

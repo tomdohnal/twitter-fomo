@@ -1,35 +1,31 @@
-import { ListCreateInput } from '@prisma/client';
+import { ListCreateInput, AccountType, TweetType, Period } from '@prisma/client';
 import R from 'ramda';
-import {
-  AccountType,
-  TweetType,
-  Period,
-} from './__generated__/graphql';
 import { dayjsUtc, Dayjs } from '../common/date';
 import { ApiTweet } from './twitter';
 
 export interface Filter {
   fields: Partial<ListCreateInput>;
+
   filterAccountTweets(params: AccountTweet[]): AccountTweet[];
 }
 
 export interface AccountTweet {
   account: {
-    id: number,
-    twitterId: string,
-    name: string,
-    type: "PERSONAL" | "BUSINESS",
-    communities: { id: number }[]
+    id: number;
+    twitterId: string;
+    name: string;
+    type: 'PERSONAL' | 'BUSINESS';
+    communities: { id: number }[];
   };
   tweets: ApiTweet[];
 }
 
 const createDateTweetFilterFn = (
   startDate: Dayjs,
-): ((accountTweets: AccountTweet[]) => AccountTweet[]) => accountTweets =>
-  accountTweets.map(accountTweet => ({
+): ((accountTweets: AccountTweet[]) => AccountTweet[]) => (accountTweets) =>
+  accountTweets.map((accountTweet) => ({
     ...accountTweet,
-    tweets: accountTweet.tweets.filter(tweet => {
+    tweets: accountTweet.tweets.filter((tweet) => {
       const tweetCreatedAt = dayjsUtc(tweet.created_at);
 
       // left inclusive
@@ -40,14 +36,14 @@ const createDateTweetFilterFn = (
 export function createDateFilters(currentDate: Dayjs) {
   const dayFilter: Filter = {
     fields: {
-      period: Period.Day,
+      period: Period.DAY,
     },
     filterAccountTweets: createDateTweetFilterFn(currentDate.subtract(1, 'day')),
   };
 
   const weekFilter: Filter = {
     fields: {
-      period: Period.Week,
+      period: Period.WEEK,
     },
     filterAccountTweets: createDateTweetFilterFn(currentDate.subtract(7, 'day')),
   };
@@ -55,8 +51,8 @@ export function createDateFilters(currentDate: Dayjs) {
   return [weekFilter, dayFilter];
 }
 
-export const createCommunitiesFilters = (communities: {name: string, id: number}[]): Filter[] =>
-  communities.map(community => ({
+export const createCommunitiesFilters = (communities: { name: string; id: number }[]): Filter[] =>
+  communities.map((community) => ({
     fields: {
       community: { connect: { id: community.id } },
     },
@@ -68,7 +64,7 @@ export const createCommunitiesFilters = (communities: {name: string, id: number}
   }));
 
 function isTextTweet(tweet: ApiTweet) {
-  return Object.values(tweet.entities).every(entity => entity.length === 0);
+  return Object.values(tweet.entities).every((entity) => entity.length === 0);
 }
 
 function isLinkTweet(tweet: ApiTweet) {
@@ -81,31 +77,31 @@ function isMediaTweet(tweet: ApiTweet) {
 
 export const createTweetTypeFilters = (): Filter[] => {
   const typesFilterFns = {
-    [TweetType.Link]: isLinkTweet,
-    [TweetType.Media]: isMediaTweet,
-    [TweetType.Text]: isTextTweet,
+    [TweetType.LINK]: isLinkTweet,
+    [TweetType.MEDIA]: isMediaTweet,
+    [TweetType.TEXT]: isTextTweet,
   };
 
-  return Object.values(TweetType).map(type => ({
+  return Object.values(TweetType).map((type) => ({
     fields: {
       tweetType: type,
     },
     filterAccountTweets(accountTweets: AccountTweet[]) {
-      return accountTweets.map(accountTweet => ({
+      return accountTweets.map((accountTweet) => ({
         account: accountTweet.account,
-        tweets: accountTweet.tweets.filter(tweet => typesFilterFns[type](tweet)),
+        tweets: accountTweet.tweets.filter((tweet) => typesFilterFns[type](tweet)),
       }));
     },
   }));
 };
 
 export const createAccountTypeFilters = (): Filter[] => {
-  return Object.values(AccountType).map(accountType => ({
+  return Object.values(AccountType).map((accountType) => ({
     fields: {
       accountType,
     },
     filterAccountTweets(accountTweets: AccountTweet[]) {
-      return accountTweets.filter(accountTweet => accountTweet.account.type === accountType);
+      return accountTweets.filter((accountTweet) => accountTweet.account.type === accountType);
     },
   }));
 };

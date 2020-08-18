@@ -5,7 +5,31 @@ import logger from './logger';
 
 export interface ApiTweet {
   id: number;
-  entities: { urls: Array<any>; media: Array<any> };
+  entities: {
+    urls: Array<{
+      url: string;
+      expanded_url: string;
+      display_url: string;
+      indices: Array<number>;
+    }>;
+    media: Array<{
+      id: number;
+      id_str: string;
+      indices: number[];
+      media_url: string;
+      media_url_https: string;
+      url: string;
+      display_url: string;
+      expanded_url: string;
+      type: string;
+      sizes: {
+        thumb: { w: number; h: number; resize: string };
+        medium: { w: number; h: number; resize: string };
+        large: { w: number; h: number; resize: string };
+        small: { w: number; h: number; resize: string };
+      };
+    }>;
+  };
   favorite_count: number;
   created_at: string;
   id_str: string;
@@ -17,7 +41,7 @@ export interface ApiTweet {
 }
 
 // using `util.promisify` breaks Jest for some reason...
-const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 export const getApp = () =>
   Promise.resolve(
@@ -26,8 +50,8 @@ export const getApp = () =>
       consumer_secret: process.env.TWITTER_CONSUMER_SECRET || '',
     }),
   )
-    .then(user => user.getBearerToken())
-    .then(response => {
+    .then((user) => user.getBearerToken())
+    .then((response) => {
       return new Twitter({
         // @ts-ignore (bearer_token DOES exists in `TwitterOptions`)
         bearer_token: response.access_token,
@@ -94,7 +118,7 @@ export async function fetchTweetsForAccount({
 
           return res;
         })
-        .catch(async err => {
+        .catch(async (err) => {
           // handle limit exceeded
           if (err.errors && err.errors[0].code === 88) {
             logger.error(new Error('Twitter limit exceeded, waiting...'));
@@ -128,7 +152,7 @@ export async function fetchTweetsForAccount({
   // by date so you can leverage that when filtering.
   // But premature optimization for now IMO
   return tweets
-    .filter(tweet => {
+    .filter((tweet) => {
       const tweetDate = dayjsUtc(tweet.created_at);
 
       return tweetDate.isAfter(startDate) || tweetDate.isSame(startDate);

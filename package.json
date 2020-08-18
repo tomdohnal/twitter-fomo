@@ -12,10 +12,11 @@
     "heroku-postbuild": "echo noop"
   },
   "dependencies": {
-    "@apollo/client": "^3.0.0-rc.4",
     "@chakra-ui/core": "^1.0.0-rc.1",
     "@chakra-ui/theme": "^1.0.0-rc.1",
     "@prisma/client": "^2.4.1",
+    "@types/aws-sdk": "^2.7.0",
+    "aws-sdk": "^2.736.0",
     "babel-eslint": "^10.1.0",
     "cross-fetch": "^3.0.4",
     "dayjs": "^1.8.26",
@@ -29,6 +30,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-react-hooks": "^4.0.0",
+    "execa": "^4.0.3",
     "faker": "^4.1.0",
     "next": "^9.5.1",
     "ramda": "^0.27.0",
