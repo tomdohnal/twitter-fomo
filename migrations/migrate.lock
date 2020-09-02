@@ -3,3 +3,5 @@
 20200809204743-init
 20200809220012-add-unique-to-twitter-id
 20200815113601-make-community-optional-on-list
+20200829201151-add_new_columns_to_tweet_table
+20200829204833-remove-account-url-from-tweet

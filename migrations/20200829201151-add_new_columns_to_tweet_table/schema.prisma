@@ -3,7 +3,7 @@
 
 datasource db {
   provider  =  "postgresql"
-  url       =  env("DATABASE_URL")
+  url = "***"
 }
 
 generator client {
@@ -133,6 +133,7 @@ model Tweet {
   text                     String
   accountName              String
   accountScreenName        String
+  accountUrl               String
   accountProfileImageUrl   String
   account                  Account            @relation(fields: [accountId], references: [id])
   accountId                Int

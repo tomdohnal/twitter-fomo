@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Flex, Image, Text } from '@chakra-ui/core';
+import { Box, Flex, Image, Text, useTheme, HStack } from '@chakra-ui/core';
 import {
   TwitterFavoriteIcon,
   TwitterLogoIcon,
@@ -9,25 +9,36 @@ import {
 
 interface Props {
   accountName: string;
-  accountUrlName: string;
+  accountScreenName: string;
   profileImageUrl: string;
   favoritesCount: number;
   retweetsCount: number;
   text: string;
-  createdAt: string;
+  publishedAt: string;
+  id: number;
 }
 
 const TweetBox: React.FC<Props> = ({
   accountName,
-  accountUrlName,
+  accountScreenName,
   profileImageUrl,
   favoritesCount,
   retweetsCount,
   text,
-  createdAt,
+  publishedAt,
+  id,
 }) => {
+  const theme = useTheme();
+
   return (
-    <Box borderWidth={4} borderColor="gray.900" boxShadow="lg" bg="white" w={['lg']} p={[6]}>
+    <Box
+      borderWidth={2}
+      borderColor="gray.900"
+      boxShadow={theme.shadows.sm()}
+      bg="white"
+      w={['xl']}
+      p={[6]}
+    >
       <Flex>
         <Image w={12} h={12} src={profileImageUrl} alt={`${accountName} profile image`} mr={4} />
         <Flex direction="column">
@@ -35,29 +46,30 @@ const TweetBox: React.FC<Props> = ({
             {accountName}
           </Text>
           <Text color="textSecondary" fontSize="sm">
-            @{accountUrlName}
+            @{accountScreenName}
           </Text>
         </Flex>
+        <Text ml="auto" color="textSecondary">
+          {new Date(publishedAt).toLocaleDateString('en')}
+        </Text>
       </Flex>
       <Box mt={4}>
-        <Text color="textSecondary">{text}</Text>
+        <Text fontSize="lg">{text}</Text>
       </Box>
-      <Flex color="textSecondary" mt={4}>
-        <Flex align="center" mr={4}>
-          <TwitterFavoriteIcon boxSize={5} mr={1} />
-          <Text>{favoritesCount}</Text>
+      <Flex justify="space-between" color="textSecondary" mt={4}>
+        <Flex align="center">
+          <TwitterFavoriteIcon boxSize={5} mr={2} />
+          <Text>{favoritesCount.toLocaleString('en')}</Text>
         </Flex>
-        <Flex align="center" mr={4}>
-          <TwitterRetweetIcon boxSize={5} mr={1} />
-          <Text>{retweetsCount}</Text>
+        <Flex align="center">
+          <TwitterRetweetIcon boxSize={5} mr={2} />
+          <Text>{retweetsCount.toLocaleString('en')}</Text>
         </Flex>
-        <Flex align="center" mr={4}>
-          <TwitterReplyIcon boxSize={5} mr={1} />
-          <Text>{retweetsCount}</Text>
+        <Flex align="center">
+          <TwitterReplyIcon boxSize={5} mr={2} />
         </Flex>
-        <Flex ml="auto" align="center">
-          <TwitterLogoIcon boxSize={8} />
-          <Text>{new Date(createdAt).toLocaleDateString('en-US')}</Text>
+        <Flex align="center">
+          <TwitterLogoIcon color="twitter" boxSize={8} />
         </Flex>
       </Flex>
     </Box>

@@ -31,11 +31,14 @@ export interface ApiTweet {
     }>;
   };
   favorite_count: number;
+  retweet_count: number;
   created_at: string;
   id_str: string;
   full_text: string;
   user: {
     name: string;
+    profile_image_url_https: string;
+    screen_name: string;
   };
   __accountId: number;
 }

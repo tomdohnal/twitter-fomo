@@ -43,6 +43,9 @@ const createListData = ({
       accountName: tweet.user.name,
       account: { connect: { id: tweet.__accountId } },
       favoritesCount: tweet.favorite_count,
+      retweetsCount: tweet.retweet_count,
+      accountProfileImageUrl: tweet.user.profile_image_url_https,
+      accountScreenName: tweet.user.screen_name,
       urls: {
         create: tweet.entities.urls?.map((urlEntity) => ({
           indices: {
