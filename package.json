@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export",
+    "build": "next build",
     "start": "next start",
     "backend:run-script": "ts-node-script backend/scripts/parseTweets__run__.ts",
     "test": "jest",
