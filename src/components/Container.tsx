@@ -12,8 +12,8 @@ const getStyleProps = ({
   isFullLeft,
   isFullRight,
 }: {
-  isFullLeft: boolean;
-  isFullRight: boolean;
+  isFullLeft?: boolean;
+  isFullRight?: boolean;
 }) => {
   if (isFullLeft) {
     return {

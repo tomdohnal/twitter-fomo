@@ -70,6 +70,7 @@ const LeaderBoard: React.FC<InferGetServerSidePropsType<typeof getServerSideProp
   );
 };
 
+// @ts-ignore
 LeaderBoard.getLayout = (page: ReactElement): ReactElement => {
   return (
     <>

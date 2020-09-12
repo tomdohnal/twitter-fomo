@@ -1,5 +1,5 @@
 import React from 'react';
-import { createIcon } from '@chakra-ui/icon';
+import { createIcon } from '@chakra-ui/core';
 
 export const TwitterFavoriteIcon = createIcon({
   displayName: 'TwitterFavoriteIcon',

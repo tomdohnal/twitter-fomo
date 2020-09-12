@@ -1,7 +1,7 @@
 import { TweetWhereInput, TweetType, AccountType } from '@prisma/client';
 import dayjs from 'dayjs';
 
-interface Filters {
+export interface Filters {
   period: string;
   communities: string[];
   tweetTypes: TweetType[];

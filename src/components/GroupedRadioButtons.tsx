@@ -42,6 +42,7 @@ const RadioButton: React.FC<RadioButtonProps> = ({ children, isAnimationReady, .
   return (
     <Box as="label">
       <input {...input} />
+      {/* @ts-ignore */}
       <Box
         {...checkbox}
         {...radioButtonStyles}
@@ -133,8 +134,8 @@ const GroupedRadioButtons: React.FC<GroupedRadioButtonsProps> = ({ items, value,
         position="absolute"
         top={0}
         aria-hidden="true"
+        // @ts-ignore
         display="inline-flex"
-        spacing={0}
         pl="1px"
       >
         {items.map(({ value, label }, index) => {
@@ -153,6 +154,7 @@ const GroupedRadioButtons: React.FC<GroupedRadioButtonsProps> = ({ items, value,
                 }
               }}
             >
+              {/* @ts-ignore */}
               <Box {...radioButtonStyles} {...radioButtonCheckedStyles}>
                 {label}
               </Box>

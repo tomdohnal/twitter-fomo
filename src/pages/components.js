@@ -1,10 +1,11 @@
-import React, { ChangeEvent, useState } from 'react';
-import { Wrap, Box, Stack, Input, Button, HStack } from '@chakra-ui/core';
+/* eslint-disable react/jsx-filename-extension */
+import React, { useState } from 'react';
+import { Wrap, Box, Stack, Input, Button } from '@chakra-ui/core';
 import CheckboxButton from '../components/CheckboxButton';
 import ContentContainer from '../components/ContentContainer';
 import GroupedRadioButtons from '../components/GroupedRadioButtons';
 
-const Components: React.FC = () => {
+const Components = () => {
   const [isChecked, setIsChecked] = useState(false);
   const [isChecked2, setIsChecked2] = useState(true);
   const [radioValue, setRadioValue] = useState('vue');
@@ -46,7 +47,7 @@ const Components: React.FC = () => {
           <Wrap>
             <Input
               value={inputValue}
-              onChange={(e: ChangeEvent<HTMLInputElement>) => {
+              onChange={e => {
                 setInputValue(e.target.value);
               }}
               placeholder="A sample placeholder"
@@ -54,14 +55,14 @@ const Components: React.FC = () => {
             />
             <Input
               value={inputValue}
-              onChange={(e: ChangeEvent<HTMLInputElement>) => {
+              onChange={e => {
                 setInputValue(e.target.value);
               }}
               placeholder="A sample placeholder"
             />
             <Input
               value={inputValue}
-              onChange={(e: ChangeEvent<HTMLInputElement>) => {
+              onChange={e => {
                 setInputValue(e.target.value);
               }}
               placeholder="A sample placeholder"
@@ -69,7 +70,7 @@ const Components: React.FC = () => {
             />
             <Input
               value={inputValue}
-              onChange={(e: ChangeEvent<HTMLInputElement>) => {
+              onChange={e => {
                 setInputValue(e.target.value);
               }}
               placeholder="A sample placeholder"
@@ -77,7 +78,7 @@ const Components: React.FC = () => {
             />
             <Input
               value={inputValue}
-              onChange={(e: ChangeEvent<HTMLInputElement>) => {
+              onChange={e => {
                 setInputValue(e.target.value);
               }}
               placeholder="A sample placeholder"

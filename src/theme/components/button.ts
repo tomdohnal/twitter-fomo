@@ -9,6 +9,7 @@ export default {
   sizes: {
     sm: {
       h: 8,
+      // @ts-ignore
       boxShadow({ shadows, colors }) {
         return shadows.sm(colors.primaryPalette['200']);
       },
@@ -19,6 +20,7 @@ export default {
     md: {
       h: 12,
       fontSize: 'lg',
+      // @ts-ignore
       boxShadow({ shadows, colors }) {
         return shadows.sm(colors.primaryPalette['200']);
       },
@@ -29,6 +31,7 @@ export default {
     lg: {
       h: 16,
       fontSize: 'xl',
+      // @ts-ignore
       boxShadow({ shadows, colors }) {
         return shadows.sm(colors.primaryPalette['200']);
       },
@@ -40,6 +43,7 @@ export default {
       h: 20,
       px: 8,
       fontSize: '2xl',
+      // @ts-ignore
       boxShadow({ shadows, colors }) {
         return shadows.md(colors.primaryPalette['200']);
       },
@@ -51,6 +55,7 @@ export default {
       h: 24,
       px: 10,
       fontSize: '4xl',
+      // @ts-ignore
       boxShadow({ shadows, colors }) {
         return shadows.md(colors.primaryPalette['200']);
       },

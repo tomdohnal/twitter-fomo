@@ -7,6 +7,7 @@ import { encode, decode, Filters } from '../filters';
 
 const FormFieldLabel: React.FC = ({ children }) => {
   return (
+    // @ts-ignore
     <Text color="textSecondary" textTransform="lowerCase" mb={1}>
       {children}
     </Text>
@@ -15,6 +16,7 @@ const FormFieldLabel: React.FC = ({ children }) => {
 
 const NewsletterForm: React.FC = () => {
   const [email, setEmail] = useState('');
+  // @ts-ignore
   const onClick = () => {};
 
   return (
@@ -84,7 +86,8 @@ interface FilterAction {
 const createGetNewFilters = (filters: Filters) => (action: FilterAction): Filters => {
   const oldField = filters[action.name];
   const newField = Array.isArray(oldField)
-    ? oldField.includes(action.value)
+    ? // @ts-ignore
+      oldField.includes(action.value)
       ? oldField.filter(value => value !== action.value)
       : [...oldField, action.value]
     : action.value;
@@ -104,6 +107,7 @@ const ListFilters: React.FC = () => {
   useEffect(() => {
     router.prefetch(
       `/leaderboard/[filters]`,
+      // @ts-ignore
       `/leaderboard/${encode(getNewFilters({ name: 'period', value: 'week' }))}`,
     );
   }, [getNewFilters, router]);
@@ -124,10 +128,11 @@ const ListFilters: React.FC = () => {
           <FormFieldLabel>Period</FormFieldLabel>
           <GroupedRadioButtons
             value={filters.period}
-            setValue={value => {
+            setValue={(value: string) => {
               // console.log();
               router.push(
                 `/leaderboard/[filters]`,
+                // @ts-ignore
                 `/leaderboard/${encode(getNewFilters({ name: 'period', value }))}`,
               );
               // setPeriodValue(value);
@@ -197,6 +202,7 @@ const ListFilters: React.FC = () => {
                     //   };
                     // });
                   }}
+                  // @ts-ignore
                   isChecked={filters.accountTypes.includes(value)}
                 >
                   {label}

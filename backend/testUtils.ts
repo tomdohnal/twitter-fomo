@@ -1,14 +1,11 @@
 import faker from 'faker';
-import {AccountType} from '@prisma/client'
+import { AccountType } from '@prisma/client';
 import { dayjsUtc } from '../common/date';
 import { ApiTweet } from './twitter';
 
 export { faker };
 
-export const createCommunity = ({
-  id,
-  name,
-}: { id?: number; name?: string } = {}) => ({
+export const createCommunity = ({ id, name }: { id?: number; name?: string } = {}) => ({
   id: id || faker.random.number(),
   name: name || faker.internet.domainName(),
 });
@@ -20,7 +17,7 @@ export const createAccount = ({
   twitterId,
   type,
 }: {
-  communities?: {id: number}[];
+  communities?: { id: number }[];
   id?: number;
   name?: string;
   twitterId?: string;
@@ -63,12 +60,15 @@ export const createTweet = ({
     urls: urls || [],
   },
   favorite_count: favorite_count || faker.random.number(),
+  retweet_count: favorite_count || faker.random.number(),
   __accountId: faker.random.number(),
   full_text: faker.lorem.sentence(),
   id: faker.random.number(),
   id_str: String(faker.random.number()),
   user: {
     name: faker.internet.userName(),
+    profile_image_url_https: faker.internet.url(),
+    screen_name: faker.internet.userName(),
   },
 });
 
