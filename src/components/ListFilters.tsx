@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Box, Heading, Input, Button, useTheme, Text, Stack, Wrap } from '@chakra-ui/core';
+import { useRouter } from 'next/router';
 import CheckboxButton from './CheckboxButton';
 import GroupedRadioButtons from './GroupedRadioButtons';
+import { encode, decode, Filters } from '../filters';
 
 const FormFieldLabel: React.FC = ({ children }) => {
   return (
@@ -46,20 +48,7 @@ const PERIOD_ITEMS = [
   },
 ];
 
-const TAG_ITEMS = [
-  {
-    label: 'React',
-    value: 'REACT',
-  },
-  {
-    label: 'Vue',
-    value: 'VUE',
-  },
-  {
-    label: 'Angular',
-    value: 'ANGULAR',
-  },
-];
+const COMMUNITY_ITEMS = ['React', 'Vue', 'Angular'];
 
 const TWEET_TYPE_ITEMS = [
   {
@@ -87,12 +76,37 @@ const ACCOUNT_TYPE_ITEMS = [
   },
 ];
 
+interface FilterAction {
+  value: string;
+  name: keyof Filters;
+}
+
+const createGetNewFilters = (filters: Filters) => (action: FilterAction): Filters => {
+  const oldField = filters[action.name];
+  const newField = Array.isArray(oldField)
+    ? oldField.includes(action.value)
+      ? oldField.filter(value => value !== action.value)
+      : [...oldField, action.value]
+    : action.value;
+
+  return { ...filters, [action.name]: newField };
+};
+
 const ListFilters: React.FC = () => {
   const theme = useTheme();
-  const [periodValue, setPeriodValue] = useState('DAY');
-  const [tagValues, setTagValues] = useState({});
-  const [tweetTypeValues, setTweetTypeValues] = useState({});
-  const [accountTypeValues, setAccountTypeValues] = useState({});
+  const router = useRouter();
+
+  // @ts-ignore
+  const filters = decode(router.query.filters);
+
+  const getNewFilters = createGetNewFilters(filters);
+
+  useEffect(() => {
+    router.prefetch(
+      `/leaderboard/[filters]`,
+      `/leaderboard/${encode(getNewFilters({ name: 'period', value: 'week' }))}`,
+    );
+  }, [getNewFilters, router]);
 
   return (
     <Box
@@ -109,9 +123,14 @@ const ListFilters: React.FC = () => {
         <Box>
           <FormFieldLabel>Period</FormFieldLabel>
           <GroupedRadioButtons
-            value={periodValue}
+            value={filters.period}
             setValue={value => {
-              setPeriodValue(value);
+              // console.log();
+              router.push(
+                `/leaderboard/[filters]`,
+                `/leaderboard/${encode(getNewFilters({ name: 'period', value }))}`,
+              );
+              // setPeriodValue(value);
             }}
             items={PERIOD_ITEMS}
           />
@@ -119,21 +138,21 @@ const ListFilters: React.FC = () => {
         <Box>
           <FormFieldLabel>Tags</FormFieldLabel>
           <Wrap spacing={3}>
-            {TAG_ITEMS.map(({ label, value }) => {
+            {COMMUNITY_ITEMS.map(item => {
               return (
                 <CheckboxButton
-                  key={value}
+                  key={item}
                   onCheck={isChecked => {
-                    setTagValues(prevTagValues => {
-                      return {
-                        ...prevTagValues,
-                        [value]: isChecked,
-                      };
-                    });
+                    // setTagValues(prevTagValues => {
+                    //   return {
+                    //     ...prevTagValues,
+                    //     [value]: isChecked,
+                    //   };
+                    // });
                   }}
-                  isChecked={!!tagValues[value]}
+                  isChecked={filters.communities.includes(item)}
                 >
-                  {label}
+                  {item}
                 </CheckboxButton>
               );
             })}
@@ -147,14 +166,15 @@ const ListFilters: React.FC = () => {
                 <CheckboxButton
                   key={value}
                   onCheck={isChecked => {
-                    setTweetTypeValues(prevTweetTypeValues => {
-                      return {
-                        ...prevTweetTypeValues,
-                        [value]: isChecked,
-                      };
-                    });
+                    // setTweetTypeValues(prevTweetTypeValues => {
+                    //   return {
+                    //     ...prevTweetTypeValues,
+                    //     [value]: isChecked,
+                    //   };
+                    // });
                   }}
-                  isChecked={!!tweetTypeValues[value]}
+                  // @ts-ignore
+                  isChecked={filters.tweetTypes.includes(value)}
                 >
                   {label}
                 </CheckboxButton>
@@ -170,14 +190,14 @@ const ListFilters: React.FC = () => {
                 <CheckboxButton
                   key={value}
                   onCheck={isChecked => {
-                    setTagValues(prevAccountTypeValues => {
-                      return {
-                        ...prevAccountTypeValues,
-                        [value]: isChecked,
-                      };
-                    });
+                    // setTagValues(prevAccountTypeValues => {
+                    //   return {
+                    //     ...prevAccountTypeValues,
+                    //     [value]: isChecked,
+                    //   };
+                    // });
                   }}
-                  isChecked={!!accountTypeValues[value]}
+                  isChecked={filters.accountTypes.includes(value)}
                 >
                   {label}
                 </CheckboxButton>

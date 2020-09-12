@@ -1,6 +1,6 @@
 import * as R from 'ramda';
 import fetch from 'cross-fetch';
-import { ListCreateInput, TweetCreateInput } from '@prisma/client';
+import { TweetCreateInput } from '@prisma/client';
 import {
   createTweetTypeFilters,
   createAccountTypeFilters,
@@ -8,10 +8,11 @@ import {
   AccountTweet,
   createCommunitiesFilters,
   createDateFilters,
+  getTweetTypes,
 } from '../filters';
 import { ApiTweet, getApp, fetchTweetsForAccount } from '../twitter';
 import { dayjsUtc, DAY_BEFORE_ONE_WEEK, DAY_NOW } from '../../common/date';
-import { fetchCommunities, fetchAccounts, createList, prisma } from '../db';
+import { fetchCommunities, fetchAccounts, createTweetList, prisma } from '../db';
 import logger from '../logger';
 
 function getTopTweets(tweets: Array<ApiTweet>) {
@@ -26,58 +27,44 @@ function getSortedTweets(tweets: Array<ApiTweet>) {
 
 const createListData = ({
   tweets,
-  appliedFilters,
 }: {
   tweets: ApiTweet[];
   appliedFilters: Filter[];
-}): {
-  tweetInputs: TweetCreateInput[];
-  listInput: ListCreateInput;
-} => {
+}): TweetCreateInput[] => {
   // parse hashtags
-  return {
-    tweetInputs: tweets.map((tweet) => ({
-      twitterId: tweet.id_str,
-      publishedAt: dayjsUtc(tweet.created_at).toISOString(),
-      text: tweet.full_text,
-      accountName: tweet.user.name,
-      account: { connect: { id: tweet.__accountId } },
-      favoritesCount: tweet.favorite_count,
-      retweetsCount: tweet.retweet_count,
-      accountProfileImageUrl: tweet.user.profile_image_url_https,
-      accountScreenName: tweet.user.screen_name,
-      urls: {
-        create: tweet.entities.urls?.map((urlEntity) => ({
-          indices: {
-            set: urlEntity.indices,
-          },
-          displayUrl: urlEntity.display_url,
-          expandedUrl: urlEntity.expanded_url,
-          url: urlEntity.url,
-        })),
-      },
-      media: {
-        create: tweet.entities.media?.map((mediaEntity) => ({
-          displayUrl: mediaEntity.display_url,
-          expandedUrl: mediaEntity.expanded_url,
-          mediaUrl: mediaEntity.media_url,
-          mediaUrlHttps: mediaEntity.media_url_https,
-          type: mediaEntity.type,
-          url: mediaEntity.url,
-          indices: { set: mediaEntity.indices },
-        })),
-      },
-    })),
-    // @ts-ignore
-    listInput: {
-      ...R.mergeAll(appliedFilters.map(R.prop('fields'))),
-      tweets: {
-        connect: tweets.map((tweet) => {
-          return { twitterId: tweet.id_str };
-        }),
-      },
+  return tweets.map(tweet => ({
+    twitterId: tweet.id_str,
+    publishedAt: dayjsUtc(tweet.created_at).toISOString(),
+    text: tweet.full_text,
+    accountName: tweet.user.name,
+    account: { connect: { id: tweet.__accountId } },
+    favoritesCount: tweet.favorite_count,
+    retweetsCount: tweet.retweet_count,
+    accountProfileImageUrl: tweet.user.profile_image_url_https,
+    accountScreenName: tweet.user.screen_name,
+    urls: {
+      create: tweet.entities.urls?.map(urlEntity => ({
+        indices: {
+          set: urlEntity.indices,
+        },
+        displayUrl: urlEntity.display_url,
+        expandedUrl: urlEntity.expanded_url,
+        url: urlEntity.url,
+      })),
     },
-  };
+    media: {
+      create: tweet.entities.media?.map(mediaEntity => ({
+        displayUrl: mediaEntity.display_url,
+        expandedUrl: mediaEntity.expanded_url,
+        mediaUrl: mediaEntity.media_url,
+        mediaUrlHttps: mediaEntity.media_url_https,
+        type: mediaEntity.type,
+        url: mediaEntity.url,
+        indices: { set: mediaEntity.indices },
+      })),
+    },
+    tweetTypes: { set: getTweetTypes(tweet) },
+  }));
 };
 
 export function createListsData({
@@ -88,10 +75,7 @@ export function createListsData({
   sortedAccountTweets: AccountTweet[];
   appliedFilters: Array<Filter>;
   remainingFilters: Array<Array<Filter>>;
-}): {
-  tweetInputs: TweetCreateInput[];
-  listInput: ListCreateInput;
-}[] {
+}): TweetCreateInput[][] {
   const topTweets = getTopTweets(sortedAccountTweets.flatMap(R.prop('tweets')));
 
   const listInput = createListData({
@@ -100,7 +84,7 @@ export function createListsData({
   });
 
   const childLists = remainingFilters.flatMap((filters, filtersIndex) =>
-    filters.flatMap((filter) => {
+    filters.flatMap(filter => {
       const filteredSortedAccountTweets = filter.filterAccountTweets(sortedAccountTweets);
 
       const newAppliedFilters = [...appliedFilters, filter];
@@ -134,7 +118,7 @@ export async function run() {
       app: twitterApp,
       startDate: DAY_BEFORE_ONE_WEEK,
     })
-      .then((tweets) => {
+      .then(tweets => {
         logger.log(`Success: Fetched tweets for ${account.name} (${account.twitterId})`);
 
         sortedAccountTweets.push({ account, tweets: getSortedTweets(tweets) });
@@ -155,7 +139,7 @@ export async function run() {
 
   // we treat `dateFilters` as an exception now as they always must be present...
   logger.log('Created list inputs');
-  const listInputs = dateFilters.flatMap((dateFilter) => {
+  const tweetLists = dateFilters.flatMap(dateFilter => {
     const filteredSortedAccountTweets = dateFilter.filterAccountTweets(sortedAccountTweets);
 
     return createListsData({
@@ -167,14 +151,14 @@ export async function run() {
   logger.log('Success: list inputs created');
 
   // eslint-disable-next-line no-restricted-syntax
-  for (const listInput of listInputs) {
-    logger.log('Uploading list input', { listInput });
+  for (const tweetList of tweetLists) {
+    logger.log('Uploading tweet list', { tweetList });
     // eslint-disable-next-line no-await-in-loop
-    await createList(listInput)
+    await createTweetList(tweetList)
       .then(() => {
         logger.log('Success: list input');
       })
-      .catch((err) => {
+      .catch(err => {
         logger.error(err);
       });
   }

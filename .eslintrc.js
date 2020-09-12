@@ -34,5 +34,7 @@ module.exports = {
     'react/jsx-props-no-spreading': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
     'import/prefer-default-export': 'off',
+    'react/no-array-index-key': 'off',
+    'no-nested-ternary': 'off',
   },
 };

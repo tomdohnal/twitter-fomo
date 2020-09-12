@@ -3,7 +3,7 @@
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  url = "***"
 }
 
 generator client {
@@ -143,7 +143,7 @@ model Tweet {
   urls                   TweetUrl[]
   userMentions           TweetUserMention[]
   symbols                TweetSymbol[]
-  tweetTypes             TweetType[]
+  tweetType              TweetType
   createdAt              DateTime           @default(now())
   updatedAt              DateTime           @updatedAt
   TweetUnwoundUrl        TweetUnwoundUrl[]

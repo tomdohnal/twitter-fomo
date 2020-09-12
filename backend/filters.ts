@@ -1,11 +1,9 @@
-import { ListCreateInput, AccountType, TweetType, Period } from '@prisma/client';
+import { AccountType, TweetType } from '@prisma/client';
 import R from 'ramda';
 import { dayjsUtc, Dayjs } from '../common/date';
 import { ApiTweet } from './twitter';
 
 export interface Filter {
-  fields: Partial<ListCreateInput>;
-
   filterAccountTweets(params: AccountTweet[]): AccountTweet[];
 }
 
@@ -22,10 +20,10 @@ export interface AccountTweet {
 
 const createDateTweetFilterFn = (
   startDate: Dayjs,
-): ((accountTweets: AccountTweet[]) => AccountTweet[]) => (accountTweets) =>
-  accountTweets.map((accountTweet) => ({
+): ((accountTweets: AccountTweet[]) => AccountTweet[]) => accountTweets =>
+  accountTweets.map(accountTweet => ({
     ...accountTweet,
-    tweets: accountTweet.tweets.filter((tweet) => {
+    tweets: accountTweet.tweets.filter(tweet => {
       const tweetCreatedAt = dayjsUtc(tweet.created_at);
 
       // left inclusive
@@ -35,16 +33,10 @@ const createDateTweetFilterFn = (
 
 export function createDateFilters(currentDate: Dayjs) {
   const dayFilter: Filter = {
-    fields: {
-      period: Period.DAY,
-    },
     filterAccountTweets: createDateTweetFilterFn(currentDate.subtract(1, 'day')),
   };
 
   const weekFilter: Filter = {
-    fields: {
-      period: Period.WEEK,
-    },
     filterAccountTweets: createDateTweetFilterFn(currentDate.subtract(7, 'day')),
   };
 
@@ -52,7 +44,7 @@ export function createDateFilters(currentDate: Dayjs) {
 }
 
 export const createCommunitiesFilters = (communities: { name: string; id: number }[]): Filter[] =>
-  communities.map((community) => ({
+  communities.map(community => ({
     fields: {
       community: { connect: { id: community.id } },
     },
@@ -64,7 +56,7 @@ export const createCommunitiesFilters = (communities: { name: string; id: number
   }));
 
 function isTextTweet(tweet: ApiTweet) {
-  return Object.values(tweet.entities).every((entity) => entity.length === 0);
+  return Object.values(tweet.entities).every(entity => entity.length === 0);
 }
 
 function isLinkTweet(tweet: ApiTweet) {
@@ -75,6 +67,24 @@ function isMediaTweet(tweet: ApiTweet) {
   return tweet.entities.media && tweet.entities.media.length > 0;
 }
 
+export function getTweetTypes(tweet: ApiTweet): TweetType[] {
+  const tweetTypes: TweetType[] = [];
+
+  if (isTextTweet(tweet)) {
+    tweetTypes.push(TweetType.TEXT);
+  }
+
+  if (isLinkTweet(tweet)) {
+    tweetTypes.push(TweetType.LINK);
+  }
+
+  if (isMediaTweet(tweet)) {
+    tweetTypes.push(TweetType.MEDIA);
+  }
+
+  return tweetTypes;
+}
+
 export const createTweetTypeFilters = (): Filter[] => {
   const typesFilterFns = {
     [TweetType.LINK]: isLinkTweet,
@@ -82,26 +92,20 @@ export const createTweetTypeFilters = (): Filter[] => {
     [TweetType.TEXT]: isTextTweet,
   };
 
-  return Object.values(TweetType).map((type) => ({
-    fields: {
-      tweetType: type,
-    },
+  return Object.values(TweetType).map(type => ({
     filterAccountTweets(accountTweets: AccountTweet[]) {
-      return accountTweets.map((accountTweet) => ({
+      return accountTweets.map(accountTweet => ({
         account: accountTweet.account,
-        tweets: accountTweet.tweets.filter((tweet) => typesFilterFns[type](tweet)),
+        tweets: accountTweet.tweets.filter(tweet => typesFilterFns[type](tweet)),
       }));
     },
   }));
 };
 
 export const createAccountTypeFilters = (): Filter[] => {
-  return Object.values(AccountType).map((accountType) => ({
-    fields: {
-      accountType,
-    },
+  return Object.values(AccountType).map(accountType => ({
     filterAccountTweets(accountTweets: AccountTweet[]) {
-      return accountTweets.filter((accountTweet) => accountTweet.account.type === accountType);
+      return accountTweets.filter(accountTweet => accountTweet.account.type === accountType);
     },
   }));
 };

@@ -5,3 +5,5 @@
 20200815113601-make-community-optional-on-list
 20200829201151-add_new_columns_to_tweet_table
 20200829204833-remove-account-url-from-tweet
+20200912102850-remove_list_model
+20200912103736-change-tweet-type-to-array

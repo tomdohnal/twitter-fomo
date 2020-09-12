@@ -1,5 +1,5 @@
 import * as dotenv from 'dotenv';
-import { PrismaClient, ListCreateInput, TweetCreateInput } from '@prisma/client';
+import { PrismaClient, TweetCreateInput } from '@prisma/client';
 
 dotenv.config();
 
@@ -30,22 +30,14 @@ export function fetchAccounts() {
   });
 }
 
-export async function createList({
-  tweetInputs,
-  listInput,
-}: {
-  tweetInputs: TweetCreateInput[];
-  listInput: ListCreateInput;
-}) {
-  const requests = tweetInputs.map((tweetInput) =>
+export async function createTweetList(tweetList: TweetCreateInput[]) {
+  const requests = tweetList.map(tweet =>
     prisma.tweet.upsert({
-      create: tweetInput,
-      update: tweetInput,
-      where: { twitterId: tweetInput.twitterId },
+      create: tweet,
+      update: tweet,
+      where: { twitterId: tweet.twitterId },
     }),
   );
 
-  await prisma.$transaction(requests)
-
-  return prisma.list.create({ data: listInput });
+  return prisma.$transaction(requests);
 }
