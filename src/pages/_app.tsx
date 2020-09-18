@@ -1,15 +1,16 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
 import { ChakraProvider } from '@chakra-ui/core';
 
 import theme from '../theme';
+import { MediaContextProvider } from '../media';
 
 // @ts-ignore
 function MyApp({ Component, pageProps }) {
-  const getLayout = Component.getLayout ? Component.getLayout : (page: ReactElement) => page;
-
   return (
     <ChakraProvider resetCSS theme={theme}>
-      {getLayout(<Component {...pageProps} />)}
+      <MediaContextProvider>
+        <Component {...pageProps} />
+      </MediaContextProvider>
     </ChakraProvider>
   );
 }

@@ -3,7 +3,7 @@
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  url = "***"
 }
 
 generator client {
@@ -37,10 +37,11 @@ model Account {
 
 model TweetType {
   id        Int      @id @default(autoincrement())
-  name      String   @unique
+  name      String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  tweets    Tweet[]  @relation(references: [id])
+  tweet     Tweet    @relation(fields: [tweetId], references: [id])
+  tweetId   Int
 }
 
 model TweetHashtag {
@@ -145,7 +146,7 @@ model Tweet {
   urls                   TweetUrl[]
   userMentions           TweetUserMention[]
   symbols                TweetSymbol[]
-  tweetTypes             TweetType[]        @relation(references: [id])
+  tweetTypes             TweetType[]        @relation
   createdAt              DateTime           @default(now())
   updatedAt              DateTime           @updatedAt
   TweetUnwoundUrl        TweetUnwoundUrl[]

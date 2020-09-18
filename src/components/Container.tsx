@@ -8,6 +8,8 @@ interface Props {
 
 const MAX_WIDTH = '1024px';
 
+export const CONTAINER_PX = { base: 4, md: 8, lg: 16 };
+
 const getStyleProps = ({
   isFullLeft,
   isFullRight,
@@ -32,6 +34,7 @@ const getStyleProps = ({
   return {
     mx: 'auto',
     maxW: MAX_WIDTH,
+    px: CONTAINER_PX,
   };
 };
 

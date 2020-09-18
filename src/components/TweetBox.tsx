@@ -18,6 +18,7 @@ interface Props {
   id: number;
 }
 
+// use "dangerously set inner HTML" to render &amp; and other stuff
 const TweetBox: React.FC<Props> = ({
   accountName,
   accountScreenName,
@@ -36,8 +37,8 @@ const TweetBox: React.FC<Props> = ({
       borderColor="gray.900"
       boxShadow={theme.shadows.sm()}
       bg="white"
-      w={['xl']}
-      p={[6]}
+      // maxW="600px"
+      p={6}
     >
       <Flex>
         <Image w={12} h={12} src={profileImageUrl} alt={`${accountName} profile image`} mr={4} />

@@ -1,10 +1,9 @@
-import { TweetWhereInput, TweetType, AccountType } from '@prisma/client';
-import dayjs from 'dayjs';
+import { AccountType } from '@prisma/client';
 
 export interface Filters {
   period: string;
   communities: string[];
-  tweetTypes: TweetType[];
+  tweetTypes: string[];
   accountTypes: AccountType[];
 }
 
@@ -28,49 +27,4 @@ export const encode = (object: Record<string, unknown>) => {
   }
 
   return window.btoa(string);
-};
-
-export const urlFiltersToWhereInput = ({
-  period,
-  communities,
-  tweetTypes,
-  accountTypes,
-}: Filters): TweetWhereInput => {
-  const communitiesWhere =
-    communities.length === 0
-      ? {}
-      : {
-          communities: {
-            some: {
-              OR: communities.map(community => ({
-                name: community,
-              })),
-            },
-          },
-        };
-
-  const accountTypeWhere =
-    accountTypes.length === 0
-      ? {}
-      : {
-          type: {
-            in: accountTypes,
-          },
-        };
-
-  const tweetTypesWhere =
-    tweetTypes.length === 0 ? {} : { OR: tweetTypes.map(type => ({ tweetTypes: type })) };
-
-  return {
-    publishedAt: {
-      gte: dayjs()
-        .subtract(1, period === 'DAY' ? 'day' : 'week')
-        .toISOString(),
-    },
-    account: {
-      ...communitiesWhere,
-      ...accountTypeWhere,
-    },
-    ...tweetTypesWhere,
-  };
 };

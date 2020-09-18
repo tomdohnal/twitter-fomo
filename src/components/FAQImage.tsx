@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { animated, useSprings, useSpring } from 'react-spring';
 import { useInView } from 'react-intersection-observer';
+import { Box } from '@chakra-ui/core';
 
 // animate drawing questionmark curve -> DONE
 // animate questionmark dot opacity -> DONE
@@ -147,10 +148,11 @@ const FAQImage: React.FC = () => {
   );
 
   return (
-    <svg
+    <Box
+      as="svg"
       ref={svgRef}
-      width="537"
-      height="447"
+      width="537px"
+      height="447px"
       viewBox="0 0 537 447"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -416,7 +418,7 @@ const FAQImage: React.FC = () => {
         </clipPath>
         {smallQuestionMarkClipDefs}
       </defs>
-    </svg>
+    </Box>
   );
 };
 

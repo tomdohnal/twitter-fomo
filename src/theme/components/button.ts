@@ -86,5 +86,24 @@ export default {
         bg: 'primaryPalette.200',
       },
     },
+    link: {
+      boxShadow: 'none',
+      h: 'auto',
+      px: 'none',
+    },
+    text: {
+      background: 'none',
+      border: 'none',
+      boxShadow: 'none',
+      margin: 0,
+      padding: 0,
+      h: 'auto',
+      fontWeight: 'normal',
+      fontSize: '1rem',
+      textDecoration: 'none',
+      _hover: {
+        textDecoration: 'underline',
+      },
+    },
   },
 };

@@ -1,14 +1,23 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { useRadio, Box, useRadioGroup, HStack, UseRadioProps, useTheme } from '@chakra-ui/core';
+import {
+  useRadio,
+  Box,
+  useRadioGroup,
+  HStack,
+  Flex,
+  UseRadioProps,
+  useTheme,
+} from '@chakra-ui/core';
 import { animated, useSpring, config } from 'react-spring';
 
 const AnimatedBox = animated(Box);
 
 type RadioButtonProps = UseRadioProps & {
   isAnimationReady: boolean;
+  variant: string;
 };
 
-const radioButtonStyles = {
+const getRadioButtonStyles = (variant: string) => ({
   h: '36px',
   cursor: 'pointer',
   borderWidth: '1px',
@@ -21,16 +30,23 @@ const radioButtonStyles = {
   bgColor: 'primaryPalette.50',
   color: 'primaryPalette.800',
   textTransform: 'lowerCase',
-};
+  ...(variant === 'full' && {
+    width: '100%',
+    justifyContent: 'center',
+  }),
+});
 
 const radioButtonCheckedStyles = {
   bgColor: 'primary',
   color: 'primaryPalette.50',
 };
 
-// TODO:
-// shadow
-const RadioButton: React.FC<RadioButtonProps> = ({ children, isAnimationReady, ...restProps }) => {
+const RadioButton: React.FC<RadioButtonProps> = ({
+  children,
+  isAnimationReady,
+  variant,
+  ...restProps
+}) => {
   const { getInputProps, getCheckboxProps } = useRadio(restProps);
   const theme = useTheme();
 
@@ -40,12 +56,12 @@ const RadioButton: React.FC<RadioButtonProps> = ({ children, isAnimationReady, .
   const checkedStyles = isAnimationReady ? {} : radioButtonCheckedStyles;
 
   return (
-    <Box as="label">
+    <Box as="label" flexGrow={variant === 'full' ? 1 : undefined}>
       <input {...input} />
       {/* @ts-ignore */}
       <Box
         {...checkbox}
-        {...radioButtonStyles}
+        {...getRadioButtonStyles(variant)}
         boxShadow={theme.shadows.sm(theme.colors.primaryPalette['200'])}
         _checked={checkedStyles}
       >
@@ -61,6 +77,8 @@ interface GroupedRadioButtonsProps {
   setValue(value: string | number): void;
 
   items: { value: string; label: string }[];
+
+  variant?: string;
 }
 
 const getClipPath = ({ widths, index }: { widths: number[]; index: number }) => {
@@ -82,7 +100,12 @@ const getClipPath = ({ widths, index }: { widths: number[]; index: number }) => 
   return `polygon(${start}px 0, ${end}px 0, ${end}px 100%, ${start}px 100%)`;
 };
 
-const GroupedRadioButtons: React.FC<GroupedRadioButtonsProps> = ({ items, value, setValue }) => {
+const GroupedRadioButtons: React.FC<GroupedRadioButtonsProps> = ({
+  items,
+  value,
+  setValue,
+  variant,
+}) => {
   const { getRootProps, getRadioProps } = useRadioGroup({
     name: 'framework',
     defaultValue: value,
@@ -118,17 +141,22 @@ const GroupedRadioButtons: React.FC<GroupedRadioButtonsProps> = ({ items, value,
 
   return (
     <Box position="relative">
-      <HStack spacing={0} {...group} pl="1px">
+      <Flex spacing={0} {...group} pl="1px">
         {items.map(({ value, label }) => {
           const radio = getRadioProps({ value });
 
           return (
-            <RadioButton key={value} isAnimationReady={isAnimationReady} {...radio}>
+            <RadioButton
+              key={value}
+              isAnimationReady={isAnimationReady}
+              variant={variant}
+              {...radio}
+            >
               {label}
             </RadioButton>
           );
         })}
-      </HStack>
+      </Flex>
       <AnimatedBox
         style={animatedHighlightStyle}
         position="absolute"
@@ -137,6 +165,10 @@ const GroupedRadioButtons: React.FC<GroupedRadioButtonsProps> = ({ items, value,
         // @ts-ignore
         display="inline-flex"
         pl="1px"
+        {...(variant === 'full' && {
+          left: 0,
+          right: 0,
+        })}
       >
         {items.map(({ value, label }, index) => {
           return (
@@ -144,18 +176,24 @@ const GroupedRadioButtons: React.FC<GroupedRadioButtonsProps> = ({ items, value,
               key={value}
               ref={(ref: HTMLDivElement | null) => {
                 if (ref) {
-                  const { width } = ref.getBoundingClientRect();
+                  // TODO: remove this workaround
+                  // and investigate why the animation does
+                  // not work on mobiles
+                  setTimeout(() => {
+                    const { width } = ref.getBoundingClientRect();
 
-                  buttonWidthsRef.current[index] = width;
+                    buttonWidthsRef.current[index] = width;
 
-                  if (buttonWidthsRef.current.every(Boolean)) {
-                    setIsWidthCalculated(true);
-                  }
+                    if (buttonWidthsRef.current.every(Boolean)) {
+                      setIsWidthCalculated(true);
+                    }
+                  });
                 }
               }}
+              flexGrow={variant === 'full' ? 1 : undefined}
             >
               {/* @ts-ignore */}
-              <Box {...radioButtonStyles} {...radioButtonCheckedStyles}>
+              <Box {...getRadioButtonStyles(variant)} {...radioButtonCheckedStyles}>
                 {label}
               </Box>
             </Box>

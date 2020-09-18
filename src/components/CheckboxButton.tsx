@@ -7,10 +7,12 @@ const AnimatedBox = animated(Box);
 interface Props {
   isChecked: boolean;
 
+  variant?: string;
+
   onCheck(isChecked: boolean): void;
 }
 
-const CheckboxButton: React.FC<Props> = ({ isChecked, onCheck, children }) => {
+const CheckboxButton: React.FC<Props> = ({ isChecked, onCheck, children, variant }) => {
   const theme = useTheme();
   const checkmarkRef = useRef<SVGPathElement | null>(null);
   const [checkmarkOffset, setCheckmarkOffset] = useState<number | null>(null);
@@ -67,6 +69,9 @@ const CheckboxButton: React.FC<Props> = ({ isChecked, onCheck, children }) => {
       display="inline-flex"
       alignItems="center"
       style={labelAnimationStyle}
+      {...(variant === 'full' && {
+        width: '100%',
+      })}
     >
       <Box
         position="absolute"

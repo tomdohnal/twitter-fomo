@@ -1,4 +1,4 @@
-import { AccountType, TweetType } from '@prisma/client';
+import { AccountType } from '@prisma/client';
 import R from 'ramda';
 import { dayjsUtc, Dayjs } from '../common/date';
 import { ApiTweet } from './twitter';
@@ -67,19 +67,19 @@ function isMediaTweet(tweet: ApiTweet) {
   return tweet.entities.media && tweet.entities.media.length > 0;
 }
 
-export function getTweetTypes(tweet: ApiTweet): TweetType[] {
-  const tweetTypes: TweetType[] = [];
+export function getTweetTypes(tweet: ApiTweet): string[] {
+  const tweetTypes: string[] = [];
 
   if (isTextTweet(tweet)) {
-    tweetTypes.push(TweetType.TEXT);
+    tweetTypes.push('TEXT');
   }
 
   if (isLinkTweet(tweet)) {
-    tweetTypes.push(TweetType.LINK);
+    tweetTypes.push('LINK');
   }
 
   if (isMediaTweet(tweet)) {
-    tweetTypes.push(TweetType.MEDIA);
+    tweetTypes.push('MEDIA');
   }
 
   return tweetTypes;
@@ -87,15 +87,16 @@ export function getTweetTypes(tweet: ApiTweet): TweetType[] {
 
 export const createTweetTypeFilters = (): Filter[] => {
   const typesFilterFns = {
-    [TweetType.LINK]: isLinkTweet,
-    [TweetType.MEDIA]: isMediaTweet,
-    [TweetType.TEXT]: isTextTweet,
+    LINK: isLinkTweet,
+    MEDIA: isMediaTweet,
+    TEXT: isTextTweet,
   };
 
-  return Object.values(TweetType).map(type => ({
+  return Object.values(Object.keys(typesFilterFns)).map(type => ({
     filterAccountTweets(accountTweets: AccountTweet[]) {
       return accountTweets.map(accountTweet => ({
         account: accountTweet.account,
+        // @ts-ignore
         tweets: accountTweet.tweets.filter(tweet => typesFilterFns[type](tweet)),
       }));
     },

@@ -63,7 +63,11 @@ const createListData = ({
         indices: { set: mediaEntity.indices },
       })),
     },
-    tweetTypes: { set: getTweetTypes(tweet) },
+    tweetTypes: {
+      connect: getTweetTypes(tweet).map(type => ({
+        name: type,
+      })),
+    },
   }));
 };
 

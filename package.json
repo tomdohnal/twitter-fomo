@@ -12,7 +12,9 @@
     "heroku-postbuild": "echo noop"
   },
   "dependencies": {
+    "@artsy/fresnel": "^1.2.2",
     "@chakra-ui/core": "^1.0.0-rc.3",
+    "@chakra-ui/icons": "^1.0.0-rc.3",
     "@prisma/client": "2.5",
     "@types/aws-sdk": "^2.7.0",
     "@types/shortid": "^0.0.29",
@@ -40,6 +42,7 @@
     "react-dom": "^16.13.0",
     "react-intersection-observer": "^8.28.4",
     "react-spring": "^9.0.0-rc.3",
+    "swr": "^0.3.2",
     "ts-node": "^8.10.2",
     "twitter-lite": "^0.11.0",
     "typescript": "^4.0.2"
