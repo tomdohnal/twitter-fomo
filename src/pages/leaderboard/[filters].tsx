@@ -101,8 +101,8 @@ const LeaderBoard: React.FC<InferGetServerSidePropsType<typeof getServerSideProp
           </Stack>
         </Container>
       </Section>
-      {/* <FAQ />
-      <Footer /> */}
+      <FAQ />
+      <Footer />
     </>
   );
 };

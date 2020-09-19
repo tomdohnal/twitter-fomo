@@ -7,16 +7,21 @@ import { FAQ_ITEMS } from '../constants';
 
 const FAQ: React.FC = memo(() => {
   return (
-    <Section bgColor="white" py={24}>
+    <Section bgColor="white" py={{ base: 12, md: 24 }}>
       <Container isFullLeft>
-        <Flex>
-          <Spacer />
-          <Box mt="192px">
+        <Flex direction={{ base: 'column', md: 'row' }}>
+          <Box
+            mt={{ md: '192px' }}
+            mb={12}
+            w={{ base: '64%', md: 'auto' }}
+            mx="auto"
+            minWidth={{ md: '300px' }}
+            pr={{ base: 12, md: 0 }}
+          >
             <FAQImage />
           </Box>
-          <Spacer />
           <Box maxW="640px">
-            <Heading size="2xl" mb={12}>
+            <Heading size="2xl" mb={{ base: 8, md: 12 }}>
               FAQ
             </Heading>
             <Stack spacing={8}>

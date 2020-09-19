@@ -148,15 +148,7 @@ const FAQImage: React.FC = () => {
   );
 
   return (
-    <Box
-      as="svg"
-      ref={svgRef}
-      width="537px"
-      height="447px"
-      viewBox="0 0 537 447"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <Box as="svg" ref={svgRef} viewBox="0 0 537 447" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g clipPath="url(#clip0)">
         <path
           opacity="0.1"

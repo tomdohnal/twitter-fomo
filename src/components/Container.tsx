@@ -21,6 +21,7 @@ const getStyleProps = ({
     return {
       mr: 'auto',
       maxW: `calc(${MAX_WIDTH} + ((100vw - ${MAX_WIDTH}) / 2))`,
+      px: CONTAINER_PX,
     };
   }
 
@@ -28,6 +29,7 @@ const getStyleProps = ({
     return {
       ml: 'auto',
       maxW: `calc(${MAX_WIDTH} + ((100vw - ${MAX_WIDTH}) / 2))`,
+      px: CONTAINER_PX,
     };
   }
 
