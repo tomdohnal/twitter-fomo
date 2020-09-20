@@ -4,6 +4,7 @@ import { Wrap, Box, Stack, Input, Button } from '@chakra-ui/core';
 import CheckboxButton from '../components/CheckboxButton';
 import ContentContainer from '../components/ContentContainer';
 import GroupedRadioButtons from '../components/GroupedRadioButtons';
+import CellPhoneImage from '../components/CellPhoneImage';
 
 const Components = () => {
   const [isChecked, setIsChecked] = useState(false);
@@ -95,6 +96,9 @@ const Components = () => {
           <Button size="2xl">Welcome</Button>
         </Wrap>
       </Stack>
+      <Box pl="400px">
+        <CellPhoneImage />
+      </Box>
     </ContentContainer>
   );
 };
