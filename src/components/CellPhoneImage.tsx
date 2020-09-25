@@ -1,7 +1,6 @@
 import React from 'react';
 import { animated, useSprings, config } from 'react-spring';
 import { useInView } from 'react-intersection-observer';
-import { Box } from '@chakra-ui/core';
 
 const CellPhoneImage = () => {
   const [svgRef, inView] = useInView({
@@ -25,8 +24,6 @@ const CellPhoneImage = () => {
     },
     [inView],
   );
-
-  console.log(trail);
 
   return (
     <svg

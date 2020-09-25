@@ -5,6 +5,10 @@ import CheckboxButton from '../components/CheckboxButton';
 import ContentContainer from '../components/ContentContainer';
 import GroupedRadioButtons from '../components/GroupedRadioButtons';
 import CellPhoneImage from '../components/CellPhoneImage';
+import MailboxImage from '../components/MailboxImage';
+import BalloonImage from '../components/BalloonImage';
+import MountainImage from '../components/MountainImage';
+import EnvelopeImage from '../components/EnvelopeImage';
 
 const Components = () => {
   const [isChecked, setIsChecked] = useState(false);
@@ -14,7 +18,7 @@ const Components = () => {
 
   return (
     <ContentContainer>
-      <Stack spacing={8}>
+      {/* <Stack spacing={8}>
         <Wrap spacing={4}>
           <CheckboxButton isChecked={isChecked} onCheck={setIsChecked}>
             Checkbox
@@ -98,6 +102,18 @@ const Components = () => {
       </Stack>
       <Box pl="400px">
         <CellPhoneImage />
+      </Box> */}
+      {/* <Box pl="400px" mt="200px">
+        <MailboxImage />
+      </Box> */}
+      {/* <Box pl="400px" mt="200px">
+        <BalloonImage />
+      </Box> */}
+      {/* <Box pl="200px" mt="200px">
+        <MountainImage />
+      </Box> */}
+      <Box pl="200px" mt="200px">
+        <EnvelopeImage />
       </Box>
     </ContentContainer>
   );
