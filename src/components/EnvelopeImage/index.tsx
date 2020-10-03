@@ -1,6 +1,6 @@
 import React from 'react';
 import * as R from 'ramda';
-import { useSprings, config, useSpring } from 'react-spring';
+import { useSprings, config } from 'react-spring';
 import { useInView } from 'react-intersection-observer';
 import Logos from './Logos';
 import Flowers from './Flowers';
@@ -39,7 +39,7 @@ const Index: React.FC = () => {
     {
       transform: inView
         ? 'rotate(0deg) translate3d(0px, 0px, 0px)'
-        : 'rotate(45deg)  translate3d(-50px, 50px, 0px)',
+        : 'rotate(45deg)  translate3d(-30px, 30px, 0px)',
       opacity: inView ? 1 : 0,
       config: config.slow,
       delay: 1100,

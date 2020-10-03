@@ -74,6 +74,7 @@ export const get = async (filterUrl: string) => {
       publishedAt: true,
       accountProfileImageUrl: true,
       accountScreenName: true,
+      payload: true,
     },
     orderBy: {
       favoritesCount: 'desc',

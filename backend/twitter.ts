@@ -40,11 +40,12 @@ export interface ApiTweet {
     profile_image_url_https: string;
     screen_name: string;
   };
+  quoted_status: ApiTweet;
   __accountId: number;
 }
 
 // using `util.promisify` breaks Jest for some reason...
-const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
 export const getApp = () =>
   Promise.resolve(
@@ -53,8 +54,8 @@ export const getApp = () =>
       consumer_secret: process.env.TWITTER_CONSUMER_SECRET || '',
     }),
   )
-    .then((user) => user.getBearerToken())
-    .then((response) => {
+    .then(user => user.getBearerToken())
+    .then(response => {
       return new Twitter({
         // @ts-ignore (bearer_token DOES exists in `TwitterOptions`)
         bearer_token: response.access_token,
@@ -121,7 +122,7 @@ export async function fetchTweetsForAccount({
 
           return res;
         })
-        .catch(async (err) => {
+        .catch(async err => {
           // handle limit exceeded
           if (err.errors && err.errors[0].code === 88) {
             logger.error(new Error('Twitter limit exceeded, waiting...'));
@@ -155,7 +156,7 @@ export async function fetchTweetsForAccount({
   // by date so you can leverage that when filtering.
   // But premature optimization for now IMO
   return tweets
-    .filter((tweet) => {
+    .filter(tweet => {
       const tweetDate = dayjsUtc(tweet.created_at);
 
       return tweetDate.isAfter(startDate) || tweetDate.isSame(startDate);

@@ -61,7 +61,7 @@ const LeaderBoard: React.FC<InferGetServerSidePropsType<typeof getServerSideProp
       />
       <Section position="relative" bgColor="primaryPalette.50" pt={{ base: 0, md: 16 }} pb={24}>
         <Media lessThan="md">
-          <Box px={CONTAINER_PX} mt={4} pb={4} bgColor="white">
+          <Box px={CONTAINER_PX} mt={{ base: 3, md: 4 }} pb={{ md: 3 }} bgColor="white">
             <Heading size="2xl">Top Tweets</Heading>
           </Box>
         </Media>
@@ -82,19 +82,7 @@ const LeaderBoard: React.FC<InferGetServerSidePropsType<typeof getServerSideProp
               </Media>
               <Stack direction="column" spacing={6} mt={{ base: 6, md: 12 }}>
                 {tweets.map(tweet => {
-                  return (
-                    <TweetBox
-                      key={tweet.id}
-                      id={tweet.id}
-                      text={tweet.text}
-                      accountName={tweet.accountName}
-                      publishedAt={tweet.publishedAt}
-                      favoritesCount={tweet.favoritesCount}
-                      retweetsCount={tweet.retweetsCount}
-                      profileImageUrl={tweet.accountProfileImageUrl}
-                      accountScreenName={tweet.accountScreenName}
-                    />
-                  );
+                  return <TweetBox key={tweet.id} tweet={tweet.payload} />;
                 })}
               </Stack>
             </Box>

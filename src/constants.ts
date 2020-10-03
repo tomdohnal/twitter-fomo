@@ -1,5 +1,10 @@
 export const FAQ_ITEMS = [
   {
+    title: 'Why only top *10* tweets? 😕',
+    body:
+      "That's the purpose! TwitterFOMO is about *fighting* FOMO and procrastination. NOT about procrastinating here instead of Twitter.",
+  },
+  {
     title: 'How are the top tweets curated?',
     body:
       'We’re gathering all the tweets from a handpicked list of accounts tweeting about "webdev" from which we’re selected the most liked ones.',

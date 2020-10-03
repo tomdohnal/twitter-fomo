@@ -288,6 +288,10 @@ const ListFilters: React.FC<Props> = memo(({ filters, setFilters }) => {
             borderTopColor="gray.900"
             position="absolute"
             bottom={0}
+            left={0}
+            right={0}
+            width="100vw"
+            maxW="100vw"
             mb={0}
             borderRadius="none"
           >

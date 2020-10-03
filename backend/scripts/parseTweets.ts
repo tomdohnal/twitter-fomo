@@ -14,64 +14,63 @@ import { ApiTweet, getApp, fetchTweetsForAccount } from '../twitter';
 import { dayjsUtc, DAY_BEFORE_ONE_WEEK, DAY_NOW } from '../../common/date';
 import { fetchCommunities, fetchAccounts, createTweetList, prisma } from '../db';
 import logger from '../logger';
+import { scrapeMetadata } from '../metadata';
 
 function getTopTweets(tweets: Array<ApiTweet>) {
   const sortedTweets = R.sort((a, b) => b.favorite_count - a.favorite_count, tweets);
 
-  return sortedTweets.slice(0, 10);
+  return sortedTweets.slice(0, 30);
 }
 
 function getSortedTweets(tweets: Array<ApiTweet>) {
   return R.sort((a, b) => b.favorite_count - a.favorite_count, tweets);
 }
 
-const createListData = ({
+const createListData = async ({
   tweets,
 }: {
   tweets: ApiTweet[];
   appliedFilters: Filter[];
-}): TweetCreateInput[] => {
-  // parse hashtags
-  return tweets.map(tweet => ({
-    twitterId: tweet.id_str,
-    publishedAt: dayjsUtc(tweet.created_at).toISOString(),
-    text: tweet.full_text,
-    accountName: tweet.user.name,
-    account: { connect: { id: tweet.__accountId } },
-    favoritesCount: tweet.favorite_count,
-    retweetsCount: tweet.retweet_count,
-    accountProfileImageUrl: tweet.user.profile_image_url_https,
-    accountScreenName: tweet.user.screen_name,
-    urls: {
-      create: tweet.entities.urls?.map(urlEntity => ({
-        indices: {
-          set: urlEntity.indices,
+}): Promise<TweetCreateInput[]> => {
+  // @ts-ignore
+  return Promise.all(
+    tweets.map(async tweet => {
+      const tweetTypes = getTweetTypes(tweet);
+
+      const url = tweet.entities?.urls[0] || tweet?.quoted_status?.entities?.urls[0];
+
+      const linkAttributes = await (url
+        ? scrapeMetadata(url.expanded_url).then(metadata => ({
+            linkTitle: metadata.title,
+            linkDescription: metadata.description,
+            linkImageUrl: metadata.imageUrl,
+            linkUrl: url.expanded_url,
+          }))
+        : {});
+
+      return {
+        twitterId: tweet.id_str,
+        publishedAt: dayjsUtc(tweet.created_at).toISOString(),
+        text: tweet.full_text,
+        accountName: tweet.user.name,
+        account: { connect: { id: tweet.__accountId } },
+        favoritesCount: tweet.favorite_count,
+        retweetsCount: tweet.retweet_count,
+        accountProfileImageUrl: tweet.user.profile_image_url_https,
+        accountScreenName: tweet.user.screen_name,
+        payload: tweet,
+        ...linkAttributes,
+        tweetTypes: {
+          connect: tweetTypes.map(type => ({
+            name: type,
+          })),
         },
-        displayUrl: urlEntity.display_url,
-        expandedUrl: urlEntity.expanded_url,
-        url: urlEntity.url,
-      })),
-    },
-    media: {
-      create: tweet.entities.media?.map(mediaEntity => ({
-        displayUrl: mediaEntity.display_url,
-        expandedUrl: mediaEntity.expanded_url,
-        mediaUrl: mediaEntity.media_url,
-        mediaUrlHttps: mediaEntity.media_url_https,
-        type: mediaEntity.type,
-        url: mediaEntity.url,
-        indices: { set: mediaEntity.indices },
-      })),
-    },
-    tweetTypes: {
-      connect: getTweetTypes(tweet).map(type => ({
-        name: type,
-      })),
-    },
-  }));
+      };
+    }),
+  );
 };
 
-export function createListsData({
+export async function createListsData({
   sortedAccountTweets,
   appliedFilters,
   remainingFilters,
@@ -79,28 +78,30 @@ export function createListsData({
   sortedAccountTweets: AccountTweet[];
   appliedFilters: Array<Filter>;
   remainingFilters: Array<Array<Filter>>;
-}): TweetCreateInput[][] {
+}): Promise<TweetCreateInput[][]> {
   const topTweets = getTopTweets(sortedAccountTweets.flatMap(R.prop('tweets')));
 
-  const listInput = createListData({
+  const listInput = await createListData({
     tweets: topTweets,
     appliedFilters,
   });
 
-  const childLists = remainingFilters.flatMap((filters, filtersIndex) =>
-    filters.flatMap(filter => {
-      const filteredSortedAccountTweets = filter.filterAccountTweets(sortedAccountTweets);
+  const childLists = await Promise.all(
+    remainingFilters.flatMap((filters, filtersIndex) =>
+      filters.flatMap(filter => {
+        const filteredSortedAccountTweets = filter.filterAccountTweets(sortedAccountTweets);
 
-      const newAppliedFilters = [...appliedFilters, filter];
-      const newRemainingFilters = remainingFilters.slice(filtersIndex + 1);
+        const newAppliedFilters = [...appliedFilters, filter];
+        const newRemainingFilters = remainingFilters.slice(filtersIndex + 1);
 
-      return createListsData({
-        sortedAccountTweets: filteredSortedAccountTweets,
-        appliedFilters: newAppliedFilters,
-        remainingFilters: newRemainingFilters,
-      });
-    }),
-  );
+        return createListsData({
+          sortedAccountTweets: filteredSortedAccountTweets,
+          appliedFilters: newAppliedFilters,
+          remainingFilters: newRemainingFilters,
+        });
+      }),
+    ),
+  ).then(items => items.flat());
 
   return [listInput, ...childLists];
 }
@@ -143,20 +144,25 @@ export async function run() {
 
   // we treat `dateFilters` as an exception now as they always must be present...
   logger.log('Created list inputs');
-  const tweetLists = dateFilters.flatMap(dateFilter => {
-    const filteredSortedAccountTweets = dateFilter.filterAccountTweets(sortedAccountTweets);
+  const tweetLists = (
+    await Promise.all(
+      dateFilters.flatMap(dateFilter => {
+        const filteredSortedAccountTweets = dateFilter.filterAccountTweets(sortedAccountTweets);
 
-    return createListsData({
-      sortedAccountTweets: filteredSortedAccountTweets,
-      appliedFilters: [dateFilter],
-      remainingFilters: [tweetTypeFilters, communitiesFilters, accountTypeFilters],
-    });
-  });
+        return createListsData({
+          sortedAccountTweets: filteredSortedAccountTweets,
+          appliedFilters: [dateFilter],
+          remainingFilters: [tweetTypeFilters, communitiesFilters, accountTypeFilters],
+        });
+      }),
+    )
+  )[0];
   logger.log('Success: list inputs created');
 
   // eslint-disable-next-line no-restricted-syntax
   for (const tweetList of tweetLists) {
     logger.log('Uploading tweet list', { tweetList });
+
     // eslint-disable-next-line no-await-in-loop
     await createTweetList(tweetList)
       .then(() => {

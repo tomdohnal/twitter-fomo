@@ -10,3 +10,7 @@
 20200912190627-tweet-type-enum-to-tweet-type-table
 20200912191541-add-unique-to-tweet-type
 20200912191941-fix-relationship
+20200926182140-remove-model-mapping
+20200926183131-add-payload-type
+20201002131326-add-link-preview-data
+20201003164746-add-link-url

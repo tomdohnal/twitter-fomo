@@ -1,0 +1,63 @@
+{
+  "version": "0.3.14-fixed",
+  "steps": [
+    {
+      "tag": "DeleteModel",
+      "model": "TweetHashtag"
+    },
+    {
+      "tag": "DeleteModel",
+      "model": "TweetMediaSize"
+    },
+    {
+      "tag": "DeleteModel",
+      "model": "TweetMedia"
+    },
+    {
+      "tag": "DeleteModel",
+      "model": "TweetUnwoundUrl"
+    },
+    {
+      "tag": "DeleteModel",
+      "model": "TweetUrl"
+    },
+    {
+      "tag": "DeleteModel",
+      "model": "TweetUserMention"
+    },
+    {
+      "tag": "DeleteModel",
+      "model": "TweetSymbol"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "Tweet",
+      "field": "hashtags"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "Tweet",
+      "field": "media"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "Tweet",
+      "field": "urls"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "Tweet",
+      "field": "userMentions"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "Tweet",
+      "field": "symbols"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "Tweet",
+      "field": "TweetUnwoundUrl"
+    }
+  ]
+}

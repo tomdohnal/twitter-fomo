@@ -1,18 +1,17 @@
-// interface Filters {
-//     period: string;
-//     communities: string[];
-//     tweetTypes: TweetType[];
-//     accountTypes: AccountType[];
-//   }
+const metascraper = require('metascraper')([
+  require('metascraper-description')(),
+  require('metascraper-image')(),
+  require('metascraper-title')(),
+]);
+const fetch = require('cross-fetch');
 
-const encode = object => {
-  const string = JSON.stringify(object);
+async function run() {
+  const html = await fetch('https://vercel.com').then(res => res.text());
 
-  if (typeof window === 'undefined') {
-    return Buffer.from(string).toString('base64');
-  }
+  const metadata = await metascraper({ html, url: 'https://vercel.com' });
+  console.log('-------------------------------------------------');
+  console.log(metadata);
+  console.log('-------------------------------------------------');
+}
 
-  return window.btoa(string);
-};
-
-console.log(encode({ period: 'DAY', communities: [], tweetTypes: [], accountTypes: [] }));
+run();

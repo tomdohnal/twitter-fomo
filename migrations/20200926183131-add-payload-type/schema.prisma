@@ -3,7 +3,7 @@
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  url = "***"
 }
 
 generator client {
@@ -55,10 +55,6 @@ model Tweet {
   accountId              Int
   favoritesCount         Int
   retweetsCount          Int
-  linkTitle              String?
-  linkDescription        String?
-  linkImageUrl           String?
-  linkUrl                String?
   payload                Json
   tweetTypes             TweetType[] @relation(references: [id])
   createdAt              DateTime    @default(now())
