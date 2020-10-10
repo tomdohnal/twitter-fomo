@@ -6,7 +6,7 @@ import { TwitterLogoIcon } from './Icons';
 
 const Footer: React.FC = () => {
   return (
-    <Section bgColor="primaryPalette.800" py={{ base: 16, md: 32 }}>
+    <Section bgColor="primaryPalette.800" py={{ base: 16, md: 32 }} id="about">
       <Container>
         <Heading size="3xl" color="primaryPalette.50" textAlign="center">
           Who’s behind TwitterFOMO?

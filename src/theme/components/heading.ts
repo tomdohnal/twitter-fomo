@@ -4,7 +4,7 @@ export default {
   },
   sizes: {
     '3xl': {
-      fontSize: ['5xl', null, '6xl'],
+      fontSize: ['3xl', null, '6xl'],
     },
     '4xl': {
       fontSize: ['6xl', null, '7xl'],

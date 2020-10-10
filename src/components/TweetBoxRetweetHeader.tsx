@@ -12,9 +12,7 @@ const TweetBoxHeader: React.FC<{
 }> = ({ created_at, name, imageUrl, screenName }) => {
   const [isNameHovered, setNameIsHovered] = useState(false);
   const animatedValues = useSpring({
-    opacity: isNameHovered ? 1 : 0,
     transform: isNameHovered ? 'scaleX(1)' : 'scaleX(0)',
-    config: { ...config.gentle, clamp: true },
   });
 
   return (
@@ -33,7 +31,7 @@ const TweetBoxHeader: React.FC<{
           onMouseOut={() => {
             setNameIsHovered(false);
           }}
-          fontSize="lg"
+          fontSize="md"
           fontWeight="bold"
           pos="relative"
           overflow="hidden"

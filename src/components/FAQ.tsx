@@ -7,7 +7,7 @@ import { FAQ_ITEMS } from '../constants';
 
 const FAQ: React.FC = memo(() => {
   return (
-    <Section bgColor="white" py={{ base: 12, md: 24 }}>
+    <Section bgColor="white" py={{ base: 12, md: 24 }} id="faq">
       <Container isFullLeft>
         <Flex direction={{ base: 'column', md: 'row' }}>
           <Box

@@ -1,29 +1,33 @@
 module.exports = {
   plugins: ['react', 'jsx-a11y', 'jest', 'react-hooks', '@typescript-eslint'],
   extends: [
-    'airbnb',
     'plugin:jest/recommended',
     'prettier',
     'prettier/react',
     'plugin:react-hooks/recommended',
+    'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
-    'plugin:import/typescript',
   ],
   parser: '@typescript-eslint/parser',
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
+  },
   rules: {
     'no-console': 'error',
     'no-underscore-dangle': 'off',
     'no-unused-expressions': ['error', { allowShortCircuit: true }],
-    'import/extensions': [
-      'error',
-      'ignorePackages',
-      {
-        js: 'never',
-        jsx: 'never',
-        ts: 'never',
-        tsx: 'never',
-      },
-    ],
+    // 'import/extensions': [
+    //   'error',
+    //   'ignorePackages',
+    //   {
+    //     js: 'never',
+    //     jsx: 'never',
+    //     ts: 'never',
+    //     tsx: 'never',
+    //   },
+    // ],
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     camelcase: 'off',
     'no-shadow': 'off',
@@ -36,5 +40,11 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'react/no-array-index-key': 'off',
     'no-nested-ternary': 'off',
+    // https://github.com/typescript-eslint/typescript-eslint/issues/389#issuecomment-478389548
+    '@typescript-eslint/no-for-in-array': 'off',
+    '@typescript-eslint/no-unnecessary-qualifier': 'off',
+    '@typescript-eslint/no-unnecessary-type-assertion': 'off',
+    '@typescript-eslint/promise-function-async': 'off',
+    '@typescript-eslint/restrict-plus-operands': 'off',
   },
 };

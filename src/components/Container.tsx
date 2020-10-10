@@ -1,10 +1,5 @@
 import React from 'react';
-import { Box } from '@chakra-ui/core';
-
-interface Props {
-  isFullLeft?: boolean;
-  isFullRight?: boolean;
-}
+import { Box, BoxProps } from '@chakra-ui/core';
 
 const MAX_WIDTH = '1024px';
 
@@ -40,7 +35,10 @@ const getStyleProps = ({
   };
 };
 
-const Container: React.FC<Props> = ({ children, isFullLeft, isFullRight, ...props }) => {
+const Container: React.FC<{
+  isFullLeft?: boolean;
+  isFullRight?: boolean;
+} & BoxProps> = ({ children, isFullLeft, isFullRight, ...props }) => {
   const styleProps = getStyleProps({
     isFullLeft,
     isFullRight,

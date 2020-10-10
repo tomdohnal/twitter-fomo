@@ -57,7 +57,7 @@ const LeaderBoard: React.FC<InferGetServerSidePropsType<typeof getServerSideProp
     <>
       <NextSeo
         title="TwitterFOMO — Leaderboard"
-        description="A curated list of the best tweet in web development"
+        description="TwitterFOMO—A curated list of the best tweets in web development"
       />
       <Section position="relative" bgColor="primaryPalette.50" pt={{ base: 0, md: 16 }} pb={24}>
         <Media lessThan="md">

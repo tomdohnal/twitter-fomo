@@ -11,7 +11,9 @@ const TweetBoxHeader: React.FC<{
   screenName: string;
 }> = ({ created_at, name, imageUrl, screenName }) => {
   const [isNameHovered, setNameIsHovered] = useState(false);
-  const animatedValues = useSpring({ opacity: isNameHovered ? 1 : 0, config: config.gentle });
+  const animatedValues = useSpring({
+    transform: isNameHovered ? 'scaleX(1)' : 'scaleX(0)',
+  });
 
   return (
     <Flex>
@@ -39,9 +41,10 @@ const TweetBoxHeader: React.FC<{
               pos="absolute"
               left={0}
               right={0}
-              bottom={2}
+              bottom="2px"
               height="2px"
               bgColor="currentColor"
+              transformOrigin="0% 50%"
               style={animatedValues}
             />
           </Text>

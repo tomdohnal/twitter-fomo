@@ -1,33 +1,27 @@
 import React, { ReactNode } from 'react';
-import { MediaEntity, Status } from 'twitter-d';
-import reactStringReplace from 'react-string-replace';
-import escapeStringRegexp from 'escape-string-regexp';
-import { Box, Image, Text, AspectRatio, useTheme, Link } from '@chakra-ui/core';
+import { Box, useTheme, Link } from '@chakra-ui/core';
 import { useIsHovered } from '../utils';
 import { useSpring, animated } from 'react-spring';
 
 const AnimatedBox = animated(Box);
 
-// TODO: 1309156899879821314
-const TweetBox: React.FC<{
+const TweetBoxRetweet: React.FC<{
   content: ReactNode;
   header: ReactNode;
-  actions: ReactNode;
   href: string;
-}> = ({ content, header, actions, href }) => {
+}> = ({ content, header, href }) => {
   const theme = useTheme();
   const [isHovered, listeners] = useIsHovered();
   const animatedValues = useSpring({
-    boxShadow: isHovered ? theme.shadows.sm('transparent') : theme.shadows.sm(),
     backgroundColor: isHovered ? theme.colors.gray['50'] : '#fff',
   });
 
   return (
     <AnimatedBox
       borderWidth={2}
-      borderColor="gray.900"
+      borderColor="gray.400"
       bg="white"
-      p={[3, null, 4]}
+      p={[2, null, 3]}
       pos="relative"
       style={animatedValues}
       {...listeners}
@@ -43,10 +37,9 @@ const TweetBox: React.FC<{
         right={0}
       />
       {header}
-      <Box mt={4}>{content}</Box>
-      {actions}
+      <Box mt={2}>{content}</Box>
     </AnimatedBox>
   );
 };
 
-export default TweetBox;
+export default TweetBoxRetweet;
