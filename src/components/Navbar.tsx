@@ -143,7 +143,7 @@ const Navbar: React.FC = memo(function Navbar() {
   const isMdDown = useBreakpointValue({ base: true, md: false });
   const { scrollDirection } = useScrollInfo();
   const animatedValues = useSpring({
-    ...getNavbarAnimationStyles({ state: navbarState, isMdDown }),
+    ...getNavbarAnimationStyles({ state: navbarState, isMdDown: Boolean(isMdDown) }),
     config: { ...config.gentle, clamp: true },
   });
 

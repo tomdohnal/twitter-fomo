@@ -1,14 +1,10 @@
+import { Box, Link, useTheme } from '@chakra-ui/core';
 import React, { ReactNode } from 'react';
-import { MediaEntity, Status } from 'twitter-d';
-import reactStringReplace from 'react-string-replace';
-import escapeStringRegexp from 'escape-string-regexp';
-import { Box, Image, Text, AspectRatio, useTheme, Link } from '@chakra-ui/core';
+import { animated, useSpring } from 'react-spring';
 import { useIsHovered } from '../utils';
-import { useSpring, animated } from 'react-spring';
 
 const AnimatedBox = animated(Box);
 
-// TODO: 1309156899879821314
 const TweetBox: React.FC<{
   content: ReactNode;
   header: ReactNode;
