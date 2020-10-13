@@ -10,7 +10,7 @@
     "backend:run-script": "node backend/build/index.js",
     "test": "jest",
     "tdd": "jest --watch --verbose",
-    "heroku-postbuild": "backend:build-script"
+    "heroku-postbuild": "yarn backend:build-script"
   },
   "engines": {
     "node": "12.14.0",
