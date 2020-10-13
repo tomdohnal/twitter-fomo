@@ -14,7 +14,6 @@ import { ApiTweet, getApp, fetchTweetsForAccount } from '../twitter';
 import { dayjsUtc, DAY_BEFORE_ONE_WEEK, DAY_NOW } from '../../common/date';
 import { fetchCommunities, fetchAccounts, createTweetList, prisma } from '../db';
 import logger from '../logger';
-import { scrapeMetadata } from '../metadata';
 
 function getTopTweets(tweets: Array<ApiTweet>) {
   const sortedTweets = R.sort((a, b) => b.favorite_count - a.favorite_count, tweets);
@@ -37,17 +36,6 @@ const createListData = async ({
     tweets.map(async tweet => {
       const tweetTypes = getTweetTypes(tweet);
 
-      const url = tweet.entities?.urls[0] || tweet?.quoted_status?.entities?.urls[0];
-
-      // const linkAttributes = await (url
-      //   ? scrapeMetadata(url.expanded_url).then(metadata => ({
-      //       linkTitle: metadata.title,
-      //       linkDescription: metadata.description,
-      //       linkImageUrl: metadata.imageUrl,
-      //       linkUrl: url.expanded_url,
-      //     }))
-      //   : {});
-
       return {
         twitterId: tweet.id_str,
         publishedAt: dayjsUtc(tweet.created_at).toISOString(),
@@ -59,7 +47,6 @@ const createListData = async ({
         accountProfileImageUrl: tweet.user.profile_image_url_https,
         accountScreenName: tweet.user.screen_name,
         payload: tweet,
-        // ...linkAttributes,
         tweetTypes: {
           connect: tweetTypes.map(type => ({
             name: type,
