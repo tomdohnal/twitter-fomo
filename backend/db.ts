@@ -31,27 +31,32 @@ export function fetchAccounts() {
 }
 
 export async function createTweetList(tweetList: TweetCreateInput[]) {
-  const requests = tweetList.map(async tweet => {
-    // @ts-ignore
-    const url = tweet.payload.entities?.urls[0] || tweet.payload?.quoted_status?.entities?.urls[0];
+  const enhancedTweetList = await Promise.all(
+    tweetList.map(async tweet => {
+      const url =
+        // @ts-ignore
+        tweet.payload.entities?.urls[0] || tweet.payload?.quoted_status?.entities?.urls[0];
 
-    const linkAttributes = await (url
-      ? scrapeMetadata(url.expanded_url).then(metadata => ({
-          linkTitle: metadata.title,
-          linkDescription: metadata.description,
-          linkImageUrl: metadata.imageUrl,
-          linkUrl: url.expanded_url,
-        }))
-      : {});
+      const linkAttributes = await (url
+        ? scrapeMetadata(url.expanded_url).then(metadata => ({
+            linkTitle: metadata.title,
+            linkDescription: metadata.description,
+            linkImageUrl: metadata.imageUrl,
+            linkUrl: url.expanded_url,
+          }))
+        : {});
 
-    const enhancedTweet = {
-      ...linkAttributes,
-      ...tweet,
-    };
+      return {
+        ...linkAttributes,
+        ...tweet,
+      };
+    }),
+  );
 
+  const requests = enhancedTweetList.map(tweet => {
     return prisma.tweet.upsert({
-      create: enhancedTweet,
-      update: enhancedTweet,
+      create: tweet,
+      update: tweet,
       where: { twitterId: tweet.twitterId },
     });
   });
