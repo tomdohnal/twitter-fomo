@@ -39,14 +39,14 @@ const createListData = async ({
 
       const url = tweet.entities?.urls[0] || tweet?.quoted_status?.entities?.urls[0];
 
-      const linkAttributes = await (url
-        ? scrapeMetadata(url.expanded_url).then(metadata => ({
-            linkTitle: metadata.title,
-            linkDescription: metadata.description,
-            linkImageUrl: metadata.imageUrl,
-            linkUrl: url.expanded_url,
-          }))
-        : {});
+      // const linkAttributes = await (url
+      //   ? scrapeMetadata(url.expanded_url).then(metadata => ({
+      //       linkTitle: metadata.title,
+      //       linkDescription: metadata.description,
+      //       linkImageUrl: metadata.imageUrl,
+      //       linkUrl: url.expanded_url,
+      //     }))
+      //   : {});
 
       return {
         twitterId: tweet.id_str,
@@ -59,7 +59,7 @@ const createListData = async ({
         accountProfileImageUrl: tweet.user.profile_image_url_https,
         accountScreenName: tweet.user.screen_name,
         payload: tweet,
-        ...linkAttributes,
+        // ...linkAttributes,
         tweetTypes: {
           connect: tweetTypes.map(type => ({
             name: type,
