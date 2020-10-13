@@ -123,6 +123,7 @@ describe('parseTweets', () => {
       });
 
       expect(listObjects).toHaveLength(36); // draw a tree... (it's hard, LOL :D)
+      // @ts-ignore
       expect(listObjects.map(R.omit(['tweets']))).toMatchSnapshot();
     });
   });

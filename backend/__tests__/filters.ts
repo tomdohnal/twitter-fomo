@@ -1,4 +1,4 @@
-import {AccountType} from '@prisma/client'
+import { AccountType } from '@prisma/client';
 import {
   createCommunitiesFilters,
   createTweetTypeFilters,
@@ -49,6 +49,7 @@ describe('filters', () => {
     const weekFilter = filters[0];
     const accountTweetsWeek = weekFilter.filterAccountTweets(accountTweets);
 
+    // @ts-ignore
     expect(weekFilter.fields).toEqual({
       period: 'WEEK',
     });
@@ -59,6 +60,7 @@ describe('filters', () => {
     const dayFilter = filters[1];
     const accountTweetsDay = dayFilter.filterAccountTweets(accountTweets);
 
+    // @ts-ignore
     expect(dayFilter.fields).toEqual({
       period: 'DAY',
     });

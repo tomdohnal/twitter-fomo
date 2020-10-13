@@ -53,6 +53,7 @@ export const createTweet = ({
   favorite_count?: number;
   media?: any[];
   urls?: any[];
+  // @ts-ignore
 } = {}): ApiTweet => ({
   created_at: created_at || dayjsUtc(faker.date.past()).toISOString(),
   entities: {
