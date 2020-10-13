@@ -6,10 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "backend:run-script": "ts-node-script backend/scripts/parseTweets__run__.ts",
+    "backend:build-script": "ncc build backend/scripts/parseTweets__run__.ts -o backend/build",
+    "backend:run-script": "node backend/build/index.js",
     "test": "jest",
     "tdd": "jest --watch --verbose",
-    "heroku-postbuild": "echo noop"
+    "heroku-postbuild": "backend:build-script"
   },
   "engines": {
     "node": "12.14.0",
@@ -23,6 +24,7 @@
     "@prisma/client": "2.5",
     "@types/aws-sdk": "^2.7.0",
     "@types/shortid": "^0.0.29",
+    "@vercel/ncc": "^0.24.1",
     "aws-sdk": "^2.736.0",
     "axios": "^0.20.0",
     "babel-eslint": "^10.1.0",
