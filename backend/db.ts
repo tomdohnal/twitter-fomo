@@ -33,21 +33,21 @@ export function fetchAccounts() {
 export async function createTweetList(tweetList: TweetCreateInput[]) {
   const enhancedTweetList = await Promise.all(
     tweetList.map(async tweet => {
-      const url =
-        // @ts-ignore
-        tweet.payload.entities?.urls[0] || tweet.payload?.quoted_status?.entities?.urls[0];
+      // const url = false
+      //   // @ts-ignore
+      //   tweet.payload.entities?.urls[0] || tweet.payload?.quoted_status?.entities?.urls[0];
 
-      const linkAttributes = await (url
-        ? scrapeMetadata(url.expanded_url).then(metadata => ({
-            linkTitle: metadata.title,
-            linkDescription: metadata.description,
-            linkImageUrl: metadata.imageUrl,
-            linkUrl: url.expanded_url,
-          }))
-        : {});
+      // const linkAttributes = await (url
+      //   ? scrapeMetadata(url.expanded_url).then(metadata => ({
+      //       linkTitle: metadata.title,
+      //       linkDescription: metadata.description,
+      //       linkImageUrl: metadata.imageUrl,
+      //       linkUrl: url.expanded_url,
+      //     }))
+      //   : {});
 
       return {
-        ...linkAttributes,
+        // ...linkAttributes,
         ...tweet,
       };
     }),
