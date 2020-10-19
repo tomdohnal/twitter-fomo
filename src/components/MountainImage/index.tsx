@@ -2,6 +2,7 @@ import React from 'react';
 import * as R from 'ramda';
 import { useSprings, config, useSpring } from 'react-spring';
 import { useInView } from 'react-intersection-observer';
+import { Box } from '@chakra-ui/core';
 import Defs from './Defs';
 import FrontMountains from './FrontMountains';
 import Girl from './Girl';
@@ -59,10 +60,10 @@ const Index: React.FC = () => {
   );
 
   return (
-    <svg
+    <Box
+      as="svg"
       xmlns="http://www.w3.org/2000/svg"
-      width="792"
-      height="344"
+      transform="translateX(-10%)"
       fill="none"
       viewBox="-300 0 792 344"
       ref={svgRef}
@@ -77,7 +78,7 @@ const Index: React.FC = () => {
         <FrontMountains />
       </g>
       <Defs />
-    </svg>
+    </Box>
   );
 };
 

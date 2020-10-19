@@ -1,9 +1,9 @@
 import React from 'react';
 import { Box, BoxProps } from '@chakra-ui/core';
 
-const MAX_WIDTH = '1024px';
+const MAX_WIDTH = '1200px';
 
-export const CONTAINER_PX = { base: 4, md: 8, lg: 16 };
+export const CONTAINER_PX = { base: 4, md: 8, lg: 12 };
 
 const getStyleProps = ({
   isFullLeft,

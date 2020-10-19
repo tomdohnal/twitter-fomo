@@ -4,7 +4,7 @@ import { animated, useSpring, config } from 'react-spring';
 
 const AnimatedBox = animated(Box);
 
-const TweetBoxHeader: React.FC<{
+const TweetBoxRetweetHeader: React.FC<{
   created_at: string;
   name: string;
   imageUrl: string;
@@ -56,6 +56,7 @@ const TweetBoxHeader: React.FC<{
           flexShrink={1}
           overflow="hidden"
           textOverflow="ellipsis"
+          whiteSpace="nowrap"
           color="textSecondary"
           fontSize="sm"
         >
@@ -69,4 +70,4 @@ const TweetBoxHeader: React.FC<{
   );
 };
 
-export default TweetBoxHeader;
+export default TweetBoxRetweetHeader;

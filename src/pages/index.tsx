@@ -4,6 +4,8 @@ import FAQ from '../components/FAQ';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import TopSection from '../components/TopSection';
+import ProblemSolutionSection from '../components/ProblemSolutionSection';
+import WhatAreYouWaitingForSection from '../components/WhatAreYouWaitingForSection';
 import prisma from '../prisma';
 import { InferGetStaticPropsType } from 'next';
 
@@ -44,11 +46,13 @@ export const getStaticProps = async () => {
 const Index: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({ tweets }) => (
   <>
     <NextSeo
-      title="TwitterFOMO — Leaderboard"
+      title="TwitterFOMO"
       description="TwitterFOMO—A curated list of the best tweets in web development"
     />
     <Navbar />
     <TopSection tweets={tweets} />
+    <ProblemSolutionSection />
+    <WhatAreYouWaitingForSection />
     <FAQ />
     <Footer />
   </>

@@ -1,6 +1,6 @@
 import { Flex, useTheme, Text, Box } from '@chakra-ui/core';
 import { stringType } from 'aws-sdk/clients/iam';
-import React, { useState } from 'react';
+import React, { useState, memo } from 'react';
 import { useSpring, animated, config } from 'react-spring';
 import {
   TwitterFavoriteIcon,
@@ -66,7 +66,7 @@ const TweetBoxActions: React.FC<{
   favorite_count: number;
   retweet_count: number;
   tweetId: stringType;
-}> = ({ favorite_count, retweet_count, tweetId }) => {
+}> = memo(function TweetBoxActions({ favorite_count, retweet_count, tweetId }) {
   return (
     <Flex justify="space-between" color="textSecondary" mt={4}>
       <Flex align="center">
@@ -97,6 +97,6 @@ const TweetBoxActions: React.FC<{
       </Flex>
     </Flex>
   );
-};
+});
 
 export default TweetBoxActions;

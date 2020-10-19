@@ -1,8 +1,10 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, memo } from 'react';
 import { MediaEntity, Status } from 'twitter-d';
 import reactStringReplace from 'react-string-replace';
 import escapeStringRegexp from 'escape-string-regexp';
 import { Box, Image, Text, AspectRatio, useTheme, Link } from '@chakra-ui/core';
+// @ts-ignore
+import unescape from 'unescape';
 
 import { useSpring, animated } from 'react-spring';
 import { useIsHovered } from '../utils';
@@ -41,14 +43,22 @@ const parseText = (tweet: Status): ReactNode => {
             color="primary"
             href={tweet.entities.urls![Math.floor(i / 2)].expanded_url}
             key={i}
+            _hover={{ textDecoration: 'underline' }}
+            isExternal
           >
             {tweet.entities.urls![Math.floor(i / 2)].display_url}
           </Link>
         );
       })
-    : textWithReplacedRetweetUrls;
+    : [textWithReplacedRetweetUrls];
 
-  return textWithReplacedUrls;
+  return textWithReplacedUrls.map(text => {
+    if (typeof text === 'string') {
+      return unescape(text);
+    }
+
+    return text;
+  });
 };
 
 const TwitterImages: React.FC<{ images: MediaEntity[] }> = ({ images }) => {
@@ -317,12 +327,14 @@ const TweetBoxContent: React.FC<{
     linkDescription?: string;
     linkImageUrl?: string;
   };
-}> = ({ tweet }) => {
+}> = memo(function TweetBoxContent({ tweet }) {
   const parsedText = parseText(tweet);
 
   return (
     <>
-      <Text fontSize="lg">{parsedText}</Text>
+      <Text fontSize="lg" whiteSpace="pre-wrap">
+        {parsedText}
+      </Text>
       {!!tweet?.extended_entities?.media?.length &&
         tweet?.extended_entities?.media[0].type === 'photo' && (
           <Box
@@ -389,6 +401,6 @@ const TweetBoxContent: React.FC<{
       )}
     </>
   );
-};
+});
 
 export default TweetBoxContent;

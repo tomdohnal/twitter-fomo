@@ -122,23 +122,6 @@ const getNavbarAnimationStyles = ({
 
 const Navbar: React.FC = memo(function Navbar() {
   const activeSectionId = useActiveId(SECTIONS.map(section => section.id));
-  const [isScrolled, setIsScrolled] = useState(false);
-  useLayoutEffect(() => {
-    const onScroll = throttle(() => {
-      if (window.scrollY > 0 && !isScrolled) {
-        setIsScrolled(true);
-      }
-      if (window.scrollY === 0 && isScrolled) {
-        setIsScrolled(false);
-      }
-    }, 100);
-
-    window.addEventListener('scroll', onScroll);
-
-    return () => {
-      window.removeEventListener('scroll', onScroll);
-    };
-  }, [isScrolled]);
   const [navbarState, setNavbarState] = useState(NAVBAR_STATES.INITIAL);
   const isMdDown = useBreakpointValue({ base: true, md: false });
   const { scrollDirection } = useScrollInfo();
@@ -147,44 +130,40 @@ const Navbar: React.FC = memo(function Navbar() {
     config: { ...config.gentle, clamp: true },
   });
 
-  const calculateNavbarState = useCallback(
-    () =>
-      throttle(() => {
-        const { scrollY } = window;
-
-        // on desktops, set the navbar as "stuck" whenever the user scrolls the
-        // page down
-        if (!isMdDown) {
-          setNavbarState(scrollY > 1 ? NAVBAR_STATES.STUCK : NAVBAR_STATES.INITIAL);
-          return;
-        }
-
-        // if the user scrolls DOWN, the mobile navbar is NOT set as `HIDDEN`, and
-        // the user scroll past the height of the navbar
-        if (scrollDirection === SCROLL_DIRECTIONS.DOWN && navbarState !== NAVBAR_STATES.HIDDEN) {
-          setNavbarState(NAVBAR_STATES.HIDDEN);
-        }
-
-        // if the user scrolls UP
-        if (scrollDirection === SCROLL_DIRECTIONS.UP) {
-          // if the user scroll to the very top of the page
-          if (scrollY <= 0 && navbarState !== NAVBAR_STATES.INITIAL) {
-            setNavbarState(NAVBAR_STATES.INITIAL);
-          }
-          // if the user scrolled UP and is below the navbar height
-          else if (scrollY > NAVBAR_HEIGHTS.MOBILE) {
-            setNavbarState(NAVBAR_STATES.STUCK);
-          }
-        }
-      }, 100),
-    [isMdDown, scrollDirection, navbarState],
-  );
-
   useEffect(() => {
-    window.addEventListener('scroll', calculateNavbarState);
+    const onScroll = throttle(() => {
+      const { scrollY } = window;
 
-    return () => window.removeEventListener('scroll', calculateNavbarState);
-  }, [calculateNavbarState]);
+      // on desktops, set the navbar as "stuck" whenever the user scrolls the
+      // page down
+      if (!isMdDown) {
+        setNavbarState(scrollY > 1 ? NAVBAR_STATES.STUCK : NAVBAR_STATES.INITIAL);
+        return;
+      }
+
+      // if the user scrolls DOWN, the mobile navbar is NOT set as `HIDDEN`, and
+      // the user scroll past the height of the navbar
+      if (scrollDirection === SCROLL_DIRECTIONS.DOWN && navbarState !== NAVBAR_STATES.HIDDEN) {
+        setNavbarState(NAVBAR_STATES.HIDDEN);
+      }
+
+      // if the user scrolls UP
+      if (scrollDirection === SCROLL_DIRECTIONS.UP) {
+        // if the user scroll to the very top of the page
+        if (scrollY <= 1 && navbarState !== NAVBAR_STATES.INITIAL) {
+          setNavbarState(NAVBAR_STATES.INITIAL);
+        }
+
+        // if the user scrolled UP and is below the navbar height
+        else if (scrollY > NAVBAR_HEIGHTS.MOBILE) {
+          setNavbarState(NAVBAR_STATES.STUCK);
+        }
+      }
+    }, 100);
+    window.addEventListener('scroll', onScroll);
+
+    return () => window.removeEventListener('scroll', onScroll);
+  }, [isMdDown, navbarState, scrollDirection]);
 
   return (
     <AnimatedBox
@@ -193,6 +172,7 @@ const Navbar: React.FC = memo(function Navbar() {
       top={0}
       height={{ base: NAVBAR_HEIGHTS.MOBILE, md: NAVBAR_HEIGHTS.DESKTOP }}
       style={animatedValues}
+      zIndex={2}
     >
       <Container display="flex" alignItems="center" height="100%">
         <Stack display={{ base: 'none', md: 'flex' }} direction="row" spacing={6}>
@@ -221,6 +201,8 @@ const Navbar: React.FC = memo(function Navbar() {
           ml="auto"
           textTransform="lowercase"
           fontSize="lg"
+          transition="color .2s ease-in-out"
+          _hover={{ color: 'primaryPalette.800' }}
         >
           Go to app
         </Link>

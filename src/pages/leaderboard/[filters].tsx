@@ -1,23 +1,29 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { InferGetServerSidePropsType } from 'next';
-import { Box, Heading, Flex, Stack, HStack, VStack, Text, Spacer } from '@chakra-ui/core';
+import { Box, Heading, Stack } from '@chakra-ui/core';
+import { InferGetStaticPropsType } from 'next';
 import { NextSeo } from 'next-seo';
-import useSWR from 'swr';
 import { useRouter } from 'next/router';
-
-import TweetBox from '../../components/TweetBox';
+import React, { useEffect, useState } from 'react';
+import Container, { CONTAINER_PX } from '../../components/Container';
+import FAQ from '../../components/FAQ';
+import Footer from '../../components/Footer';
 import ListFilters from '../../components/ListFilters';
 import Section from '../../components/Section';
-import Container, { CONTAINER_PX } from '../../components/Container';
-import Footer from '../../components/Footer';
-import FAQ from '../../components/FAQ';
+import TweetBox from '../../components/TweetBox';
+import TweetBoxActions from '../../components/TweetBoxActions';
+import TweetBoxContent from '../../components/TweetBoxContent';
+import TweetBoxHeader from '../../components/TweetBoxHeader';
 import { get as getTweets } from '../../controllers/tweets';
-import fetcher from '../../fetcher';
-import { Filters, encode, decode } from '../../filters';
-import { Response } from '../api/tweets';
+import { decode, encode, Filters } from '../../filters';
 import { Media } from '../../media';
 
-export const getServerSideProps = async (ctx: unknown) => {
+export const getStaticPaths = () => {
+  return {
+    paths: [],
+    fallback: true,
+  };
+};
+
+export const getStaticProps = async (ctx: unknown) => {
   // @ts-ignore
   const tweets = await getTweets(ctx.params.filters);
 
@@ -25,10 +31,11 @@ export const getServerSideProps = async (ctx: unknown) => {
     props: {
       initialTweets: tweets,
     },
+    revalidate: 1800, // half an hour
   };
 };
 
-const LeaderBoard: React.FC<InferGetServerSidePropsType<typeof getServerSideProps>> = ({
+const LeaderBoard: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
   initialTweets,
 }) => {
   const router = useRouter();
@@ -37,26 +44,20 @@ const LeaderBoard: React.FC<InferGetServerSidePropsType<typeof getServerSideProp
   const [filters, setFilters] = useState<Filters>(decode(router.query.filters));
 
   useEffect(() => {
-    router.replace(
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    router.push(
       `/leaderboard/[filters]`,
       // @ts-ignore
       `/leaderboard/${encode(filters)}`,
     );
   }, [filters]);
 
-  // @ts-ignore
-  const { data, error } = useSWR<Response>(`tweets?filters=${encode(filters)}`, fetcher);
-
-  const tweets = data || initialTweets;
-
-  if (error) {
-    return <>Error ocurred</>;
-  }
+  const tweets = initialTweets;
 
   return (
     <>
       <NextSeo
-        title="TwitterFOMO — Leaderboard"
+        title="TwitterFOMO ⭐️ Leaderboard"
         description="TwitterFOMO—A curated list of the best tweets in web development"
       />
       <Section position="relative" bgColor="primaryPalette.50" pt={{ base: 0, md: 16 }} pb={24}>
@@ -81,9 +82,32 @@ const LeaderBoard: React.FC<InferGetServerSidePropsType<typeof getServerSideProp
                 <Heading size="2xl">Top Tweets</Heading>
               </Media>
               <Stack direction="column" spacing={6} mt={{ base: 6, md: 12 }}>
-                {tweets.map(tweet => {
-                  return <TweetBox key={tweet.id} tweet={tweet.payload} />;
-                })}
+                {router.isFallback
+                  ? null
+                  : tweets.map(tweet => {
+                      return (
+                        <TweetBox
+                          key={tweet.id}
+                          href={`https://twitter.com/${tweet.payload.user.screen_name}/status/${tweet.payload.id_str}`}
+                          header={
+                            <TweetBoxHeader
+                              created_at={tweet.publishedAt}
+                              imageUrl={tweet.payload.user.profile_image_url_https}
+                              name={tweet.payload.user.name}
+                              screenName={tweet.payload.user.screen_name}
+                            />
+                          }
+                          content={<TweetBoxContent tweet={tweet.payload} />}
+                          actions={
+                            <TweetBoxActions
+                              favorite_count={tweet.favoritesCount}
+                              retweet_count={tweet.retweetsCount}
+                              tweetId={tweet.payload.id_str}
+                            />
+                          }
+                        />
+                      );
+                    })}
               </Stack>
             </Box>
           </Stack>

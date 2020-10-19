@@ -5,7 +5,7 @@ import Container from './Container';
 import FAQImage from './FAQImage';
 import { FAQ_ITEMS } from '../constants';
 
-const FAQ: React.FC = memo(() => {
+const FAQ: React.FC = memo(function FAQ() {
   return (
     <Section bgColor="white" py={{ base: 12, md: 24 }} id="faq">
       <Container isFullLeft>

@@ -1,3 +1,4 @@
 {
-    "typescript.tsdk": "/Users/tom/Code/twitter-fomo/node_modules/typescript/lib"
+    "typescript.tsdk": "/Users/tom/Code/twitter-fomo/node_modules/typescript/lib",
+    "editor.tabSize": 2
 }
