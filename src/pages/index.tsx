@@ -53,7 +53,7 @@ const Index: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({ tweet
     <TopSection tweets={tweets} />
     <ProblemSolutionSection />
     <WhatAreYouWaitingForSection />
-    <FAQ />
+    <FAQ heading="Still got questions?" bgColor="primaryPalette.50" />
     <Footer />
   </>
 );

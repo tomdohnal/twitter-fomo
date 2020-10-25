@@ -2,7 +2,7 @@ import React, { ReactNode, memo } from 'react';
 import { MediaEntity, Status } from 'twitter-d';
 import reactStringReplace from 'react-string-replace';
 import escapeStringRegexp from 'escape-string-regexp';
-import { Box, Image, Text, AspectRatio, useTheme, Link } from '@chakra-ui/core';
+import { Box, Img, Text, AspectRatio, useTheme, Link } from '@chakra-ui/core';
 // @ts-ignore
 import unescape from 'unescape';
 
@@ -11,7 +11,7 @@ import { useIsHovered } from '../utils';
 import TweetBoxRetweet from './TweetBoxRetweet';
 import TweetBoxRetweetHeader from './TweetBoxRetweetHeader';
 
-const AnimatedImage = animated(Image);
+const AnimatedImage = animated(Img);
 const AnimatedBox = animated(Box);
 
 const parseText = (tweet: Status): ReactNode => {
@@ -64,7 +64,7 @@ const parseText = (tweet: Status): ReactNode => {
 const TwitterImages: React.FC<{ images: MediaEntity[] }> = ({ images }) => {
   if (images.length === 1) {
     return (
-      <Image
+      <Img
         w="100%"
         src={`${images[0].media_url_https}?name=small`}
         alt="Tweet image"
@@ -76,7 +76,7 @@ const TwitterImages: React.FC<{ images: MediaEntity[] }> = ({ images }) => {
   if (images.length === 2) {
     return (
       <Box h={0} pb="58%" pos="relative" zIndex={0}>
-        <Image
+        <Img
           src={`${images[0].media_url_https}?name=small`}
           alt="Tweet image"
           objectFit="cover"
@@ -88,7 +88,7 @@ const TwitterImages: React.FC<{ images: MediaEntity[] }> = ({ images }) => {
           borderRight="2px solid"
           borderRightColor="white"
         />
-        <Image
+        <Img
           src={`${images[1].media_url_https}?name=small`}
           alt="Tweet image"
           objectFit="cover"
@@ -107,7 +107,7 @@ const TwitterImages: React.FC<{ images: MediaEntity[] }> = ({ images }) => {
   if (images.length === 3) {
     return (
       <Box h={0} pb="58%" pos="relative">
-        <Image
+        <Img
           src={`${images[0].media_url_https}?name=small`}
           alt="Tweet image"
           objectFit="cover"
@@ -119,7 +119,7 @@ const TwitterImages: React.FC<{ images: MediaEntity[] }> = ({ images }) => {
           borderRight="2px solid"
           borderRightColor="white"
         />
-        <Image
+        <Img
           src={`${images[1].media_url_https}?name=small`}
           alt="Tweet image"
           objectFit="cover"
@@ -133,7 +133,7 @@ const TwitterImages: React.FC<{ images: MediaEntity[] }> = ({ images }) => {
           borderBottom="2px solid"
           borderBottomColor="white"
         />
-        <Image
+        <Img
           src={`${images[2].media_url_https}?name=small`}
           alt="Tweet image"
           objectFit="cover"
@@ -153,7 +153,7 @@ const TwitterImages: React.FC<{ images: MediaEntity[] }> = ({ images }) => {
 
   return (
     <Box h={0} pb="58%" pos="relative">
-      <Image
+      <Img
         src={`${images[0].media_url_https}?name=small`}
         alt="Tweet image"
         objectFit="cover"
@@ -167,7 +167,7 @@ const TwitterImages: React.FC<{ images: MediaEntity[] }> = ({ images }) => {
         borderBottom="2px solid"
         borderBottomColor="white"
       />
-      <Image
+      <Img
         src={`${images[1].media_url_https}?name=small`}
         alt="Tweet image"
         objectFit="cover"
@@ -181,7 +181,7 @@ const TwitterImages: React.FC<{ images: MediaEntity[] }> = ({ images }) => {
         borderBottom="2px solid"
         borderBottomColor="white"
       />
-      <Image
+      <Img
         src={`${images[2].media_url_https}?name=small`}
         alt="Tweet image"
         objectFit="cover"
@@ -195,7 +195,7 @@ const TwitterImages: React.FC<{ images: MediaEntity[] }> = ({ images }) => {
         borderTop="2px solid"
         borderTopColor="white"
       />
-      <Image
+      <Img
         src={`${images[3].media_url_https}?name=small`}
         alt="Tweet image"
         objectFit="cover"

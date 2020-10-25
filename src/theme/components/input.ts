@@ -30,10 +30,10 @@ export default {
     },
     xl: {
       field: {
-        height: 20,
+        height: { base: 16, lg: 20 },
         borderRadius: 'none',
-        fontSize: 'xl',
-        px: 5,
+        fontSize: { base: 'lg', lg: 'xl' },
+        px: { base: 3, lg: 5 },
         boxShadow: shadows.md(),
       },
     },
@@ -51,7 +51,10 @@ export default {
     outline: {
       field: {
         border: '2px solid',
-        borderColor: 'primaryPalette.800',
+        _focus: {
+          borderColor: 'primary',
+          boxShadow: 'none',
+        },
       },
     },
   },

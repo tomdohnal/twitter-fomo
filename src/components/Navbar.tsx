@@ -204,7 +204,7 @@ const Navbar: React.FC = memo(function Navbar() {
           transition="color .2s ease-in-out"
           _hover={{ color: 'primaryPalette.800' }}
         >
-          Go to app
+          View top tweets
         </Link>
       </Container>
     </AnimatedBox>

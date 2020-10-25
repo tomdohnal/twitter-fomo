@@ -2,10 +2,11 @@ import React from 'react';
 import * as R from 'ramda';
 import { useSprings, config } from 'react-spring';
 import { useInView } from 'react-intersection-observer';
+import { Box } from '@chakra-ui/core';
 import Logos from './Logos';
 import Flowers from './Flowers';
 
-const Index: React.FC = () => {
+const Index: React.FC<{ baseDelay?: number }> = ({ baseDelay = 0 }) => {
   const [svgRef, inView] = useInView({
     threshold: 0.5,
     triggerOnce: true,
@@ -16,7 +17,7 @@ const Index: React.FC = () => {
       x: inView ? 0.95 : 0,
       opacity: inView ? 1 : 0,
       config: config.slow,
-      delay: i * 200,
+      delay: baseDelay + i * 200,
     })),
   );
   const flowerAnimatedValues = useSprings(3, [
@@ -26,7 +27,7 @@ const Index: React.FC = () => {
         : 'rotate(45deg)  translate3d(100px, 50px, 0px)',
       opacity: inView ? 1 : 0,
       config: config.slow,
-      delay: 1000,
+      delay: baseDelay + 1000,
     },
     {
       transform: inView
@@ -34,7 +35,7 @@ const Index: React.FC = () => {
         : 'rotate(45deg)  translate3d(100px, 50px, 0px)',
       opacity: inView ? 1 : 0,
       config: config.slow,
-      delay: 1050,
+      delay: baseDelay + 1050,
     },
     {
       transform: inView
@@ -42,15 +43,14 @@ const Index: React.FC = () => {
         : 'rotate(45deg)  translate3d(-30px, 30px, 0px)',
       opacity: inView ? 1 : 0,
       config: config.slow,
-      delay: 1100,
+      delay: baseDelay + 1100,
     },
   ]);
   return (
-    <svg
+    <Box
+      as="svg"
       ref={svgRef}
       xmlns="http://www.w3.org/2000/svg"
-      width="478"
-      height="418"
       viewBox="0 -100 478 318"
       fill="none"
     >
@@ -248,7 +248,7 @@ const Index: React.FC = () => {
           <path fill="#fff" d="M0 0h378v318H0z" />
         </clipPath>
       </defs>
-    </svg>
+    </Box>
   );
 };
 

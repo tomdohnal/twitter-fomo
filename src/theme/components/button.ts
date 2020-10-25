@@ -40,9 +40,10 @@ export default {
       },
     },
     xl: {
-      h: 20,
-      px: 8,
-      fontSize: '2xl',
+      height: { base: 16, lg: 20 },
+      borderRadius: 'none',
+      fontSize: { base: 'xl', lg: '2xl' },
+      px: { base: 4, lg: 8 },
       // @ts-ignore
       boxShadow({ shadows, colors }) {
         return shadows.md(colors.primaryPalette['200']);

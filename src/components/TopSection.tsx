@@ -15,9 +15,9 @@ const TopSection: React.FC<{
   const theme = useTheme();
 
   return (
-    <Section id="home" pt={{ base: 4, md: 8 }} overflow="hidden" pb="200px">
+    <Section id="home" pt={{ base: 4, md: 8 }} overflow="hidden" pb="96px">
       <Container isFullRight>
-        <Heading as="h1" fontSize={{ base: '48px', md: '96px' }} color="primary">
+        <Heading as="h1" size="6xl" color="primary">
           Top webdev tweets
         </Heading>
         <Heading size="3xl">
@@ -28,11 +28,7 @@ const TopSection: React.FC<{
           scrolling
         </Heading>
         <Stack pos="relative" direction={{ base: 'column', lg: 'row' }} alignItems="center">
-          <Box
-            maxW={{ lg: '480px', xl: '512px' }}
-            mt={{ base: '24px', md: '32px', lg: '64px' }}
-            pos="relative"
-          >
+          <Box maxW={{ lg: '480px', xl: '512px' }} mt={{ base: '24px', md: '32px', lg: '64px' }}>
             <Text
               mb={{ base: 1, md: '8px' }}
               fontWeight={800}
@@ -41,29 +37,37 @@ const TopSection: React.FC<{
             >
               Top tweets this week
             </Text>
-            {tweets.map((tweet, index) => (
-              <TweetBoxCropped
-                key={tweet.id}
-                href={`https://twitter.com/${tweet.payload.user.screen_name}/status/${tweet.payload.id_str}`}
-                header={
-                  <TweetBoxTrophyHeader
-                    created_at={tweet.payload.created_at}
-                    imageUrl={tweet.payload.user.profile_image_url_https}
-                    name={tweet.payload.user.name}
-                    screenName={tweet.payload.user.screen_name}
-                    order={index + 1}
-                  />
-                }
-                content={<TweetBoxContent tweet={tweet.payload} />}
-                actions={
-                  <TweetBoxActions
-                    favorite_count={tweet.favoritesCount}
-                    retweet_count={tweet.retweetsCount}
-                    tweetId={tweet.payload.id_str}
-                  />
-                }
-              />
-            ))}
+            <Box
+              maxH="768px"
+              overflow={{ base: 'hidden', lg: 'scroll' }}
+              pos="relative"
+              borderTop="2px solid"
+              borderColor="text"
+            >
+              {tweets.map((tweet, index) => (
+                <TweetBoxCropped
+                  key={tweet.id}
+                  href={`https://twitter.com/${tweet.payload.user.screen_name}/status/${tweet.payload.id_str}`}
+                  header={
+                    <TweetBoxTrophyHeader
+                      created_at={tweet.payload.created_at}
+                      imageUrl={tweet.payload.user.profile_image_url_https}
+                      name={tweet.payload.user.name}
+                      screenName={tweet.payload.user.screen_name}
+                      order={index + 1}
+                    />
+                  }
+                  content={<TweetBoxContent tweet={tweet.payload} />}
+                  actions={
+                    <TweetBoxActions
+                      favorite_count={tweet.favoritesCount}
+                      retweet_count={tweet.retweetsCount}
+                      tweetId={tweet.payload.id_str}
+                    />
+                  }
+                />
+              ))}
+            </Box>
             <Box
               bg="primaryPalette.200"
               position="absolute"
@@ -82,8 +86,19 @@ const TopSection: React.FC<{
               w="100%"
               height={{ base: '64px', lg: '48px' }}
               fontSize={{ base: '20px', lg: '16px' }}
+              pos="relative"
+              _after={{
+                content: '""',
+                pos: 'absolute',
+                display: 'block',
+                h: '16px',
+                top: '-16px',
+                left: '2px',
+                right: '2px',
+                background: 'linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.4))',
+              }}
             >
-              Go to app
+              View top tweets
             </Button>
 
             <Text
@@ -104,9 +119,8 @@ const TopSection: React.FC<{
             flex={1}
             flexDirection="column"
             pt={{ base: '64px', xl: 0 }}
-            // transform={{ xl: 'translateY(-32px)' }}
           >
-            <Box transform={{ base: 'scale(1.4) translateX(-32px)' }}>
+            <Box transform={{ base: 'scale(1.4) translateX(-32px)' }} pointerEvents="none">
               <MountainImage />
             </Box>
             <Box
@@ -116,7 +130,7 @@ const TopSection: React.FC<{
               alignSelf={{ base: 'center', lg: 'flex-start' }}
             >
               <Button size="xl" pos="relative">
-                Go to app
+                View top tweets
                 <Box
                   bg="primaryPalette.100"
                   position="absolute"
@@ -134,6 +148,7 @@ const TopSection: React.FC<{
                 color="gray.500"
                 textTransform="lowercase"
                 fontWeight={400}
+                textAlign="center"
               >
                 No sign-up required
               </Text>

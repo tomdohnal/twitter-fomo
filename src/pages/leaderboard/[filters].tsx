@@ -70,6 +70,7 @@ const LeaderBoard: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
           <Stack spacing={{ md: 8, lg: 20 }} direction={{ base: 'column', md: 'row' }}>
             <Box
               position="sticky"
+              zIndex={1}
               top={{ base: 0, md: 16 }}
               flexBasis={{ md: '240px', lg: '300px' }}
               flexShrink={0}
@@ -81,7 +82,7 @@ const LeaderBoard: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
               <Media greaterThan="sm">
                 <Heading size="2xl">Top Tweets</Heading>
               </Media>
-              <Stack direction="column" spacing={6} mt={{ base: 6, md: 12 }}>
+              <Stack maxW="600px" direction="column" spacing={6} mt={{ base: 6, md: 12 }}>
                 {router.isFallback
                   ? null
                   : tweets.map(tweet => {
@@ -113,7 +114,7 @@ const LeaderBoard: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
           </Stack>
         </Container>
       </Section>
-      <FAQ />
+      <FAQ heading="FAQ" bgColor="#fff" />
       <Footer />
     </>
   );

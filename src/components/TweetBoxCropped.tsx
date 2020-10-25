@@ -21,28 +21,17 @@ const TweetBoxCropped: React.FC<{
     <AnimatedBox
       borderWidth={2}
       borderColor="gray.900"
-      _notFirst={{ borderTop: 'none' }}
-      _last={{ borderBottom: 'none' }}
-      bg="white"
-      p={[3, null, 4]}
+      borderTop="none"
       pos="relative"
+      _last={{
+        borderBottom: 'none',
+      }}
+      p={[3, null, 4]}
       style={animatedValues}
-      maxH="256px"
+      // maxH="256px"
       overflow="hidden"
       position="relative"
       boxShadow={theme.shadows.sm()}
-      _before={{
-        content: '""',
-        background: 'linear-gradient(to top, white, transparent 50%)',
-        position: 'absolute',
-        top: 0,
-        bottom: '56px',
-        left: '2px',
-        right: '2px',
-        // height: '256px',
-        zIndex: 1,
-        pointerEvents: 'none',
-      }}
       {...listeners}
     >
       <Link
@@ -57,19 +46,7 @@ const TweetBoxCropped: React.FC<{
       />
       {header}
       <Box mt={4}>{content}</Box>
-      <Box
-        position="absolute"
-        bottom={0}
-        left={0}
-        right={0}
-        pb="8px"
-        px="16px"
-        zIndex={1}
-        backgroundColor="#fff"
-        height="56px"
-      >
-        {actions}
-      </Box>
+      {actions}
     </AnimatedBox>
   );
 });

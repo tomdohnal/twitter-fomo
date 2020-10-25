@@ -1,7 +1,6 @@
 import React, { useState, memo, useEffect } from 'react';
 import {
   Box,
-  Heading,
   Button,
   useTheme,
   Text,
@@ -33,37 +32,6 @@ import {
 import { Filters } from '../../filters';
 import { CONTAINER_PX } from '../Container';
 
-const FormFieldLabel: React.FC = ({ children }) => {
-  return (
-    // @ts-ignore
-    <Text
-      textTransform={{ md: 'lowercase' }}
-      mb={{ base: 4, md: 1 }}
-      fontSize={{ base: '2xl', md: 'md' }}
-      fontWeight={{ base: '800', md: 'normal' }}
-    >
-      {children}
-    </Text>
-  );
-};
-
-const ClearFilterButton: React.FC = () => {
-  return (
-    // @ts-ignore
-    <Button
-      display="inline-flex"
-      alignItems="flex-end"
-      variant="text"
-      fontSize="sm"
-      color="textSecondary"
-      textTransform="lowercase"
-      mb={1}
-    >
-      <Text>clear</Text>
-    </Button>
-  );
-};
-
 const FilterOverviewItem: React.FC<{
   title: string;
   isActive: boolean;
@@ -71,7 +39,7 @@ const FilterOverviewItem: React.FC<{
   onRemoveClick: () => void;
 }> = ({ isActive, title, onClick, onRemoveClick }) => {
   return (
-    <Flex bgImage="linearGradient(to left, #fff 50%, red 50%)">
+    <Flex pr={2} _last={CONTAINER_PX}>
       <Button _hover={{}} size="sm" variant={isActive ? 'solid' : 'solidLight'} onClick={onClick}>
         {title}
       </Button>
@@ -145,8 +113,8 @@ const FilterOverview: React.FC<{ setActiveItem(key: keyof Filters): void } & Pro
       mx={Object.fromEntries(Object.entries(CONTAINER_PX).map(([key, value]) => [key, -value]))}
       px={CONTAINER_PX}
       py={4}
+      spacing={0}
       background="white"
-      spacing={2}
       direction="row"
       overflowX="scroll"
       borderBottom="2px solid"

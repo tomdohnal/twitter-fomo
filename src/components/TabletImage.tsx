@@ -2,6 +2,7 @@ import React, { cloneElement, useRef } from 'react';
 import { useSprings, animated, config } from 'react-spring';
 import * as R from 'ramda';
 import { useInView } from 'react-intersection-observer';
+import { Box } from '@chakra-ui/core';
 import { getTransformOrigin } from '../svg-utils';
 
 const animatedElements = [
@@ -10,7 +11,7 @@ const animatedElements = [
     d="M438.505 88.2705H438.409C436.614 88.2785 434.849 88.7341 433.274 89.596C431.699 90.4579 430.364 91.6989 429.39 93.2065C428.416 91.6996 427.081 90.4592 425.506 89.5974C423.931 88.7356 422.166 88.2795 420.371 88.2705H420.276C417.441 88.2883 414.729 89.426 412.731 91.4354C410.733 93.4447 409.612 96.1624 409.612 98.9951C409.612 102.506 411.15 107.487 414.152 111.588C419.866 119.395 429.362 126.227 429.362 126.227C429.362 126.227 438.858 119.395 444.572 111.588C447.574 107.487 449.112 102.506 449.112 98.9951C449.111 96.1725 447.997 93.464 446.011 91.4566C444.026 89.4491 441.329 88.3044 438.505 88.2705Z"
     fill="#F4484C"
   />,
-  <animated.g clipPath="url(#clip1)" key="element2">
+  <animated.g key="element2">
     <path fill="#F7DF1E" d="M506.4 117h-29.3v29.4h29.3V117z" />
     <path
       fill="#000"
@@ -22,7 +23,7 @@ const animatedElements = [
     d="M534.045 160.083H533.972C532.595 160.09 531.242 160.44 530.035 161.101C528.828 161.762 527.804 162.714 527.057 163.869C526.309 162.714 525.284 161.763 524.076 161.102C522.868 160.441 521.514 160.091 520.137 160.083H520.064C517.891 160.098 515.811 160.97 514.278 162.51C512.746 164.051 511.884 166.134 511.881 168.306C511.881 170.998 513.06 174.818 515.361 177.965C519.75 183.955 527.035 189.183 527.035 189.183C527.035 189.183 534.331 183.938 538.703 177.965C541.004 174.818 542.183 170.998 542.183 168.306C542.18 166.141 541.325 164.065 539.802 162.526C538.278 160.987 536.21 160.11 534.045 160.083Z"
     fill="#F4484C"
   />,
-  <animated.g clipPath="url(#clip2)" key="element4">
+  <animated.g key="element4">
     <path
       fill="#E535AB"
       fillRule="evenodd"
@@ -30,7 +31,7 @@ const animatedElements = [
       clipRule="evenodd"
     />
   </animated.g>,
-  <animated.g clipPath="url(#clip3)" key="element5">
+  <animated.g key="element5">
     <path
       fill="#fff"
       d="M415 164.6c0 2.5 2.2 4.8 5.6 6-.7 3.8-.1 6.9 1.7 8 2 1.3 4.8.4 7.5-2.2 2.6 2.5 5.2 3.5 7 2.3 2-1.2 2.6-4.5 1.9-8.4 3.5-1.3 5.4-3.2 5.4-5.7 0-2.4-2.1-4.4-5.4-5.7.7-4 0-7-1.8-8.3-2-1.2-4.6-.1-7.2 2.4-2.8-2.7-5.5-3.5-7.4-2.3-1.8 1.2-2.4 4.3-1.7 8.2-3.3 1.2-5.5 3.3-5.5 5.7z"
@@ -74,8 +75,8 @@ const TabletImage: React.FC = () => {
   );
 
   return (
-    <svg ref={svgRef} xmlns="http://www.w3.org/2000/svg" width="594" height="440" fill="none">
-      <g clipPath="url(#clip0)">
+    <Box as="svg" ref={svgRef} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 594 440">
+      <g>
         <g opacity="0.2">
           <path
             fill="#3F3D56"
@@ -341,7 +342,7 @@ const TabletImage: React.FC = () => {
           <stop offset="1" stopColor="gray" stopOpacity="0.1" />
         </linearGradient>
       </defs>
-    </svg>
+    </Box>
   );
 };
 

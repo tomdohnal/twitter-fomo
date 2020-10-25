@@ -20,7 +20,7 @@ export const FAQ_ITEMS = [
       'We get it. You want to read what’s new in webdev and you’re shown a picture of cute little kittens instead. (Nothing against posting these on Twitter, of course!) Currently, the only thing that might help is to filter the tweets according to their types (e. g. show only text tweets). But we do plan to create a more sophisticated system to only show relevant tweets in the future! Stay tuned.',
   },
   {
-    title: 'I saw a popular tweet on Twitter but it’s not showing up here!!!??? 😡🤬🤯',
+    title: 'I saw a popular tweet on Twitter but it’s not showing up here!!?!?? 😡🤬🤯',
     body:
       'Yes, that can happen. The list of the accounts whose tweets we go through is limited (and handpicked) and although we tried hard not to miss any “big” accounts we still might have missed them. Or there simply could have been a popular tweet from a “small” account which we don’t have in our DB. You can DM me on Twitter to fix this!',
   },
@@ -32,6 +32,6 @@ export const FAQ_ITEMS = [
   {
     title: 'How can I support TwitterFOMO?',
     body:
-      'Currently, the only way is by visitng our page regulary, spreading the word about it and subscribing to our newsletter. However, we do plan to have a premium tier in the future, so don’t worry, you’ll have the option to spend your money here!',
+      'Currently, the only way is by visiting our page regularly, spreading the word about it and subscribing to our newsletter. However, we are considering a premium tier in the future, so don’t worry, you’ll have the possibility to spend your paycheck here 😇',
   },
 ];

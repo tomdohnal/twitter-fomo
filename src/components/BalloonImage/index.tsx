@@ -2,6 +2,7 @@ import React from 'react';
 import { useInView } from 'react-intersection-observer';
 import { useSprings, useSpring, config } from 'react-spring';
 import * as R from 'ramda';
+import { Box } from '@chakra-ui/core';
 import Defs from './Defs';
 import LargeBalloon from './LargeBalloon';
 import SmallBalloons from './SmallBalloons';
@@ -45,18 +46,19 @@ const BalloonImage: React.FC = () => {
   }));
 
   return (
-    <svg
-      ref={svgRef}
-      xmlns="http://www.w3.org/2000/svg"
-      width="445"
-      height="728"
-      viewBox="0 -300 445 728"
-      fill="none"
-    >
-      <SmallBalloons animationStyles={smallBalloonsAnimationStyles} />
-      <LargeBalloon animationStyle={largeBalloonAnimationStyle} />
-      <Defs />
-    </svg>
+    <Box ref={svgRef}>
+      <Box
+        as="svg"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="-407 -300 852 728"
+        fill="none"
+        transform="translate(-59%, -28%) scale(2)"
+      >
+        <SmallBalloons animationStyles={smallBalloonsAnimationStyles} />
+        <LargeBalloon animationStyle={largeBalloonAnimationStyle} />
+        <Defs />
+      </Box>
+    </Box>
   );
 };
 

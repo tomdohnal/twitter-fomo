@@ -81,7 +81,7 @@ const TweetBoxTrophyHeader: React.FC<{
       >
         {new Date(created_at).toLocaleDateString('en')}
       </Text>
-      <Box ml="auto">{icons[order]}</Box>
+      <Box>{icons[order]}</Box>
     </Flex>
   );
 });

@@ -2470,9 +2470,9 @@ const Components = () => {
       <Box pl="400px">
         <CellPhoneImage />
       </Box> */}
-      {/* <Box pl="400px" mt="200px">
+      <Box pl="400px" mt="200px">
         <MailboxImage />
-      </Box> */}
+      </Box>
       {/* <Box pl="400px" mt="200px">
         <BalloonImage />
       </Box> */}

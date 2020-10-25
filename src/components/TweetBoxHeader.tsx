@@ -18,7 +18,7 @@ const TweetBoxHeader: React.FC<{
   return (
     <Flex>
       <Flex minW={0}>
-        <Image w={12} h={12} src={imageUrl} alt={`${name} profile image`} mr={4} />
+        <Image w={12} h={12} src={imageUrl} alt={`${name} profile image`} mr={{ base: 2, lg: 4 }} />
         <Flex direction="column" overflow="hidden">
           {/* eslint-disable-next-line jsx-a11y/mouse-events-have-key-events */}
           <Text
@@ -32,7 +32,7 @@ const TweetBoxHeader: React.FC<{
             onMouseOut={() => {
               setNameIsHovered(false);
             }}
-            fontSize="xl"
+            fontSize={{ base: 'lg', lg: 'xl' }}
             fontWeight="bold"
             pos="relative"
             minW={0}
@@ -64,10 +64,13 @@ const TweetBoxHeader: React.FC<{
         </Flex>
       </Flex>
       <Text flexShrink={0} mt={1} ml="auto" color="textSecondary" fontSize="sm">
-        {new Date(created_at).toLocaleDateString('en', {
-          hour: 'numeric',
-          minute: 'numeric',
-        })}
+        <Text display={{ base: 'none', lg: 'inline' }}>
+          {new Date(created_at).toLocaleDateString('en', {
+            hour: 'numeric',
+            minute: 'numeric',
+          })}
+        </Text>
+        <Text display={{ lg: 'none' }}>{new Date(created_at).toLocaleDateString('en')}</Text>
       </Text>
     </Flex>
   );

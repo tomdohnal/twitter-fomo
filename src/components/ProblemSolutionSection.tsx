@@ -4,19 +4,22 @@ import Section from './Section';
 import Container from './Container';
 import { CheckIcon, CrossIcon } from './Icons';
 import CellPhoneImage from './CellPhoneImage';
+import TabletImage from './TabletImage';
 
 const ProblemSolutionSection: React.FC = () => {
   return (
-    <Section bgColor="primaryPalette.100" id="home" pt={{ base: 4, md: 8 }}>
-      <Container isFullLeft>
-        <Flex>
-          <Box flex={1}>
-            <CellPhoneImage />
-          </Box>
+    <Section
+      bgColor="primaryPalette.100"
+      id="home"
+      pt={{ base: 16, lg: 0 }}
+      pb={{ base: 16, lg: 32 }}
+    >
+      <Container isFullRight>
+        <Flex direction={{ base: 'column', lg: 'row' }}>
           <Box>
-            <Heading>The problem</Heading>
-            <Box maxW="400px">
-              <Text>
+            <Heading size="3xl">The problem</Heading>
+            <Box maxW="480px" fontSize="lg" color="gray.700">
+              <Text mt={{ lg: 3 }}>
                 Amet dignissim velit at porta consequat eget integer malesuada. Massa sed fusce sed
                 facilisi. Sed posuere amet semper leo a viverra etiam.
               </Text>
@@ -35,14 +38,20 @@ const ProblemSolutionSection: React.FC = () => {
               </Text>
             </Box>
           </Box>
+          <Box flex={1} ml={{ lg: 16 }} px={{ xl: 32 }} mt={{ base: 16, lg: 0 }}>
+            <CellPhoneImage />
+          </Box>
         </Flex>
       </Container>
-      <Container isFullRight>
-        <Flex>
-          <Box>
-            <Heading>The solution</Heading>
-            <Box maxW="400px">
-              <Text>
+      <Container mt={{ base: 16, lg: 32 }} isFullLeft>
+        <Flex direction={{ base: 'column', lg: 'row' }}>
+          <Box flex={1} px={{ xl: 32 }} mt={{ base: 16, lg: 0 }} order={{ base: 1, lg: 0 }}>
+            <TabletImage />
+          </Box>
+          <Box pl={{ xl: 32 }}>
+            <Heading size="3xl">This solution</Heading>
+            <Box maxW="480px" fontSize="lg" color="gray.700">
+              <Text mt={{ lg: 3 }}>
                 Amet dignissim velit at porta consequat eget integer malesuada. Massa sed fusce sed
                 facilisi. Sed posuere amet semper leo a viverra etiam.
               </Text>
