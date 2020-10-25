@@ -60,6 +60,9 @@ export const urlFiltersToWhereInput = ({
 };
 
 export const get = async (filterUrl: string) => {
+  console.log('----------------------------------------');
+  console.log(get, filterUrl);
+  console.log('----------------------------------------');
   const urlFilters = decode(filterUrl || DEFAULT_FILTER);
   const where = urlFiltersToWhereInput(urlFilters);
 

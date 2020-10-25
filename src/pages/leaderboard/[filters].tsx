@@ -25,6 +25,9 @@ export const getStaticPaths = () => {
 };
 
 export const getStaticProps = async (ctx: unknown) => {
+  console.log('----------------------------------------');
+  console.log('getStaticProps');
+  console.log('----------------------------------------');
   // @ts-ignore
   const tweets = await getTweets(ctx.params.filters);
 
