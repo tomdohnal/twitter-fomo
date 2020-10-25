@@ -25,9 +25,6 @@ export const getStaticPaths = () => {
 };
 
 export const getStaticProps = async (ctx: unknown) => {
-  console.log('----------------------------------------');
-  console.log('getStaticProps');
-  console.log('----------------------------------------');
   // @ts-ignore
   const tweets = await getTweets(ctx.params.filters);
 
@@ -43,10 +40,6 @@ const LeaderBoard: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
   initialTweets,
 }) => {
   const router = useRouter();
-
-  console.log('-------------------------------------');
-  console.log('router.query', router.query);
-  console.log('-------------------------------------');
 
   // @ts-ignore
   const [filters, setFilters] = useState<Filters>(decode(router.query.filters || DEFAULT_FILTER));

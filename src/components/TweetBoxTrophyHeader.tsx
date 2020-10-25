@@ -1,5 +1,5 @@
 import React, { useState, memo } from 'react';
-import { Flex, Text, Image, Box } from '@chakra-ui/core';
+import { Flex, Text, Img, Box } from '@chakra-ui/core';
 import { animated, useSpring, config } from 'react-spring';
 import { GoldTrophyIcon, SilverTrophyIcon, BronzeTrophyIcon } from './Icons';
 
@@ -26,7 +26,7 @@ const TweetBoxTrophyHeader: React.FC<{
   return (
     <Flex>
       <Flex minW={0}>
-        <Image w={12} h={12} src={imageUrl} alt={`${name} profile image`} mr={4} />
+        <Img w={12} h={12} src={imageUrl} alt={`${name} profile image`} mr={4} />
         <Flex direction="column" overflow="hidden">
           {/* eslint-disable-next-line jsx-a11y/mouse-events-have-key-events */}
           <Text

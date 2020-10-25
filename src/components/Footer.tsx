@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heading, Text, Image, Box, Button, Stack } from '@chakra-ui/core';
+import { Heading, Text, Img, Box, Button, Stack } from '@chakra-ui/core';
 import Section from './Section';
 import Container from './Container';
 import { TwitterLogoIcon } from './Icons';
@@ -17,7 +17,7 @@ const Footer: React.FC = () => {
           px={{ base: 8, md: 20 }}
           mt={{ base: 6, md: 16 }}
         >
-          <Image
+          <Img
             src="/images/me.png"
             alt="TwitterFOMO author"
             flexShrink={0}

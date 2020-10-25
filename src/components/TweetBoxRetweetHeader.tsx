@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Flex, Text, Image, Box } from '@chakra-ui/core';
+import { Flex, Text, Img, Box } from '@chakra-ui/core';
 import { animated, useSpring, config } from 'react-spring';
 
 const AnimatedBox = animated(Box);
@@ -17,7 +17,7 @@ const TweetBoxRetweetHeader: React.FC<{
 
   return (
     <Flex alignItems="baseline">
-      <Image w={4} h={4} src={imageUrl} alt={`${name} profile image`} mr={2} flexShrink={0} />
+      <Img w={4} h={4} src={imageUrl} alt={`${name} profile image`} mr={2} flexShrink={0} />
       <Flex flexShrink={1} overflow="hidden" alignItems="baseline" mr={1}>
         {/* eslint-disable-next-line jsx-a11y/mouse-events-have-key-events */}
         <Text
