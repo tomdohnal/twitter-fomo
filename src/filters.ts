@@ -17,11 +17,15 @@ export const decode = (encodedString: string): Filters => {
     } else {
       decodedString = window.atob(encodedString);
     }
-  } catch (err) {
-    // logger.error(err);
-  }
 
-  return JSON.parse(decodedString || '{}');
+    const filters = JSON.parse(decodedString);
+
+    return filters;
+  } catch (err) {
+    logger.error(err);
+
+    return {} as Filters;
+  }
 };
 
 export const encode = (object: Record<string, unknown>) => {
