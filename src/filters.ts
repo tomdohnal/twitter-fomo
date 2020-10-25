@@ -18,7 +18,7 @@ export const decode = (encodedString: string): Filters => {
       decodedString = window.atob(encodedString);
     }
   } catch (err) {
-    logger.error(err);
+    // logger.error(err);
   }
 
   return JSON.parse(decodedString || '{}');
