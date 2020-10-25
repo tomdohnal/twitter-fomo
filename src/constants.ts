@@ -35,3 +35,8 @@ export const FAQ_ITEMS = [
       'Currently, the only way is by visiting our page regularly, spreading the word about it and subscribing to our newsletter. However, we are considering a premium tier in the future, so don’t worry, you’ll have the possibility to spend your paycheck here 😇',
   },
 ];
+
+export const DEFAULT_FILTER =
+  'eyJwZXJpb2QiOiJEQVkiLCJjb21tdW5pdGllcyI6W10sInR3ZWV0VHlwZXMiOltdLCJhY2NvdW50VHlwZXMiOltdfQ==';
+
+export const LEADERBOARD_LINK = `/leaderboard/${DEFAULT_FILTER}`;
