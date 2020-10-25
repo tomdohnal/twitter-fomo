@@ -25,7 +25,11 @@ export const decode = (encodedString: string): Filters => {
   } catch (err) {
     logger.error(err);
 
-    return JSON.parse(DEFAULT_FILTER);
+    if (typeof window === 'undefined') {
+      return JSON.parse(Buffer.from(DEFAULT_FILTER, 'base64').toString('binary'));
+    }
+
+    return JSON.parse(window.atob(DEFAULT_FILTER));
   }
 };
 
