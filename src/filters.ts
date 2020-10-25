@@ -1,4 +1,5 @@
 import { AccountType } from '@prisma/client';
+import logger from '../backend/logger';
 
 export interface Filters {
   period: string;
@@ -8,18 +9,19 @@ export interface Filters {
 }
 
 export const decode = (encodedString: string): Filters => {
-  console.log('--------------------------------------------');
-  console.log(encodedString);
-
   let decodedString;
 
-  if (typeof window === 'undefined') {
-    decodedString = Buffer.from(encodedString, 'base64').toString('binary');
-  } else {
-    decodedString = window.atob(encodedString);
+  try {
+    if (typeof window === 'undefined') {
+      decodedString = Buffer.from(encodedString, 'base64').toString('binary');
+    } else {
+      decodedString = window.atob(encodedString);
+    }
+  } catch (err) {
+    logger.error(err);
   }
 
-  return JSON.parse(decodedString);
+  return JSON.parse(decodedString || '{}');
 };
 
 export const encode = (object: Record<string, unknown>) => {
