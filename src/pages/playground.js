@@ -3,9 +3,6 @@ import React, { useRef, useState, useEffect } from 'react';
 import { animated, useSprings, useSpring, config } from 'react-spring';
 import * as R from 'ramda';
 
-// animate drawing questionmark curve -> DONE
-// animate questionmark dot opacity -> DONE
-// scale and scale back questionmarks -> TODO
 const FAQImage = () => {
   const [show, setShow] = useState(false);
   const questionMarkCurvesRefs = useRef([]);

@@ -3,9 +3,6 @@ import { animated, useSprings, useSpring } from 'react-spring';
 import { useInView } from 'react-intersection-observer';
 import { Box } from '@chakra-ui/core';
 
-// animate drawing questionmark curve -> DONE
-// animate questionmark dot opacity -> DONE
-// scale and scale back questionmarks -> TODO
 const FAQImage: React.FC = () => {
   const [svgRef, inView] = useInView({
     threshold: 0.5,

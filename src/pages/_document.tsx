@@ -19,7 +19,7 @@ class MyDocument extends Document {
         <body>
           {/* this prevents the FOUC in Firefox (it is a bug in Firefox)
                 https://bugzilla.mozilla.org/show_bug.cgi?id=1404468 */}
-          <script nonce={nonce}>0</script>
+          <script>0</script>
           <Main />
           <NextScript />
         </body>
