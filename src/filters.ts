@@ -8,6 +8,9 @@ export interface Filters {
 }
 
 export const decode = (encodedString: string): Filters => {
+  console.log('--------------------------------------------');
+  console.log(encodedString);
+
   let decodedString;
 
   if (typeof window === 'undefined') {

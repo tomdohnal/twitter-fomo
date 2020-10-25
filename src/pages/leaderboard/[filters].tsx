@@ -12,6 +12,7 @@ import TweetBox from '../../components/TweetBox';
 import TweetBoxActions from '../../components/TweetBoxActions';
 import TweetBoxContent from '../../components/TweetBoxContent';
 import TweetBoxHeader from '../../components/TweetBoxHeader';
+import { DEFAULT_FILTER } from '../../constants';
 import { get as getTweets } from '../../controllers/tweets';
 import { decode, encode, Filters } from '../../filters';
 import { Media } from '../../media';
@@ -41,7 +42,7 @@ const LeaderBoard: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
   const router = useRouter();
 
   // @ts-ignore
-  const [filters, setFilters] = useState<Filters>(decode(router.query.filters));
+  const [filters, setFilters] = useState<Filters>(decode(router.query.filters || DEFAULT_FILTER));
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });

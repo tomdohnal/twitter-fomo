@@ -1,7 +1,7 @@
+import { DEFAULT_FILTER } from './../constants';
 import { TweetWhereInput } from '@prisma/client';
 import dayjs from 'dayjs';
-import { Filters, decode } from '../filters';
-
+import { decode, Filters } from '../filters';
 import prisma from '../prisma';
 
 export const urlFiltersToWhereInput = ({
@@ -60,7 +60,7 @@ export const urlFiltersToWhereInput = ({
 };
 
 export const get = async (filterUrl: string) => {
-  const urlFilters = decode(filterUrl);
+  const urlFilters = decode(filterUrl || DEFAULT_FILTER);
   const where = urlFiltersToWhereInput(urlFilters);
 
   const tweets = await prisma.tweet.findMany({

@@ -7,7 +7,7 @@ import MailboxImage from './MailboxImage';
 import BalloonImage from './BalloonImage';
 import Link from './Link';
 import { useCreateSubscriber } from '../newsletter';
-import { LEADERBOARD_LINK } from '../contants';
+import { LEADERBOARD_LINK } from '../constants';
 
 const WhatAreYouWaitingForSection: React.FC = () => {
   const theme = useTheme();

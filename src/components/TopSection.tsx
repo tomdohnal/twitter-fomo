@@ -8,7 +8,7 @@ import TweetBoxContent from './TweetBoxContent';
 import TweetBoxTrophyHeader from './TweetBoxTrophyHeader';
 import Link from './Link';
 import MountainImage from './MountainImage';
-import { LEADERBOARD_LINK } from '../contants';
+import { LEADERBOARD_LINK } from '../constants';
 
 const TopSection: React.FC<{
   tweets: {}[];

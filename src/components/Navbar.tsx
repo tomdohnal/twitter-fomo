@@ -2,7 +2,7 @@ import { Box, Stack, useBreakpointValue, useTheme } from '@chakra-ui/core';
 import throttle from 'lodash.throttle';
 import React, { memo, useEffect, useRef, useState } from 'react';
 import { animated, config, useSpring } from 'react-spring';
-import { LEADERBOARD_LINK } from '../contants';
+import { LEADERBOARD_LINK } from '../constants';
 import { SCROLL_DIRECTIONS, useActiveId, useIsHovered, useScrollInfo } from '../utils';
 import Container from './Container';
 import Link from './Link';
