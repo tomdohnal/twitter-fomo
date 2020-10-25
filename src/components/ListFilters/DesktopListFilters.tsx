@@ -87,30 +87,30 @@ const GlobalClearFilterButton: React.FC<{ isActive: boolean; onClick: () => void
   );
 };
 
-const NewsletterForm: React.FC = () => {
-  const [email, setEmail] = useState('');
-  // @ts-ignore
-  const onClick = () => {};
+// const NewsletterForm: React.FC = () => {
+//   const [email, setEmail] = useState('');
+//   // @ts-ignore
+//   const onClick = () => {};
 
-  return (
-    <Box as="form">
-      <Heading size="md" mb={4}>
-        Get newsletter
-      </Heading>
-      <Input
-        value={email}
-        onChange={e => {
-          setEmail(e.target.value);
-        }}
-        placeholder="lady.gaga@example.org"
-        mb={3}
-      />
-      <Button width="100%" onClick={onClick}>
-        Subscribe
-      </Button>
-    </Box>
-  );
-};
+//   return (
+//     <Box as="form">
+//       <Heading size="md" mb={4}>
+//         Get newsletter
+//       </Heading>
+//       <Input
+//         value={email}
+//         onChange={e => {
+//           setEmail(e.target.value);
+//         }}
+//         placeholder="lady.gaga@example.org"
+//         mb={3}
+//       />
+//       <Button width="100%" onClick={onClick}>
+//         Subscribe
+//       </Button>
+//     </Box>
+//   );
+// };
 
 const DesktopListFilters: React.FC<Props> = ({ filters, setFilters }) => {
   const getNewFilters = createGetNewFilters(filters);
@@ -246,9 +246,6 @@ const DesktopListFilters: React.FC<Props> = ({ filters, setFilters }) => {
           </Wrap>
         </Box>
       </Stack>
-      <Box mt={{ md: 24 }}>
-        <NewsletterForm />
-      </Box>
     </Box>
   );
 };

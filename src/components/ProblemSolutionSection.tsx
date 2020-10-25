@@ -8,13 +8,8 @@ import TabletImage from './TabletImage';
 
 const ProblemSolutionSection: React.FC = () => {
   return (
-    <Section
-      bgColor="primaryPalette.100"
-      id="home"
-      pt={{ base: 16, lg: 0 }}
-      pb={{ base: 16, lg: 32 }}
-    >
-      <Container isFullRight>
+    <Section bgColor="primaryPalette.100" pt={{ base: 16, lg: 0 }} pb={{ base: 16, lg: 32 }}>
+      <Container id="problem" isFullRight>
         <Flex direction={{ base: 'column', lg: 'row' }}>
           <Box>
             <Heading size="3xl">The problem</Heading>
@@ -38,14 +33,26 @@ const ProblemSolutionSection: React.FC = () => {
               </Text>
             </Box>
           </Box>
-          <Box flex={1} ml={{ lg: 16 }} px={{ xl: 32 }} mt={{ base: 16, lg: 0 }}>
+          <Box
+            pointerEvents="none"
+            flex={1}
+            ml={{ lg: 16 }}
+            px={{ xl: 32 }}
+            mt={{ base: 16, lg: 0 }}
+          >
             <CellPhoneImage />
           </Box>
         </Flex>
       </Container>
-      <Container mt={{ base: 16, lg: 32 }} isFullLeft>
+      <Container id="solution" mt={{ base: 16, lg: 32 }} isFullLeft>
         <Flex direction={{ base: 'column', lg: 'row' }}>
-          <Box flex={1} px={{ xl: 32 }} mt={{ base: 16, lg: 0 }} order={{ base: 1, lg: 0 }}>
+          <Box
+            pointerEvents="none"
+            flex={1}
+            px={{ xl: 32 }}
+            mt={{ base: 16, lg: 0 }}
+            order={{ base: 1, lg: 0 }}
+          >
             <TabletImage />
           </Box>
           <Box pl={{ xl: 32 }}>

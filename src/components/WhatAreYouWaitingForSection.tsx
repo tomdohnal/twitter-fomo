@@ -1,16 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Box, Flex, Text, Heading, Input, Button, useTheme } from '@chakra-ui/core';
 import Section from './Section';
 import Container from './Container';
 import { MailIcon } from './Icons';
 import MailboxImage from './MailboxImage';
 import BalloonImage from './BalloonImage';
+import Link from './Link';
+import { useCreateSubscriber } from '../newsletter';
+import { LEADERBOARD_LINK } from '../contants';
 
 const WhatAreYouWaitingForSection: React.FC = () => {
   const theme = useTheme();
+  const [email, setEmail] = useState('');
+  const createSubscriber = useCreateSubscriber();
 
   return (
-    <Section id="home" pt={{ base: 8, lg: 24 }} mb={{ base: 16, lg: 24 }}>
+    <Section id="newsletter" pt={{ base: 8, lg: 24 }} mb={{ base: 16, lg: 24 }}>
       <Container>
         <Heading textAlign="center" size="5xl">
           So what are you waiting for?
@@ -27,7 +32,19 @@ const WhatAreYouWaitingForSection: React.FC = () => {
               </Text>{' '}
               and keep updated about the newest and hottest frameworks without stress.
             </Text>
-            <Flex mt={{ base: 2, lg: 4 }} direction={{ base: 'column', lg: 'row' }}>
+            <Flex
+              as="form"
+              onSubmit={async e => {
+                e.preventDefault();
+                const isSubscribed = await createSubscriber(email);
+
+                if (isSubscribed) {
+                  setEmail('');
+                }
+              }}
+              mt={{ base: 2, lg: 4 }}
+              direction={{ base: 'column', lg: 'row' }}
+            >
               <Input
                 flex={{ lg: 1 }}
                 size="xl"
@@ -36,8 +53,13 @@ const WhatAreYouWaitingForSection: React.FC = () => {
                   borderColor: 'primary',
                   boxShadow: `inset 0px 0px 0px 2px ${theme.colors.primary}, ${theme.shadows.md()}`,
                 }}
+                value={email}
+                onChange={({ target }) => {
+                  setEmail(target.value);
+                }}
               />
               <Button
+                type="submit"
                 mt={{ base: 2, lg: 0 }}
                 boxShadow={theme.shadows.md()}
                 _hover={{ boxShadow: theme.shadows.md(), bgColor: 'primaryPalette.800' }}
@@ -48,7 +70,7 @@ const WhatAreYouWaitingForSection: React.FC = () => {
               </Button>
             </Flex>
           </Box>
-          <Box flex={1} px={{ xl: 16 }}>
+          <Box pointerEvents="none" flex={1} px={{ xl: 16 }}>
             <MailboxImage />
           </Box>
         </Flex>
@@ -62,7 +84,7 @@ const WhatAreYouWaitingForSection: React.FC = () => {
       </Container>
       <Container isFullLeft mt={{ base: 16, lg: 0 }}>
         <Flex direction={{ base: 'column', lg: 'row' }} alignItems={{ lg: 'center' }}>
-          <Box flex={1} px={{ xl: 32 }} order={{ base: 1, lg: 0 }}>
+          <Box pointerEvents="none" flex={1} px={{ xl: 32 }} order={{ base: 1, lg: 0 }}>
             <BalloonImage />
           </Box>
           <Box maxW={{ lg: '600px' }} order={{ base: 0, lg: 1 }}>
@@ -80,6 +102,9 @@ const WhatAreYouWaitingForSection: React.FC = () => {
                 boxShadow={theme.shadows.md()}
                 _hover={{ boxShadow: theme.shadows.md(), bgColor: 'primaryPalette.800' }}
                 size="xl"
+                href={LEADERBOARD_LINK}
+                as={Link}
+                isExternal
               >
                 View top tweets
               </Button>

@@ -13,7 +13,14 @@ const FAQ: React.FC<{
     <Section bgColor={bgColor} py={{ base: 12, md: 24 }} id="faq">
       <Container isFullLeft>
         <Flex direction={{ base: 'column', lg: 'row' }}>
-          <Box mt={{ md: '192px' }} mb={12} flex={1} px={{ xl: 16 }} order={{ base: 1, lg: 0 }}>
+          <Box
+            pointerEvents="none"
+            mt={{ md: '192px' }}
+            mb={12}
+            flex={1}
+            px={{ xl: 16 }}
+            order={{ base: 1, lg: 0 }}
+          >
             <FAQImage />
           </Box>
           <Box maxW="600px" order={{ base: 0, lg: 1 }}>

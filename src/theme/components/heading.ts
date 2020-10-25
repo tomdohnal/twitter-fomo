@@ -19,22 +19,22 @@ export default {
       lineHeight: { base: '2.5rem', lg: 1 },
     },
     '3xl': {
-      fontSize: { base: '3rem', lg: '3.75rem' },
+      fontSize: { base: '2.5rem', lg: '3.75rem' },
       lineHeight: 1,
       letterSpacing: { base: '-1px', lg: '-2px' },
     },
     '4xl': {
-      fontSize: { base: '3.75rem', lg: '4.5rem' },
+      fontSize: { base: '2.75rem', lg: '4.5rem' },
       lineHeight: 1,
       letterSpacing: { base: '-1px', lg: '-2px' },
     },
     '5xl': {
-      fontSize: { base: '4rem', lg: '5.25rem' },
+      fontSize: { base: '3rem', lg: '5.25rem' },
       lineHeight: 1,
       letterSpacing: { base: '-2px', lg: '-3px' },
     },
     '6xl': {
-      fontSize: { base: '4.25rem', lg: '6rem' },
+      fontSize: { base: '3.25rem', lg: '6rem' },
       lineHeight: 1,
       letterSpacing: { base: '-2px', lg: '-4px' },
     },

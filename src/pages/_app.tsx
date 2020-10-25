@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import Router from 'next/router';
 import { ChakraProvider } from '@chakra-ui/core';
 import NProgress from 'nprogress';
@@ -8,7 +8,6 @@ import '../styles/nprogress.css';
 
 import theme from '../theme';
 import { MediaContextProvider } from '../media';
-import { useScrollInfo } from '../utils';
 import NewsletterPrompt from '../components/NewsletterPrompt';
 
 const startProgress = () => {
@@ -32,33 +31,15 @@ Router.events.on('routeChangeComplete', () => {
 
 // @ts-ignore
 function MyApp({ Component, pageProps }) {
-  const { isBelowFirstFold } = useScrollInfo();
-  const [showEmailPrompt, setShowEmailPrompt] = useState(false);
-  // TODO: localstorage has subscribed
   useEffect(() => {
     hotjar.initialize(2059179, 6);
   }, []);
-
-  useEffect(() => {
-    if (
-      isBelowFirstFold &&
-      !window.localStorage.getItem('HIDE_NEWSLETTER_PROMPT') &&
-      !showEmailPrompt
-    ) {
-      setShowEmailPrompt(true);
-    }
-  }, [isBelowFirstFold, showEmailPrompt]);
 
   return (
     <ChakraProvider resetCSS theme={theme}>
       <MediaContextProvider>
         <Component {...pageProps} />
-        <NewsletterPrompt
-          isShown={showEmailPrompt}
-          hide={() => {
-            setShowEmailPrompt(false);
-          }}
-        />
+        <NewsletterPrompt />
       </MediaContextProvider>
     </ChakraProvider>
   );

@@ -1,11 +1,11 @@
-import React, { useEffect, useState, memo, useCallback, useRef } from 'react';
-import { Stack, useTheme, Box, useBreakpointValue } from '@chakra-ui/core';
-import { animated, useSpring, config } from 'react-spring';
-import { useLayoutEffect } from 'react-layout-effect';
+import { Box, Stack, useBreakpointValue, useTheme } from '@chakra-ui/core';
 import throttle from 'lodash.throttle';
+import React, { memo, useEffect, useRef, useState } from 'react';
+import { animated, config, useSpring } from 'react-spring';
+import { LEADERBOARD_LINK } from '../contants';
+import { SCROLL_DIRECTIONS, useActiveId, useIsHovered, useScrollInfo } from '../utils';
 import Container from './Container';
 import Link from './Link';
-import { useActiveId, useIsHovered, useScrollInfo, SCROLL_DIRECTIONS } from '../utils';
 
 const AnimatedLink = animated(Link);
 const AnimatedBox = animated(Box);
@@ -17,6 +17,7 @@ const NavbarLink: React.FC<{ isActive: boolean; to: string }> = ({ children, to,
     color: isActive || isHovered ? theme.colors.text : theme.colors.gray['400'],
     config: config.gentle,
   });
+  const isBelowLg = useBreakpointValue({ base: true, lg: false });
   const scrollSectionRef = useRef<Element | null>(null);
   useEffect(() => {
     scrollSectionRef.current = document.getElementById(to);
@@ -32,7 +33,14 @@ const NavbarLink: React.FC<{ isActive: boolean; to: string }> = ({ children, to,
         e.preventDefault();
 
         // eslint-disable-next-line no-unused-expressions
-        scrollSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
+        const elementTop = Math.max(
+          (scrollSectionRef.current as HTMLElement).offsetTop -
+            (isBelowLg ? NAVBAR_HEIGHTS.MOBILE : NAVBAR_HEIGHTS.DESKTOP) -
+            16,
+          0,
+        );
+
+        window.scrollTo({ top: elementTop, behavior: 'smooth' });
       }}
       style={animatedValues}
       {...listeners}
@@ -65,7 +73,7 @@ const SECTIONS = [
   },
   {
     id: 'about',
-    title: 'About us',
+    title: 'About me',
   },
 ];
 
@@ -195,7 +203,7 @@ const Navbar: React.FC = memo(function Navbar() {
           TwitterFOMO
         </Link>
         <Link
-          href="/leaderboard"
+          href={LEADERBOARD_LINK}
           color="primary"
           fontWeight={800}
           ml="auto"
@@ -203,6 +211,7 @@ const Navbar: React.FC = memo(function Navbar() {
           fontSize="lg"
           transition="color .2s ease-in-out"
           _hover={{ color: 'primaryPalette.800' }}
+          isExternal
         >
           View top tweets
         </Link>

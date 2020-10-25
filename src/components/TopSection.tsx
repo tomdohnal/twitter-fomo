@@ -8,6 +8,7 @@ import TweetBoxContent from './TweetBoxContent';
 import TweetBoxTrophyHeader from './TweetBoxTrophyHeader';
 import Link from './Link';
 import MountainImage from './MountainImage';
+import { LEADERBOARD_LINK } from '../contants';
 
 const TopSection: React.FC<{
   tweets: {}[];
@@ -82,7 +83,7 @@ const TopSection: React.FC<{
               boxShadow={theme.shadows.sm()}
               _hover={{ boxShadow: theme.shadows.sm(), bgColor: 'primaryPalette.800' }}
               as={Link}
-              href="/leaderboard" // TODO: fix
+              href={LEADERBOARD_LINK}
               w="100%"
               height={{ base: '64px', lg: '48px' }}
               fontSize={{ base: '20px', lg: '16px' }}
@@ -97,6 +98,7 @@ const TopSection: React.FC<{
                 right: '2px',
                 background: 'linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.4))',
               }}
+              isExternal
             >
               View top tweets
             </Button>
@@ -129,7 +131,7 @@ const TopSection: React.FC<{
               ml={{ md: 'calc(8vw - 12px)' }}
               alignSelf={{ base: 'center', lg: 'flex-start' }}
             >
-              <Button size="xl" pos="relative">
+              <Button as={Link} href={LEADERBOARD_LINK} isExternal size="xl" pos="relative">
                 View top tweets
                 <Box
                   bg="primaryPalette.100"

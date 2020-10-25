@@ -1,6 +1,8 @@
+import { NAVBAR_HEIGHTS } from './components/Navbar';
 import { useMemo, useState, useEffect, useRef, useCallback } from 'react';
 import { useLayoutEffect } from 'react-layout-effect';
 import throttle from 'lodash.throttle';
+import { useBreakpointValue } from '@chakra-ui/core';
 
 export const useIsHovered = (): [
   boolean,
@@ -26,39 +28,43 @@ export const useIsHovered = (): [
 export const useActiveId = (ids: string[]): string => {
   const [intersectingSections, setIntersectingSections] = useState<Element[]>([]);
   const [currentActiveSectionId, setCurrentActiveSectionId] = useState<string>(ids[0]);
+  const isBelowLg = useBreakpointValue({ base: true, lg: false });
 
   useLayoutEffect(() => {
     const elements = ids.map(id => document.getElementById(id));
 
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          // if the elements is in the viewport, add it to
-          // the `intersectionSections`
-          if (!intersectingSections.includes(entry.target)) {
-            setIntersectingSections(prevIntersectingSections => [
-              ...prevIntersectingSections,
-              entry.target,
-            ]);
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // if the elements is in the viewport, add it to
+            // the `intersectionSections`
+            if (!intersectingSections.includes(entry.target)) {
+              setIntersectingSections(prevIntersectingSections => [
+                ...prevIntersectingSections,
+                entry.target,
+              ]);
+            }
+          } else {
+            // if the elements is NO LONGER in the viewport,
+            // remove it from the `intersectionSections`
+            if (intersectingSections.includes(entry.target)) {
+              setIntersectingSections(prevIntersectingSections =>
+                prevIntersectingSections.filter(section => section.id !== entry.target.id),
+              );
+            }
           }
-        } else {
-          // if the elements is NO LONGER in the viewport,
-          // remove it from the `intersectionSections`
-          if (intersectingSections.includes(entry.target)) {
-            setIntersectingSections(prevIntersectingSections =>
-              prevIntersectingSections.filter(section => section.id !== entry.target.id),
-            );
-          }
-        }
-      });
-    });
+        });
+      },
+      { rootMargin: `${-(isBelowLg ? NAVBAR_HEIGHTS.MOBILE : NAVBAR_HEIGHTS.DESKTOP + 32)}px` },
+    );
 
     elements.forEach(el => el && observer.observe(el));
 
     if (intersectingSections.length) {
       const newCurrentActiveSectionId = intersectingSections
         .slice()
-        .sort((a, b) => b.getBoundingClientRect().top - a.getBoundingClientRect().top)[0].id;
+        .sort((a, b) => a.getBoundingClientRect().top - b.getBoundingClientRect().top)[0].id;
 
       if (currentActiveSectionId !== newCurrentActiveSectionId) {
         setCurrentActiveSectionId(newCurrentActiveSectionId);
@@ -68,7 +74,7 @@ export const useActiveId = (ids: string[]): string => {
     return () => {
       elements.forEach(el => el && observer.unobserve(el));
     };
-  }, [currentActiveSectionId, ids, intersectingSections]);
+  }, [currentActiveSectionId, ids, intersectingSections, isBelowLg]);
 
   return currentActiveSectionId;
 };
@@ -81,6 +87,7 @@ export const SCROLL_DIRECTIONS = {
 
 export function useScrollInfo() {
   const [isBelowFirstFold, setIsBelowFirstFold] = useState(false);
+  const [isLastFold, setIsLastFold] = useState(false);
   const [scrollDirection, setScrollDirection] = useState(SCROLL_DIRECTIONS.INITIAL);
   const lastPageYOffsetRef = useRef<null | number>(null);
 
@@ -95,6 +102,14 @@ export function useScrollInfo() {
 
       if (pageYOffset < innerHeight && isBelowFirstFold) {
         setIsBelowFirstFold(false);
+      }
+
+      if (pageYOffset > document.documentElement.scrollHeight - innerHeight * 2 && !isLastFold) {
+        setIsLastFold(true);
+      }
+
+      if (pageYOffset > document.documentElement.scrollHeight - innerHeight * 2 && isLastFold) {
+        setIsLastFold(false);
       }
 
       if (lastPageYOffsetRef.current !== null && prevPageYOffset !== null) {
@@ -125,5 +140,5 @@ export function useScrollInfo() {
     };
   }, [calculateScrollInfo, isBelowFirstFold]);
 
-  return { isBelowFirstFold, scrollDirection };
+  return { isBelowFirstFold, scrollDirection, isLastFold };
 }
