@@ -1,3 +1,4 @@
+import { DEFAULT_FILTER } from './constants';
 import { AccountType } from '@prisma/client';
 import logger from '../backend/logger';
 
@@ -24,7 +25,7 @@ export const decode = (encodedString: string): Filters => {
   } catch (err) {
     logger.error(err);
 
-    return {} as Filters;
+    return JSON.parse(DEFAULT_FILTER);
   }
 };
 
