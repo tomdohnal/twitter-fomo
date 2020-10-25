@@ -10,7 +10,8 @@
     "backend:run-script": "node backend/build/index.js",
     "test": "jest",
     "tdd": "jest --watch --verbose",
-    "heroku-postbuild": "yarn backend:build-script"
+    "heroku-postbuild": "yarn backend:build-script",
+    "postinstall": "node postinstall.js"
   },
   "engines": {
     "node": ">=12.14.0",
@@ -63,6 +64,7 @@
     "react-layout-effect": "^1.0.5",
     "react-spring": "^9.0.0-rc.3",
     "react-string-replace": "^0.4.4",
+    "replace-in-file": "^6.1.0",
     "swr": "^0.3.2",
     "ts-node": "^8.10.2",
     "twitter-d": "^0.4.0",
