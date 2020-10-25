@@ -19,7 +19,7 @@ import { Media } from '../../media';
 
 export const getStaticPaths = () => {
   return {
-    paths: [],
+    paths: [{ params: { filters: DEFAULT_FILTER } }],
     fallback: true,
   };
 };
