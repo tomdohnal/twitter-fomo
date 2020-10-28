@@ -1,19 +1,19 @@
 import React, { memo } from 'react';
+import { Box } from '@chakra-ui/core';
 
-import { Media } from '../../media';
 import { Props } from './common';
 import DesktopListFilters from './DesktopListFilters';
 import MobileListFilters from './MobileListFilters';
 
-const ListFilters: React.FC<Props> = memo(props => {
+const ListFilters: React.FC<Props> = memo(function ListFilters(props) {
   return (
     <>
-      <Media lessThan="md">
+      <Box display={{ lg: 'none' }}>
         <MobileListFilters {...props} />
-      </Media>
-      <Media greaterThan="sm">
+      </Box>
+      <Box display={{ base: 'none', lg: 'block' }}>
         <DesktopListFilters {...props} />
-      </Media>
+      </Box>
     </>
   );
 });

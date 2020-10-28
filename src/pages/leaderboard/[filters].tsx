@@ -15,7 +15,6 @@ import TweetBoxHeader from '../../components/TweetBoxHeader';
 import { DEFAULT_FILTER } from '../../constants';
 import { get as getTweets } from '../../controllers/tweets';
 import { decode, encode, Filters } from '../../filters';
-import { Media } from '../../media';
 
 export const getStaticPaths = () => {
   return {
@@ -62,11 +61,15 @@ const LeaderBoard: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
         description="TwitterFOMO—A curated list of the best tweets in web development"
       />
       <Section position="relative" bgColor="primaryPalette.50" pt={{ base: 0, md: 16 }} pb={24}>
-        <Media lessThan="md">
-          <Box px={CONTAINER_PX} mt={{ base: 3, md: 4 }} pb={{ md: 3 }} bgColor="white">
-            <Heading size="2xl">Top Tweets</Heading>
-          </Box>
-        </Media>
+        <Box
+          px={CONTAINER_PX}
+          display={{ md: 'none' }}
+          mt={{ base: 3, md: 4 }}
+          pb={{ md: 3 }}
+          bgColor="white"
+        >
+          <Heading size="2xl">Top Tweets</Heading>
+        </Box>
         <Container>
           <Stack spacing={{ md: 8, lg: 20 }} direction={{ base: 'column', md: 'row' }}>
             <Box
@@ -80,9 +83,9 @@ const LeaderBoard: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
               <ListFilters filters={filters} setFilters={setFilters} />
             </Box>
             <Box>
-              <Media greaterThan="sm">
-                <Heading size="2xl">Top Tweets</Heading>
-              </Media>
+              <Heading display={{ base: 'none', md: 'block' }} size="2xl">
+                Top Tweets
+              </Heading>
               <Stack maxW="600px" direction="column" spacing={6} mt={{ base: 6, md: 12 }}>
                 {router.isFallback
                   ? null

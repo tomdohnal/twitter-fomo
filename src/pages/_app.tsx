@@ -7,7 +7,6 @@ import 'focus-visible/dist/focus-visible';
 import '../styles/nprogress.css';
 
 import theme from '../theme';
-import { MediaContextProvider } from '../media';
 import NewsletterPrompt from '../components/NewsletterPrompt';
 
 const startProgress = () => {
@@ -37,10 +36,8 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <ChakraProvider resetCSS theme={theme}>
-      <MediaContextProvider>
-        <Component {...pageProps} />
-        <NewsletterPrompt />
-      </MediaContextProvider>
+      <Component {...pageProps} />
+      <NewsletterPrompt />
     </ChakraProvider>
   );
 }

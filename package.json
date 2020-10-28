@@ -18,7 +18,6 @@
     "yarn": "1.22.4"
   },
   "dependencies": {
-    "@artsy/fresnel": "^1.2.2",
     "@chakra-ui/core": "^1.0.0-rc.5",
     "@chakra-ui/icons": "^1.0.0-rc.5",
     "@mailchimp/mailchimp_marketing": "^3.0.19",
