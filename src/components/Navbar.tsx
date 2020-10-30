@@ -191,18 +191,21 @@ const Navbar: React.FC = memo(function Navbar() {
             </NavbarLink>
           ))}
         </Stack>
-        <Link
-          display={{ md: 'none' }}
-          href="/#home"
-          fontWeight={800}
-          fontSize="lg"
-          color="primaryPalette.700"
-          p={2}
-          border="2px solid"
-          borderColor="primaryPalette.700"
-        >
-          TwitterFOMO
-        </Link>
+        <Box display={{ md: 'none' }} href="/#home">
+          <Box
+            boxSize={12}
+            as="svg"
+            viewBox="0 0 512 512"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect width="512" height="512" fill="#DA127D" />
+            <path
+              d="M260 138V195.2H180.4V414H105.2V195.2H25.2V138H260ZM351.313 136.8C365.979 136.8 381.179 136.933 396.913 137.2C412.913 137.2 428.379 137.6 443.313 138.4C458.246 138.933 471.979 140 484.513 141.6L480.913 194.8H382.912C370.113 194.8 363.713 200.533 363.713 212V251.6H466.113V302.4H363.713V414H288.513V196.4C288.513 178.533 294.246 164.133 305.713 153.2C317.446 142.267 332.646 136.8 351.313 136.8Z"
+              fill="#FFEEF3"
+            />
+          </Box>
+        </Box>
         <Link
           href={LEADERBOARD_LINK}
           color="primary"
