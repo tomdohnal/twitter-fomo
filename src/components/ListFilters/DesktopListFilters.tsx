@@ -14,6 +14,7 @@ import {
   INITIAL_FILTERS,
 } from './common';
 import { Filters } from '../../Filters';
+import * as gtag from '../../gtag';
 
 const FormFieldLabel: React.FC = ({ children }) => {
   return (
@@ -133,18 +134,6 @@ const DesktopListFilters: React.FC<Props> = ({ filters, setFilters }) => {
       left={{ base: 0, md: 'auto' }}
       right={{ base: 0, md: 'auto' }}
     >
-      {/* <pre>{JSON.stringify({ filters }, null, 2)}</pre>
-      <pre>{JSON.stringify({ filters }, null, 2)}</pre> */}
-      {/* <Button
-            onClick={() => {
-              setFilters(INITIAL_FILTERS);
-              setFilters(INITIAL_FILTERS);
-            }}
-            variant="link"
-          >
-            reset
-          </Button> */}
-
       <Flex align="baseline" justify="space-between">
         <Heading mt={12} mb={6}>
           Filters
@@ -166,6 +155,8 @@ const DesktopListFilters: React.FC<Props> = ({ filters, setFilters }) => {
           <GroupedRadioButtons
             value={filters.period}
             setValue={(value: string) => {
+              gtag.event({ category: 'Filters', action: 'period_click', label: value });
+
               setFilters(getNewFilters({ name: 'period', value }));
             }}
             items={PERIOD_ITEMS}
@@ -185,6 +176,8 @@ const DesktopListFilters: React.FC<Props> = ({ filters, setFilters }) => {
                 <CheckboxButton
                   key={value}
                   onCheck={() => {
+                    gtag.event({ category: 'Filters', action: 'community_click', label: value });
+
                     setFilters(getNewFilters({ name: 'communities', value }));
                   }}
                   isChecked={filters.communities.includes(value)}
@@ -209,6 +202,8 @@ const DesktopListFilters: React.FC<Props> = ({ filters, setFilters }) => {
                 <CheckboxButton
                   key={value}
                   onCheck={() => {
+                    gtag.event({ category: 'Filters', action: 'tweet_type_click', label: value });
+
                     setFilters(getNewFilters({ name: 'tweetTypes', value }));
                   }}
                   // @ts-ignore
@@ -234,6 +229,8 @@ const DesktopListFilters: React.FC<Props> = ({ filters, setFilters }) => {
                 <CheckboxButton
                   key={value}
                   onCheck={() => {
+                    gtag.event({ category: 'Filters', action: 'account_type_click', label: value });
+
                     setFilters(getNewFilters({ name: 'accountTypes', value }));
                   }}
                   // @ts-ignore

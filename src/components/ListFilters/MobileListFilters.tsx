@@ -31,6 +31,7 @@ import {
 } from './common';
 import { Filters } from '../../filters';
 import { CONTAINER_PX } from '../Container';
+import * as gtag from '../../gtag';
 
 const FilterOverviewItem: React.FC<{
   title: string;
@@ -160,6 +161,8 @@ const ListFilters: React.FC<Props> = memo(({ filters, setFilters }) => {
           <GroupedRadioButtons
             value={localFilters.period}
             setValue={(value: string) => {
+              gtag.event({ category: 'Filters', action: 'period_click', label: value });
+
               setLocalFilters(getNewFilters({ name: 'period', value }));
             }}
             items={PERIOD_ITEMS}
@@ -177,6 +180,8 @@ const ListFilters: React.FC<Props> = memo(({ filters, setFilters }) => {
               <CheckboxButton
                 key={value}
                 onCheck={() => {
+                  gtag.event({ category: 'Filters', action: 'community_click', label: value });
+
                   setLocalFilters(getNewFilters({ name: 'communities', value }));
                 }}
                 isChecked={localFilters.communities.includes(value)}
@@ -200,6 +205,8 @@ const ListFilters: React.FC<Props> = memo(({ filters, setFilters }) => {
               <CheckboxButton
                 key={value}
                 onCheck={() => {
+                  gtag.event({ category: 'Filters', action: 'tweet_type_click', label: value });
+
                   setLocalFilters(getNewFilters({ name: 'tweetTypes', value }));
                 }}
                 isChecked={localFilters.tweetTypes.includes(value)}
@@ -223,6 +230,8 @@ const ListFilters: React.FC<Props> = memo(({ filters, setFilters }) => {
               <CheckboxButton
                 key={value}
                 onCheck={() => {
+                  gtag.event({ category: 'Filters', action: 'account_type_click', label: value });
+
                   setLocalFilters(getNewFilters({ name: 'accountTypes', value }));
                 }}
                 isChecked={localFilters.accountTypes.includes(value)}

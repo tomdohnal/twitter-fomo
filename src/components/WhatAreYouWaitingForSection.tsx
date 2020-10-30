@@ -8,6 +8,7 @@ import BalloonImage from './BalloonImage';
 import Link from './Link';
 import { useCreateSubscriber } from '../newsletter';
 import { LEADERBOARD_LINK } from '../constants';
+import * as gtag from '../gtag';
 
 const WhatAreYouWaitingForSection: React.FC = () => {
   const theme = useTheme();
@@ -37,6 +38,12 @@ const WhatAreYouWaitingForSection: React.FC = () => {
               onSubmit={async e => {
                 e.preventDefault();
                 const isSubscribed = await createSubscriber(email);
+
+                gtag.event({
+                  action: 'subscribe_click',
+                  category: 'Subscription',
+                  label: 'what_are_u_waiting_for',
+                });
 
                 if (isSubscribed) {
                   setEmail('');
@@ -105,6 +112,13 @@ const WhatAreYouWaitingForSection: React.FC = () => {
                 href={LEADERBOARD_LINK}
                 as={Link}
                 isExternal
+                onClick={() => {
+                  gtag.event({
+                    action: 'view_top_tweets_click',
+                    category: 'LP',
+                    label: 'what_are_u_waiting_for',
+                  });
+                }}
               >
                 View top tweets
               </Button>

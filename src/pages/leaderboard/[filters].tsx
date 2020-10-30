@@ -57,7 +57,7 @@ const LeaderBoard: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
   return (
     <>
       <NextSeo
-        title="TwitterFOMO ⭐️ Leaderboard"
+        title="TwitterFOMO ⭐️ Top Tweets"
         description="TwitterFOMO—A curated list of the best tweets in web development"
       />
       <Section position="relative" bgColor="primaryPalette.50" pt={{ base: 0, md: 16 }} pb={24}>

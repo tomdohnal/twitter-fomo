@@ -9,6 +9,7 @@ import TweetBoxTrophyHeader from './TweetBoxTrophyHeader';
 import Link from './Link';
 import MountainImage from './MountainImage';
 import { LEADERBOARD_LINK } from '../constants';
+import * as gtag from '../gtag';
 
 const TopSection: React.FC<{
   tweets: {}[];
@@ -99,6 +100,13 @@ const TopSection: React.FC<{
                 background: 'linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.4))',
               }}
               isExternal
+              onClick={() => {
+                gtag.event({
+                  action: 'view_top_tweets_click',
+                  category: 'LP',
+                  label: 'hero_mobile',
+                });
+              }}
             >
               View top tweets
             </Button>
@@ -131,7 +139,20 @@ const TopSection: React.FC<{
               ml={{ md: 'calc(8vw - 12px)' }}
               alignSelf={{ base: 'center', lg: 'flex-start' }}
             >
-              <Button as={Link} href={LEADERBOARD_LINK} isExternal size="xl" pos="relative">
+              <Button
+                as={Link}
+                href={LEADERBOARD_LINK}
+                isExternal
+                size="xl"
+                pos="relative"
+                onClick={() => {
+                  gtag.event({
+                    action: 'view_top_tweets_click',
+                    category: 'LP',
+                    label: 'hero_desktop',
+                  });
+                }}
+              >
                 View top tweets
                 <Box
                   bg="primaryPalette.100"

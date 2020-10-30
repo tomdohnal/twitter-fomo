@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { animated, useTransition, config } from 'react-spring';
+import { animated, useTransition } from 'react-spring';
 import {
   Box,
   Heading,
@@ -15,6 +15,7 @@ import { JSIcon } from './Icons';
 import EnvelopeImage from './EnvelopeImage';
 import { SCROLL_DIRECTIONS, useScrollInfo } from '../utils';
 import { useCreateSubscriber } from '../newsletter';
+import * as gtag from '../gtag';
 
 const AnimatedBox = animated(Box);
 
@@ -109,6 +110,12 @@ const NewsletterPrompt: React.FC = () => {
             onSubmit={async e => {
               e.preventDefault();
               const isSubscribed = await createSubscriber(email);
+
+              gtag.event({
+                action: 'subscribe_click',
+                category: 'Subscription',
+                label: 'newsletter_prompt',
+              });
 
               if (isSubscribed) {
                 setIsClosed(true);

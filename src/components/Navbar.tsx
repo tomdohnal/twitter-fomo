@@ -6,6 +6,7 @@ import { LEADERBOARD_LINK } from '../constants';
 import { SCROLL_DIRECTIONS, useActiveId, useIsHovered, useScrollInfo } from '../utils';
 import Container from './Container';
 import Link from './Link';
+import * as gtag from '../gtag';
 
 const AnimatedLink = animated(Link);
 const AnimatedBox = animated(Box);
@@ -212,6 +213,13 @@ const Navbar: React.FC = memo(function Navbar() {
           transition="color .2s ease-in-out"
           _hover={{ color: 'primaryPalette.800' }}
           isExternal
+          onClick={() => {
+            gtag.event({
+              action: 'view_top_tweets_click',
+              category: 'LP',
+              label: 'navbar',
+            });
+          }}
         >
           View top tweets
         </Link>

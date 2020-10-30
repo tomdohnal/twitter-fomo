@@ -4,6 +4,7 @@ import { ChakraProvider } from '@chakra-ui/core';
 import NProgress from 'nprogress';
 import { hotjar } from 'react-hotjar';
 import 'focus-visible/dist/focus-visible';
+import * as gtag from '../gtag';
 import '../styles/nprogress.css';
 
 import theme from '../theme';
@@ -24,7 +25,8 @@ const showProgressBar = (delay: number) => {
 };
 
 Router.events.on('routeChangeStart', () => showProgressBar(300));
-Router.events.on('routeChangeComplete', () => {
+Router.events.on('routeChangeComplete', (url: string) => {
+  gtag.pageview(url);
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 

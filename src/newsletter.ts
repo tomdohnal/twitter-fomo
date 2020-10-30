@@ -36,8 +36,8 @@ export function useCreateSubscriber() {
       localStorage.setItem('IS_SUBSCRIBED', 'true');
 
       toast({
-        title: 'Please check your inbox!',
-        description: `I've sent you a confirmation email. Please check it now to subscribe to the newsletter. Cheers, Tom!`,
+        title: 'Please check your inbox! 📧',
+        description: `I've sent you a confirmation email. I know it's annoying but please do check the inbox now 🙏. Cheers, Tom!`,
         status: 'success',
         isClosable: true,
         duration: 20000,
@@ -47,7 +47,7 @@ export function useCreateSubscriber() {
       return true;
     } catch (err) {
       toast({
-        title: 'Unexpected error ocurred :((',
+        title: 'Unexpected error ocurred 😖😡😾',
         description:
           "Something has gone wrong and I don't know what 😕. Please DM me (@tom_dohnal) on Twitter. Thanks!",
         status: 'error',
