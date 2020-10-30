@@ -9,6 +9,26 @@ import '../styles/nprogress.css';
 
 import theme from '../theme';
 import NewsletterPrompt from '../components/NewsletterPrompt';
+import * as Sentry from '@sentry/node';
+import { RewriteFrames } from '@sentry/integrations';
+import getConfig from 'next/config';
+
+if (process.env.NEXT_PUBLIC_SENTRY_DSN) {
+  const config = getConfig();
+  const distDir = `${config.serverRuntimeConfig.rootDir}/.next`;
+  Sentry.init({
+    enabled: process.env.NODE_ENV === 'production',
+    integrations: [
+      new RewriteFrames({
+        iteratee: frame => {
+          frame.filename = frame.filename?.replace(distDir, 'app:///_next');
+          return frame;
+        },
+      }),
+    ],
+    dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
+  });
+}
 
 const startProgress = () => {
   NProgress.start();
@@ -31,14 +51,14 @@ Router.events.on('routeChangeComplete', (url: string) => {
 });
 
 // @ts-ignore
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps, err }) {
   useEffect(() => {
     hotjar.initialize(2059179, 6);
   }, []);
 
   return (
     <ChakraProvider resetCSS theme={theme}>
-      <Component {...pageProps} />
+      <Component {...pageProps} err={err} />
       <NewsletterPrompt />
     </ChakraProvider>
   );

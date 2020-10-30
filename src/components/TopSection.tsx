@@ -146,6 +146,7 @@ const TopSection: React.FC<{
                 size="xl"
                 pos="relative"
                 onClick={() => {
+                  throw new Error();
                   gtag.event({
                     action: 'view_top_tweets_click',
                     category: 'LP',
