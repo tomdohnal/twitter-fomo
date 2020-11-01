@@ -2,7 +2,7 @@ import { Box, Heading, Stack } from '@chakra-ui/core';
 import { InferGetStaticPropsType } from 'next';
 import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Fragment } from 'react';
 import Container, { CONTAINER_PX } from '../../components/Container';
 import FAQ from '../../components/FAQ';
 import Footer from '../../components/Footer';
@@ -12,6 +12,7 @@ import TweetBox from '../../components/TweetBox';
 import TweetBoxActions from '../../components/TweetBoxActions';
 import TweetBoxContent from '../../components/TweetBoxContent';
 import TweetBoxHeader from '../../components/TweetBoxHeader';
+import TweetBoxAd from '../../components/TweetBoxAd';
 import { DEFAULT_FILTER } from '../../constants';
 import { get as getTweets } from '../../controllers/tweets';
 import { decode, encode, Filters } from '../../filters';
@@ -37,7 +38,7 @@ export const getStaticProps = async (ctx: unknown) => {
 
 const LeaderBoard: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
   initialTweets,
-}) => {
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
   const router = useRouter();
 
   // @ts-ignore
@@ -53,6 +54,7 @@ const LeaderBoard: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
   }, [filters]);
 
   const tweets = initialTweets;
+  const showAdIndex = tweets.length >= 3 ? 2 : tweets.length - 1;
 
   return (
     <>
@@ -74,7 +76,7 @@ const LeaderBoard: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
           <Stack spacing={{ md: 8, lg: 20 }} direction={{ base: 'column', md: 'row' }}>
             <Box
               position="sticky"
-              zIndex={1}
+              zIndex={2}
               top={{ base: 0, md: 16 }}
               flexBasis={{ md: '240px', lg: '300px' }}
               flexShrink={0}
@@ -89,28 +91,32 @@ const LeaderBoard: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
               <Stack maxW="600px" direction="column" spacing={6} mt={{ base: 6, md: 12 }}>
                 {router.isFallback
                   ? null
-                  : tweets.map(tweet => {
+                  : tweets.map((tweet, index) => {
+                      const ad = showAdIndex === index ? <TweetBoxAd /> : null;
+
                       return (
-                        <TweetBox
-                          key={tweet.id}
-                          href={`https://twitter.com/${tweet.payload.user.screen_name}/status/${tweet.payload.id_str}`}
-                          header={
-                            <TweetBoxHeader
-                              created_at={tweet.publishedAt}
-                              imageUrl={tweet.payload.user.profile_image_url_https}
-                              name={tweet.payload.user.name}
-                              screenName={tweet.payload.user.screen_name}
-                            />
-                          }
-                          content={<TweetBoxContent tweet={tweet.payload} />}
-                          actions={
-                            <TweetBoxActions
-                              favorite_count={tweet.favoritesCount}
-                              retweet_count={tweet.retweetsCount}
-                              tweetId={tweet.payload.id_str}
-                            />
-                          }
-                        />
+                        <Fragment key={tweet.id}>
+                          <TweetBox
+                            href={`https://twitter.com/${tweet.payload.user.screen_name}/status/${tweet.payload.id_str}`}
+                            header={
+                              <TweetBoxHeader
+                                created_at={tweet.payload.created_at}
+                                imageUrl={tweet.payload.user.profile_image_url_https}
+                                name={tweet.payload.user.name}
+                                screenName={tweet.payload.user.screen_name}
+                              />
+                            }
+                            content={<TweetBoxContent tweet={tweet.payload} />}
+                            actions={
+                              <TweetBoxActions
+                                favorite_count={tweet.favoritesCount}
+                                retweet_count={tweet.retweetsCount}
+                                tweetId={tweet.payload.id_str}
+                              />
+                            }
+                          />
+                          {ad}
+                        </Fragment>
                       );
                     })}
               </Stack>

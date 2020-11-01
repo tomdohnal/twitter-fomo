@@ -8,10 +8,10 @@ import MobileListFilters from './MobileListFilters';
 const ListFilters: React.FC<Props> = memo(function ListFilters(props) {
   return (
     <>
-      <Box display={{ lg: 'none' }}>
+      <Box display={{ md: 'none' }}>
         <MobileListFilters {...props} />
       </Box>
-      <Box display={{ base: 'none', lg: 'block' }}>
+      <Box display={{ base: 'none', md: 'block' }}>
         <DesktopListFilters {...props} />
       </Box>
     </>

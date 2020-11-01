@@ -111,7 +111,12 @@ const FilterOverview: React.FC<{ setActiveItem(key: keyof Filters): void } & Pro
 
   return (
     <Stack
-      mx={Object.fromEntries(Object.entries(CONTAINER_PX).map(([key, value]) => [key, -value]))}
+      mx={Object.entries(CONTAINER_PX).reduce((acc, [key, value]) => {
+        return {
+          ...acc,
+          [key]: -value,
+        };
+      }, {})}
       px={CONTAINER_PX}
       py={4}
       spacing={0}
@@ -262,20 +267,15 @@ const ListFilters: React.FC<Props> = memo(({ filters, setFilters }) => {
         <ModalOverlay>
           <ModalContent
             borderTop="2px solid"
-            borderTopColor="gray.900"
-            position="absolute"
+            position="fixed"
             bottom={0}
-            left={0}
-            right={0}
-            width="100vw"
-            maxW="100vw"
             mb={0}
+            borderTopColor="gray.900"
             borderRadius="none"
           >
             <ModalHeader>{currentFilterItem.title}</ModalHeader>
             <ModalCloseButton _focus={{}} />
             <ModalBody>{currentFilterItem.content}</ModalBody>
-
             <ModalFooter>
               <Button
                 width="100%"

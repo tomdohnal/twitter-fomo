@@ -15,6 +15,8 @@ const TweetBoxHeader: React.FC<{
     transform: isNameHovered ? 'scaleX(1)' : 'scaleX(0)',
   });
 
+  console.log({ created_at });
+
   return (
     <Flex>
       <Flex minW={0}>
@@ -64,13 +66,15 @@ const TweetBoxHeader: React.FC<{
         </Flex>
       </Flex>
       <Text flexShrink={0} mt={1} ml="auto" color="textSecondary" fontSize="sm">
-        <Text display={{ base: 'none', lg: 'inline' }}>
+        <Text as="span" display={{ base: 'none', lg: 'inline' }}>
           {new Date(created_at).toLocaleDateString('en', {
             hour: 'numeric',
             minute: 'numeric',
           })}
         </Text>
-        <Text display={{ lg: 'none' }}>{new Date(created_at).toLocaleDateString('en')}</Text>
+        <Text as="span" display={{ lg: 'none' }}>
+          {new Date(created_at).toLocaleDateString('en')}
+        </Text>
       </Text>
     </Flex>
   );

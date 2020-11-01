@@ -64,7 +64,7 @@ const NewsletterPrompt: React.FC = () => {
           zIndex={1}
           maxW={{ lg: '440px' }}
           position="fixed"
-          bottom={{ base: 0, lg: 2 }}
+          bottom={{ lg: 2 }}
           left={{ base: 0, lg: 2 }}
           right={{ base: 0, lg: null }}
           px={{ base: 2, lg: 4 }}

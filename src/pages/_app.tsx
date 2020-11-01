@@ -54,7 +54,9 @@ Router.events.on('routeChangeComplete', (url: string) => {
 // @ts-ignore
 function MyApp({ Component, pageProps, err }) {
   useEffect(() => {
-    hotjar.initialize(2059179, 6);
+    if (process.env.NODE_ENV === 'production') {
+      hotjar.initialize(2059179, 6);
+    }
   }, []);
 
   return (

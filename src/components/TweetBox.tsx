@@ -10,7 +10,7 @@ const TweetBox: React.FC<{
   header: ReactNode;
   actions: ReactNode;
   href: string;
-}> = memo(function TweetBox({ content, header, actions, href }) {
+}> = memo(function TweetBox({ content, header, actions, href, ...restProps }) {
   const theme = useTheme();
   const [isHovered, listeners] = useIsHovered();
   const animatedValues = useSpring({
@@ -27,6 +27,7 @@ const TweetBox: React.FC<{
       pos="relative"
       style={animatedValues}
       {...listeners}
+      {...restProps}
     >
       <Link
         href={href}
