@@ -1,7 +1,7 @@
 export const FAQ_ITEMS = [
   {
     title: 'Is TwitterFOMO open-source?',
-    body: `No. Not yet. It will be once I polish up the spaghetti code behind it 🙃. Subscribe to the newsletter for the updates!`,
+    body: `No. Not yet. It will be once I polish up the spaghetti code behind it 🙃. Subscribe to the newsletter for the updates so that you can be the FIRST one to star the GitHub repo!`,
   },
   {
     title: 'Why only top *10* tweets? 😕',

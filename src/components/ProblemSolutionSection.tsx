@@ -15,21 +15,23 @@ const ProblemSolutionSection: React.FC = () => {
             <Heading size="3xl">The problem</Heading>
             <Box maxW="480px" fontSize="lg" color="gray.700">
               <Text mt={{ lg: 3 }}>
-                Amet dignissim velit at porta consequat eget integer malesuada. Massa sed fusce sed
-                facilisi. Sed posuere amet semper leo a viverra etiam.
+                You&apos;re squandering time on Twitter. New (blazing-fast) libraries, hot 🔥 and
+                spicy tips, and motivational quotes. You crave those dopamine snacks. And you feel
+                like you *need* to keep scrolling through that fricking Twitter feed so that you
+                don&apos;t miss anything important. FOMO 😨. FOMO at its finest.
               </Text>
               <br />
               <Text>
                 <CrossIcon boxSize={8} ml={-2} />
-                Massa sed fusce sed facilisi
+                You&apos;re squandering precious time ⏳
               </Text>
               <Text>
                 <CrossIcon boxSize={8} ml={-2} />
-                Massa sed fusce sed facilisi
+                You keep taking dopamine hits 💉
               </Text>
               <Text>
                 <CrossIcon boxSize={8} ml={-2} />
-                Massa sed fusce sed facilisi
+                You&apos;re suffering from FOMO 🙀
               </Text>
             </Box>
           </Box>
@@ -59,21 +61,25 @@ const ProblemSolutionSection: React.FC = () => {
             <Heading size="3xl">This solution</Heading>
             <Box maxW="480px" fontSize="lg" color="gray.700">
               <Text mt={{ lg: 3 }}>
-                Amet dignissim velit at porta consequat eget integer malesuada. Massa sed fusce sed
-                facilisi. Sed posuere amet semper leo a viverra etiam.
+                I&apos;mma be honest with you. I won&apos;t over-promise and under-deliver. You will
+                still be addicted to Twitter as a TwitterFOMO user and subscriber 📧. The FOMO will
+                NOT fully go away. However, you will have enough confidence that you won&apos;t miss
+                anything important so that scrolling 📱 through that fricking Twitter feed will NOT
+                be the last thing you do before you go to sleep 🛌 and the first after you wake up
+                ☀️.
               </Text>
               <br />
               <Text h={8}>
                 <CheckIcon boxSize={6} mr={2} />
-                Massa sed fusce sed facilisi
+                You lower your Twitter addiction 📵
               </Text>
               <Text h={8}>
                 <CheckIcon boxSize={6} mr={2} />
-                Massa sed fusce sed facilisi
+                Your FOMO will become less severe 😌
               </Text>
               <Text h={8}>
                 <CheckIcon boxSize={6} mr={2} />
-                Massa sed fusce sed facilisi
+                No more scrolling in the bed 💤
               </Text>
             </Box>
           </Box>

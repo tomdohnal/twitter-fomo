@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heading, Text, Img, Box, Button, Stack } from '@chakra-ui/core';
+import { Heading, Text, Img, Box, Button, Stack, Link } from '@chakra-ui/core';
 import Section from './Section';
 import Container from './Container';
 import { TwitterLogoIcon } from './Icons';
@@ -26,15 +26,18 @@ const Footer: React.FC = () => {
           />
           <Box>
             <Text color="primaryPalette.50" fontSize="lg" mb={4}>
-              Donec fermentum in a habitasse mattis urna, justo, integer vitae. Tellus in dignissim
-              egestas egestas libero purus, venenatis enim. Nunc amet, sed ac sed. Tincidunt orci,
-              sed pulvinar sollicitudin eget mi congue.
+              I was sick and tired of wasting countless hours mindlessly scrolling through Twitter
+              hoping to get a dopamine hit by seeing yet another new framework, hot tip 🔥, or a
+              motivational quote. So I decided to indulge in over-engineering and premature
+              optimization instead and created this tool 🛠.
             </Text>
             <Button
               variant="solidLight"
               colorScheme="primaryPalette"
               leftIcon={<TwitterLogoIcon h={6} w={6} />}
               w={{ base: '100%', md: 'auto' }}
+              as={Link}
+              href="https://twitter.com/intent/follow?screen_name=tom_dohnal"
             >
               Follow
             </Button>
