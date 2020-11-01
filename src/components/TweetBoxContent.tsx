@@ -330,15 +330,6 @@ const TweetBoxContent: React.FC<{
 }> = memo(function TweetBoxContent({ tweet }) {
   const parsedText = parseText(tweet);
 
-  console.log(
-    !tweet?.extended_entities?.media?.length &&
-      tweet.linkTitle &&
-      tweet.linkDescription &&
-      tweet.linkImageUrl &&
-      !tweet.quoted_status &&
-      tweet.entities.urls?.length === 1,
-  );
-
   return (
     <>
       <Text fontSize="lg" whiteSpace="pre-wrap">

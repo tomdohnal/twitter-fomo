@@ -54,7 +54,7 @@ const LeaderBoard: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
   }, [filters]);
 
   const tweets = initialTweets;
-  const showAdIndex = (tweets || []).length >= 3 ? 2 : tweets.length - 1;
+  const showAdIndex = tweets ? (tweets.length >= 3 ? 2 : tweets.length - 1) : 0;
 
   return (
     <>

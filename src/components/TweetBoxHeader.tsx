@@ -15,8 +15,6 @@ const TweetBoxHeader: React.FC<{
     transform: isNameHovered ? 'scaleX(1)' : 'scaleX(0)',
   });
 
-  console.log({ created_at });
-
   return (
     <Flex>
       <Flex minW={0}>
