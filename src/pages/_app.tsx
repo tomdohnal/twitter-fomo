@@ -88,12 +88,11 @@ function MyApp({ Component, pageProps, err }) {
             },
           ],
         }}
-      >
-        <ChakraProvider resetCSS theme={theme}>
-          <Component {...pageProps} err={err} />
-          <NewsletterPrompt />
-        </ChakraProvider>
-      </DefaultSeo>
+      />
+      <ChakraProvider resetCSS theme={theme}>
+        <Component {...pageProps} err={err} />
+        <NewsletterPrompt />
+      </ChakraProvider>
     </>
   );
 }
