@@ -37,8 +37,8 @@ export const getStaticProps = async (ctx: unknown) => {
 };
 
 const LeaderBoard: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
-  initialTweets,
-}: InferGetStaticPropsType<typeof getStaticProps>) => {
+      initialTweets,
+    }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const router = useRouter();
 
   // @ts-ignore
@@ -60,7 +60,7 @@ const LeaderBoard: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
     <>
       <NextSeo
         title="TwitterFOMO ⭐️ Top Tweets"
-        description="TwitterFOMO—A curated list of the best tweets in web development"
+        description="TwitterFOMO—The best tweets in web development"
       />
       <Section position="relative" bgColor="primaryPalette.50" pt={{ base: 0, md: 16 }} pb={24}>
         <Box

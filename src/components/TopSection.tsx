@@ -22,7 +22,7 @@ const TopSection: React.FC<{
         <Heading as="h1" size="6xl" color="primary">
           Top webdev tweets
         </Heading>
-        <Heading size="3xl">
+        <Heading display={{ base: 'none', md: 'inline' }} size="3xl">
           No{' '}
           <Text as="span" fontStyle="italic">
             mindless

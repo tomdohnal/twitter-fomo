@@ -43,12 +43,9 @@ export const getStaticProps = async () => {
   };
 };
 
-const Index: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({ tweets }) => (
+const Index: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({ tweets }: InferGetStaticPropsType<typeof getStaticProps>) => (
   <>
-    <NextSeo
-      title="TwitterFOMO"
-      description="TwitterFOMO—A curated list of the best tweets in web development"
-    />
+    <NextSeo title="TwitterFOMO" description="TwitterFOMO—The best tweets in web development" />
     <Navbar />
     <TopSection tweets={tweets} />
     <ProblemSolutionSection />

@@ -5,6 +5,7 @@ import NProgress from 'nprogress';
 import { hotjar } from 'react-hotjar';
 import 'focus-visible/dist/focus-visible';
 import Head from 'next/head';
+import { DefaultSeo } from 'next-seo';
 import * as gtag from '../gtag';
 import '../styles/nprogress.css';
 
@@ -79,10 +80,20 @@ function MyApp({ Component, pageProps, err }) {
         <link rel="apple-touch-icon" href="/icons/apple-icon.png"></link>
         <meta name="theme-color" content="#A30664" />
       </Head>
-      <ChakraProvider resetCSS theme={theme}>
-        <Component {...pageProps} err={err} />
-        <NewsletterPrompt />
-      </ChakraProvider>
+      <DefaultSeo
+        openGraph={{
+          images: [
+            {
+              url: '/preview.png',
+            },
+          ],
+        }}
+      >
+        <ChakraProvider resetCSS theme={theme}>
+          <Component {...pageProps} err={err} />
+          <NewsletterPrompt />
+        </ChakraProvider>
+      </DefaultSeo>
     </>
   );
 }
