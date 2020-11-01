@@ -84,7 +84,7 @@ function MyApp({ Component, pageProps, err }) {
         openGraph={{
           images: [
             {
-              url: '/preview.png',
+              url: 'https://twitterfomo.dev/preview.png',
             },
           ],
         }}
