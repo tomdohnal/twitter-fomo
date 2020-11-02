@@ -41,6 +41,10 @@ const LeaderBoard: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
     }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const router = useRouter();
 
+  console.log('--------------------------------------------');
+  console.log(router.query.filters);
+  console.log('--------------------------------------------');
+
   // @ts-ignore
   const [filters, setFilters] = useState<Filters>(decode(router.query.filters || DEFAULT_FILTER));
 
