@@ -57,7 +57,7 @@
     "metascraper-description": "^5.14.14",
     "metascraper-image": "^5.14.14",
     "metascraper-title": "^5.14.14",
-    "next": "^9.5.2",
+    "next": "^9.5.5",
     "next-pwa": "^3.1.5",
     "next-seo": "^4.7.3",
     "nprogress": "^0.2.0",
