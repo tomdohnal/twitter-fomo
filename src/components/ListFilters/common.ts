@@ -1,3 +1,4 @@
+// import { AccountType } from '@prisma/client';
 import { encode, decode, Filters } from '../../filters';
 
 export const PERIOD_ITEMS = [
@@ -40,15 +41,14 @@ export const ACCOUNT_TYPE_ITEMS = [
 ];
 
 interface FilterAction {
-  value: string;
+  value: Filters[keyof Filters];
   name: keyof Filters;
 }
 
 export const createGetNewFilters = (filters: Filters) => (action: FilterAction): Filters => {
   const oldField = filters[action.name];
   const newField = Array.isArray(oldField)
-    ? // @ts-ignore
-      oldField.includes(action.value)
+    ? oldField.includes(action.value)
       ? oldField.filter(value => value !== action.value)
       : [...oldField, action.value]
     : action.value;

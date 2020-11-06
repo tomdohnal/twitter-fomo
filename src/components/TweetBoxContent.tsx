@@ -3,7 +3,6 @@ import { MediaEntity, Status } from 'twitter-d';
 import reactStringReplace from 'react-string-replace';
 import escapeStringRegexp from 'escape-string-regexp';
 import { Box, Img, Text, AspectRatio, useTheme, Link } from '@chakra-ui/core';
-// @ts-ignore
 import unescape from 'unescape';
 
 import { useSpring, animated } from 'react-spring';

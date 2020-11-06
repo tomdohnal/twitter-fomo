@@ -18,8 +18,8 @@
     "yarn": "1.22.4"
   },
   "dependencies": {
-    "@chakra-ui/core": "^1.0.0-rc.5",
-    "@chakra-ui/icons": "^1.0.0-rc.5",
+    "@chakra-ui/core": "^1.0.0-rc.8",
+    "@chakra-ui/icons": "^1.0.0-rc.8",
     "@mailchimp/mailchimp_marketing": "^3.0.19",
     "@prisma/client": "2.5",
     "@sentry/browser": "^5.27.2",
@@ -51,6 +51,7 @@
     "execa": "^4.0.3",
     "faker": "^4.1.0",
     "focus-visible": "^5.2.0",
+    "framer-motion": "^2.9.4",
     "lodash.memoize": "^4.1.2",
     "lodash.throttle": "^4.1.1",
     "metascraper": "^5.14.14",

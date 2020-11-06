@@ -1,4 +1,3 @@
-import { SpringValue } from 'react-spring';
 import memoize from 'lodash.memoize';
 
 export function rad2deg(rad: number) {
@@ -21,12 +20,12 @@ export const getSvgTransformStyle = ({
   element,
   baseRotation = 0,
 }: {
-  x: SpringValue<number>;
+  x: any; // react-spring types are not performant :()
   path: SVGPathElement | null;
   element: SVGGElement | null;
   baseRotation: number;
 }) => {
-  return x.to(animatedX => {
+  return x.to((animatedX: number) => {
     if (animatedX === 0 || !path || !element) {
       // make it off-screen initially
       return 'translate(-9999px,-9999px) rotate(0deg)';

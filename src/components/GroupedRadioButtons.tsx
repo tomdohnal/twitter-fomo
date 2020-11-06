@@ -1,23 +1,23 @@
-import React, { useState, useRef, useEffect } from 'react';
 import {
-  useRadio,
   Box,
-  useRadioGroup,
-  HStack,
+  ChakraProps,
   Flex,
+  useRadio,
+  useRadioGroup,
   UseRadioProps,
   useTheme,
 } from '@chakra-ui/core';
-import { animated, useSpring, config } from 'react-spring';
+import React, { useEffect, useRef, useState } from 'react';
+import { animated, config, useSpring } from 'react-spring';
 
 const AnimatedBox = animated(Box);
 
 type RadioButtonProps = UseRadioProps & {
   isAnimationReady: boolean;
-  variant: string;
+  variant?: string;
 };
 
-const getRadioButtonStyles = (variant: string) => ({
+const getRadioButtonStyles = (variant?: string): ChakraProps => ({
   h: '36px',
   cursor: 'pointer',
   borderWidth: '1px',
@@ -29,7 +29,7 @@ const getRadioButtonStyles = (variant: string) => ({
   ml: '-1px',
   bgColor: 'primaryPalette.50',
   color: 'primaryPalette.800',
-  textTransform: 'lowerCase',
+  textTransform: 'lowercase',
   ...(variant === 'full' && {
     width: '100%',
     justifyContent: 'center',
@@ -58,7 +58,6 @@ const RadioButton: React.FC<RadioButtonProps> = ({
   return (
     <Box as="label" flexGrow={variant === 'full' ? 1 : undefined}>
       <input {...input} />
-      {/* @ts-ignore */}
       <Box
         {...checkbox}
         {...getRadioButtonStyles(variant)}
@@ -141,7 +140,7 @@ const GroupedRadioButtons: React.FC<GroupedRadioButtonsProps> = ({
 
   return (
     <Box position="relative">
-      <Flex spacing={0} {...group} pl="1px">
+      <Flex {...group} pl="1px">
         {items.map(({ value, label }) => {
           const radio = getRadioProps({ value });
 
@@ -162,7 +161,6 @@ const GroupedRadioButtons: React.FC<GroupedRadioButtonsProps> = ({
         position="absolute"
         top={0}
         aria-hidden="true"
-        // @ts-ignore
         display="inline-flex"
         pl="1px"
         {...(variant === 'full' && {
@@ -192,7 +190,6 @@ const GroupedRadioButtons: React.FC<GroupedRadioButtonsProps> = ({
               }}
               flexGrow={variant === 'full' ? 1 : undefined}
             >
-              {/* @ts-ignore */}
               <Box {...getRadioButtonStyles(variant)} {...radioButtonCheckedStyles}>
                 {label}
               </Box>

@@ -96,8 +96,9 @@ export const createTweetTypeFilters = (): Filter[] => {
     filterAccountTweets(accountTweets: AccountTweet[]) {
       return accountTweets.map(accountTweet => ({
         account: accountTweet.account,
-        // @ts-ignore
-        tweets: accountTweet.tweets.filter(tweet => typesFilterFns[type](tweet)),
+        tweets: accountTweet.tweets.filter(tweet =>
+          typesFilterFns[type as keyof typeof typesFilterFns](tweet),
+        ),
       }));
     },
   }));

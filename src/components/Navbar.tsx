@@ -179,7 +179,7 @@ const Navbar: React.FC = memo(function Navbar() {
       background="#fff"
       pos="sticky"
       top={0}
-      height={{ base: NAVBAR_HEIGHTS.MOBILE, md: NAVBAR_HEIGHTS.DESKTOP }}
+      height={{ base: `${NAVBAR_HEIGHTS.MOBILE}px`, md: `${NAVBAR_HEIGHTS.DESKTOP}px` }}
       style={animatedValues}
       zIndex={2}
     >

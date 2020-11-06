@@ -1,20 +1,20 @@
-import React, { useState } from 'react';
-import { Box, Heading, Input, Button, useTheme, Text, Stack, Wrap, Flex } from '@chakra-ui/core';
+import { Box, Button, Flex, Heading, Stack, Text, useTheme, Wrap } from '@chakra-ui/core';
 import * as R from 'ramda';
-import { useTransition, animated } from 'react-spring';
+import React from 'react';
+import { animated, useTransition } from 'react-spring';
+import { Filters } from '../../Filters';
+import * as gtag from '../../gtag';
 import CheckboxButton from '../CheckboxButton';
 import GroupedRadioButtons from '../GroupedRadioButtons';
 import {
-  Props,
-  createGetNewFilters,
-  PERIOD_ITEMS,
-  COMMUNITY_ITEMS,
-  TWEET_TYPE_ITEMS,
   ACCOUNT_TYPE_ITEMS,
+  COMMUNITY_ITEMS,
+  createGetNewFilters,
   INITIAL_FILTERS,
+  PERIOD_ITEMS,
+  Props,
+  TWEET_TYPE_ITEMS,
 } from './common';
-import { Filters } from '../../Filters';
-import * as gtag from '../../gtag';
 
 const FormFieldLabel: React.FC = ({ children }) => {
   return (
@@ -37,7 +37,7 @@ const ClearFilterButton: React.FC<{ isActive: boolean; onClick: () => void }> = 
   const AnimatedButton = animated(Button);
 
   return transition(
-    (style, item) =>
+    (style: any, item: boolean) =>
       item && (
         <AnimatedButton
           onClick={onClick}
@@ -69,7 +69,7 @@ const GlobalClearFilterButton: React.FC<{ isActive: boolean; onClick: () => void
   const AnimatedButton = animated(Button);
 
   return transition(
-    (style, item) =>
+    (style: any, item: boolean) =>
       item && (
         <AnimatedButton
           onClick={onClick}
@@ -87,31 +87,6 @@ const GlobalClearFilterButton: React.FC<{ isActive: boolean; onClick: () => void
       ),
   );
 };
-
-// const NewsletterForm: React.FC = () => {
-//   const [email, setEmail] = useState('');
-//   // @ts-ignore
-//   const onClick = () => {};
-
-//   return (
-//     <Box as="form">
-//       <Heading size="md" mb={4}>
-//         Get newsletter
-//       </Heading>
-//       <Input
-//         value={email}
-//         onChange={e => {
-//           setEmail(e.target.value);
-//         }}
-//         placeholder="lady.gaga@example.org"
-//         mb={3}
-//       />
-//       <Button width="100%" onClick={onClick}>
-//         Subscribe
-//       </Button>
-//     </Box>
-//   );
-// };
 
 const DesktopListFilters: React.FC<Props> = ({ filters, setFilters }) => {
   const getNewFilters = createGetNewFilters(filters);
@@ -206,7 +181,6 @@ const DesktopListFilters: React.FC<Props> = ({ filters, setFilters }) => {
 
                     setFilters(getNewFilters({ name: 'tweetTypes', value }));
                   }}
-                  // @ts-ignore
                   isChecked={filters.tweetTypes.includes(value)}
                 >
                   {label}
@@ -233,7 +207,6 @@ const DesktopListFilters: React.FC<Props> = ({ filters, setFilters }) => {
 
                     setFilters(getNewFilters({ name: 'accountTypes', value }));
                   }}
-                  // @ts-ignore
                   isChecked={filters.accountTypes.includes(value)}
                 >
                   {label}

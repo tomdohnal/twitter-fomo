@@ -57,7 +57,6 @@ const CheckboxButton: React.FC<Props> = ({ isChecked, onCheck, children, variant
 
   return (
     <AnimatedBox
-      // @ts-ignore
       as="label"
       pr={3}
       pl={10}
@@ -94,7 +93,6 @@ const CheckboxButton: React.FC<Props> = ({ isChecked, onCheck, children, variant
         top={2}
         left={3}
         border="2px"
-        // @ts-ignore
         borderColor="primary"
       >
         <Box
@@ -109,9 +107,7 @@ const CheckboxButton: React.FC<Props> = ({ isChecked, onCheck, children, variant
           xmlns="http://www.w3.org/2000/svg"
         >
           <animated.path
-            // @ts-ignore
             strokeDashoffset={checkAnimationStyle.x}
-            // @ts-ignore
             strokeDasharray={checkmarkOffset}
             ref={checkmarkRef}
             d="M1 4.5L5 9L14 1"

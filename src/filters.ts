@@ -33,7 +33,7 @@ export const decode = (encodedString: string): Filters => {
   }
 };
 
-export const encode = (object: Record<string, unknown>) => {
+export const encode = (object: Filters) => {
   const string = JSON.stringify(object);
 
   if (typeof window === 'undefined') {

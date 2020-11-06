@@ -2,10 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { get as getTweets } from '../../controllers/tweets';
 
 const fetch = async (req: NextApiRequest, res: NextApiResponse) => {
-  // @ts-ignore
-  const tweets = await getTweets(req.query.filters);
-
-  console.log({ tweets });
+  const tweets = await getTweets(req.query.filters as string);
 
   res.status(200).json(tweets);
 };

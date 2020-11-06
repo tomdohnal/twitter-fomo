@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import Router from 'next/router';
+import { AppProps } from 'next/app';
 import { ChakraProvider } from '@chakra-ui/core';
 import NProgress from 'nprogress';
 import { hotjar } from 'react-hotjar';
@@ -52,8 +53,7 @@ Router.events.on('routeChangeComplete', (url: string) => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-// @ts-ignore
-function MyApp({ Component, pageProps, err }) {
+function MyApp({ Component, pageProps, err }: AppProps & { err: Error }) {
   useEffect(() => {
     if (process.env.NODE_ENV === 'production') {
       hotjar.initialize(2059179, 6);

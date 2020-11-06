@@ -1,5 +1,5 @@
 import { Box, Heading, Stack } from '@chakra-ui/core';
-import { InferGetStaticPropsType } from 'next';
+import { GetStaticPropsContext, InferGetStaticPropsType } from 'next';
 import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState, Fragment } from 'react';
@@ -24,9 +24,8 @@ export const getStaticPaths = () => {
   };
 };
 
-export const getStaticProps = async (ctx: unknown) => {
-  // @ts-ignore
-  const tweets = await getTweets(ctx.params.filters);
+export const getStaticProps = async (ctx: GetStaticPropsContext<{ filters: string }>) => {
+  const tweets = await getTweets(ctx.params?.filters || DEFAULT_FILTER);
 
   return {
     props: {
@@ -37,24 +36,17 @@ export const getStaticProps = async (ctx: unknown) => {
 };
 
 const LeaderBoard: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
-      initialTweets,
-    }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  initialTweets,
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
   const router = useRouter();
 
-  console.log('--------------------------------------------');
-  console.log(router.query.filters);
-  console.log('--------------------------------------------');
-
-  // @ts-ignore
-  const [filters, setFilters] = useState<Filters>(decode(router.query.filters || DEFAULT_FILTER));
+  const [filters, setFilters] = useState<Filters>(
+    decode((router.query.filters as string) || DEFAULT_FILTER),
+  );
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    router.push(
-      `/leaderboard/[filters]`,
-      // @ts-ignore
-      `/leaderboard/${encode(filters)}`,
-    );
+    router.push(`/leaderboard/[filters]`, `/leaderboard/${encode(filters)}`);
   }, [filters]);
 
   const tweets = initialTweets;

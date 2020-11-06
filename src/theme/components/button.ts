@@ -9,8 +9,7 @@ export default {
   sizes: {
     sm: {
       h: 8,
-      // @ts-ignore
-      boxShadow({ shadows, colors }) {
+      boxShadow({ shadows, colors }: Record<string, any>) {
         return shadows.sm(colors.primaryPalette['200']);
       },
       _hover: {
@@ -20,8 +19,7 @@ export default {
     md: {
       h: 12,
       fontSize: 'lg',
-      // @ts-ignore
-      boxShadow({ shadows, colors }) {
+      boxShadow({ shadows, colors }: Record<string, any>) {
         return shadows.sm(colors.primaryPalette['200']);
       },
       _hover: {
@@ -31,8 +29,7 @@ export default {
     lg: {
       h: 16,
       fontSize: 'xl',
-      // @ts-ignore
-      boxShadow({ shadows, colors }) {
+      boxShadow({ shadows, colors }: Record<string, any>) {
         return shadows.sm(colors.primaryPalette['200']);
       },
       _hover: {
@@ -44,8 +41,7 @@ export default {
       borderRadius: 'none',
       fontSize: { base: 'xl', lg: '2xl' },
       px: { base: 4, lg: 8 },
-      // @ts-ignore
-      boxShadow({ shadows, colors }) {
+      boxShadow({ shadows, colors }: Record<string, any>) {
         return shadows.md(colors.primaryPalette['200']);
       },
       _hover: {
@@ -56,8 +52,7 @@ export default {
       h: 24,
       px: 10,
       fontSize: '4xl',
-      // @ts-ignore
-      boxShadow({ shadows, colors }) {
+      boxShadow({ shadows, colors }: Record<string, any>) {
         return shadows.md(colors.primaryPalette['200']);
       },
       _hover: {
