@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Heading, Stack, Text, useTheme, Wrap } from '@chakra-ui/core';
+import { Box, Button, Flex, Heading, Stack, Text, useTheme, Wrap, WrapItem } from '@chakra-ui/core';
 import * as R from 'ramda';
 import React from 'react';
 import { animated, useTransition } from 'react-spring';
@@ -148,17 +148,19 @@ const DesktopListFilters: React.FC<Props> = ({ filters, setFilters }) => {
           <Wrap spacing={3}>
             {COMMUNITY_ITEMS.map(value => {
               return (
-                <CheckboxButton
-                  key={value}
-                  onCheck={() => {
-                    gtag.event({ category: 'Filters', action: 'community_click', label: value });
+                <WrapItem key={value}>
+                  <CheckboxButton
+                    key={value}
+                    onCheck={() => {
+                      gtag.event({ category: 'Filters', action: 'community_click', label: value });
 
-                    setFilters(getNewFilters({ name: 'communities', value }));
-                  }}
-                  isChecked={filters.communities.includes(value)}
-                >
-                  {value}
-                </CheckboxButton>
+                      setFilters(getNewFilters({ name: 'communities', value }));
+                    }}
+                    isChecked={filters.communities.includes(value)}
+                  >
+                    {value}
+                  </CheckboxButton>
+                </WrapItem>
               );
             })}
           </Wrap>
@@ -174,17 +176,18 @@ const DesktopListFilters: React.FC<Props> = ({ filters, setFilters }) => {
           <Wrap spacing={3}>
             {TWEET_TYPE_ITEMS.map(({ label, value }) => {
               return (
-                <CheckboxButton
-                  key={value}
-                  onCheck={() => {
-                    gtag.event({ category: 'Filters', action: 'tweet_type_click', label: value });
+                <WrapItem key={value}>
+                  <CheckboxButton
+                    onCheck={() => {
+                      gtag.event({ category: 'Filters', action: 'tweet_type_click', label: value });
 
-                    setFilters(getNewFilters({ name: 'tweetTypes', value }));
-                  }}
-                  isChecked={filters.tweetTypes.includes(value)}
-                >
-                  {label}
-                </CheckboxButton>
+                      setFilters(getNewFilters({ name: 'tweetTypes', value }));
+                    }}
+                    isChecked={filters.tweetTypes.includes(value)}
+                  >
+                    {label}
+                  </CheckboxButton>
+                </WrapItem>
               );
             })}
           </Wrap>
@@ -200,17 +203,22 @@ const DesktopListFilters: React.FC<Props> = ({ filters, setFilters }) => {
           <Wrap spacing={3}>
             {ACCOUNT_TYPE_ITEMS.map(({ label, value }) => {
               return (
-                <CheckboxButton
-                  key={value}
-                  onCheck={() => {
-                    gtag.event({ category: 'Filters', action: 'account_type_click', label: value });
+                <WrapItem key={value}>
+                  <CheckboxButton
+                    onCheck={() => {
+                      gtag.event({
+                        category: 'Filters',
+                        action: 'account_type_click',
+                        label: value,
+                      });
 
-                    setFilters(getNewFilters({ name: 'accountTypes', value }));
-                  }}
-                  isChecked={filters.accountTypes.includes(value)}
-                >
-                  {label}
-                </CheckboxButton>
+                      setFilters(getNewFilters({ name: 'accountTypes', value }));
+                    }}
+                    isChecked={filters.accountTypes.includes(value)}
+                  >
+                    {label}
+                  </CheckboxButton>
+                </WrapItem>
               );
             })}
           </Wrap>
