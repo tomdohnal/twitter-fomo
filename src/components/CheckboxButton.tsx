@@ -108,7 +108,7 @@ const CheckboxButton: React.FC<Props> = ({ isChecked, onCheck, children, variant
         >
           <animated.path
             strokeDashoffset={checkAnimationStyle.x}
-            strokeDasharray={checkmarkOffset}
+            strokeDasharray={`${checkmarkOffset} ${checkmarkOffset}`} // cant be just `checkmarkOffset` due to Safari issue
             ref={checkmarkRef}
             d="M1 4.5L5 9L14 1"
             stroke={!isChecked && checkmarkOffset === null ? 'none' : 'currentColor'}
