@@ -13,11 +13,14 @@ jobs:
     
     steps:
       - uses: actions/checkout@v2
+        
       - uses: actions/setup-node@v1
         with:
           node-version: '12'
+          
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
 
-      # Runs a single command using the runners shell
       - name: Test
         run: yarn test
   lint:
@@ -25,10 +28,13 @@ jobs:
     
     steps:
       - uses: actions/checkout@v2
+        
       - uses: actions/setup-node@v1
         with:
           node-version: '12'
-
-      # Runs a single command using the runners shell
+         
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+        
       - name: Lint
         run: yarn lint
