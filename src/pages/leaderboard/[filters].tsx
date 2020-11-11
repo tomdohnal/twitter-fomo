@@ -16,6 +16,7 @@ import TweetBoxAd from '../../components/TweetBoxAd';
 import { DEFAULT_FILTER } from '../../constants';
 import { get as getTweets } from '../../controllers/tweets';
 import { decode, encode, Filters } from '../../filters';
+import { FullUser, Status } from 'twitter-d';
 
 export const getStaticPaths = () => {
   return {
@@ -47,6 +48,7 @@ const LeaderBoard: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     router.push(`/leaderboard/[filters]`, `/leaderboard/${encode(filters)}`);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filters]);
 
   const tweets = initialTweets;
@@ -89,25 +91,27 @@ const LeaderBoard: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
                   ? null
                   : tweets.map((tweet, index) => {
                       const ad = showAdIndex === index ? <TweetBoxAd /> : null;
+                      const payload: Status = (tweet.payload as unknown) as Status;
+                      const user = payload.user as FullUser;
 
                       return (
                         <Fragment key={tweet.id}>
                           <TweetBox
-                            href={`https://twitter.com/${tweet.payload.user.screen_name}/status/${tweet.payload.id_str}`}
+                            href={`https://twitter.com/${user.screen_name}/status/${payload.id_str}`}
                             header={
                               <TweetBoxHeader
-                                created_at={tweet.payload.created_at}
-                                imageUrl={tweet.payload.user.profile_image_url_https}
-                                name={tweet.payload.user.name}
-                                screenName={tweet.payload.user.screen_name}
+                                created_at={payload.created_at}
+                                imageUrl={user.profile_image_url_https}
+                                name={user.name}
+                                screenName={user.screen_name}
                               />
                             }
-                            content={<TweetBoxContent tweet={tweet.payload} />}
+                            content={<TweetBoxContent tweet={payload} />}
                             actions={
                               <TweetBoxActions
                                 favorite_count={tweet.favoritesCount}
                                 retweet_count={tweet.retweetsCount}
-                                tweetId={tweet.payload.id_str}
+                                tweetId={payload.id_str}
                               />
                             }
                           />

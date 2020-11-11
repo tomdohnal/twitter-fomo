@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Flex, Text, Img, Box } from '@chakra-ui/core';
-import { animated, useSpring, config } from 'react-spring';
+import { animated, useSpring } from 'react-spring';
 
 const AnimatedBox = animated(Box);
 

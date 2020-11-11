@@ -17,7 +17,7 @@ function MailboxImage() {
   const birdAnimationRef = useRef(null);
   const [springs] = useSprings(
     4,
-    i => {
+    (i: number) => {
       return {
         transform: inView ? `translate3d(0px, 0px, 0px)` : `translate3d(-200px, -24px, 0px)`,
         delay: i * 150,

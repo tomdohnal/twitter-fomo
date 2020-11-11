@@ -1,16 +1,16 @@
 import React, { useRef } from 'react';
-import { animated, SpringValues } from 'react-spring';
-import { getSvgTransformStyle, getTransformOrigin } from '../../svg-utils';
+import { animated } from 'react-spring';
+import { getTransformOrigin } from '../../svg-utils';
 
 const Flowers: React.FC<{
-  animatedValues: SpringValues<{ opacity: number; x: number }>[];
+  animatedValues: any[];
 }> = ({ animatedValues }) => {
   const refs = useRef<SVGGElement[]>([]);
 
   return (
     <>
       <animated.g
-        ref={ref => {
+        ref={(ref: SVGGElement | null) => {
           if (ref) {
             refs.current[0] = ref;
           }
@@ -56,7 +56,7 @@ const Flowers: React.FC<{
         />
       </animated.g>
       <animated.g
-        ref={ref => {
+        ref={(ref: SVGGElement | null) => {
           if (ref) {
             refs.current[1] = ref;
           }
@@ -99,7 +99,7 @@ const Flowers: React.FC<{
         />
       </animated.g>
       <animated.g
-        ref={ref => {
+        ref={(ref: SVGGElement | null) => {
           if (ref) {
             refs.current[2] = ref;
           }

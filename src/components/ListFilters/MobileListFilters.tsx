@@ -5,7 +5,6 @@ import {
   useTheme,
   Text,
   Stack,
-  Wrap,
   Flex,
   IconButton,
   Modal,
@@ -46,6 +45,7 @@ const FilterOverviewItem: React.FC<{
       </Button>
       {isActive && (
         <IconButton
+          aria-label="close"
           _hover={{}}
           borderLeft="1px solid"
           borderLeftColor="primaryPalette.400"

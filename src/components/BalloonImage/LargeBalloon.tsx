@@ -1,9 +1,9 @@
 import React, { useRef } from 'react';
-import { SpringValues, animated } from 'react-spring';
+import { animated } from 'react-spring';
 import { getTransformOrigin } from '../../svg-utils';
 
 const LargeBalloon: React.FC<{
-  animationStyle: SpringValues<{ opacity: number; transform: string }>;
+  animationStyle: any;
 }> = ({ animationStyle }) => {
   const ref = useRef(null);
 

@@ -3,3 +3,9 @@ declare namespace NodeJS {
     prisma?: PrismaClient;
   }
 }
+
+declare global {
+  interface Window {
+    gtag: any;
+  }
+}

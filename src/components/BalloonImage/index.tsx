@@ -29,7 +29,7 @@ const BalloonImage: React.FC = () => {
       config: { mass: 1, tension: 200, friction: 400 },
       delay: 500 + ((i + 5) % 11) * 50,
     })),
-  ).map(style => ({
+  ).map((style: any) => ({
     ...style,
     transform: style.transform.to(
       [0, 0.25, 0.5, 0.62, 0.75, 1],

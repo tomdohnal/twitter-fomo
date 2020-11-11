@@ -2,3 +2,4 @@
 declare module 'react-spring';
 declare module 'unescape';
 declare module 'focus-visible';
+declare module '@mailchimp/mailchimp_marketing';

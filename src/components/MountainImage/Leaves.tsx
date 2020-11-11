@@ -1,5 +1,5 @@
 import React, { cloneElement, useRef } from 'react';
-import { animated, SpringValues } from 'react-spring';
+import { animated } from 'react-spring';
 import { getSvgTransformStyle, getTransformOrigin } from '../../svg-utils';
 
 const LEAVE_ITEMS = [
@@ -110,39 +110,43 @@ const LEAVE_ITEMS = [
 ];
 
 const Leaves: React.FC<{
-  animatedValues: SpringValues<{ opacity: number; x: number }>[];
+  animatedValues: any[];
 }> = ({ animatedValues }) => {
   const pathRefs = useRef<SVGPathElement[]>([]);
   const itemRefs = useRef<(SVGPathElement | SVGGElement)[]>([]);
 
-  return LEAVE_ITEMS.map(({ path, item, baseRotation }, index) => (
-    <g key={index}>
-      {cloneElement(path, {
-        ref(ref: SVGPathElement) {
-          if (ref) {
-            pathRefs.current[index] = ref;
-          }
-        },
-      })}
-      {cloneElement(item, {
-        ref(ref: SVGPathElement) {
-          if (ref) {
-            itemRefs.current[index] = ref;
-          }
-        },
-        style: {
-          opacity: animatedValues[index].opacity,
-          transform: getSvgTransformStyle({
-            x: animatedValues[index].x,
-            path: pathRefs.current[index],
-            element: itemRefs.current[index],
-            baseRotation,
-          }),
-          transformOrigin: getTransformOrigin(itemRefs.current[index]),
-        },
-      })}
-    </g>
-  ));
+  return (
+    <>
+      {LEAVE_ITEMS.map(({ path, item, baseRotation }, index) => (
+        <g key={index}>
+          {cloneElement(path, {
+            ref(ref: SVGPathElement) {
+              if (ref) {
+                pathRefs.current[index] = ref;
+              }
+            },
+          })}
+          {cloneElement(item, {
+            ref(ref: SVGPathElement) {
+              if (ref) {
+                itemRefs.current[index] = ref;
+              }
+            },
+            style: {
+              opacity: animatedValues[index].opacity,
+              transform: getSvgTransformStyle({
+                x: animatedValues[index].x,
+                path: pathRefs.current[index],
+                element: itemRefs.current[index],
+                baseRotation,
+              }),
+              transformOrigin: getTransformOrigin(itemRefs.current[index]),
+            },
+          })}
+        </g>
+      ))}
+    </>
+  );
 };
 
 export default Leaves;

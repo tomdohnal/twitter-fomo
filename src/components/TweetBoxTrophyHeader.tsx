@@ -1,6 +1,6 @@
 import React, { useState, memo } from 'react';
 import { Flex, Text, Img, Box } from '@chakra-ui/core';
-import { animated, useSpring, config } from 'react-spring';
+import { animated, useSpring } from 'react-spring';
 import { GoldTrophyIcon, SilverTrophyIcon, BronzeTrophyIcon } from './Icons';
 
 const AnimatedBox = animated(Box);

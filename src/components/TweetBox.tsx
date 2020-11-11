@@ -1,4 +1,4 @@
-import { Box, Link, useTheme } from '@chakra-ui/core';
+import { Box, BoxProps, Link, useTheme } from '@chakra-ui/core';
 import React, { ReactNode, memo } from 'react';
 import { animated, useSpring } from 'react-spring';
 import { useIsHovered } from '../utils';
@@ -10,7 +10,7 @@ const TweetBox: React.FC<{
   header: ReactNode;
   actions: ReactNode;
   href: string;
-}> = memo(function TweetBox({ content, header, actions, href, ...restProps }) {
+} & BoxProps> = memo(function TweetBox({ content, header, actions, href, ...restProps }) {
   const theme = useTheme();
   const [isHovered, listeners] = useIsHovered();
   const animatedValues = useSpring({

@@ -1,6 +1,6 @@
 import * as R from 'ramda';
 import fetch from 'cross-fetch';
-import { TweetCreateInput } from '@prisma/client';
+import { JsonValue, TweetCreateInput } from '@prisma/client';
 import {
   createTweetTypeFilters,
   createAccountTypeFilters,
@@ -31,7 +31,6 @@ const createListData = async ({
   tweets: ApiTweet[];
   appliedFilters: Filter[];
 }): Promise<TweetCreateInput[]> => {
-  // @ts-ignore
   return Promise.all(
     tweets.map(async tweet => {
       const tweetTypes = getTweetTypes(tweet);
@@ -46,7 +45,7 @@ const createListData = async ({
         retweetsCount: tweet.retweet_count,
         accountProfileImageUrl: tweet.user.profile_image_url_https,
         accountScreenName: tweet.user.screen_name,
-        payload: tweet,
+        payload: (tweet as unknown) as JsonValue, // store the whole object as a JSON value
         tweetTypes: {
           connect: tweetTypes.map(type => ({
             name: type,

@@ -1,6 +1,7 @@
 import * as dotenv from 'dotenv';
 import { PrismaClient, TweetCreateInput } from '@prisma/client';
 import { scrapeMetadata } from './metadata';
+import { Status } from 'twitter-d';
 dotenv.config();
 
 export const prisma = new PrismaClient();
@@ -33,8 +34,8 @@ export function fetchAccounts() {
 export async function createTweetList(tweetList: TweetCreateInput[]) {
   const enhancedTweetList = await Promise.all(
     tweetList.map(async tweet => {
-      const url = // @ts-ignore
-        tweet.payload.entities?.urls[0] || tweet.payload?.quoted_status?.entities?.urls[0];
+      const payload: Status = (tweet.payload as unknown) as Status;
+      const url = payload.entities?.urls[0] || payload?.quoted_status?.entities?.urls[0];
 
       const linkAttributes = await (url
         ? scrapeMetadata(url.expanded_url).then(metadata => ({

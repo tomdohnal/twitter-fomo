@@ -57,7 +57,7 @@ const NewsletterPrompt: React.FC = () => {
   const theme = useTheme();
 
   return transition(
-    (style, item) =>
+    (style: any, item: boolean) =>
       item && (
         <AnimatedBox
           bgColor="#fff"

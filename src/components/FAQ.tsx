@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { Flex, Spacer, Box, Heading, Stack, Text } from '@chakra-ui/core';
+import { Flex, Box, Heading, Stack, Text } from '@chakra-ui/core';
 import Section from './Section';
 import Container from './Container';
 import FAQImage from './FAQImage';
