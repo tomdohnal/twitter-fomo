@@ -2,7 +2,7 @@ import { Box, Button, Flex, Heading, Stack, Text, useTheme, Wrap, WrapItem } fro
 import * as R from 'ramda';
 import React from 'react';
 import { animated, useTransition } from 'react-spring';
-import { Filters } from '../../Filters';
+import { Filters } from '../../filters';
 import * as gtag from '../../gtag';
 import CheckboxButton from '../CheckboxButton';
 import GroupedRadioButtons from '../GroupedRadioButtons';

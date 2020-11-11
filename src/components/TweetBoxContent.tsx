@@ -1,5 +1,5 @@
 import React, { ReactNode, memo } from 'react';
-import { FullUser, FullUser, MediaEntity, Status } from 'twitter-d';
+import { FullUser, MediaEntity, Status } from 'twitter-d';
 import reactStringReplace from 'react-string-replace';
 import escapeStringRegexp from 'escape-string-regexp';
 import { Box, Img, Text, AspectRatio, useTheme, Link } from '@chakra-ui/core';

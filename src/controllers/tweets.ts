@@ -28,7 +28,7 @@ export const urlFiltersToWhereInput = ({
       ? {}
       : {
           type: {
-            in: accountTypes,
+            in: (accountTypes as unknown) as 'PERSONAL' | 'BUSINESS',
           },
         };
 

@@ -1,12 +1,14 @@
 import * as React from 'react';
-import NextErrorComponent from 'next/error';
+import NextErrorComponent, { ErrorProps } from 'next/error';
 import * as Sentry from '@sentry/node';
+import { NextPage } from 'next';
 
-const MyError: React.FC<{ statusCode: number; hasGetInitialPropsRun: boolean; err: Error }> = ({
-  statusCode,
-  hasGetInitialPropsRun,
-  err,
-}) => {
+type EnhancedErrorProps = ErrorProps & {
+  hasGetInitialPropsRun?: boolean; // comes from `getInitialProps` below
+  err?: Error; // comes from `_app.tsx`
+};
+
+const MyError: NextPage<EnhancedErrorProps> = ({ statusCode, hasGetInitialPropsRun, err }) => {
   if (!hasGetInitialPropsRun && err) {
     // getInitialProps is not called in case of
     // https://github.com/vercel/next.js/issues/8592. As a workaround, we pass
@@ -17,11 +19,14 @@ const MyError: React.FC<{ statusCode: number; hasGetInitialPropsRun: boolean; er
   return <NextErrorComponent statusCode={statusCode} />;
 };
 
-MyError.getInitialProps = async ({ res, err, asPath }) => {
-  const errorInitialProps = await NextErrorComponent.getInitialProps({
+MyError.getInitialProps = async ({ res, err, asPath, query, AppTree, pathname }) => {
+  const errorInitialProps = (await NextErrorComponent.getInitialProps({
     res,
     err,
-  });
+    query,
+    AppTree,
+    pathname,
+  })) as EnhancedErrorProps;
 
   // Workaround for https://github.com/vercel/next.js/issues/8592, mark when
   // getInitialProps has run

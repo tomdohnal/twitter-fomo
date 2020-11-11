@@ -39,7 +39,7 @@ const FilterOverviewItem: React.FC<{
   onRemoveClick: () => void;
 }> = ({ isActive, title, onClick, onRemoveClick }) => {
   return (
-    <Flex pr={2} _last={CONTAINER_PX}>
+    <Flex pr={2}>
       <Button _hover={{}} size="sm" variant={isActive ? 'solid' : 'solidLight'} onClick={onClick}>
         {title}
       </Button>
@@ -68,7 +68,7 @@ const FilterOverview: React.FC<{ setActiveItem(key: keyof Filters): void } & Pro
   const theme = useTheme();
 
   const createResetClickHandler = (key: keyof Filters) => () => {
-    setFilters(filters => ({ ...filters, [key]: INITIAL_FILTERS[key] }));
+    setFilters((filters: Filters) => ({ ...filters, [key]: INITIAL_FILTERS[key] }));
   };
 
   const items = [
@@ -146,6 +146,7 @@ const FilterOverview: React.FC<{ setActiveItem(key: keyof Filters): void } & Pro
 interface Props {
   filters: Filters;
   setFilters(filters: Filters): void;
+  setFilters(fn: (filters: Filters) => Filters): void;
 }
 
 const ListFilters: React.FC<Props> = memo(({ filters, setFilters }) => {

@@ -1,12 +1,11 @@
 import { DEFAULT_FILTER } from './constants';
-import { AccountType } from '@prisma/client';
 import logger from '../backend/logger';
 
 export interface Filters {
   period: string;
   communities: string[];
   tweetTypes: string[];
-  accountTypes: AccountType[];
+  accountTypes: string[];
 }
 
 export const decode = (encodedString: string): Filters => {
