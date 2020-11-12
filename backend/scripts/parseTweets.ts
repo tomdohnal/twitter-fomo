@@ -14,6 +14,7 @@ import { ApiTweet, getApp, fetchTweetsForAccount } from '../twitter';
 import { dayjsUtc, DAY_BEFORE_ONE_WEEK, DAY_NOW } from '../../common/date';
 import { fetchCommunities, fetchAccounts, createTweetList, prisma } from '../db';
 import logger from '../logger';
+import { FullUser } from 'twitter-d';
 
 function getTopTweets(tweets: Array<ApiTweet>) {
   const sortedTweets = R.sort((a, b) => b.favorite_count - a.favorite_count, tweets);
@@ -25,38 +26,37 @@ function getSortedTweets(tweets: Array<ApiTweet>) {
   return R.sort((a, b) => b.favorite_count - a.favorite_count, tweets);
 }
 
-const createListData = async ({
+const createListData = ({
   tweets,
 }: {
   tweets: ApiTweet[];
   appliedFilters: Filter[];
-}): Promise<TweetCreateInput[]> => {
-  return Promise.all(
-    tweets.map(async tweet => {
-      const tweetTypes = getTweetTypes(tweet);
+}): TweetCreateInput[] => {
+  return tweets.map(tweet => {
+    const tweetTypes = getTweetTypes(tweet);
+    const user = tweet.user as FullUser;
 
-      return {
-        twitterId: tweet.id_str,
-        publishedAt: dayjsUtc(tweet.created_at).toISOString(),
-        text: tweet.full_text,
-        accountName: tweet.user.name,
-        account: { connect: { id: tweet.__accountId } },
-        favoritesCount: tweet.favorite_count,
-        retweetsCount: tweet.retweet_count,
-        accountProfileImageUrl: tweet.user.profile_image_url_https,
-        accountScreenName: tweet.user.screen_name,
-        payload: (tweet as unknown) as JsonValue, // store the whole object as a JSON value
-        tweetTypes: {
-          connect: tweetTypes.map(type => ({
-            name: type,
-          })),
-        },
-      };
-    }),
-  );
+    return {
+      twitterId: tweet.id_str,
+      publishedAt: dayjsUtc(tweet.created_at).toISOString(),
+      text: tweet.full_text,
+      accountName: user.name,
+      account: { connect: { id: tweet.__accountId } },
+      favoritesCount: tweet.favorite_count,
+      retweetsCount: tweet.retweet_count,
+      accountProfileImageUrl: user.profile_image_url_https,
+      accountScreenName: user.screen_name,
+      payload: (tweet as unknown) as JsonValue, // store the whole object as a JSON value
+      tweetTypes: {
+        connect: tweetTypes.map(type => ({
+          name: type,
+        })),
+      },
+    };
+  });
 };
 
-export async function createListsData({
+export function createListsData({
   sortedAccountTweets,
   appliedFilters,
   remainingFilters,
@@ -64,30 +64,28 @@ export async function createListsData({
   sortedAccountTweets: AccountTweet[];
   appliedFilters: Array<Filter>;
   remainingFilters: Array<Array<Filter>>;
-}): Promise<TweetCreateInput[][]> {
+}): TweetCreateInput[][] {
   const topTweets = getTopTweets(sortedAccountTweets.flatMap(R.prop('tweets')));
 
-  const listInput = await createListData({
+  const listInput = createListData({
     tweets: topTweets,
     appliedFilters,
   });
 
-  const childLists = await Promise.all(
-    remainingFilters.flatMap((filters, filtersIndex) =>
-      filters.flatMap(filter => {
-        const filteredSortedAccountTweets = filter.filterAccountTweets(sortedAccountTweets);
+  const childLists = remainingFilters.flatMap((filters, filtersIndex) =>
+    filters.flatMap(filter => {
+      const filteredSortedAccountTweets = filter.filterAccountTweets(sortedAccountTweets);
 
-        const newAppliedFilters = [...appliedFilters, filter];
-        const newRemainingFilters = remainingFilters.slice(filtersIndex + 1);
+      const newAppliedFilters = [...appliedFilters, filter];
+      const newRemainingFilters = remainingFilters.slice(filtersIndex + 1);
 
-        return createListsData({
-          sortedAccountTweets: filteredSortedAccountTweets,
-          appliedFilters: newAppliedFilters,
-          remainingFilters: newRemainingFilters,
-        });
-      }),
-    ),
-  ).then(items => items.flat());
+      return createListsData({
+        sortedAccountTweets: filteredSortedAccountTweets,
+        appliedFilters: newAppliedFilters,
+        remainingFilters: newRemainingFilters,
+      });
+    }),
+  );
 
   return [listInput, ...childLists];
 }
@@ -130,19 +128,15 @@ export async function run() {
 
   // we treat `dateFilters` as an exception now as they always must be present...
   logger.log('Created list inputs');
-  const tweetLists = (
-    await Promise.all(
-      dateFilters.flatMap(dateFilter => {
-        const filteredSortedAccountTweets = dateFilter.filterAccountTweets(sortedAccountTweets);
+  const tweetLists = dateFilters.flatMap(dateFilter => {
+    const filteredSortedAccountTweets = dateFilter.filterAccountTweets(sortedAccountTweets);
 
-        return createListsData({
-          sortedAccountTweets: filteredSortedAccountTweets,
-          appliedFilters: [dateFilter],
-          remainingFilters: [tweetTypeFilters, communitiesFilters, accountTypeFilters],
-        });
-      }),
-    )
-  )[0];
+    return createListsData({
+      sortedAccountTweets: filteredSortedAccountTweets,
+      appliedFilters: [dateFilter],
+      remainingFilters: [tweetTypeFilters, communitiesFilters, accountTypeFilters],
+    });
+  });
   logger.log('Success: list inputs created');
 
   // eslint-disable-next-line no-restricted-syntax

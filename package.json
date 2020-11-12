@@ -10,8 +10,8 @@
     "backend:run-script": "node backend/build/index.js",
     "test": "jest",
     "lint": "yarn lint:eslint && yarn lint:prettier && yarn lint:types",
-    "lint:eslint": "eslint '**/**.{js.ts,tsx}'",
-    "lint:prettier": "prettier '**/**.{js.ts,tsx}' --check",
+    "lint:eslint": "eslint '**/**.{js,ts,tsx}'",
+    "lint:prettier": "prettier '**/**.{js,ts,tsx}' --check",
     "lint:types": "tsc --noEmit",
     "tdd": "jest --watch --verbose",
     "heroku-postbuild": "yarn backend:build-script",
@@ -99,6 +99,6 @@
     "jest": "^26.0.1",
     "jest-date-mock": "^1.0.8",
     "prettier": "^2.0.5",
-    "ts-jest": "^26.1.0"
+    "ts-jest": "^26.4.4"
   }
 }

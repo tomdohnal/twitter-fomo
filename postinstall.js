@@ -1,4 +1,5 @@
 // https://github.com/pmndrs/react-spring/issues/1078#issuecomment-677528907
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const replace = require('replace-in-file');
 
 const removeAllSideEffectsFalseFromReactSpringPackages = async () => {

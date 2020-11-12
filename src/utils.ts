@@ -1,5 +1,5 @@
 import { NAVBAR_HEIGHTS } from './components/Navbar';
-import { useMemo, useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { useLayoutEffect } from 'react-layout-effect';
 import throttle from 'lodash.throttle';
 import { useBreakpointValue } from '@chakra-ui/core';

@@ -2,6 +2,7 @@ import { getApp } from '../twitter';
 import { config } from 'dotenv';
 import fs from 'fs';
 import path from 'path';
+import logger from '../logger';
 
 config();
 
@@ -19,7 +20,7 @@ async function run() {
 
     fs.writeFileSync(path.join(__dirname, '../../tweet.json'), JSON.stringify(res));
   } catch (err) {
-    console.error(err);
+    logger.error(err);
   }
 }
 

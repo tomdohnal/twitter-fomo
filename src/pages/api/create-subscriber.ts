@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import mailchimp from '@mailchimp/mailchimp_marketing';
 import { get as getTweets } from '../../controllers/tweets';
+import logger from '../../logger';
 
 mailchimp.setConfig({
   apiKey: process.env.MAILCHIMP_API_KEY,
@@ -9,15 +10,14 @@ mailchimp.setConfig({
 
 const fetch = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
-    const response = await mailchimp.lists.addListMember('716aeae2ec', {
+    await mailchimp.lists.addListMember('716aeae2ec', {
       email_address: req.query.email,
       status: 'pending',
     });
-    console.log({ email: req.query.email, response });
 
     res.status(204).end();
   } catch (err) {
-    console.error(err);
+    logger.error(err);
     res.status(500).end();
   }
 };

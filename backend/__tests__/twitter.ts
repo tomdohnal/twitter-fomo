@@ -1,274 +1,294 @@
-// import { advanceTo, clear } from 'jest-date-mock';
-// import Twitter from 'twitter-lite';
-// import * as R from 'ramda';
-// import faker from 'faker';
-// import { createTweet } from '../testUtils';
-// import { dayjsUtc, Dayjs } from '../../common/date';
-// import { fetchTweetsForAccount } from '../twitter';
+import { advanceTo, clear } from 'jest-date-mock';
+import Twitter from 'twitter-lite';
+import * as R from 'ramda';
+import { createTweet, faker } from '../testUtils';
+import { dayjsUtc, Dayjs } from '../../common/date';
+import { fetchTweetsForAccount } from '../twitter';
+import { Status } from 'twitter-d';
 
-// jest.useFakeTimers();
+type TwitterResponse = Status[] & { _headers: Pick<Headers, 'get'> };
 
-// // this makes generated fake data consistent across multiple test runs
-// faker.seed(0);
+jest.useFakeTimers();
 
-// const DATE_NOW = dayjsUtc('2020-01-15');
-// const DATE_BEFORE_ONE_WEEK = DATE_NOW.subtract(1, 'week');
+const DATE_NOW = dayjsUtc('2020-01-15');
+const DATE_BEFORE_ONE_WEEK = DATE_NOW.subtract(1, 'week');
 
-// const createMockApiTweets = ({ count, createdAt }: { count: number; createdAt: Dayjs }) =>
-//   R.range(0, count).map(() =>
-//     R.omit(['__accountId'], createTweet({ created_at: createdAt.toISOString() })),
-//   );
+const createApiTweets = ({ count, createdAt }: { count: number; createdAt: Dayjs }): Status[] =>
+  R.range(0, count).map(() =>
+    R.omit(['__accountId'], createTweet({ created_at: createdAt.toISOString() })),
+  );
 
-// const accountId = faker.random.number();
-// const twitterId = String(faker.random.number());
-// const app = new Twitter({ consumer_key: 'fake_key', consumer_secret: 'fake_secret' });
+const accountId = faker.random.number();
+const twitterId = String(faker.random.number());
+const app = new Twitter({ consumer_key: 'fake_key', consumer_secret: 'fake_secret' });
 
-// describe('twitter', () => {
-//   beforeEach(() => {
-//     clear();
-//     jest.clearAllTimers();
-//     jest.clearAllMocks();
-//   });
+describe('twitter', () => {
+  beforeEach(() => {
+    clear();
+    jest.clearAllTimers();
+    jest.clearAllMocks();
+  });
 
-//   it('parses response', async () => {
-//     const MOCK_RES_1: any = [
-//       ...createMockApiTweets({ count: 100, createdAt: DATE_NOW.add(1, 'day') }),
-//       ...createMockApiTweets({ count: 100, createdAt: DATE_NOW }),
-//     ];
-//     MOCK_RES_1._headers = {};
-//     MOCK_RES_1._headers.get = (headerName: string) => {
-//       if (headerName === 'x-rate-limit-remaining') {
-//         return 1499;
-//       }
-//     };
+  it('parses response', async () => {
+    const TWITTER_RES_1: TwitterResponse = [
+      // 100 tweets created an hour ago
+      ...createApiTweets({ count: 100, createdAt: DATE_NOW.add(1, 'day') }),
+      // 100 tweets created now
+      ...createApiTweets({ count: 100, createdAt: DATE_NOW }),
+    ] as TwitterResponse;
+    TWITTER_RES_1._headers = {
+      get(headerName: string) {
+        if (headerName === 'x-rate-limit-remaining') {
+          return '1499';
+        }
 
-//     const MOCK_RES_2: any = createMockApiTweets({
-//       count: 200,
-//       createdAt: DATE_NOW.subtract(3, 'day'),
-//     });
-//     MOCK_RES_2._headers = {};
-//     MOCK_RES_2._headers.get = (headerName: string) => {
-//       if (headerName === 'x-rate-limit-remaining') {
-//         return 1498;
-//       }
-//     };
+        return null;
+      },
+    };
 
-//     const MOCK_RES_3: any = [
-//       ...createMockApiTweets({ count: 100, createdAt: DATE_NOW.subtract(7, 'day') }),
-//       ...createMockApiTweets({ count: 100, createdAt: DATE_NOW.subtract(8, 'day') }),
-//     ];
-//     MOCK_RES_3._headers = {};
-//     MOCK_RES_3._headers.get = (headerName: string) => {
-//       if (headerName === 'x-rate-limit-remaining') {
-//         return 1498;
-//       }
-//     };
-//     let callCounter = 0;
+    const TWITTER_RES_2: TwitterResponse = [
+      // 100 tweets created three days ago
+      ...createApiTweets({
+        count: 200,
+        createdAt: DATE_NOW.subtract(3, 'day'),
+      }),
+    ] as TwitterResponse;
+    TWITTER_RES_2._headers = {
+      get(headerName: string) {
+        if (headerName === 'x-rate-limit-remaining') {
+          return '1498';
+        }
 
-//     const MOCK_RESPONSES = [MOCK_RES_1, MOCK_RES_2, MOCK_RES_3];
+        return null;
+      },
+    };
 
-//     // @ts-ignore
-//     app.get = jest.fn(() => {
-//       const res = MOCK_RESPONSES[callCounter];
-//       // eslint-disable-next-line no-plusplus
-//       callCounter++;
-//       return Promise.resolve(res);
-//     });
+    const TWITTER_RES_3: TwitterResponse = [
+      ...createApiTweets({ count: 100, createdAt: DATE_NOW.subtract(7, 'day') }),
+      ...createApiTweets({ count: 100, createdAt: DATE_NOW.subtract(8, 'day') }),
+    ] as TwitterResponse;
+    TWITTER_RES_3._headers = {
+      get(headerName: string) {
+        if (headerName === 'x-rate-limit-remaining') {
+          return '1498';
+        }
 
-//     // create a lot of tweets so that multiple iteration are needed
-//     const apiTweets = await fetchTweetsForAccount({
-//       startDate: DATE_BEFORE_ONE_WEEK,
-//       accountId,
-//       twitterId,
-//       app,
-//     });
+        return null;
+      },
+    };
 
-//     expect(app.get).toHaveBeenCalledTimes(3);
-//     expect(apiTweets).toHaveLength(500); // the last 100 should be discarded
-//     apiTweets.forEach(t => {
-//       expect(t.__accountId).toBe(accountId);
-//     });
-//   });
+    const TWITTER_RESPONSES = [TWITTER_RES_1, TWITTER_RES_2, TWITTER_RES_3];
+    let callCounter = 0;
 
-//   it('waits when limit would be exceeded', async () => {
-//     const TIMESTAMP_NOW = 0;
+    app.get = jest.fn(() => {
+      const res = TWITTER_RESPONSES[callCounter];
+      callCounter++;
+      return Promise.resolve(res);
+    }) as any;
 
-//     const MOCK_RES_1: any = createMockApiTweets({
-//       count: 10,
-//       createdAt: DATE_NOW.subtract(1, 'day'),
-//     });
-//     MOCK_RES_1._headers = {};
-//     MOCK_RES_1._headers.get = (headerName: string) => {
-//       if (headerName === 'x-rate-limit-remaining') {
-//         return 0;
-//       }
+    // create a lot of tweets so that multiple iteration are needed
+    const apiTweets = await fetchTweetsForAccount({
+      startDate: DATE_BEFORE_ONE_WEEK,
+      accountId,
+      twitterId,
+      app,
+    });
 
-//       if (headerName === 'x-rate-limit-reset') {
-//         return TIMESTAMP_NOW + 10;
-//       }
-//     };
+    expect(app.get).toHaveBeenCalledTimes(3);
+    expect(apiTweets).toHaveLength(500); // the last 100 should be discarded
+    apiTweets.forEach(t => {
+      expect(t.__accountId).toBe(accountId);
+    });
+  });
 
-//     const MOCK_RES_2: any = createMockApiTweets({
-//       count: 10,
-//       createdAt: DATE_NOW.subtract(8, 'day'),
-//     });
-//     MOCK_RES_2._headers = {};
-//     MOCK_RES_2._headers.get = (headerName: string) => {
-//       if (headerName === 'x-rate-limit-remaining') {
-//         return 1499;
-//       }
-//     };
+  it('waits when limit would be exceeded', async () => {
+    const TIMESTAMP_NOW = 0;
 
-//     advanceTo(TIMESTAMP_NOW);
-//     let callCounter = 0;
+    const TWITTER_RES_1: TwitterResponse = createApiTweets({
+      count: 10,
+      createdAt: DATE_NOW.subtract(1, 'day'),
+    }) as TwitterResponse;
+    TWITTER_RES_1._headers = {
+      get(headerName: string) {
+        // limit is exceeded after this request
+        if (headerName === 'x-rate-limit-remaining') {
+          return '0';
+        }
 
-//     const MOCK_RESPONSES = [MOCK_RES_1, MOCK_RES_2];
+        if (headerName === 'x-rate-limit-reset') {
+          return String(TIMESTAMP_NOW + 10);
+        }
 
-//     // @ts-ignore
-//     app.get = jest.fn(() => {
-//       const res = MOCK_RESPONSES[callCounter];
-//       callCounter++;
-//       return Promise.resolve(res);
-//     });
+        return null;
+      },
+    };
 
-//     // create a lot of tweets so that multiple iteration are needed
-//     const promise = fetchTweetsForAccount({
-//       startDate: DATE_BEFORE_ONE_WEEK,
-//       accountId,
-//       twitterId,
-//       app,
-//     });
+    const TWITTER_RES_2: TwitterResponse = createApiTweets({
+      count: 10,
+      createdAt: DATE_NOW.subtract(8, 'day'),
+    }) as TwitterResponse;
+    TWITTER_RES_2._headers = {
+      get(headerName: string) {
+        if (headerName === 'x-rate-limit-remaining') {
+          return '1499';
+        }
 
-//     // we need the promise in `fetchTweetsForAccount` to execute before
-//     // running the time
-//     await Promise.resolve();
+        return null;
+      },
+    };
 
-//     jest.runAllTimers();
+    advanceTo(TIMESTAMP_NOW);
 
-//     const apiTweets = await promise;
+    let callCounter = 0;
+    const MOCK_RESPONSES = [TWITTER_RES_1, TWITTER_RES_2];
 
-//     expect(app.get).toHaveBeenCalledTimes(2);
-//     expect(apiTweets).toHaveLength(10);
-//     expect(setTimeout).toHaveBeenCalledTimes(1);
-//     expect(setTimeout).toHaveBeenLastCalledWith(expect.any(Function), 15000);
-//   });
+    app.get = jest.fn(() => {
+      const res = MOCK_RESPONSES[callCounter];
+      callCounter++;
+      return Promise.resolve(res);
+    }) as any;
 
-//   it('handles limit exceeded error', async () => {
-//     const MOCK_RES_ERROR: any = {
-//       errors: [{ code: 88 }],
-//     };
+    // create a lot of tweets so that multiple iteration are needed
+    const promise = fetchTweetsForAccount({
+      startDate: DATE_BEFORE_ONE_WEEK,
+      accountId,
+      twitterId,
+      app,
+    });
 
-//     const MOCK_RES_SUCCESS: any = [
-//       ...createMockApiTweets({
-//         count: 10,
-//         createdAt: DATE_NOW.subtract(3, 'day'),
-//       }),
-//       ...createMockApiTweets({
-//         count: 10,
-//         createdAt: DATE_NOW.subtract(8, 'day'),
-//       }),
-//     ];
-//     MOCK_RES_SUCCESS._headers = {};
-//     MOCK_RES_SUCCESS._headers.get = (headerName: string) => {
-//       if (headerName === 'x-rate-limit-remaining') {
-//         return 1499;
-//       }
-//     };
+    // we need the promise in `fetchTweetsForAccount` to execute before
+    // running the timer
+    await Promise.resolve();
 
-//     let callCounter = 0;
+    jest.runAllTimers();
 
-//     // @ts-ignore
-//     app.get = jest.fn(() => {
-//       if (callCounter === 0) {
-//         callCounter++;
-//         return Promise.reject(MOCK_RES_ERROR);
-//       }
+    const apiTweets = await promise;
 
-//       return Promise.resolve(MOCK_RES_SUCCESS);
-//     });
+    expect(app.get).toHaveBeenCalledTimes(2);
+    expect(apiTweets).toHaveLength(10);
+    expect(setTimeout).toHaveBeenCalledTimes(1);
+    expect(setTimeout).toHaveBeenLastCalledWith(expect.any(Function), 15000);
+  });
 
-//     // create a lot of tweets so that multiple iteration are needed
-//     const promise = fetchTweetsForAccount({
-//       startDate: DATE_BEFORE_ONE_WEEK,
-//       accountId,
-//       twitterId,
-//       app,
-//     });
+  it('handles limit exceeded error', async () => {
+    const TWITTER_RES_ERROR = {
+      errors: [{ code: 88 }], // 88 is the error code for Rate limit exceeded.
+    };
 
-//     // we need the promise in `fetchTweetsForAccount` to execute before
-//     // running the time
-//     await Promise.resolve();
-//     await Promise.resolve();
+    const TWITTER_RES_SUCCESS: TwitterResponse = [
+      ...createApiTweets({
+        count: 10,
+        createdAt: DATE_NOW.subtract(3, 'day'),
+      }),
+      ...createApiTweets({
+        count: 10,
+        createdAt: DATE_NOW.subtract(8, 'day'),
+      }),
+    ] as TwitterResponse;
+    TWITTER_RES_SUCCESS._headers = {
+      get(headerName: string) {
+        if (headerName === 'x-rate-limit-remaining') {
+          return '1499';
+        }
 
-//     jest.runAllTimers();
+        return null;
+      },
+    };
 
-//     const apiTweets = await promise;
+    let callCounter = 0;
 
-//     expect(app.get).toHaveBeenCalledTimes(2);
-//     expect(apiTweets).toHaveLength(10);
-//     expect(setTimeout).toHaveBeenCalledTimes(1);
-//     expect(setTimeout).toHaveBeenLastCalledWith(expect.any(Function), 60000);
-//   });
+    // Return an error on the first call and a success on the second call.
+    app.get = jest.fn(() => {
+      if (callCounter === 0) {
+        callCounter++;
+        return Promise.reject(TWITTER_RES_ERROR);
+      }
 
-//   it('throws for unexpected twitter api error', async () => {
-//     const MOCK_RES_ERROR: any = {
-//       errors: [{ code: 55 }],
-//     };
+      return Promise.resolve(TWITTER_RES_SUCCESS);
+    }) as any;
 
-//     // @ts-ignore
-//     app.get = jest.fn(() => {
-//       return Promise.reject(MOCK_RES_ERROR);
-//     });
+    // create a lot of tweets so that multiple iteration are needed
+    const promise = fetchTweetsForAccount({
+      startDate: DATE_BEFORE_ONE_WEEK,
+      accountId,
+      twitterId,
+      app,
+    });
 
-//     let error;
-//     try {
-//       await fetchTweetsForAccount({
-//         startDate: DATE_BEFORE_ONE_WEEK,
-//         accountId,
-//         twitterId,
-//         app,
-//       });
-//     } catch (e) {
-//       error = e;
-//     }
+    // we need the promise in `fetchTweetsForAccount` to execute before
+    // running the time
+    await Promise.resolve();
+    await Promise.resolve();
 
-//     expect(error).toBeTruthy();
-//     expect(app.get).toHaveBeenCalledTimes(1);
-//     expect(setTimeout).not.toHaveBeenCalled();
-//   });
+    jest.runAllTimers();
 
-//   it('does NOT allow more than 50 iterations', async () => {
-//     const MOCK_RESPONSES = R.range(0, 100).map(() => {
-//       const res: any = createMockApiTweets({ count: 1, createdAt: DATE_NOW.subtract(1, 'day') });
+    const apiTweets = await promise;
 
-//       res._headers = {};
-//       res._headers.get = (headerName: string) => {
-//         if (headerName === 'x-rate-limit-remaining') {
-//           return 1499;
-//         }
-//       };
+    expect(app.get).toHaveBeenCalledTimes(2);
+    expect(apiTweets).toHaveLength(10);
+    expect(setTimeout).toHaveBeenCalledTimes(1);
+    expect(setTimeout).toHaveBeenLastCalledWith(expect.any(Function), 60000);
+  });
 
-//       return res;
-//     });
+  it('throws for unexpected twitter api error', async () => {
+    const TWITTER_RES_ERROR = {
+      errors: [{ code: 55 }], // An arbitrary error code. NOT the one for Rate limit exceeded
+    };
 
-//     let callCounter = 0;
+    app.get = jest.fn(() => {
+      return Promise.reject(TWITTER_RES_ERROR);
+    });
 
-//     // @ts-ignore
-//     app.get = jest.fn(() => {
-//       const res = MOCK_RESPONSES[callCounter];
-//       callCounter++;
-//       return Promise.resolve(res);
-//     });
+    let error;
+    try {
+      await fetchTweetsForAccount({
+        startDate: DATE_BEFORE_ONE_WEEK,
+        accountId,
+        twitterId,
+        app,
+      });
+    } catch (e) {
+      error = e;
+    }
 
-//     // create a lot of tweets so that multiple iteration are needed
-//     const apiTweets = await fetchTweetsForAccount({
-//       startDate: DATE_BEFORE_ONE_WEEK,
-//       accountId,
-//       twitterId,
-//       app,
-//     });
+    expect(error).toBeTruthy();
+    expect(app.get).toHaveBeenCalledTimes(1);
+    expect(setTimeout).not.toHaveBeenCalled();
+  });
 
-//     expect(app.get).toHaveBeenCalledTimes(50);
-//     expect(apiTweets).toHaveLength(50);
-//   });
-// });
+  it('does NOT allow more than 50 iterations', async () => {
+    // Create one hundred tweet responses.
+    const TWITTER_RESPONSES = R.range(0, 100).map(() => {
+      const res: any = createApiTweets({ count: 1, createdAt: DATE_NOW.subtract(1, 'day') });
+
+      res._headers = {};
+      res._headers.get = (headerName: string) => {
+        if (headerName === 'x-rate-limit-remaining') {
+          return 1499;
+        }
+      };
+
+      return res;
+    });
+
+    let callCounter = 0;
+
+    app.get = jest.fn(() => {
+      const res = TWITTER_RESPONSES[callCounter];
+      callCounter++;
+      return Promise.resolve(res);
+    });
+
+    // Create a lot of tweets so that more than 50 iterations are needed.
+    // It should stop after 50 as it signifies that something went wrong.
+    const apiTweets = await fetchTweetsForAccount({
+      startDate: DATE_BEFORE_ONE_WEEK,
+      accountId,
+      twitterId,
+      app,
+    });
+
+    expect(app.get).toHaveBeenCalledTimes(50);
+    expect(apiTweets).toHaveLength(50);
+  });
+});
