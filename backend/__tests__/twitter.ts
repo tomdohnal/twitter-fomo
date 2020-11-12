@@ -96,7 +96,7 @@ describe('twitter', () => {
 
     expect(app.get).toHaveBeenCalledTimes(3);
     expect(apiTweets).toHaveLength(500); // the last 100 should be discarded
-    apiTweets.forEach(t => {
+    apiTweets.forEach((t) => {
       expect(t.__accountId).toBe(accountId);
     });
   });

@@ -13,7 +13,7 @@ const Index: React.FC<{ baseDelay?: number }> = ({ baseDelay = 0 }) => {
   });
   const logosAnimatedValues = useSprings(
     4,
-    R.range(0, 4).map(i => ({
+    R.range(0, 4).map((i) => ({
       x: inView ? 0.95 : 0,
       opacity: inView ? 1 : 0,
       config: config.slow,

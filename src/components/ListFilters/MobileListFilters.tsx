@@ -106,8 +106,8 @@ const FilterOverview: React.FC<{ setActiveItem(key: keyof Filters): void } & Pro
     },
   ];
 
-  const activeItems = items.filter(item => item.isActive);
-  const inActiveItems = items.filter(item => !item.isActive);
+  const activeItems = items.filter((item) => item.isActive);
+  const inActiveItems = items.filter((item) => !item.isActive);
 
   return (
     <Stack
@@ -128,13 +128,13 @@ const FilterOverview: React.FC<{ setActiveItem(key: keyof Filters): void } & Pro
       boxShadow={`0px 2px 0px ${theme.colors.gray['100']}`}
     >
       {R.map(
-        item => (
+        (item) => (
           <FilterOverviewItem key={item.title} {...item} />
         ),
         activeItems,
       )}
       {R.map(
-        item => (
+        (item) => (
           <FilterOverviewItem key={item.title} {...item} />
         ),
         inActiveItems,
@@ -181,7 +181,7 @@ const ListFilters: React.FC<Props> = memo(({ filters, setFilters }) => {
       title: 'Tags',
       content: (
         <VStack>
-          {COMMUNITY_ITEMS.map(value => {
+          {COMMUNITY_ITEMS.map((value) => {
             return (
               <CheckboxButton
                 key={value}

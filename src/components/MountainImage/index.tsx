@@ -19,7 +19,7 @@ const Index: React.FC = () => {
   });
   const cloudsAnimatedValues = useSprings(
     3,
-    R.range(0, 3).map(i => ({
+    R.range(0, 3).map((i) => ({
       opacity: inView ? 1 : 0,
       transform: inView
         ? 'translate3d(0px, 0, 0) scale(1)'
@@ -51,7 +51,7 @@ const Index: React.FC = () => {
   });
   const leavesAnimatedValues = useSprings(
     6,
-    R.range(0, 6).map(i => ({
+    R.range(0, 6).map((i) => ({
       x: inView ? 1 : 0,
       opacity: inView ? 1 : 0,
       config: config.molasses,

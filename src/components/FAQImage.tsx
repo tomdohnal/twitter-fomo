@@ -13,7 +13,7 @@ const FAQImage: React.FC = () => {
 
   useEffect(() => {
     setQuestionMarkCurvesOffsets(
-      questionMarkCurvesRefs.current.map(curve => curve.getTotalLength()),
+      questionMarkCurvesRefs.current.map((curve) => curve.getTotalLength()),
     );
   }, []);
 

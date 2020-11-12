@@ -48,7 +48,7 @@ export const createGetNewFilters = (filters: Filters) => (action: FilterAction):
   const oldField = filters[action.name];
   const newField = Array.isArray(oldField)
     ? oldField.includes(action.value as string)
-      ? oldField.filter(value => value !== action.value)
+      ? oldField.filter((value) => value !== action.value)
       : [...oldField, action.value]
     : action.value;
 

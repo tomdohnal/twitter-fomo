@@ -34,7 +34,7 @@ export const getStaticProps = async () => {
     take: 3,
   });
 
-  const tweetProps = tweets.map(tweet => ({
+  const tweetProps = tweets.map((tweet) => ({
     ...tweet,
     publishedAt: tweet.publishedAt.toDateString(),
   }));

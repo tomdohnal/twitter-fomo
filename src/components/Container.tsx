@@ -35,10 +35,12 @@ const getStyleProps = ({
   };
 };
 
-const Container: React.FC<{
-  isFullLeft?: boolean;
-  isFullRight?: boolean;
-} & BoxProps> = ({ children, isFullLeft, isFullRight, ...props }) => {
+const Container: React.FC<
+  {
+    isFullLeft?: boolean;
+    isFullRight?: boolean;
+  } & BoxProps
+> = ({ children, isFullLeft, isFullRight, ...props }) => {
   const styleProps = getStyleProps({
     isFullLeft,
     isFullRight,

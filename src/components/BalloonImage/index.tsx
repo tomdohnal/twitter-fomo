@@ -23,7 +23,7 @@ const BalloonImage: React.FC = () => {
 
   const smallBalloonsAnimationStyles = useSprings(
     11,
-    R.range(0, 11).map(i => ({
+    R.range(0, 11).map((i) => ({
       opacity: inView ? 1 : 0,
       transform: inView ? 1 : 0,
       config: { mass: 1, tension: 200, friction: 400 },

@@ -31,16 +31,16 @@ export const useActiveId = (ids: string[]): string => {
   const isBelowLg = useBreakpointValue({ base: true, lg: false });
 
   useLayoutEffect(() => {
-    const elements = ids.map(id => document.getElementById(id));
+    const elements = ids.map((id) => document.getElementById(id));
 
     const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
+      (entries) => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
             // if the elements is in the viewport, add it to
             // the `intersectionSections`
             if (!intersectingSections.includes(entry.target)) {
-              setIntersectingSections(prevIntersectingSections => [
+              setIntersectingSections((prevIntersectingSections) => [
                 ...prevIntersectingSections,
                 entry.target,
               ]);
@@ -49,8 +49,8 @@ export const useActiveId = (ids: string[]): string => {
             // if the elements is NO LONGER in the viewport,
             // remove it from the `intersectionSections`
             if (intersectingSections.includes(entry.target)) {
-              setIntersectingSections(prevIntersectingSections =>
-                prevIntersectingSections.filter(section => section.id !== entry.target.id),
+              setIntersectingSections((prevIntersectingSections) =>
+                prevIntersectingSections.filter((section) => section.id !== entry.target.id),
               );
             }
           }
@@ -59,7 +59,7 @@ export const useActiveId = (ids: string[]): string => {
       { rootMargin: `${-(isBelowLg ? NAVBAR_HEIGHTS.MOBILE : NAVBAR_HEIGHTS.DESKTOP + 32)}px` },
     );
 
-    elements.forEach(el => el && observer.observe(el));
+    elements.forEach((el) => el && observer.observe(el));
 
     if (intersectingSections.length) {
       const newCurrentActiveSectionId = intersectingSections
@@ -72,7 +72,7 @@ export const useActiveId = (ids: string[]): string => {
     }
 
     return () => {
-      elements.forEach(el => el && observer.unobserve(el));
+      elements.forEach((el) => el && observer.unobserve(el));
     };
   }, [currentActiveSectionId, ids, intersectingSections, isBelowLg]);
 

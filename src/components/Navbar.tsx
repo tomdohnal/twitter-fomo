@@ -130,7 +130,7 @@ const getNavbarAnimationStyles = ({
 };
 
 const Navbar: React.FC = memo(function Navbar() {
-  const activeSectionId = useActiveId(SECTIONS.map(section => section.id));
+  const activeSectionId = useActiveId(SECTIONS.map((section) => section.id));
   const [navbarState, setNavbarState] = useState(NAVBAR_STATES.INITIAL);
   const isMdDown = useBreakpointValue({ base: true, md: false });
   const { scrollDirection } = useScrollInfo();
@@ -185,7 +185,7 @@ const Navbar: React.FC = memo(function Navbar() {
     >
       <Container display="flex" alignItems="center" height="100%">
         <Stack display={{ base: 'none', md: 'flex' }} direction="row" spacing={6}>
-          {SECTIONS.map(section => (
+          {SECTIONS.map((section) => (
             <NavbarLink key={section.id} to={section.id} isActive={section.id === activeSectionId}>
               {section.title}
             </NavbarLink>

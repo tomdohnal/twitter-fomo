@@ -107,7 +107,7 @@ const NewsletterPrompt: React.FC = () => {
           </Text>
           <Flex
             as="form"
-            onSubmit={async e => {
+            onSubmit={async (e) => {
               e.preventDefault();
               const isSubscribed = await createSubscriber(email);
 

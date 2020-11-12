@@ -146,7 +146,7 @@ const DesktopListFilters: React.FC<Props> = ({ filters, setFilters }) => {
             />
           </Flex>
           <Wrap spacing={3}>
-            {COMMUNITY_ITEMS.map(value => {
+            {COMMUNITY_ITEMS.map((value) => {
               return (
                 <WrapItem key={value}>
                   <CheckboxButton

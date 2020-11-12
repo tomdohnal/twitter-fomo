@@ -5,12 +5,14 @@ import { useIsHovered } from '../utils';
 
 const AnimatedBox = animated(Box);
 
-const TweetBox: React.FC<{
-  content: ReactNode;
-  header: ReactNode;
-  actions: ReactNode;
-  href: string;
-} & BoxProps> = memo(function TweetBox({ content, header, actions, href, ...restProps }) {
+const TweetBox: React.FC<
+  {
+    content: ReactNode;
+    header: ReactNode;
+    actions: ReactNode;
+    href: string;
+  } & BoxProps
+> = memo(function TweetBox({ content, header, actions, href, ...restProps }) {
   const theme = useTheme();
   const [isHovered, listeners] = useIsHovered();
   const animatedValues = useSpring({

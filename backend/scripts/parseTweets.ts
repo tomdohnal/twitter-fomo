@@ -32,7 +32,7 @@ const createListData = ({
   tweets: ApiTweet[];
   appliedFilters: Filter[];
 }): TweetCreateInput[] => {
-  return tweets.map(tweet => {
+  return tweets.map((tweet) => {
     const tweetTypes = getTweetTypes(tweet);
     const user = tweet.user as FullUser;
 
@@ -48,7 +48,7 @@ const createListData = ({
       accountScreenName: user.screen_name,
       payload: (tweet as unknown) as JsonValue, // store the whole object as a JSON value
       tweetTypes: {
-        connect: tweetTypes.map(type => ({
+        connect: tweetTypes.map((type) => ({
           name: type,
         })),
       },
@@ -73,7 +73,7 @@ export function createListsData({
   });
 
   const childLists = remainingFilters.flatMap((filters, filtersIndex) =>
-    filters.flatMap(filter => {
+    filters.flatMap((filter) => {
       const filteredSortedAccountTweets = filter.filterAccountTweets(sortedAccountTweets);
 
       const newAppliedFilters = [...appliedFilters, filter];
@@ -107,7 +107,7 @@ export async function run() {
       app: twitterApp,
       startDate: DAY_BEFORE_ONE_WEEK,
     })
-      .then(tweets => {
+      .then((tweets) => {
         logger.log(`Success: Fetched tweets for ${account.name} (${account.twitterId})`);
 
         sortedAccountTweets.push({ account, tweets: getSortedTweets(tweets) });
@@ -128,7 +128,7 @@ export async function run() {
 
   // we treat `dateFilters` as an exception now as they always must be present...
   logger.log('Created list inputs');
-  const tweetLists = dateFilters.flatMap(dateFilter => {
+  const tweetLists = dateFilters.flatMap((dateFilter) => {
     const filteredSortedAccountTweets = dateFilter.filterAccountTweets(sortedAccountTweets);
 
     return createListsData({
@@ -148,7 +148,7 @@ export async function run() {
       .then(() => {
         logger.log('Success: list input');
       })
-      .catch(err => {
+      .catch((err) => {
         logger.error(err);
       });
   }

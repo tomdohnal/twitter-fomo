@@ -16,7 +16,7 @@ const AnimatedBox = animated(Box);
 const parseText = (tweet: Status): ReactNode => {
   const imageUrlsRegExp = new RegExp(
     `(${(tweet.extended_entities?.media || [])
-      .map(image => escapeStringRegexp(image.url))
+      .map((image) => escapeStringRegexp(image.url))
       .join('|')})`,
     'g',
   );
@@ -29,7 +29,7 @@ const parseText = (tweet: Status): ReactNode => {
   );
 
   const urlsRegExp = new RegExp(
-    `(${(tweet.entities.urls || []).map(url => escapeStringRegexp(url.url)).join('|')})`,
+    `(${(tweet.entities.urls || []).map((url) => escapeStringRegexp(url.url)).join('|')})`,
     'g',
   );
 
@@ -51,7 +51,7 @@ const parseText = (tweet: Status): ReactNode => {
       })
     : [textWithReplacedRetweetUrls];
 
-  return textWithReplacedUrls.map(text => {
+  return textWithReplacedUrls.map((text) => {
     if (typeof text === 'string') {
       return unescape(text);
     }
