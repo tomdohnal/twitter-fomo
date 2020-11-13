@@ -1,4 +1,4 @@
-import { Box, Stack, useBreakpointValue, useTheme } from '@chakra-ui/core';
+import { Box, Flex, Stack, useBreakpointValue, useTheme } from '@chakra-ui/core';
 import throttle from 'lodash.throttle';
 import React, { memo, useEffect, useRef, useState } from 'react';
 import { animated, config, useSpring } from 'react-spring';
@@ -7,6 +7,7 @@ import { SCROLL_DIRECTIONS, useActiveId, useIsHovered, useScrollInfo } from '../
 import Container from './Container';
 import Link from './Link';
 import * as gtag from '../gtag';
+import { GithubLogoIcon } from './Icons';
 
 const AnimatedLink = animated(Link);
 const AnimatedBox = animated(Box);
@@ -55,14 +56,6 @@ const SECTIONS = [
   {
     id: 'home',
     title: 'Home',
-  },
-  {
-    id: 'problem',
-    title: 'The problem',
-  },
-  {
-    id: 'solution',
-    title: 'This solution',
   },
   {
     id: 'newsletter',
@@ -191,41 +184,46 @@ const Navbar: React.FC = memo(function Navbar() {
             </NavbarLink>
           ))}
         </Stack>
-        <Box display={{ md: 'none' }} href="/#home">
-          <Box
-            boxSize={12}
-            as="svg"
-            viewBox="0 0 512 512"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
+        <Flex flex={1} justify={{ base: 'space-between', md: 'flex-end' }}>
+          <Link
+            fontWeight={700}
+            textTransform="lowercase"
+            fontSize="lg"
+            isExternal
+            onClick={() => {
+              gtag.event({
+                action: 'source_click',
+                category: 'LP',
+                label: 'navbar',
+              });
+            }}
+            href="https://github.com/tomdohnal/twitter-fomo"
+            display="inline-flex"
+            alignItems="center"
           >
-            <rect width="512" height="512" fill="#DA127D" />
-            <path
-              d="M260 138V195.2H180.4V414H105.2V195.2H25.2V138H260ZM351.313 136.8C365.979 136.8 381.179 136.933 396.913 137.2C412.913 137.2 428.379 137.6 443.313 138.4C458.246 138.933 471.979 140 484.513 141.6L480.913 194.8H382.912C370.113 194.8 363.713 200.533 363.713 212V251.6H466.113V302.4H363.713V414H288.513V196.4C288.513 178.533 294.246 164.133 305.713 153.2C317.446 142.267 332.646 136.8 351.313 136.8Z"
-              fill="#FFEEF3"
-            />
-          </Box>
-        </Box>
-        <Link
-          href={LEADERBOARD_LINK}
-          color="primary"
-          fontWeight={800}
-          ml="auto"
-          textTransform="lowercase"
-          fontSize="lg"
-          transition="color .2s ease-in-out"
-          _hover={{ color: 'primaryPalette.800' }}
-          isExternal
-          onClick={() => {
-            gtag.event({
-              action: 'view_top_tweets_click',
-              category: 'LP',
-              label: 'navbar',
-            });
-          }}
-        >
-          View top tweets
-        </Link>
+            <GithubLogoIcon boxSize={4} mr={2} />
+            Source code
+          </Link>
+          <Link
+            ml={{ md: 6 }}
+            href={LEADERBOARD_LINK}
+            color="primary"
+            fontWeight={800}
+            textTransform="lowercase"
+            fontSize="lg"
+            transition="color .2s ease-in-out"
+            _hover={{ color: 'primaryPalette.800' }}
+            onClick={() => {
+              gtag.event({
+                action: 'view_top_tweets_click',
+                category: 'LP',
+                label: 'navbar',
+              });
+            }}
+          >
+            View top tweets
+          </Link>
+        </Flex>
       </Container>
     </AnimatedBox>
   );

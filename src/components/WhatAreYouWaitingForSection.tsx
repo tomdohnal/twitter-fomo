@@ -111,7 +111,6 @@ const WhatAreYouWaitingForSection: React.FC = () => {
                 size="xl"
                 href={LEADERBOARD_LINK}
                 as={Link}
-                isExternal
                 onClick={() => {
                   gtag.event({
                     action: 'view_top_tweets_click',

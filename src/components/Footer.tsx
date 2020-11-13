@@ -2,7 +2,7 @@ import React from 'react';
 import { Heading, Text, Img, Box, Button, Stack, Link } from '@chakra-ui/core';
 import Section from './Section';
 import Container from './Container';
-import { TwitterLogoIcon } from './Icons';
+import { GithubLogoIcon, TwitterLogoIcon, YouTubeLogoIcon } from './Icons';
 
 const Footer: React.FC = () => {
   return (
@@ -31,16 +31,41 @@ const Footer: React.FC = () => {
               motivational quote. So I decided to indulge in over-engineering and premature
               optimization instead and created this tool 🛠.
             </Text>
-            <Button
-              variant="solidLight"
-              colorScheme="primaryPalette"
-              leftIcon={<TwitterLogoIcon h={6} w={6} />}
-              w={{ base: '100%', md: 'auto' }}
-              as={Link}
-              href="https://twitter.com/intent/follow?screen_name=tom_dohnal"
-            >
-              Follow
-            </Button>
+            <Stack spacing={4} direction={{ base: 'column', lg: 'row' }}>
+              <Button
+                variant="solidLight"
+                colorScheme="primaryPalette"
+                leftIcon={<TwitterLogoIcon h={6} w={6} />}
+                w={{ base: '100%', md: 'auto' }}
+                as={Link}
+                isExternal
+                href="https://twitter.com/intent/follow?screen_name=tom_dohnal"
+              >
+                Follow
+              </Button>
+              <Button
+                variant="solidLight"
+                colorScheme="primaryPalette"
+                leftIcon={<GithubLogoIcon h={6} w={6} />}
+                w={{ base: '100%', md: 'auto' }}
+                as={Link}
+                isExternal
+                href="https://github.com/tomdohnal/twitter-fomo"
+              >
+                View source
+              </Button>
+              <Button
+                variant="solidLight"
+                colorScheme="primaryPalette"
+                leftIcon={<YouTubeLogoIcon h={6} w={6} />}
+                w={{ base: '100%', md: 'auto' }}
+                as={Link}
+                isExternal
+                href="https://www.youtube.com/channel/UCE7h4of6ywpAG87KXHV6UrQ"
+              >
+                Subscribe
+              </Button>
+            </Stack>
           </Box>
         </Stack>
       </Container>

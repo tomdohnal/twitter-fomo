@@ -112,7 +112,6 @@ const TopSection: React.FC<{
                 right: '2px',
                 background: 'linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.4))',
               }}
-              isExternal
               onClick={() => {
                 gtag.event({
                   action: 'view_top_tweets_click',
@@ -155,7 +154,6 @@ const TopSection: React.FC<{
               <Button
                 as={Link}
                 href={LEADERBOARD_LINK}
-                isExternal
                 size="xl"
                 pos="relative"
                 onClick={() => {
