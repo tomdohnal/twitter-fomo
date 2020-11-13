@@ -33,17 +33,6 @@ export const createAccount = ({
   };
 };
 
-// export const COMMUNITIES = [
-//   {
-//     id: 1,
-//     name: 'React',
-//   },
-//   {
-//     id: 2,
-//     name: 'Vue',
-//   },
-// ];
-
 export const createTweet = ({
   created_at,
   favorite_count,
