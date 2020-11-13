@@ -1,9 +1,9 @@
 import React, { useRef } from 'react';
-import { SpringValues, animated } from 'react-spring';
+import { animated } from 'react-spring';
 import { getTransformOrigin } from '../../svg-utils';
 
 const Clouds: React.FC<{
-  animatedValues: SpringValues<{ opacity: number; transform: string }>[];
+  animatedValues: any[];
 }> = ({ animatedValues }) => {
   const cloud1Ref = useRef(null);
   const cloud2Ref = useRef(null);

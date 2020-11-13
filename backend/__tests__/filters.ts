@@ -49,10 +49,6 @@ describe('filters', () => {
     const weekFilter = filters[0];
     const accountTweetsWeek = weekFilter.filterAccountTweets(accountTweets);
 
-    // @ts-ignore
-    expect(weekFilter.fields).toEqual({
-      period: 'WEEK',
-    });
     expect(accountTweetsWeek[0].tweets).toHaveLength(3);
     expect(accountTweetsWeek[1].tweets).toHaveLength(3);
 
@@ -60,10 +56,6 @@ describe('filters', () => {
     const dayFilter = filters[1];
     const accountTweetsDay = dayFilter.filterAccountTweets(accountTweets);
 
-    // @ts-ignore
-    expect(dayFilter.fields).toEqual({
-      period: 'DAY',
-    });
     expect(accountTweetsDay[0].tweets).toHaveLength(2);
     expect(accountTweetsDay[1].tweets).toHaveLength(2);
   });
@@ -138,11 +130,11 @@ describe('filters', () => {
 
     const tweetTypeFilters = createTweetTypeFilters();
 
-    const textFilter = tweetTypeFilters[0];
-    const accountTweetsText = textFilter.filterAccountTweets(accountTweets);
-    expect(accountTweetsText).toHaveLength(2);
-    expect(accountTweetsText[0].tweets).toHaveLength(3);
-    expect(accountTweetsText[1].tweets).toHaveLength(0);
+    const linkFilter = tweetTypeFilters[0];
+    const accountTweetsLink = linkFilter.filterAccountTweets(accountTweets);
+    expect(accountTweetsLink).toHaveLength(2);
+    expect(accountTweetsLink[0].tweets).toHaveLength(0);
+    expect(accountTweetsLink[1].tweets).toHaveLength(1);
 
     const mediaFilter = tweetTypeFilters[1];
     const accountTweetsMedia = mediaFilter.filterAccountTweets(accountTweets);
@@ -150,11 +142,11 @@ describe('filters', () => {
     expect(accountTweetsMedia[0].tweets).toHaveLength(0);
     expect(accountTweetsMedia[1].tweets).toHaveLength(2);
 
-    const linkFilter = tweetTypeFilters[2];
-    const accountTweetsLink = linkFilter.filterAccountTweets(accountTweets);
-    expect(accountTweetsLink).toHaveLength(2);
-    expect(accountTweetsLink[0].tweets).toHaveLength(0);
-    expect(accountTweetsLink[1].tweets).toHaveLength(1);
+    const textFilter = tweetTypeFilters[2];
+    const accountTweetsText = textFilter.filterAccountTweets(accountTweets);
+    expect(accountTweetsText).toHaveLength(2);
+    expect(accountTweetsText[0].tweets).toHaveLength(3);
+    expect(accountTweetsText[1].tweets).toHaveLength(0);
   });
 
   it('creates accountType filters', () => {

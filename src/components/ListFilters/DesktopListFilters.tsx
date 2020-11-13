@@ -2,7 +2,7 @@ import { Box, Button, Flex, Heading, Stack, Text, useTheme, Wrap, WrapItem } fro
 import * as R from 'ramda';
 import React from 'react';
 import { animated, useTransition } from 'react-spring';
-import { Filters } from '../../Filters';
+import { Filters } from '../../filters';
 import * as gtag from '../../gtag';
 import CheckboxButton from '../CheckboxButton';
 import GroupedRadioButtons from '../GroupedRadioButtons';
@@ -146,7 +146,7 @@ const DesktopListFilters: React.FC<Props> = ({ filters, setFilters }) => {
             />
           </Flex>
           <Wrap spacing={3}>
-            {COMMUNITY_ITEMS.map(value => {
+            {COMMUNITY_ITEMS.map((value) => {
               return (
                 <WrapItem key={value}>
                   <CheckboxButton

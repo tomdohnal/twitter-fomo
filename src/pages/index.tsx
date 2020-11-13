@@ -8,6 +8,7 @@ import ProblemSolutionSection from '../components/ProblemSolutionSection';
 import WhatAreYouWaitingForSection from '../components/WhatAreYouWaitingForSection';
 import prisma from '../prisma';
 import { InferGetStaticPropsType } from 'next';
+import { Status } from 'twitter-d';
 
 export const getStaticProps = async () => {
   const tweets = await prisma.tweet.findMany({
@@ -33,17 +34,23 @@ export const getStaticProps = async () => {
     take: 3,
   });
 
+  const tweetProps = tweets.map((tweet) => ({
+    ...tweet,
+    publishedAt: tweet.publishedAt.toDateString(),
+  }));
+
   return {
     props: {
-      tweets: tweets.map(tweet => ({
-        ...tweet,
-        publishedAt: tweet.publishedAt.toDateString(),
-      })),
+      tweets: (tweetProps as unknown) as (Omit<typeof tweetProps[0], 'payload'> & {
+        payload: Status;
+      })[],
     },
   };
 };
 
-const Index: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({ tweets }: InferGetStaticPropsType<typeof getStaticProps>) => (
+const Index: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
+  tweets,
+}: InferGetStaticPropsType<typeof getStaticProps>) => (
   <>
     <NextSeo title="TwitterFOMO" description="TwitterFOMO—The best tweets in web development" />
     <Navbar />

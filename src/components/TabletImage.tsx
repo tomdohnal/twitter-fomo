@@ -64,7 +64,7 @@ const TabletImage: React.FC = () => {
   const refs = useRef<(SVGPathElement | SVGGElement)[]>([]);
   const animatedValues = useSprings(
     6,
-    R.range(0, 6).map(i => ({
+    R.range(0, 6).map((i) => ({
       transform: inView
         ? 'translate3d(0px, 0px, 0px) scale(1)'
         : 'translate3d(0px, 100px, 0px) scale(0)',

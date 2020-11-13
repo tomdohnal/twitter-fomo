@@ -9,13 +9,17 @@
     "backend:build-script": "ncc build backend/scripts/parseTweets__run__.ts -o backend/build",
     "backend:run-script": "node backend/build/index.js",
     "test": "jest",
+    "lint": "yarn lint:eslint && yarn lint:prettier && yarn lint:types",
+    "lint:eslint": "eslint '**/**.{js,ts,tsx}'",
+    "lint:prettier": "prettier '**/**.{js,ts,tsx}' --check",
+    "lint:types": "tsc --noEmit",
     "tdd": "jest --watch --verbose",
     "heroku-postbuild": "yarn backend:build-script",
     "postinstall": "node postinstall.js"
   },
   "engines": {
     "node": ">=12.14.0",
-    "yarn": "1.22.4"
+    "yarn": ">=1.22.4"
   },
   "dependencies": {
     "@chakra-ui/core": "^1.0.0-rc.8",
@@ -83,6 +87,7 @@
     "@prisma/cli": "2.5",
     "@types/faker": "^4.1.12",
     "@types/jest": "^25.2.3",
+    "@types/lodash.memoize": "^4.1.6",
     "@types/lodash.throttle": "^4.1.6",
     "@types/node": "^14.0.6",
     "@types/ramda": "^0.27.6",
@@ -94,6 +99,6 @@
     "jest": "^26.0.1",
     "jest-date-mock": "^1.0.8",
     "prettier": "^2.0.5",
-    "ts-jest": "^26.1.0"
+    "ts-jest": "^26.4.4"
   }
 }

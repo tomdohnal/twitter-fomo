@@ -127,7 +127,7 @@ const GroupedRadioButtons: React.FC<GroupedRadioButtonsProps> = ({
     if (isWidthCalculated) {
       const newClipPath = getClipPath({
         widths: buttonWidthsRef.current as number[],
-        index: items.findIndex(item => item.value === value),
+        index: items.findIndex((item) => item.value === value),
       });
 
       setAnimatedHighlightStyle({ clipPath: newClipPath }).then(() => {

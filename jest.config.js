@@ -4,7 +4,7 @@ module.exports = {
   setupFilesAfterEnv: ['./backend/jest-setup.ts', 'jest-date-mock'],
   globals: {
     'ts-jest': {
-      tsConfig: './tsconfig.json',
+      tsconfig: './tsconfig.json',
     },
   },
 };

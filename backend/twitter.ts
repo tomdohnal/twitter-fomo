@@ -2,50 +2,14 @@ import Twitter from 'twitter-lite';
 import * as R from 'ramda';
 import { dayjsUtc, Dayjs } from '../common/date';
 import logger from './logger';
+import { Status } from 'twitter-d';
 
-export interface ApiTweet {
-  id: number;
-  entities: {
-    urls: Array<{
-      url: string;
-      expanded_url: string;
-      display_url: string;
-      indices: Array<number>;
-    }>;
-    media: Array<{
-      id: number;
-      id_str: string;
-      indices: number[];
-      media_url: string;
-      media_url_https: string;
-      url: string;
-      display_url: string;
-      expanded_url: string;
-      type: string;
-      sizes: {
-        thumb: { w: number; h: number; resize: string };
-        medium: { w: number; h: number; resize: string };
-        large: { w: number; h: number; resize: string };
-        small: { w: number; h: number; resize: string };
-      };
-    }>;
-  };
-  favorite_count: number;
-  retweet_count: number;
-  created_at: string;
-  id_str: string;
-  full_text: string;
-  user: {
-    name: string;
-    profile_image_url_https: string;
-    screen_name: string;
-  };
-  quoted_status: ApiTweet;
+export type ApiTweet = Status & {
   __accountId: number;
-}
+};
 
 // using `util.promisify` breaks Jest for some reason...
-const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 export const getApp = () =>
   Promise.resolve(
@@ -54,8 +18,8 @@ export const getApp = () =>
       consumer_secret: process.env.TWITTER_CONSUMER_SECRET || '',
     }),
   )
-    .then(user => user.getBearerToken())
-    .then(response => {
+    .then((user) => user.getBearerToken())
+    .then((response) => {
       return new Twitter({
         // @ts-ignore (bearer_token DOES exists in `TwitterOptions`)
         bearer_token: response.access_token,
@@ -80,11 +44,13 @@ export async function fetchTweetsForAccount({
   app: Twitter;
   startDate: Dayjs;
 }): Promise<ApiTweet[]> {
-  let tweets: Omit<ApiTweet, '__accountId'>[] = [];
+  let tweets: Status[] = [];
   let lastTweetDate = null;
   let loopCounter = 0;
   const MAX_LOOP_COUNTER = 50; // limit to prevent unexpected infinite loops
 
+  // Fetch tweets from the timeline until the `startDate` is reached.
+  // Pause execution if the 15-minut limit is reached.
   do {
     // eslint-disable-next-line no-plusplus
     loopCounter++;
@@ -92,7 +58,7 @@ export async function fetchTweetsForAccount({
     const lastTweetId = lastTweet && lastTweet.id;
 
     // eslint-disable-next-line no-await-in-loop
-    const fetchTweets = (): Promise<Omit<ApiTweet, '__accountId'>[]> =>
+    const fetchTweets = (): Promise<Status[]> =>
       app
         .get('statuses/user_timeline', {
           user_id: twitterId,
@@ -102,7 +68,7 @@ export async function fetchTweetsForAccount({
           tweet_mode: 'extended',
           ...(lastTweetId && { max_id: lastTweetId }),
         })
-        .then(async (res: Omit<ApiTweet, '__accountId'>[] & { _headers: any }) => {
+        .then(async (res: Status[] & { _headers: any }) => {
           const apiLimitRemaining = parseInt(
             // eslint-disable-next-line no-underscore-dangle
             res._headers.get('x-rate-limit-remaining'),
@@ -122,7 +88,7 @@ export async function fetchTweetsForAccount({
 
           return res;
         })
-        .catch(async err => {
+        .catch(async (err) => {
           // handle limit exceeded
           if (err.errors && err.errors[0].code === 88) {
             logger.error(new Error('Twitter limit exceeded, waiting...'));
@@ -154,9 +120,9 @@ export async function fetchTweetsForAccount({
 
   // TODO: possible perf boost - the tweets are sorted
   // by date so you can leverage that when filtering.
-  // But premature optimization for now IMO
+  // But premature optimization for now IMHO
   return tweets
-    .filter(tweet => {
+    .filter((tweet) => {
       const tweetDate = dayjsUtc(tweet.created_at);
 
       return tweetDate.isAfter(startDate) || tweetDate.isSame(startDate);

@@ -1,5 +1,5 @@
 import React, { ReactNode, memo } from 'react';
-import { MediaEntity, Status } from 'twitter-d';
+import { FullUser, MediaEntity, Status } from 'twitter-d';
 import reactStringReplace from 'react-string-replace';
 import escapeStringRegexp from 'escape-string-regexp';
 import { Box, Img, Text, AspectRatio, useTheme, Link } from '@chakra-ui/core';
@@ -16,7 +16,7 @@ const AnimatedBox = animated(Box);
 const parseText = (tweet: Status): ReactNode => {
   const imageUrlsRegExp = new RegExp(
     `(${(tweet.extended_entities?.media || [])
-      .map(image => escapeStringRegexp(image.url))
+      .map((image) => escapeStringRegexp(image.url))
       .join('|')})`,
     'g',
   );
@@ -29,7 +29,7 @@ const parseText = (tweet: Status): ReactNode => {
   );
 
   const urlsRegExp = new RegExp(
-    `(${(tweet.entities.urls || []).map(url => escapeStringRegexp(url.url)).join('|')})`,
+    `(${(tweet.entities.urls || []).map((url) => escapeStringRegexp(url.url)).join('|')})`,
     'g',
   );
 
@@ -51,7 +51,7 @@ const parseText = (tweet: Status): ReactNode => {
       })
     : [textWithReplacedRetweetUrls];
 
-  return textWithReplacedUrls.map(text => {
+  return textWithReplacedUrls.map((text) => {
     if (typeof text === 'string') {
       return unescape(text);
     }
@@ -328,6 +328,7 @@ const TweetBoxContent: React.FC<{
   };
 }> = memo(function TweetBoxContent({ tweet }) {
   const parsedText = parseText(tweet);
+  const user: FullUser = tweet.user as FullUser;
 
   return (
     <>
@@ -340,7 +341,7 @@ const TweetBoxContent: React.FC<{
             mt={4}
             as={Link}
             display="block"
-            href={`https://twitter.com/${tweet.user.screen_name}/status/${tweet.id_str}`}
+            href={`https://twitter.com/${user.screen_name}/status/${tweet.id_str}`}
             isExternal
           >
             <TwitterImages images={tweet?.extended_entities?.media} />
@@ -379,9 +380,9 @@ const TweetBoxContent: React.FC<{
             header={
               <TweetBoxRetweetHeader
                 created_at={tweet.quoted_status.created_at}
-                imageUrl={tweet.quoted_status.user.profile_image_url_https}
-                name={tweet.quoted_status.user.name}
-                screenName={tweet.quoted_status.user.screen_name}
+                imageUrl={(tweet.quoted_status.user as FullUser).profile_image_url_https}
+                name={(tweet.quoted_status.user as FullUser).name}
+                screenName={(tweet.quoted_status.user as FullUser).screen_name}
               />
             }
             content={

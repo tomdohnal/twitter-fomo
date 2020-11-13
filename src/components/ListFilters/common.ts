@@ -1,5 +1,4 @@
-// import { AccountType } from '@prisma/client';
-import { encode, decode, Filters } from '../../filters';
+import { Filters } from '../../filters';
 
 export const PERIOD_ITEMS = [
   {
@@ -48,8 +47,8 @@ interface FilterAction {
 export const createGetNewFilters = (filters: Filters) => (action: FilterAction): Filters => {
   const oldField = filters[action.name];
   const newField = Array.isArray(oldField)
-    ? oldField.includes(action.value)
-      ? oldField.filter(value => value !== action.value)
+    ? oldField.includes(action.value as string)
+      ? oldField.filter((value) => value !== action.value)
       : [...oldField, action.value]
     : action.value;
 
@@ -65,5 +64,6 @@ export const INITIAL_FILTERS: Filters = {
 
 export interface Props {
   filters: Filters;
-  setFilters: ((filters: Filters) => void) | ((filters: Filters) => Filters);
+  setFilters(filters: Filters): void;
+  setFilters(fn: (filters: Filters) => Filters): void;
 }

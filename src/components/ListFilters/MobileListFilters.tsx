@@ -5,7 +5,6 @@ import {
   useTheme,
   Text,
   Stack,
-  Wrap,
   Flex,
   IconButton,
   Modal,
@@ -40,12 +39,13 @@ const FilterOverviewItem: React.FC<{
   onRemoveClick: () => void;
 }> = ({ isActive, title, onClick, onRemoveClick }) => {
   return (
-    <Flex pr={2} _last={CONTAINER_PX}>
+    <Flex pr={2}>
       <Button _hover={{}} size="sm" variant={isActive ? 'solid' : 'solidLight'} onClick={onClick}>
         {title}
       </Button>
       {isActive && (
         <IconButton
+          aria-label="close"
           _hover={{}}
           borderLeft="1px solid"
           borderLeftColor="primaryPalette.400"
@@ -68,7 +68,7 @@ const FilterOverview: React.FC<{ setActiveItem(key: keyof Filters): void } & Pro
   const theme = useTheme();
 
   const createResetClickHandler = (key: keyof Filters) => () => {
-    setFilters(filters => ({ ...filters, [key]: INITIAL_FILTERS[key] }));
+    setFilters((filters: Filters) => ({ ...filters, [key]: INITIAL_FILTERS[key] }));
   };
 
   const items = [
@@ -106,8 +106,8 @@ const FilterOverview: React.FC<{ setActiveItem(key: keyof Filters): void } & Pro
     },
   ];
 
-  const activeItems = items.filter(item => item.isActive);
-  const inActiveItems = items.filter(item => !item.isActive);
+  const activeItems = items.filter((item) => item.isActive);
+  const inActiveItems = items.filter((item) => !item.isActive);
 
   return (
     <Stack
@@ -128,13 +128,13 @@ const FilterOverview: React.FC<{ setActiveItem(key: keyof Filters): void } & Pro
       boxShadow={`0px 2px 0px ${theme.colors.gray['100']}`}
     >
       {R.map(
-        item => (
+        (item) => (
           <FilterOverviewItem key={item.title} {...item} />
         ),
         activeItems,
       )}
       {R.map(
-        item => (
+        (item) => (
           <FilterOverviewItem key={item.title} {...item} />
         ),
         inActiveItems,
@@ -146,6 +146,7 @@ const FilterOverview: React.FC<{ setActiveItem(key: keyof Filters): void } & Pro
 interface Props {
   filters: Filters;
   setFilters(filters: Filters): void;
+  setFilters(fn: (filters: Filters) => Filters): void;
 }
 
 const ListFilters: React.FC<Props> = memo(({ filters, setFilters }) => {
@@ -180,7 +181,7 @@ const ListFilters: React.FC<Props> = memo(({ filters, setFilters }) => {
       title: 'Tags',
       content: (
         <VStack>
-          {COMMUNITY_ITEMS.map(value => {
+          {COMMUNITY_ITEMS.map((value) => {
             return (
               <CheckboxButton
                 key={value}

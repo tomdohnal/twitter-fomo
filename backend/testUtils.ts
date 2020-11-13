@@ -2,6 +2,7 @@ import faker from 'faker';
 import { AccountType } from '@prisma/client';
 import { dayjsUtc } from '../common/date';
 import { ApiTweet } from './twitter';
+import { User } from 'twitter-d';
 
 export { faker };
 
@@ -32,16 +33,16 @@ export const createAccount = ({
   };
 };
 
-export const COMMUNITIES = [
-  {
-    id: 1,
-    name: 'React',
-  },
-  {
-    id: 2,
-    name: 'Vue',
-  },
-];
+// export const COMMUNITIES = [
+//   {
+//     id: 1,
+//     name: 'React',
+//   },
+//   {
+//     id: 2,
+//     name: 'Vue',
+//   },
+// ];
 
 export const createTweet = ({
   created_at,
@@ -53,7 +54,6 @@ export const createTweet = ({
   favorite_count?: number;
   media?: any[];
   urls?: any[];
-  // @ts-ignore
 } = {}): ApiTweet => ({
   created_at: created_at || dayjsUtc(faker.date.past()).toISOString(),
   entities: {
@@ -66,11 +66,16 @@ export const createTweet = ({
   full_text: faker.lorem.sentence(),
   id: faker.random.number(),
   id_str: String(faker.random.number()),
-  user: {
+  user: ({
     name: faker.internet.userName(),
     profile_image_url_https: faker.internet.url(),
     screen_name: faker.internet.userName(),
-  },
+  } as unknown) as User,
+  favorited: faker.random.boolean(),
+  retweeted: faker.random.boolean(),
+  is_quote_status: faker.random.boolean(),
+  source: faker.random.word(),
+  truncated: faker.random.boolean(),
 });
 
 export const createTextTweet = ({
@@ -80,6 +85,7 @@ export const createTextTweet = ({
   created_at?: string;
   favorite_count?: number;
 } = {}) => createTweet({ created_at, favorite_count, media: [], urls: [] });
+
 export const createMediaTweet = ({
   created_at,
   favorite_count,

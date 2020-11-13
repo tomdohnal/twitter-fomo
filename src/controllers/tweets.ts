@@ -16,7 +16,7 @@ export const urlFiltersToWhereInput = ({
       : {
           communities: {
             some: {
-              OR: communities.map(community => ({
+              OR: communities.map((community) => ({
                 name: community,
               })),
             },
@@ -28,7 +28,7 @@ export const urlFiltersToWhereInput = ({
       ? {}
       : {
           type: {
-            in: accountTypes,
+            in: (accountTypes as unknown) as 'PERSONAL' | 'BUSINESS',
           },
         };
 
@@ -38,7 +38,7 @@ export const urlFiltersToWhereInput = ({
       : {
           tweetTypes: {
             some: {
-              OR: tweetTypes.map(type => ({
+              OR: tweetTypes.map((type) => ({
                 name: type,
               })),
             },
@@ -82,7 +82,7 @@ export const get = async (filterUrl: string) => {
     take: 10,
   });
 
-  return tweets.map(tweet => ({
+  return tweets.map((tweet) => ({
     ...tweet,
     publishedAt: tweet.publishedAt.toDateString(),
   }));

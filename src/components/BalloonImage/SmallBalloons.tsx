@@ -1,9 +1,9 @@
 import React, { useRef } from 'react';
-import { SpringValues, animated } from 'react-spring';
+import { animated } from 'react-spring';
 import { getTransformOrigin } from '../../svg-utils';
 
 const SmallBalloons: React.FC<{
-  animationStyles: SpringValues<{ opacity: number; transform: string }>[];
+  animationStyles: any[];
 }> = ({ animationStyles }) => {
   const refs = useRef<SVGGElement[]>([]);
 
@@ -405,22 +405,26 @@ const SmallBalloons: React.FC<{
     </>,
   ];
 
-  return balloons.map((balloon, index) => (
-    <animated.g
-      style={{
-        ...animationStyles[index],
-        transformOrigin: getTransformOrigin(refs.current[index]),
-      }}
-      ref={ref => {
-        if (ref) {
-          refs.current[index] = ref;
-        }
-      }}
-      key={index}
-    >
-      {balloon}
-    </animated.g>
-  ));
+  return (
+    <>
+      {balloons.map((balloon, index) => (
+        <animated.g
+          style={{
+            ...animationStyles[index],
+            transformOrigin: getTransformOrigin(refs.current[index]),
+          }}
+          ref={(ref: SVGGElement | null) => {
+            if (ref) {
+              refs.current[index] = ref;
+            }
+          }}
+          key={index}
+        >
+          {balloon}
+        </animated.g>
+      ))}
+    </>
+  );
 };
 
 export default SmallBalloons;

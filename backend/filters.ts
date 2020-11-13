@@ -20,10 +20,10 @@ export interface AccountTweet {
 
 const createDateTweetFilterFn = (
   startDate: Dayjs,
-): ((accountTweets: AccountTweet[]) => AccountTweet[]) => accountTweets =>
-  accountTweets.map(accountTweet => ({
+): ((accountTweets: AccountTweet[]) => AccountTweet[]) => (accountTweets) =>
+  accountTweets.map((accountTweet) => ({
     ...accountTweet,
-    tweets: accountTweet.tweets.filter(tweet => {
+    tweets: accountTweet.tweets.filter((tweet) => {
       const tweetCreatedAt = dayjsUtc(tweet.created_at);
 
       // left inclusive
@@ -44,7 +44,7 @@ export function createDateFilters(currentDate: Dayjs) {
 }
 
 export const createCommunitiesFilters = (communities: { name: string; id: number }[]): Filter[] =>
-  communities.map(community => ({
+  communities.map((community) => ({
     fields: {
       community: { connect: { id: community.id } },
     },
@@ -56,7 +56,7 @@ export const createCommunitiesFilters = (communities: { name: string; id: number
   }));
 
 function isTextTweet(tweet: ApiTweet) {
-  return Object.values(tweet.entities).every(entity => entity.length === 0);
+  return Object.values(tweet.entities).every((entity) => entity.length === 0);
 }
 
 function isLinkTweet(tweet: ApiTweet) {
@@ -92,11 +92,11 @@ export const createTweetTypeFilters = (): Filter[] => {
     TEXT: isTextTweet,
   };
 
-  return Object.values(Object.keys(typesFilterFns)).map(type => ({
+  return Object.values(Object.keys(typesFilterFns)).map((type) => ({
     filterAccountTweets(accountTweets: AccountTweet[]) {
-      return accountTweets.map(accountTweet => ({
+      return accountTweets.map((accountTweet) => ({
         account: accountTweet.account,
-        tweets: accountTweet.tweets.filter(tweet =>
+        tweets: accountTweet.tweets.filter((tweet) =>
           typesFilterFns[type as keyof typeof typesFilterFns](tweet),
         ),
       }));
@@ -105,9 +105,9 @@ export const createTweetTypeFilters = (): Filter[] => {
 };
 
 export const createAccountTypeFilters = (): Filter[] => {
-  return Object.values(AccountType).map(accountType => ({
+  return Object.values(AccountType).map((accountType) => ({
     filterAccountTweets(accountTweets: AccountTweet[]) {
-      return accountTweets.filter(accountTweet => accountTweet.account.type === accountType);
+      return accountTweets.filter((accountTweet) => accountTweet.account.type === accountType);
     },
   }));
 };

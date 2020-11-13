@@ -57,7 +57,7 @@ const NewsletterPrompt: React.FC = () => {
   const theme = useTheme();
 
   return transition(
-    (style, item) =>
+    (style: any, item: boolean) =>
       item && (
         <AnimatedBox
           bgColor="#fff"
@@ -107,7 +107,7 @@ const NewsletterPrompt: React.FC = () => {
           </Text>
           <Flex
             as="form"
-            onSubmit={async e => {
+            onSubmit={async (e) => {
               e.preventDefault();
               const isSubscribed = await createSubscriber(email);
 

@@ -23,7 +23,7 @@ if (process.env.NEXT_PUBLIC_SENTRY_DSN) {
     enabled: process.env.NODE_ENV === 'production',
     integrations: [
       new RewriteFrames({
-        iteratee: frame => {
+        iteratee: (frame) => {
           frame.filename = frame.filename?.replace(distDir, 'app:///_next');
           return frame;
         },

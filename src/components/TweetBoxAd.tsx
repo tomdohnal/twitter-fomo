@@ -3,6 +3,20 @@ import { Text } from '@chakra-ui/core';
 import TweetBox from './TweetBox';
 import TweetBoxHeader from './TweetBoxHeader';
 import TweetBoxContent from './TweetBoxContent';
+import { Status } from 'twitter-d';
+
+const adTweet = ({
+  full_text:
+    "Wanna create a cool side project like TwitterFOMO? (Or maybe even cooler? 😲) If you're bad at setting up servers and DBs like I am 🙈, go and try your luck Managed Database and App Platform on Digital Ocean. You'll get $100 in credits. Try your luck and DO NOT QUIT YOUR DREAM SIDE PROJECT THIS TIME!!!",
+  entities: {
+    urls: [
+      {
+        url: 'https://m.do.co/c/af0d3ce64be5',
+        expanded_url: 'https://m.do.co/c/af0d3ce64be5',
+      },
+    ],
+  },
+} as unknown) as Status;
 
 const TweetBoxAd: React.FC = ({ ...restProps }) => {
   return (
@@ -19,16 +33,7 @@ const TweetBoxAd: React.FC = ({ ...restProps }) => {
       content={
         <TweetBoxContent
           tweet={{
-            full_text:
-              "Wanna create a cool side project like TwitterFOMO? (Or maybe even cooler? 😲) If you're bad at setting up servers and DBs like I am 🙈, go and try your luck Managed Database and App Platform on Digital Ocean. You'll get $100 in credits. Try your luck and DO NOT QUIT YOUR DREAM SIDE PROJECT THIS TIME!!!",
-            entities: {
-              urls: [
-                {
-                  url: 'https://m.do.co/c/af0d3ce64be5',
-                  expanded_url: 'https://m.do.co/c/af0d3ce64be5',
-                },
-              ],
-            },
+            ...adTweet,
             linkDescription:
               "Get $100 in credit over 60 days. Once you spent 25$ with Digital Ocean, I get $25. (Yes, I'm that transparent 😉)",
             linkTitle: 'Get $100 for Digital Ocean',
@@ -45,7 +50,7 @@ const TweetBoxAd: React.FC = ({ ...restProps }) => {
           fontSize="sm"
           fontStyle="italic"
         >
-          Don't get fooled. This isn't a real tweet 😇
+          Don&apos;t get fooled. This isn&apos;t a real tweet 😇
         </Text>
       }
       href="https://m.do.co/c/af0d3ce64be5"

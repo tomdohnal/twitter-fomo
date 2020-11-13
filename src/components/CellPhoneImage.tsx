@@ -10,7 +10,7 @@ const CellPhoneImage = () => {
   });
   const [trail] = useSprings(
     3,
-    i => {
+    (i: number) => {
       return inView
         ? {
             transform: `translate3d(220px, ${i * 56}px, 0px)`,

@@ -10,9 +10,20 @@ import Link from './Link';
 import MountainImage from './MountainImage';
 import { LEADERBOARD_LINK } from '../constants';
 import * as gtag from '../gtag';
+import { FullUser, Status } from 'twitter-d';
 
 const TopSection: React.FC<{
-  tweets: {}[];
+  tweets: {
+    publishedAt: string;
+    text: string;
+    id: number;
+    accountName: string;
+    favoritesCount: number;
+    retweetsCount: number;
+    accountProfileImageUrl: string;
+    accountScreenName: string;
+    payload: Status;
+  }[];
 }> = ({ tweets }) => {
   const theme = useTheme();
 
@@ -49,14 +60,16 @@ const TopSection: React.FC<{
               {tweets.map((tweet, index) => (
                 <TweetBoxCropped
                   key={tweet.id}
-                  href={`https://twitter.com/${tweet.payload.user.screen_name}/status/${tweet.payload.id_str}`}
+                  href={`https://twitter.com/${
+                    (tweet.payload.user as FullUser).screen_name
+                  }/status/${tweet.payload.id_str}`}
                   header={
                     <TweetBoxTrophyHeader
                       created_at={tweet.payload.created_at}
-                      imageUrl={tweet.payload.user.profile_image_url_https}
-                      name={tweet.payload.user.name}
-                      screenName={tweet.payload.user.screen_name}
-                      order={index + 1}
+                      imageUrl={(tweet.payload.user as FullUser).profile_image_url_https}
+                      name={(tweet.payload.user as FullUser).name}
+                      screenName={(tweet.payload.user as FullUser).screen_name}
+                      order={(index + 1) as 1 | 2 | 3}
                     />
                   }
                   content={<TweetBoxContent tweet={tweet.payload} />}

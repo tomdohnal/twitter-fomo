@@ -19,7 +19,7 @@ export async function scrapeMetadata(
   imageUrl?: string;
 }> {
   try {
-    const html = await fetch(url).then(res => res.text());
+    const html = await fetch(url).then((res) => res.text());
 
     const metadata = await metascraper({ html, url });
 

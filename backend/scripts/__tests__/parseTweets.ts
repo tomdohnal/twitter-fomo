@@ -7,7 +7,7 @@ import {
 } from '../../filters';
 import {
   createTweet,
-  COMMUNITIES,
+  createCommunity,
   createAccount,
   createTextTweet,
   createLinkTweet,
@@ -15,9 +15,6 @@ import {
 } from '../../testUtils';
 import { dayjsUtc } from '../../../common/date';
 import { createListsData } from '../parseTweets';
-
-// twitter ID 1294225182056488960
-// likes 2610
 
 describe('parseTweets', () => {
   describe('createListInputs', () => {
@@ -43,7 +40,7 @@ describe('parseTweets', () => {
       expect(listObjects).toMatchSnapshot();
     });
 
-    it('works with DATE filters', () => {
+    it('works with DATE filters', async () => {
       // 2020-01-01
       const tweet1 = createTweet({ created_at: '2020-01-01' });
       const tweet2 = createTweet({ created_at: '2020-01-01' });
@@ -78,6 +75,7 @@ describe('parseTweets', () => {
     });
 
     it('works with DATE and COMMUNITIES and TWEET_TYPE filters', () => {
+      const COMMUNITIES = [createCommunity(), createCommunity()];
       const account1 = createAccount({
         communities: [COMMUNITIES[0]],
       });
@@ -122,8 +120,7 @@ describe('parseTweets', () => {
         remainingFilters: [dateFilters, communitiesFilters, tweetTypeFilters],
       });
 
-      expect(listObjects).toHaveLength(36); // draw a tree... (it's hard, LOL :D)
-      // @ts-ignore
+      expect(listObjects).toHaveLength(36); // draw a tree... (it's hard for me as well, don't worry, LOL :D)
       expect(listObjects.map(R.omit(['tweets']))).toMatchSnapshot();
     });
   });
