@@ -20,4 +20,4 @@ To build the script (from TS to JS), use the `yarn backend:build-script` command
 We use TypeScript. We try to find a healthy balance between having in 100% type-safe 🔒 and spending too much time ⏳ sweating about weird TypeScript errors. (That's my excuse for my lack of TypeScript knowledge, haha. 🙈)
 
 ### Testing
-We have a similar approach to testing as to using TypeScript—trying to find a healthy balance between having a 100% test coverage and spending twice as much time writing tests rather than coding. Nevertheless, the frontend app is **not tested** 🙀 at the moment. This is definitely something to work on!
+We have a similar approach to testing as to using TypeScript—trying to find a healthy balance between having a 100% test coverage and spending twice as much time writing tests rather than coding. Nevertheless, the frontend app (*unlike* the backend) is **not tested** 🙀 at the moment. This is definitely something to work on!
