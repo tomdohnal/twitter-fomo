@@ -7,12 +7,12 @@ import { Status } from 'twitter-d';
 
 const adTweet = ({
   full_text:
-    "Wanna create a cool side project like TwitterFOMO? (Or maybe even cooler? 😲) If you're bad at setting up servers and DBs like I am 🙈, go and try your luck Managed Database and App Platform on Digital Ocean. You'll get $100 in credits. Try your luck and DO NOT QUIT YOUR DREAM SIDE PROJECT THIS TIME!!!",
+    "Wanna create a cool side project like TwitterFOMO? (Or maybe even cooler? 😲) I've got good news for you. I started a YouTube channel where I'm gonna teach you how to make *nice websites*. (Using React, Next.js, react-spring, ChakraUI, etc.)",
   entities: {
     urls: [
       {
-        url: 'https://m.do.co/c/af0d3ce64be5',
-        expanded_url: 'https://m.do.co/c/af0d3ce64be5',
+        url: 'https://www.youtube.com/channel/UCE7h4of6ywpAG87KXHV6UrQ',
+        expanded_url: 'https://www.youtube.com/channel/UCE7h4of6ywpAG87KXHV6UrQ',
       },
     ],
   },
@@ -25,8 +25,8 @@ const TweetBoxAd: React.FC = ({ ...restProps }) => {
       header={
         <TweetBoxHeader
           created_at={new Date().toISOString()}
-          imageUrl="/icons/icon-72x72.png"
-          name="TwitterFOMO"
+          imageUrl="/profile.jpg"
+          name="Tom Dohnal"
           screenName="tom_dohnal"
         />
       }
@@ -35,9 +35,9 @@ const TweetBoxAd: React.FC = ({ ...restProps }) => {
           tweet={{
             ...adTweet,
             linkDescription:
-              "Get $100 in credit over 60 days. Once you spent 25$ with Digital Ocean, I get $25. (Yes, I'm that transparent 😉)",
-            linkTitle: 'Get $100 for Digital Ocean',
-            linkImageUrl: '/digital_ocean.png',
+              'Learn how to create rich websites like TwitterFOMO on my YouTube channel.',
+            linkTitle: 'Learn how to create nice websites',
+            linkImageUrl: '/youtube-preview.jpg',
           }}
         />
       }
@@ -53,7 +53,7 @@ const TweetBoxAd: React.FC = ({ ...restProps }) => {
           Don&apos;t get fooled. This isn&apos;t a real tweet 😇
         </Text>
       }
-      href="https://m.do.co/c/af0d3ce64be5"
+      href="https://www.youtube.com/channel/UCE7h4of6ywpAG87KXHV6UrQ"
       {...restProps}
     />
   );
