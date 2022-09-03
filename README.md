@@ -1,4 +1,4 @@
-# [TwitterFOMO.dev](https://twitterfomo.dev)—Best WebDev Tweets
+# [https://twitter-fomo.vercel.app](https://twitter-fomo.vercel.app)—Best WebDev Tweets
 Top webdev tweets. See the most liked tweets in webdev. No mindless scrolling.
 
 > [Follow me on Twitter](https://twitter.com/tom_dohnal) | [Check out my YouTube channel](https://www.youtube.com/channel/UCE7h4of6ywpAG87KXHV6UrQ)
